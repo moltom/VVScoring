@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScoringController: UIViewController {
+class ScoringAutoController: UIViewController {
     
     //TRANSITION TO TELE
     @IBAction func transferViews(_ sender: AnyObject) {

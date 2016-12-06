@@ -16,7 +16,7 @@
 		33B17E811DF721EF00D1F443 /* VVScoringUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B17E801DF721EF00D1F443 /* VVScoringUITests.swift */; };
 		33B17E8F1DF7228E00D1F443 /* DataProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B17E8E1DF7228E00D1F443 /* DataProcessing.swift */; };
 		33B17E911DF722F400D1F443 /* ScoringTeleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B17E901DF722F400D1F443 /* ScoringTeleController.swift */; };
-		33B17E931DF7230F00D1F443 /* ScoringController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B17E921DF7230F00D1F443 /* ScoringController.swift */; };
+		33B17E931DF7230F00D1F443 /* ScoringAutoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B17E921DF7230F00D1F443 /* ScoringAutoController.swift */; };
 		33B17E971DF7236E00D1F443 /* RankingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B17E961DF7236E00D1F443 /* RankingsCell.swift */; };
 		33B17E991DF7238900D1F443 /* RankingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B17E981DF7238900D1F443 /* RankingsController.swift */; };
 		33B17E9B1DF723B700D1F443 /* OurTeamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B17E9A1DF723B700D1F443 /* OurTeamController.swift */; };
@@ -58,7 +58,7 @@
 		33B17E821DF721EF00D1F443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33B17E8E1DF7228E00D1F443 /* DataProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProcessing.swift; sourceTree = "<group>"; };
 		33B17E901DF722F400D1F443 /* ScoringTeleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoringTeleController.swift; sourceTree = "<group>"; };
-		33B17E921DF7230F00D1F443 /* ScoringController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoringController.swift; sourceTree = "<group>"; };
+		33B17E921DF7230F00D1F443 /* ScoringAutoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoringAutoController.swift; sourceTree = "<group>"; };
 		33B17E961DF7236E00D1F443 /* RankingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingsCell.swift; sourceTree = "<group>"; };
 		33B17E981DF7238900D1F443 /* RankingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingsController.swift; sourceTree = "<group>"; };
 		33B17E9A1DF723B700D1F443 /* OurTeamController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OurTeamController.swift; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 				33B17E6C1DF721EF00D1F443 /* Info.plist */,
 				33B17E8E1DF7228E00D1F443 /* DataProcessing.swift */,
 				33B17E901DF722F400D1F443 /* ScoringTeleController.swift */,
-				33B17E921DF7230F00D1F443 /* ScoringController.swift */,
+				33B17E921DF7230F00D1F443 /* ScoringAutoController.swift */,
 				33B17E961DF7236E00D1F443 /* RankingsCell.swift */,
 				33B17E981DF7238900D1F443 /* RankingsController.swift */,
 				33B17E9A1DF723B700D1F443 /* OurTeamController.swift */,
@@ -289,7 +289,7 @@
 				33B17EA11DF7245F00D1F443 /* MatchesController.swift in Sources */,
 				33B17E631DF721EF00D1F443 /* ViewController.swift in Sources */,
 				33B17E9D1DF7240100D1F443 /* OptionsController.swift in Sources */,
-				33B17E931DF7230F00D1F443 /* ScoringController.swift in Sources */,
+				33B17E931DF7230F00D1F443 /* ScoringAutoController.swift in Sources */,
 				33B17E991DF7238900D1F443 /* RankingsController.swift in Sources */,
 				33B17E9B1DF723B700D1F443 /* OurTeamController.swift in Sources */,
 				33B17E9F1DF7241D00D1F443 /* MatchCell.swift in Sources */,
@@ -541,6 +541,7 @@
 				33B17E871DF721EF00D1F443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33B17E881DF721EF00D1F443 /* Build configuration list for PBXNativeTarget "VVScoringTests" */ = {
 			isa = XCConfigurationList;
@@ -549,6 +550,7 @@
 				33B17E8A1DF721EF00D1F443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33B17E8B1DF721EF00D1F443 /* Build configuration list for PBXNativeTarget "VVScoringUITests" */ = {
 			isa = XCConfigurationList;
@@ -557,6 +559,7 @@
 				33B17E8D1DF721EF00D1F443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
