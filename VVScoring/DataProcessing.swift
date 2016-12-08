@@ -162,6 +162,7 @@ func exampleData(){
 }
 
 func sortTeamsBy(mode: String, dir: Int) -> [teamAverage]{
+    //dir: Int is the sorting direction (increasing/decreasing) inc is 1, dec is 0
     //Output array
     var output: [teamAverage] = []
     
