@@ -11,29 +11,33 @@ import Foundation
 struct teamInMatch{
     var number: Int = 0 //Team number
     var match: Int = 0
-    var autoCorner: Int = 0
-    var autoVortex: Int = 0
-    var autoBeacons: Int = 0
+    /*  Match number for qualification match                ex. qualification match 45 = 45
+     *  1000 plus match number for semifinal match          ex. semifinal match 2-3 = 1023
+     *  10000 plus match number for division final match    ex. final match 1 = 10001
+     *  100000 plus match number for final match            ex. interdivision final match 2 = 100002
+    */
+    var autoCorner: Int = 0 //amount
+    var autoVortex: Int = 0 //amount
+    var autoBeacons: Int = 0 //amount
     var autoBeaconsDNA: Bool = false
-    var parkPts: Int = 0
-    var autoCapBallPts: Int = 0
+    var parkPts: Int = 0 //points
+    var autoCapBallPts: Int = 0 //points
     var autoCapBallDNA: Bool = false
-    var autoPts: Int = 0
-    var cornerBalls: Int = 0
-    var vortexBalls: Int = 0
-    var telePts: Int = 0
-    var capBallPts: Int = 0
+    var autoPts: Int = 0 //points
+    var cornerBalls: Int = 0 // amount
+    var vortexBalls: Int = 0 //amount
+    var telePts: Int = 0 //points
+    var capBallPts: Int = 0 //points
     var capBallDNA: Bool = false
-    var beacons: Int = 0
-    var endGamePts: Int = 0
-    var outcome: Int = 0//Win 0, loss 1, tie 2
-    var calculatedScore: Int = 0//OPR
+    var beacons: Int = 0 //amount
+    var endGamePts: Int = 0 //points
+    var outcome: Int = 0 //Win 0, loss 1, tie 2
+    var calculatedScore: Int = 0 //OPR points
     var allianceScore: Int = -1
     var officialScore: Int = -1
 }
 
 struct teamAverage{
-    var number: Int = 0
     var autoCorner: Double = 0.0
     var autoVortex: Double = 0.0
     var autoCapBallPts: Double = 0.0
@@ -47,6 +51,7 @@ struct teamAverage{
     var beacons: Double = 0.0
     var endGamePts: Double = 0.0
     var opr: Double = 0.0
+    var allianceScore: Double = 0.0
 }
 
 var teamList: [String: (name: String, fav: Bool)] = [
@@ -286,6 +291,28 @@ func sortTeamsBy(mode: String, dir: Int) -> [teamAverage]{
     return output
 }
 
+
+func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Averages: teamAverage, compare: [Int])
+{
+    var team1Averages = getAverages(num: num1).averages
+    var team2Averages = getAverages(num: num2).averages
+    var compare = [Int]()                           // 0=team1 greater  1=team2 greater     2=equal or close
+    if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
+        compare[0] = 2
+    }
+    else{
+        if(team1Averages.allianceScore < team2Averages.allianceScore){
+            compare[0] = 1
+        }
+        else{
+            compare[0] = 0
+        }
+    }
+    
+    return (team1Averages, team2Averages, compare)
+}
+
+
 func getAverages(num: Int) -> (wins: Int, losses: Int, ties: Int, QP: Int, averages: teamAverage){
     var output = teamAverage()
     var extra: (w: Int, l: Int, t: Int, qp: Int) = (0, 0, 0, 0)
@@ -296,7 +323,6 @@ func getAverages(num: Int) -> (wins: Int, losses: Int, ties: Int, QP: Int, avera
             if team.number == num{
                 matchAmount += 1
                 
-                output.number = team.number
                 output.autoCorner += Double(team.autoCorner)
                 output.autoVortex += Double(team.autoVortex)
                 if(!team.autoCapBallDNA){
@@ -345,7 +371,7 @@ func getAverages(num: Int) -> (wins: Int, losses: Int, ties: Int, QP: Int, avera
     output.capBallPts /= matchAmount
     output.beacons /= matchAmount
     output.endGamePts /= matchAmount
-    //output.allianceScore /= matchAmount
+    output.allianceScore /= matchAmount
     output.opr /= matchAmount
     
     return (extra.w, extra.l, extra.t, extra.qp, output)
