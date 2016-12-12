@@ -308,6 +308,150 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
             compare[0] = 0
         }
     }
+    if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
+        compare[0] = 2
+    }
+    else{
+        if(team1Averages.allianceScore < team2Averages.allianceScore){
+            compare[0] = 1
+        }
+        else{
+            compare[0] = 0
+        }
+    }
+    if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
+        compare[0] = 2
+    }
+    else{
+        if(team1Averages.allianceScore < team2Averages.allianceScore){
+            compare[0] = 1
+        }
+        else{
+            compare[0] = 0
+        }
+    }
+    if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
+        compare[0] = 2
+    }
+    else{
+        if(team1Averages.allianceScore < team2Averages.allianceScore){
+            compare[0] = 1
+        }
+        else{
+            compare[0] = 0
+        }
+    }
+    if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
+        compare[0] = 2
+    }
+    else{
+        if(team1Averages.allianceScore < team2Averages.allianceScore){
+            compare[0] = 1
+        }
+        else{
+            compare[0] = 0
+        }
+    }
+    if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
+        compare[0] = 2
+    }
+    else{
+        if(team1Averages.allianceScore < team2Averages.allianceScore){
+            compare[0] = 1
+        }
+        else{
+            compare[0] = 0
+        }
+    }
+    if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
+        compare[0] = 2
+    }
+    else{
+        if(team1Averages.allianceScore < team2Averages.allianceScore){
+            compare[0] = 1
+        }
+        else{
+            compare[0] = 0
+        }
+    }
+    if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
+        compare[0] = 2
+    }
+    else{
+        if(team1Averages.allianceScore < team2Averages.allianceScore){
+            compare[0] = 1
+        }
+        else{
+            compare[0] = 0
+        }
+    }
+    if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
+        compare[0] = 2
+    }
+    else{
+        if(team1Averages.allianceScore < team2Averages.allianceScore){
+            compare[0] = 1
+        }
+        else{
+            compare[0] = 0
+        }
+    }
+    if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
+        compare[0] = 2
+    }
+    else{
+        if(team1Averages.allianceScore < team2Averages.allianceScore){
+            compare[0] = 1
+        }
+        else{
+            compare[0] = 0
+        }
+    }
+    if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
+        compare[0] = 2
+    }
+    else{
+        if(team1Averages.allianceScore < team2Averages.allianceScore){
+            compare[0] = 1
+        }
+        else{
+            compare[0] = 0
+        }
+    }
+    if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
+        compare[0] = 2
+    }
+    else{
+        if(team1Averages.allianceScore < team2Averages.allianceScore){
+            compare[0] = 1
+        }
+        else{
+            compare[0] = 0
+        }
+    }
+    if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
+        compare[0] = 2
+    }
+    else{
+        if(team1Averages.allianceScore < team2Averages.allianceScore){
+            compare[0] = 1
+        }
+        else{
+            compare[0] = 0
+        }
+    }
+    if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
+        compare[0] = 2
+    }
+    else{
+        if(team1Averages.allianceScore < team2Averages.allianceScore){
+            compare[0] = 1
+        }
+        else{
+            compare[0] = 0
+        }
+    }
+    
     
     return (team1Averages, team2Averages, compare)
 }
