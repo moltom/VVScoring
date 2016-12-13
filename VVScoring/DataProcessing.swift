@@ -38,6 +38,7 @@ struct teamInMatch{
 }
 
 struct teamAverage{
+    var number: Int = 0
     var autoCorner: Double = 0.0
     var autoVortex: Double = 0.0
     var autoCapBallPts: Double = 0.0
@@ -308,7 +309,7 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
             compare[0] = 0
         }
     }
-    if(abs(team1Averages.autoBeacons - team2Averages.autoBeacons) <= 10){
+    if(abs(team1Averages.autoBeacons - team2Averages.autoBeacons) <= 0.2){
         compare[0] = 2
     }
     else{
@@ -319,7 +320,7 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
             compare[0] = 0
         }
     }
-    if(abs(team1Averages.autoCapBallPts - team2Averages.autoCapBallPts) <= 10){
+    if(abs(team1Averages.autoCapBallPts - team2Averages.autoCapBallPts) <= 5){
         compare[0] = 2
     }
     else{
@@ -330,7 +331,7 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
             compare[0] = 0
         }
     }
-    if(abs(team1Averages.autoCorner - team2Averages.autoCorner) <= 10){
+    if(abs(team1Averages.autoCorner - team2Averages.autoCorner) <= 0.5){
         compare[0] = 2
     }
     else{
@@ -341,7 +342,7 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
             compare[0] = 0
         }
     }
-    if(abs(team1Averages.autoPts - team2Averages.autoPts) <= 10){
+    if(abs(team1Averages.autoPts - team2Averages.autoPts) <= 5){
         compare[0] = 2
     }
     else{
@@ -352,7 +353,7 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
             compare[0] = 0
         }
     }
-    if(abs(team1Averages.autoVortex - team2Averages.autoVortex) <= 10){
+    if(abs(team1Averages.autoVortex - team2Averages.autoVortex) <= 0.5){
         compare[0] = 2
     }
     else{
@@ -363,7 +364,7 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
             compare[0] = 0
         }
     }
-    if(abs(team1Averages.beacons - team2Averages.beacons) <= 10){
+    if(abs(team1Averages.beacons - team2Averages.beacons) <= 0.5){
         compare[0] = 2
     }
     else{
@@ -374,7 +375,7 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
             compare[0] = 0
         }
     }
-    if(abs(team1Averages.capBallPts - team2Averages.capBallPts) <= 10){
+    if(abs(team1Averages.capBallPts - team2Averages.capBallPts) <= 5){
         compare[0] = 2
     }
     else{
@@ -385,7 +386,7 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
             compare[0] = 0
         }
     }
-    if(abs(team1Averages.cornerBalls - team2Averages.cornerBalls) <= 10){
+    if(abs(team1Averages.cornerBalls - team2Averages.cornerBalls) <= 1){
         compare[0] = 2
     }
     else{
@@ -396,7 +397,7 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
             compare[0] = 0
         }
     }
-    if(abs(team1Averages.endGamePts - team2Averages.endGamePts) <= 10){
+    if(abs(team1Averages.endGamePts - team2Averages.endGamePts) <= 5){
         compare[0] = 2
     }
     else{
@@ -407,7 +408,7 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
             compare[0] = 0
         }
     }
-    if(abs(team1Averages.opr - team2Averages.opr) <= 10){
+    if(abs(team1Averages.opr - team2Averages.opr) <= 3){
         compare[0] = 2
     }
     else{
@@ -418,7 +419,7 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
             compare[0] = 0
         }
     }
-    if(abs(team1Averages.parkPts - team2Averages.parkPts) <= 10){
+    if(abs(team1Averages.parkPts - team2Averages.parkPts) <= 2){
         compare[0] = 2
     }
     else{
@@ -429,7 +430,7 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
             compare[0] = 0
         }
     }
-    if(abs(team1Averages.telePts - team2Averages.telePts) <= 10){
+    if(abs(team1Averages.telePts - team2Averages.telePts) <= 5){
         compare[0] = 2
     }
     else{
@@ -440,7 +441,7 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
             compare[0] = 0
         }
     }
-    if(abs(team1Averages.vortexBalls - team2Averages.vortexBalls) <= 10){
+    if(abs(team1Averages.vortexBalls - team2Averages.vortexBalls) <= 1){
         compare[0] = 2
     }
     else{
