@@ -73,8 +73,19 @@ class ScoringController: UIViewController {
     
     //SCORING
     func refreshLabels(){
+        
+        
+        
+        
+        
+        
+        
+        
+        
         matchLabel.text = "Match \(currentMatch)"
         
+        
+        //RED 1
         r1NumField.text = String(matchData[currentMatch][0].number)
         r1ABeaconsDNA.setOn(matchData[currentMatch][0].autoBeaconsDNA, animated: false)
         r1ABeacons.text = String(matchData[currentMatch][0].autoBeacons)
@@ -97,6 +108,86 @@ class ScoringController: UIViewController {
         r1ACapDNA.setOn(matchData[currentMatch][0].autoCapBallDNA, animated: false)
         r1AScore.text = String(matchData[currentMatch][0].autoPts)
         r1MatchScore.text = String(matchData[currentMatch][0].calculatedScore)
+        
+        
+        //RED 2
+        r2NumField.text = String(matchData[currentMatch][1].number)
+        r2ABeaconsDNA.setOn(matchData[currentMatch][1].autoBeaconsDNA, animated: false)
+        r2ABeacons.text = String(matchData[currentMatch][1].autoBeacons)
+        r2ACenter.text = String(matchData[currentMatch][1].autoVortex)
+        r2ACorner.text = String(matchData[currentMatch][1].autoCorner)
+        
+        //Parking
+        switch (matchData[currentMatch][1].parkPts){
+        case 0:
+            r2APark.text = "None"
+        case 5:
+            r2APark.text = "Partial"
+        case 10:
+            r2APark.text = "Full"
+        default:
+            print("Error: odd parking value")
+        }
+        
+        r2ACapSwitch.setOn((matchData[currentMatch][1].autoCapBallPts > 0), animated: false)
+        r2ACapDNA.setOn(matchData[currentMatch][1].autoCapBallDNA, animated: false)
+        r2AScore.text = String(matchData[currentMatch][1].autoPts)
+        r2MatchScore.text = String(matchData[currentMatch][1].calculatedScore)
+
+        
+        redAllianceScore.text = String(matchData[currentMatch][0].allianceScore)
+        
+        //BLUE 1
+        b1NumField.text = String(matchData[currentMatch][2].number)
+        b1ABeaconsDNA.setOn(matchData[currentMatch][2].autoBeaconsDNA, animated: false)
+        b1ABeacons.text = String(matchData[currentMatch][2].autoBeacons)
+        b1ACenter.text = String(matchData[currentMatch][2].autoVortex)
+        b1ACorner.text = String(matchData[currentMatch][2].autoCorner)
+        
+        //Parking
+        switch (matchData[currentMatch][2].parkPts){
+        case 0:
+            b1APark.text = "None"
+        case 5:
+            b1APark.text = "Partial"
+        case 10:
+            b1APark.text = "Full"
+        default:
+            print("Error: odd parking value")
+        }
+        
+        
+        
+        b1ACapSwitch.setOn((matchData[currentMatch][2].autoCapBallPts > 0), animated: false)
+        b1ACapDNA.setOn(matchData[currentMatch][2].autoCapBallDNA, animated: false)
+        b1AScore.text = String(matchData[currentMatch][2].autoPts)
+        b1MatchScore.text = String(matchData[currentMatch][2].calculatedScore)
+        
+        //BLUE 2
+        b2NumField.text = String(matchData[currentMatch][3].number)
+        b2ABeaconsDNA.setOn(matchData[currentMatch][3].autoBeaconsDNA, animated: false)
+        b2ABeacons.text = String(matchData[currentMatch][3].autoBeacons)
+        b2ACenter.text = String(matchData[currentMatch][3].autoVortex)
+        b2ACorner.text = String(matchData[currentMatch][3].autoCorner)
+        
+        //Parking
+        switch (matchData[currentMatch][3].parkPts){
+        case 0:
+            b2APark.text = "None"
+        case 5:
+            b2APark.text = "Partial"
+        case 10:
+            b2APark.text = "Full"
+        default:
+            print("Error: odd parking value")
+        }
+        
+        
+        blueAllianceScore.text = String(matchData[currentMatch][2].allianceScore)
+
+        
+        
+        
     }
     @IBAction func r1ABeaconsPlus(_ sender: AnyObject) {
         if matchData[currentMatch][0].autoBeacons + 1 <= 2{
@@ -299,7 +390,7 @@ class ScoringController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        refreshLabels()
         // Do any additional setup after loading the view.
     }
     
