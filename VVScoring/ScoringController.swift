@@ -74,7 +74,7 @@ class ScoringController: UIViewController {
     //SCORING
     func refreshLabels(){
         
-        
+        //Calculate and score the calculated data points
         
         
         
@@ -196,7 +196,7 @@ class ScoringController: UIViewController {
         }
     }
     @IBAction func r1ABeaconsMinus(_ sender: AnyObject) {
-        if matchData[currentMatch][0].autoBeacons - 1 >= 0{
+        if matchData[currentMatch][0].autoBeacons - 1 >= -2{
             matchData[currentMatch][0].autoBeacons -= 1
             refreshLabels()
         }
@@ -227,15 +227,15 @@ class ScoringController: UIViewController {
     }
     //Check score here
     @IBAction func r1AElevPtsPlus(_ sender: AnyObject) {
-        if matchData[currentMatch][0].autoVortex + 5 <= 10{
-            matchData[currentMatch][0].autoVortex += 5
-            refreshLabels()
+        if(matchData[currentMatch][0].parkPts < 10){
+            matchData[currentMatch][0].parkPts += 5
         }
+            refreshLabels()
     }
     //Check score here
     @IBAction func r1AElevPtsMinus(_ sender: AnyObject) {
-        if matchData[currentMatch][0].autoVortex - 5 >= 0{
-            matchData[currentMatch][0].autoVortex -= 5
+        if matchData[currentMatch][0].parkPts - 5 >= 0{
+            matchData[currentMatch][0].parkPts -= 5
             refreshLabels()
         }
     }
@@ -251,6 +251,8 @@ class ScoringController: UIViewController {
     }
     
     
+    
+    //RED 2
     @IBAction func r2ABeaconsPlus(_ sender: AnyObject) {
         if matchData[currentMatch][1].autoBeacons + 1 <= 2{
             matchData[currentMatch][1].autoBeacons += 1
@@ -258,7 +260,7 @@ class ScoringController: UIViewController {
         }
     }
     @IBAction func r2ABeaconsMinus(_ sender: AnyObject) {
-        if matchData[currentMatch][1].autoBeacons - 1 >= 0{
+        if matchData[currentMatch][1].autoBeacons - 1 >= -2{
             matchData[currentMatch][1].autoBeacons -= 1
             refreshLabels()
         }
@@ -288,12 +290,29 @@ class ScoringController: UIViewController {
         }
     }
     @IBAction func r2AElevPtsPlus(_ sender: AnyObject) {
+        if(matchData[currentMatch][1].parkPts < 10){
+            matchData[currentMatch][1].parkPts += 5
+        }
+        refreshLabels()
     }
     @IBAction func r2AElevPtsMinus(_ sender: AnyObject) {
+        if matchData[currentMatch][1].parkPts - 5 >= 0{
+            matchData[currentMatch][1].parkPts -= 5
+            refreshLabels()
+        }
     }
     @IBAction func r2ACapBallScored(_ sender: AnyObject) {
+        if(r2ACapSwitch.isOn){
+            matchData[currentMatch][1].autoCapBallPts = 5
+        }
+        else{
+            matchData[currentMatch][1].autoCapBallPts = 0
+        }
+        refreshLabels()
     }
     @IBAction func r2ACapBallDNA(_ sender: AnyObject) {
+        matchData[currentMatch][1].autoCapBallDNA = r2ACapDNA.isOn
+        refreshLabels()
     }
     
     //BLUE 1
@@ -304,7 +323,7 @@ class ScoringController: UIViewController {
         }
     }
     @IBAction func b1ABeaconsMinus(_ sender: AnyObject) {
-        if matchData[currentMatch][2].autoBeacons - 1 >= 0{
+        if matchData[currentMatch][2].autoBeacons - 1 >= -2{
             matchData[currentMatch][2].autoBeacons -= 1
             refreshLabels()
         }
@@ -350,7 +369,7 @@ class ScoringController: UIViewController {
         }
     }
     @IBAction func b2ABeaconsMinus(_ sender: AnyObject) {
-        if matchData[currentMatch][3].autoBeacons - 1 >= 0{
+        if matchData[currentMatch][3].autoBeacons - 1 >= -2{
             matchData[currentMatch][3].autoBeacons -= 1
             refreshLabels()
         }
