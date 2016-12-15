@@ -23,9 +23,7 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         //POTATOES
         //teams.append((name: "The Q is Silqent", number: 7655, fav: false))
         
-        //LEAVE THIS HERE PLEASE
-        exampleData()
-        //----------------------
+        
         
         tableView.register(RankingsCell.self, forCellReuseIdentifier: cellReuseIdendifier)
         

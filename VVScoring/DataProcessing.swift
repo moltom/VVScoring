@@ -67,6 +67,15 @@ var matchData: [[teamInMatch]] = [
     [teamInMatch(), teamInMatch(), teamInMatch(), teamInMatch()]
 ]
 
+struct tournament{
+    var name: String = "nil"
+    var type: Int = -1
+    var date: String = "nil"
+    var fileLocation: String = "nil"
+}
+
+var tournamentList: [tournament] = [tournament()]
+
 let elimData: [[teamInMatch]] = []
 
 func exampleData(){
@@ -165,6 +174,10 @@ func exampleData(){
     matchData[pos.match][pos.team].calculatedScore = 220
     matchData[pos.match][pos.team].allianceScore = 300
     matchData[pos.match][pos.team].officialScore = 220
+    
+    tournamentList[0].name = "Minnesota State"
+    tournamentList[0].type = 1
+    tournamentList[0].date = "02/22/2017"
 }
 
 func sortTeamsBy(mode: String, dir: Int) -> [teamAverage]{
