@@ -241,8 +241,14 @@ class ScoringController: UIViewController {
     }
     //Check score here
     @IBAction func r1ACapBallScored(_ sender: AnyObject) {
-        matchData[currentMatch][0].capBallPts += 10
+        if(r1ACapSwitch.isOn){
+            matchData[currentMatch][0].autoCapBallPts = 5
+        }
+        else{
+            matchData[currentMatch][0].autoCapBallPts = 0
+        }
         refreshLabels()
+    
         
     }
     @IBAction func r1ACapBallDNA(_ sender: AnyObject) {
@@ -353,12 +359,29 @@ class ScoringController: UIViewController {
         }
     }
     @IBAction func b1AElevPtsPlus(_ sender: AnyObject) {
+        if(matchData[currentMatch][2].parkPts < 10){
+            matchData[currentMatch][2].parkPts += 5
+        }
+        refreshLabels()
     }
     @IBAction func b1AElevPtsMinus(_ sender: AnyObject) {
+        if matchData[currentMatch][2].parkPts - 5 >= 0{
+            matchData[currentMatch][2].parkPts -= 5
+            refreshLabels()
+        }
     }
     @IBAction func b1ACapBallScored(_ sender: AnyObject) {
+        if(b1ACapSwitch.isOn){
+            matchData[currentMatch][2].autoCapBallPts = 5
+        }
+        else{
+            matchData[currentMatch][2].autoCapBallPts = 0
+        }
+        refreshLabels()
     }
     @IBAction func b1ACapBallDNA(_ sender: AnyObject) {
+        matchData[currentMatch][2].autoCapBallDNA = b1ACapDNA.isOn
+        refreshLabels()
     }
     
     //BLUE 2
@@ -399,12 +422,29 @@ class ScoringController: UIViewController {
         }
     }
     @IBAction func b2AElevPtsPlus(_ sender: AnyObject) {
+        if matchData[currentMatch][3].parkPts + 5 <= 10{
+            matchData[currentMatch][3].parkPts += 5
+            refreshLabels()
+        }
     }
     @IBAction func b2AElevPtsMinus(_ sender: AnyObject) {
+        if matchData[currentMatch][3].parkPts - 5 >= 0{
+            matchData[currentMatch][3].parkPts -= 5
+            refreshLabels()
+        }
     }
     @IBAction func b2ACapBallScored(_ sender: AnyObject) {
+        if(b2ACapSwitch.isOn){
+            matchData[currentMatch][3].autoCapBallPts = 5
+        }
+        else{
+            matchData[currentMatch][3].autoCapBallPts = 0
+        }
+        refreshLabels()
     }
     @IBAction func b2ACapBallDNA(_ sender: AnyObject) {
+        matchData[currentMatch][3].autoCapBallDNA = b1ACapDNA.isOn
+        refreshLabels()
     }
     
     override func viewDidLoad() {
