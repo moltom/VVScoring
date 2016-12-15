@@ -76,6 +76,78 @@ class ScoringController: UIViewController {
         
         //Calculate and score the calculated data points
         
+        var red1 = matchData[currentMatch][0]
+        var red2 = matchData[currentMatch][1]
+        var blue1 = matchData[currentMatch][2]
+        var blue2 = matchData[currentMatch][3]
+        
+        
+        //RED
+        red1.autoPts = (red1.autoCorner * 5) + (red1.autoVortex * 15) + (red1.autoBeacons * 30) + red1.parkPts + red1.autoCapBallPts
+        red1.telePts = red1.cornerBalls + (red1.vortexBalls * 5)
+        red1.endGamePts = (red1.beacons * 10) + red1.capBallPts
+        red1.calculatedScore = red1.autoPts + red1.telePts + red1.endGamePts
+        
+        red2.autoPts = (red2.autoCorner * 5) + (red2.autoVortex * 15) + (red2.autoBeacons * 30) + red2.parkPts + red2.autoCapBallPts
+        red2.telePts = red2.cornerBalls + (red2.vortexBalls * 5)
+        red2.endGamePts = (red2.beacons * 10) + red2.capBallPts
+        red2.calculatedScore = red2.autoPts + red2.telePts + red2.endGamePts
+        
+        red1.allianceScore = red1.calculatedScore + red2.calculatedScore
+        red2.allianceScore = red1.calculatedScore + red2.calculatedScore
+        
+        //BLUE
+        blue1.autoPts = (blue1.autoCorner * 5) + (blue1.autoVortex * 15) + (blue1.autoBeacons * 30) + blue1.parkPts + blue1.autoCapBallPts
+        blue1.telePts = blue1.cornerBalls + (blue1.vortexBalls * 5)
+        blue1.endGamePts = (blue1.beacons * 10) + blue1.capBallPts
+        blue1.calculatedScore = blue1.autoPts + blue1.telePts + blue1.endGamePts
+        
+        blue2.autoPts = (blue2.autoCorner * 5) + (blue2.autoVortex * 15) + (blue2.autoBeacons * 30) + blue2.parkPts + blue2.autoCapBallPts
+        blue2.telePts = blue2.cornerBalls + (blue2.vortexBalls * 5)
+        blue2.endGamePts = (blue2.beacons * 10) + blue2.capBallPts
+        blue2.calculatedScore = blue2.autoPts + blue2.telePts + blue2.endGamePts
+        
+        blue1.allianceScore = blue1.calculatedScore + blue2.calculatedScore
+        blue2.allianceScore = blue1.calculatedScore + blue2.calculatedScore
+
+        
+        
+        //Check if beacons were scored for the other teams
+        if(blue1.autoBeacons < 0){
+            red1.allianceScore += (blue1.autoBeacons * 30)
+            red2.allianceScore += (blue1.autoBeacons * 30)
+        }
+        if(blue2.autoBeacons < 0){
+            red1.allianceScore += (blue2.autoBeacons * 30)
+            red2.allianceScore += (blue2.autoBeacons * 30)
+        }
+        if(red1.autoBeacons < 0){
+            blue1.allianceScore += (red1.autoBeacons * 30)
+            blue2.allianceScore += (red1.autoBeacons * 30)
+        }
+        if(red2.autoBeacons < 0){
+            blue1.allianceScore += (red2.autoBeacons * 30)
+            blue2.allianceScore += (red2.autoBeacons * 30)
+        }
+        
+        if(red1.allianceScore > blue1.allianceScore){
+            red1.outcome = 0
+            red2.outcome = 0
+            blue1.outcome = 1
+            blue1.outcome = 1
+        }
+        else if(red1.allianceScore < blue1.allianceScore){
+            red1.outcome = 1
+            red2.outcome = 1
+            blue1.outcome = 0
+            blue1.outcome = 0
+        }
+        else{
+            red1.outcome = 2
+            red2.outcome = 2
+            blue1.outcome = 2
+            blue2.outcome = 2
+        }
         
         
         
@@ -186,6 +258,18 @@ class ScoringController: UIViewController {
         blueAllianceScore.text = String(matchData[currentMatch][2].allianceScore)
 
         
+        
+        r1AScore.text = String(red1.autoPts)
+        r1MatchScore.text = String(red1.calculatedScore)
+        r2AScore.text = String(red2.autoPts)
+        r2MatchScore.text = String(red2.calculatedScore)
+        redAllianceScore.text = String(red1.allianceScore)
+        
+        b1AScore.text = String(blue1.autoPts)
+        b1MatchScore.text = String(blue1.calculatedScore)
+        b2AScore.text = String(blue2.autoPts)
+        b2MatchScore.text = String(blue2.calculatedScore)
+        blueAllianceScore.text = String(blue2.allianceScore)
         
         
     }
