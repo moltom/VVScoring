@@ -1916,6 +1916,35 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="b1TBeacons" destination="rvC-Od-kw2" id="Un1-LO-W2w"/>
+                        <outlet property="b1TCapPts" destination="j8V-Xs-rLh" id="5rg-vu-8sx"/>
+                        <outlet property="b1TCenter" destination="SfU-EN-IOp" id="d0e-rZ-QJP"/>
+                        <outlet property="b1TCorner" destination="Y8e-vC-JtY" id="ZYo-T0-jPd"/>
+                        <outlet property="b1TMatchScore" destination="Xdu-Nm-grK" id="hUn-qc-vua"/>
+                        <outlet property="b1TScore" destination="fpO-x1-90Q" id="eED-nc-Dwm"/>
+                        <outlet property="b2TBeacons" destination="0Xg-DE-Q4u" id="QYs-AM-tBb"/>
+                        <outlet property="b2TCapPts" destination="lA2-Hi-dL9" id="IEQ-ea-tA2"/>
+                        <outlet property="b2TCenter" destination="V0c-Ae-go2" id="iki-Jl-aZL"/>
+                        <outlet property="b2TCorner" destination="Tae-lr-0p5" id="78Q-Uk-uUx"/>
+                        <outlet property="b2TMatchScore" destination="eOa-Mw-VbR" id="eyk-ao-yRX"/>
+                        <outlet property="b2TScore" destination="rY6-1W-wqa" id="ZGm-cB-lWx"/>
+                        <outlet property="blueAllianceScore" destination="lst-tq-bHf" id="zUG-En-BTj"/>
+                        <outlet property="matchLabel" destination="CWu-hO-0cd" id="DEr-7J-QRo"/>
+                        <outlet property="r1Center" destination="g4V-2D-XWf" id="9WK-gi-bnU"/>
+                        <outlet property="r1TBeacons" destination="GLq-zX-oYg" id="TeG-8O-ow6"/>
+                        <outlet property="r1TCapPts" destination="JsM-DN-1dM" id="yde-Wh-JhE"/>
+                        <outlet property="r1TCorner" destination="G2Y-fg-s4T" id="hj8-Yy-09j"/>
+                        <outlet property="r1TMatchScore" destination="Wvb-RI-3E0" id="8kI-Gu-IYP"/>
+                        <outlet property="r1TScore" destination="TRq-oy-fRW" id="arh-5u-gk3"/>
+                        <outlet property="r2TBeacons" destination="Q9U-xc-yy8" id="43z-25-gZ9"/>
+                        <outlet property="r2TCapPts" destination="Vz3-qS-uXw" id="cu9-hc-ip0"/>
+                        <outlet property="r2TCenter" destination="pnw-7Q-V2K" id="OBr-vX-cgz"/>
+                        <outlet property="r2TCorner" destination="veK-CW-F6G" id="Vua-8i-dQ8"/>
+                        <outlet property="r2TMatchScore" destination="VXx-z6-VBj" id="6Rz-jw-GCX"/>
+                        <outlet property="r2TScore" destination="pdg-kE-qHf" id="PPT-0y-Qjz"/>
+                        <outlet property="redAllianceScore" destination="1Jq-Kb-h37" id="ltm-XE-iQA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lf4-sv-0Va" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
