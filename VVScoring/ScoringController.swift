@@ -113,6 +113,8 @@ class ScoringController: UIViewController {
         
         
         //Check if beacons were scored for the other teams
+        
+        //Auto
         if(blue1.autoBeacons < 0){
             red1.allianceScore += (blue1.autoBeacons * 30)
             red2.allianceScore += (blue1.autoBeacons * 30)
@@ -129,6 +131,25 @@ class ScoringController: UIViewController {
             blue1.allianceScore += (red2.autoBeacons * 30)
             blue2.allianceScore += (red2.autoBeacons * 30)
         }
+        
+        //Tele
+        if(blue1.beacons < 0){
+            red1.allianceScore += (blue1.beacons * 10)
+            red2.allianceScore += (blue1.beacons * 10)
+        }
+        if(blue2.beacons < 0){
+            red1.allianceScore += (blue2.beacons * 10)
+            red2.allianceScore += (blue2.beacons * 10)
+        }
+        if(red1.beacons < 0){
+            blue1.allianceScore += (red1.beacons * 10)
+            blue2.allianceScore += (red1.beacons * 10)
+        }
+        if(red2.beacons < 0){
+            blue1.allianceScore += (red2.beacons * 10)
+            blue2.allianceScore += (red2.beacons * 10)
+        }
+        
         
         if(red1.allianceScore > blue1.allianceScore){
             red1.outcome = 0
