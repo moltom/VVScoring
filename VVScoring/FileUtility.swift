@@ -57,7 +57,7 @@ func readMatchDataFromFile(file: String) -> Bool{
 
 func saveMatchData(){
     let matchDataInString = convertMatchDataToCSV()
-    writeMatchDataToFile(file: "data.txt")
+    writeMatchDataToFile(file: "data", value: matchDataInString)
 }
 
 func convertMatchDataToCSV() -> String{
@@ -96,18 +96,13 @@ func convertMatchDataToCSV() -> String{
     return output
 }
 
-func writeMatchDataToFile(file: String){
-    let path = Bundle.main.path(forResource: file, ofType: "txt")
-    let contentsOfFile = "yes"
-    //"Sample Text repacement for future cvs data"content to save
-    
-    // Write File
+func writeMatchDataToFile(file: String, value: String){
+    let path = Bundle.main.path(forResource: file, ofType: "txt")!
+    print("\n \(path) --> \(value)")
     
     do {
-        try contentsOfFile.write(toFile: path!, atomically: true, encoding: String.Encoding.utf8)
-        print("File sample.txt created at tmp directory")
+        try value.write(toFile: path, atomically: true, encoding: .utf8)
     } catch {
-        
         print("Failed to create file")
         print("\(error)")
     }
