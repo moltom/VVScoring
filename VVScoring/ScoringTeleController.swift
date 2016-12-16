@@ -60,6 +60,11 @@ class ScoringTeleController: UIViewController {
     //SCORING
     func refreshLabels(){
         
+        var red1 = matchData[currentMatch][0]
+        var red2 = matchData[currentMatch][1]
+        var blue1 = matchData[currentMatch][2]
+        var blue2 = matchData[currentMatch][3]
+        
         //Calculate and score the calculated data points
         
         
