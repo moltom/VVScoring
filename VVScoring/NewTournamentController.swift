@@ -32,18 +32,18 @@ class NewTournamentController: UIViewController {
             return
         }
         
-        var dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatterStyle.short
-        var strDate = dateFormatter.stringFromDate(date.date)
-        tournamentList[index].date = strDate
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        let strDate = dateFormatter.string(from: date.date)
         
-        addTournament(Tname: nameField.text!, Ttype: typeSegmenter.selectedSegmentIndex, Tdate: strDate, TfileName: formatFileName(nameField.text!))
+        addTournament(Tname: nameField.text!, Ttype: typeSegmenter.selectedSegmentIndex, Tdate: strDate, TfileName: formatFileName(name: nameField.text!))
     }
     
     func formatFileName(name: String) -> String{
         var out: String = ""
-        for i in name.length{
-            if let char = name.substring(i, i+1) != " "{
+        for i in 0..<name.characters.count{
+            let char = name.substring(i, end: i+1)
+            if char != " "{
                 out += char
             }
         }
