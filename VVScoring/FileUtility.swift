@@ -165,17 +165,18 @@ func readTournamentList() -> Bool{
 }
 
 func formatTournamentsToCSV() -> String{
-    let out: String = ""
+    var out: String = ""
     
     for i in 0..<tournamentList.count{
-        out += String(tournamentList[i].name) + ","
-        out += String(tournamentList[i].type + ",")
+        out += (tournamentList[i].name + ",")
+        out += (String(tournamentList[i].type) + ",")
         out += (tournamentList[i].date + ",")
         out += (tournamentList[i].fileLocation)
         if i != tournamentList.count - 1{
             out += "\n"
         }
     }
+    return out
 }
 
 func addTournament(Tname: String, Ttype: Int, Tdate: String, TfileName: String){
