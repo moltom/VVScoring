@@ -29,6 +29,7 @@ class ScoringTeleController: UIViewController {
     @IBOutlet var r1TCapPts: UILabel!
     @IBOutlet var r1TScore: UILabel!
     @IBOutlet var r1TMatchScore: UILabel!
+    @IBOutlet var r1TCapDNA: UISwitch!
     
     
     @IBOutlet var r2TCenter: UILabel!
@@ -37,6 +38,7 @@ class ScoringTeleController: UIViewController {
     @IBOutlet var r2TCapPts: UILabel!
     @IBOutlet var r2TScore: UILabel!
     @IBOutlet var r2TMatchScore: UILabel!
+    @IBOutlet var r2TCapDNA: UISwitch!
     
     
     @IBOutlet var b1TCenter: UILabel!
@@ -45,6 +47,7 @@ class ScoringTeleController: UIViewController {
     @IBOutlet var b1TCapPts: UILabel!
     @IBOutlet var b1TScore: UILabel!
     @IBOutlet var b1TMatchScore: UILabel!
+    @IBOutlet var b1TCapDNA: UISwitch!
     
     
     @IBOutlet var b2TCenter: UILabel!
@@ -53,6 +56,7 @@ class ScoringTeleController: UIViewController {
     @IBOutlet var b2TCapPts: UILabel!
     @IBOutlet var b2TScore: UILabel!
     @IBOutlet var b2TMatchScore: UILabel!
+    @IBOutlet var b2TCapDNA: UISwitch!
     
     
     
@@ -116,6 +120,25 @@ class ScoringTeleController: UIViewController {
             blue2.allianceScore += (red2.autoBeacons * 30)
         }
         
+        //Tele
+        if(blue1.beacons < 0){
+            red1.allianceScore += (blue1.beacons * 10)
+            red2.allianceScore += (blue1.beacons * 10)
+        }
+        if(blue2.beacons < 0){
+            red1.allianceScore += (blue2.beacons * 10)
+            red2.allianceScore += (blue2.beacons * 10)
+        }
+        if(red1.beacons < 0){
+            blue1.allianceScore += (red1.beacons * 10)
+            blue2.allianceScore += (red1.beacons * 10)
+        }
+        if(red2.beacons < 0){
+            blue1.allianceScore += (red2.beacons * 10)
+            blue2.allianceScore += (red2.beacons * 10)
+        }
+
+        
         if(red1.allianceScore > blue1.allianceScore){
             red1.outcome = 0
             red2.outcome = 0
@@ -144,117 +167,50 @@ class ScoringTeleController: UIViewController {
         
         
         //RED 1
-        r1NumField.text = String(matchData[currentMatch][0].number)
-        r1ABeaconsDNA.setOn(matchData[currentMatch][0].autoBeaconsDNA, animated: false)
-        r1ABeacons.text = String(matchData[currentMatch][0].autoBeacons)
-        r1ACenter.text = String(matchData[currentMatch][0].autoVortex)
-        r1ACorner.text = String(matchData[currentMatch][0].autoCorner)
-        
-        //Parking
-        switch (matchData[currentMatch][0].parkPts){
-        case 0:
-            r1APark.text = "None"
-        case 5:
-            r1APark.text = "Partial"
-        case 10:
-            r1APark.text = "Full"
-        default:
-            print("Error: odd parking value")
-        }
-        
-        r1ACapSwitch.setOn((matchData[currentMatch][0].autoCapBallPts > 0), animated: false)
-        r1ACapDNA.setOn(matchData[currentMatch][0].autoCapBallDNA, animated: false)
-        r1AScore.text = String(matchData[currentMatch][0].autoPts)
-        r1MatchScore.text = String(matchData[currentMatch][0].calculatedScore)
-        
+        r1TCenter.text = String(red1.vortexBalls)
+        r1TCorner.text = String(red1.cornerBalls)
+        r1TBeacons.text = String(red1.beacons)
+        r1TCapPts.text = String(red1.capBallPts)
+        r1TCapDNA.setOn(red1.capBallDNA, animated: false)
         
         //RED 2
-        r2NumField.text = String(matchData[currentMatch][1].number)
-        r2ABeaconsDNA.setOn(matchData[currentMatch][1].autoBeaconsDNA, animated: false)
-        r2ABeacons.text = String(matchData[currentMatch][1].autoBeacons)
-        r2ACenter.text = String(matchData[currentMatch][1].autoVortex)
-        r2ACorner.text = String(matchData[currentMatch][1].autoCorner)
-        
-        //Parking
-        switch (matchData[currentMatch][1].parkPts){
-        case 0:
-            r2APark.text = "None"
-        case 5:
-            r2APark.text = "Partial"
-        case 10:
-            r2APark.text = "Full"
-        default:
-            print("Error: odd parking value")
-        }
-        
-        r2ACapSwitch.setOn((matchData[currentMatch][1].autoCapBallPts > 0), animated: false)
-        r2ACapDNA.setOn(matchData[currentMatch][1].autoCapBallDNA, animated: false)
-        r2AScore.text = String(matchData[currentMatch][1].autoPts)
-        r2MatchScore.text = String(matchData[currentMatch][1].calculatedScore)
-        
-        
-        redAllianceScore.text = String(matchData[currentMatch][0].allianceScore)
+        r2TCenter.text = String(red2.vortexBalls)
+        r2TCorner.text = String(red2.cornerBalls)
+        r2TBeacons.text = String(red2.beacons)
+        r2TCapPts.text = String(red2.capBallPts)
+        r2TCapDNA.setOn(red2.capBallDNA, animated: false)
         
         //BLUE 1
-        b1NumField.text = String(matchData[currentMatch][2].number)
-        b1ABeaconsDNA.setOn(matchData[currentMatch][2].autoBeaconsDNA, animated: false)
-        b1ABeacons.text = String(matchData[currentMatch][2].autoBeacons)
-        b1ACenter.text = String(matchData[currentMatch][2].autoVortex)
-        b1ACorner.text = String(matchData[currentMatch][2].autoCorner)
-        
-        //Parking
-        switch (matchData[currentMatch][2].parkPts){
-        case 0:
-            b1APark.text = "None"
-        case 5:
-            b1APark.text = "Partial"
-        case 10:
-            b1APark.text = "Full"
-        default:
-            print("Error: odd parking value")
-        }
-        
-        
-        
-        b1ACapSwitch.setOn((matchData[currentMatch][2].autoCapBallPts > 0), animated: false)
-        b1ACapDNA.setOn(matchData[currentMatch][2].autoCapBallDNA, animated: false)
-        b1AScore.text = String(matchData[currentMatch][2].autoPts)
-        b1MatchScore.text = String(matchData[currentMatch][2].calculatedScore)
+        b1TCenter.text = String(blue1.vortexBalls)
+        b1TCorner.text = String(blue1.cornerBalls)
+        b1TBeacons.text = String(blue1.beacons)
+        b1TCapPts.text = String(blue1.capBallPts)
+        b1TCapDNA.setOn(blue1.capBallDNA, animated: false)
         
         //BLUE 2
-        b2NumField.text = String(matchData[currentMatch][3].number)
-        b2ABeaconsDNA.setOn(matchData[currentMatch][3].autoBeaconsDNA, animated: false)
-        b2ABeacons.text = String(matchData[currentMatch][3].autoBeacons)
-        b2ACenter.text = String(matchData[currentMatch][3].autoVortex)
-        b2ACorner.text = String(matchData[currentMatch][3].autoCorner)
+        b2TCenter.text = String(blue2.vortexBalls)
+        b2TCorner.text = String(blue2.cornerBalls)
+        b2TBeacons.text = String(blue2.beacons)
+        b2TCapPts.text = String(blue2.capBallPts)
+        b2TCapDNA.setOn(blue2.capBallDNA, animated: false)
         
-        //Parking
-        switch (matchData[currentMatch][3].parkPts){
-        case 0:
-            b2APark.text = "None"
-        case 5:
-            b2APark.text = "Partial"
-        case 10:
-            b2APark.text = "Full"
-        default:
-            print("Error: odd parking value")
-        }
+
         
         
-        blueAllianceScore.text = String(matchData[currentMatch][2].allianceScore)
+        redAllianceScore.text = String(red1.allianceScore)
+        blueAllianceScore.text = String(blue1.allianceScore)
         
         
-        
-        r1AScore.text = String(red1.autoPts)
-        r1MatchScore.text = String(red1.calculatedScore)
-        r2AScore.text = String(red2.autoPts)
-        r2MatchScore.text = String(red2.calculatedScore)
+        r1TScore.text = String(red1.autoPts)
+        r1TMatchScore.text = String(red1.calculatedScore)
+        r2TScore.text = String(red2.autoPts)
+        r2TMatchScore.text = String(red2.calculatedScore)
         redAllianceScore.text = String(red1.allianceScore)
         
-        b1AScore.text = String(blue1.autoPts)
-        b1MatchScore.text = String(blue1.calculatedScore)
-        b2AScore.text = String(blue2.autoPts)
-        b2MatchScore.text = String(blue2.calculatedScore)
+        b1TScore.text = String(blue1.autoPts)
+        b1TMatchScore.text = String(blue1.calculatedScore)
+        b2TScore.text = String(blue2.autoPts)
+        b2TMatchScore.text = String(blue2.calculatedScore)
         blueAllianceScore.text = String(blue2.allianceScore)
         
         

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11521.1" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gTv-xl-vHL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gTv-xl-vHL">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11517.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1918,12 +1918,14 @@
                     </view>
                     <connections>
                         <outlet property="b1TBeacons" destination="rvC-Od-kw2" id="Un1-LO-W2w"/>
+                        <outlet property="b1TCapDNA" destination="jz6-3L-BHj" id="fp5-bk-fgN"/>
                         <outlet property="b1TCapPts" destination="j8V-Xs-rLh" id="5rg-vu-8sx"/>
                         <outlet property="b1TCenter" destination="SfU-EN-IOp" id="d0e-rZ-QJP"/>
                         <outlet property="b1TCorner" destination="Y8e-vC-JtY" id="ZYo-T0-jPd"/>
                         <outlet property="b1TMatchScore" destination="Xdu-Nm-grK" id="hUn-qc-vua"/>
                         <outlet property="b1TScore" destination="fpO-x1-90Q" id="eED-nc-Dwm"/>
                         <outlet property="b2TBeacons" destination="0Xg-DE-Q4u" id="QYs-AM-tBb"/>
+                        <outlet property="b2TCapDNA" destination="knt-Vf-hlD" id="3XM-tq-nGn"/>
                         <outlet property="b2TCapPts" destination="lA2-Hi-dL9" id="IEQ-ea-tA2"/>
                         <outlet property="b2TCenter" destination="V0c-Ae-go2" id="iki-Jl-aZL"/>
                         <outlet property="b2TCorner" destination="Tae-lr-0p5" id="78Q-Uk-uUx"/>
@@ -1933,11 +1935,13 @@
                         <outlet property="matchLabel" destination="CWu-hO-0cd" id="DEr-7J-QRo"/>
                         <outlet property="r1Center" destination="g4V-2D-XWf" id="9WK-gi-bnU"/>
                         <outlet property="r1TBeacons" destination="GLq-zX-oYg" id="TeG-8O-ow6"/>
+                        <outlet property="r1TCapDNA" destination="iAw-vr-4Gg" id="5Kb-5r-qad"/>
                         <outlet property="r1TCapPts" destination="JsM-DN-1dM" id="yde-Wh-JhE"/>
                         <outlet property="r1TCorner" destination="G2Y-fg-s4T" id="hj8-Yy-09j"/>
                         <outlet property="r1TMatchScore" destination="Wvb-RI-3E0" id="8kI-Gu-IYP"/>
                         <outlet property="r1TScore" destination="TRq-oy-fRW" id="arh-5u-gk3"/>
                         <outlet property="r2TBeacons" destination="Q9U-xc-yy8" id="43z-25-gZ9"/>
+                        <outlet property="r2TCapDNA" destination="6UE-fx-nGG" id="P2r-c3-OqF"/>
                         <outlet property="r2TCapPts" destination="Vz3-qS-uXw" id="cu9-hc-ip0"/>
                         <outlet property="r2TCenter" destination="pnw-7Q-V2K" id="OBr-vX-cgz"/>
                         <outlet property="r2TCorner" destination="veK-CW-F6G" id="Vua-8i-dQ8"/>
