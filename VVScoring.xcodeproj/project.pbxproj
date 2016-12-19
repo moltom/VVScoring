@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		333675871E0059FA00DAF49C /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 333675861E0059FA00DAF49C /* data.txt */; };
-		333675891E005C2C00DAF49C /* tournaments in Resources */ = {isa = PBXBuildFile; fileRef = 333675881E005C2C00DAF49C /* tournaments */; };
+		333675891E005C2C00DAF49C /* tournaments.txt in Resources */ = {isa = PBXBuildFile; fileRef = 333675881E005C2C00DAF49C /* tournaments.txt */; };
 		336ABC961DF9C5BB00A588A9 /* TournamentSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336ABC951DF9C5BB00A588A9 /* TournamentSelectController.swift */; };
 		336ABC981DF9C5CF00A588A9 /* TournamentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336ABC971DF9C5CF00A588A9 /* TournamentCell.swift */; };
 		336ABC9A1DF9C94E00A588A9 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336ABC991DF9C94E00A588A9 /* MenuController.swift */; };
-		339264451E044E11007DF908 /* data2.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 339264441E044E11007DF908 /* data2.rtf */; };
 		33B17E611DF721EF00D1F443 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B17E601DF721EF00D1F443 /* AppDelegate.swift */; };
 		33B17E661DF721EF00D1F443 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B17E641DF721EF00D1F443 /* Main.storyboard */; };
 		33B17E681DF721EF00D1F443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33B17E671DF721EF00D1F443 /* Assets.xcassets */; };
@@ -30,6 +29,7 @@
 		33B17EA11DF7245F00D1F443 /* MatchesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B17EA01DF7245F00D1F443 /* MatchesController.swift */; };
 		33C0A2971E04560A007198B4 /* CSwiftV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0A2961E04560A007198B4 /* CSwiftV.swift */; };
 		33E22F491DFB176300D5F845 /* FileUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E22F481DFB176300D5F845 /* FileUtility.swift */; };
+		E29E56601E05A84000D7BF36 /* NewTournamentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29E565F1E05A84000D7BF36 /* NewTournamentController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,11 +51,10 @@
 
 /* Begin PBXFileReference section */
 		333675861E0059FA00DAF49C /* data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
-		333675881E005C2C00DAF49C /* tournaments */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tournaments; sourceTree = "<group>"; };
+		333675881E005C2C00DAF49C /* tournaments.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tournaments.txt; sourceTree = "<group>"; };
 		336ABC951DF9C5BB00A588A9 /* TournamentSelectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TournamentSelectController.swift; sourceTree = "<group>"; };
 		336ABC971DF9C5CF00A588A9 /* TournamentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TournamentCell.swift; sourceTree = "<group>"; };
 		336ABC991DF9C94E00A588A9 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
-		339264441E044E11007DF908 /* data2.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = data2.rtf; sourceTree = "<group>"; };
 		33B17E5D1DF721EF00D1F443 /* VVScoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VVScoring.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B17E601DF721EF00D1F443 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33B17E651DF721EF00D1F443 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +78,7 @@
 		33B17EA01DF7245F00D1F443 /* MatchesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesController.swift; sourceTree = "<group>"; };
 		33C0A2961E04560A007198B4 /* CSwiftV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSwiftV.swift; sourceTree = "<group>"; };
 		33E22F481DFB176300D5F845 /* FileUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtility.swift; sourceTree = "<group>"; };
+		E29E565F1E05A84000D7BF36 /* NewTournamentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTournamentController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,9 +148,9 @@
 				336ABC991DF9C94E00A588A9 /* MenuController.swift */,
 				33E22F481DFB176300D5F845 /* FileUtility.swift */,
 				333675861E0059FA00DAF49C /* data.txt */,
-				339264441E044E11007DF908 /* data2.rtf */,
-				333675881E005C2C00DAF49C /* tournaments */,
+				333675881E005C2C00DAF49C /* tournaments.txt */,
 				33C0A2961E04560A007198B4 /* CSwiftV.swift */,
+				E29E565F1E05A84000D7BF36 /* NewTournamentController.swift */,
 			);
 			path = VVScoring;
 			sourceTree = "<group>";
@@ -281,9 +281,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				33B17E6B1DF721EF00D1F443 /* LaunchScreen.storyboard in Resources */,
-				339264451E044E11007DF908 /* data2.rtf in Resources */,
 				33B17E681DF721EF00D1F443 /* Assets.xcassets in Resources */,
-				333675891E005C2C00DAF49C /* tournaments in Resources */,
+				333675891E005C2C00DAF49C /* tournaments.txt in Resources */,
 				333675871E0059FA00DAF49C /* data.txt in Resources */,
 				33B17E661DF721EF00D1F443 /* Main.storyboard in Resources */,
 			);
@@ -313,6 +312,7 @@
 				336ABC961DF9C5BB00A588A9 /* TournamentSelectController.swift in Sources */,
 				33B17EA11DF7245F00D1F443 /* MatchesController.swift in Sources */,
 				33B17E9D1DF7240100D1F443 /* OptionsController.swift in Sources */,
+				E29E56601E05A84000D7BF36 /* NewTournamentController.swift in Sources */,
 				33B17E931DF7230F00D1F443 /* ScoringController.swift in Sources */,
 				33B17E991DF7238900D1F443 /* RankingsController.swift in Sources */,
 				33B17E9B1DF723B700D1F443 /* OurTeamController.swift in Sources */,

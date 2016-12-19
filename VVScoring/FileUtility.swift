@@ -8,6 +8,23 @@
 
 import Foundation
 
+func truncateFile(fileName: String){
+    let path = Bundle.main.path(forResource: fileName, ofType: "txt")!
+    let file: FileHandle? = FileHandle(forWritingAtPath: path)
+    
+    if file != nil {
+        
+        // Write it to the file
+        file?.truncateFile(atOffset: 1102)
+        
+        // Close the file
+        file?.closeFile()
+    }
+    else {
+        print("Ooops! Something went wrong! (Tournaments)")
+    }
+}
+
 func readMatchDataFromFile(file: String) -> Bool{
     let path = Bundle.main.path(forResource: file, ofType: "txt")
     let fm = FileManager.default
@@ -57,7 +74,8 @@ func readMatchDataFromFile(file: String) -> Bool{
 
 func saveMatchData(){
     let matchDataInString = convertMatchDataToCSV()
-    writeMatchDataToFile(file: "data", value: matchDataInString)
+    truncateFile(fileName: "data")
+    writeMatchDataToFile(fileName: "data", value: matchDataInString)
 }
 
 func convertMatchDataToCSV() -> String{
@@ -96,14 +114,126 @@ func convertMatchDataToCSV() -> String{
     return output
 }
 
-func writeMatchDataToFile(file: String, value: String){
-    let path = Bundle.main.path(forResource: file, ofType: "txt")!
-    print("\n \(path) --> \(value)")
+func writeMatchDataToFile(fileName: String, value: String){
+    let path = Bundle.main.path(forResource: fileName, ofType: "txt")!
+    let file: FileHandle? = FileHandle(forWritingAtPath: path)
     
-    do {
-        try value.write(toFile: path, atomically: true, encoding: .utf8)
-    } catch {
-        print("Failed to create file")
-        print("\(error)")
+    print(path)
+    
+    if file != nil {
+        // Set the data we want to write
+        let data = (value as NSString).data(using: String.Encoding.utf8.rawValue)
+        
+        // Write it to the file
+        file?.seekToEndOfFile()
+        file?.write(data!)
+        
+        // Close the file
+        file?.closeFile()
+    }
+    else {
+        print("Ooops! Something went wrong!")
     }
 }
+
+//TOURNAMENT CONTROL
+func readTournamentList() -> Bool{
+    let path = Bundle.main.path(forResource: "tournaments", ofType: "txt")
+    let fm = FileManager.default
+    
+    if fm.fileExists(atPath: path!){
+        do{
+            let fullText = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
+            let lines = fullText.components(separatedBy: "\n") as [String]
+            var index = 0
+            for i in 1..<lines.count{
+                let data = lines[i].components(separatedBy: ",")
+                tournamentList[index].name = data[0]
+                tournamentList[index].type = Int(data[1])!
+                tournamentList[index].date = data[2]
+                tournamentList[index].fileLocation = data[3]
+                index += 1
+            }
+            return true
+        }catch{
+            return false
+        }
+    }
+    else{
+        return false
+    }
+}
+
+func formatTournamentsToCSV() -> String{
+    let out: String = ""
+    
+    for i in 0..<tournamentList.count{
+        out += String(tournamentList[i].name) + ","
+        out += String(tournamentList[i].type + ",")
+        out += (tournamentList[i].date + ",")
+        out += (tournamentList[i].fileLocation)
+        if i != tournamentList.count - 1{
+            out += "\n"
+        }
+    }
+}
+
+func addTournament(Tname: String, Ttype: Int, Tdate: String, TfileName: String){
+    //Add a new index to tournament list
+    tournamentList.append(tournament())
+    let index = tournamentList.count - 1
+    
+    //Add inputed data into new tournament index
+    tournamentList[index].name = Tname
+    tournamentList[index].type = Ttype
+    tournamentList[index].date = Tdate
+    tournamentList[index].fileLocation = TfileName
+    
+    //Save tournament array to list file
+    truncateFile(fileName: "tournaments")
+    writeToTournamentList(value: formatTournamentsToCSV())
+}
+
+//Removes tournament from list by name
+func removeTournament(name: String){
+    for t in 0..<tournamentList.count{
+        if tournamentList[t].name == name{
+            tournamentList.remove(at: t)
+        }
+    }
+    writeToTournamentList(value: formatTournamentsToCSV())
+}
+
+//Removes tournament from list by file name
+func removeTournament(fileName: String){
+    for t in 0..<tournamentList.count{
+        if tournamentList[t].fileLocation == fileName{
+            tournamentList.remove(at: t)
+        }
+    }
+    writeToTournamentList(value: formatTournamentsToCSV())
+}
+
+func writeToTournamentList(value: String){
+    let path = Bundle.main.path(forResource: "tournaments", ofType: "txt")!
+    let file: FileHandle? = FileHandle(forWritingAtPath: path)
+    
+    print(path)
+    
+    if file != nil {
+        // Set the data we want to write
+        let data = (value as NSString).data(using: String.Encoding.utf8.rawValue)
+        
+        // Write it to the file
+        file?.seekToEndOfFile()
+        file?.write(data!)
+        
+        // Close the file
+        file?.closeFile()
+    }
+    else {
+        print("Ooops! Something went wrong! (Tournaments)")
+    }
+}
+
+
