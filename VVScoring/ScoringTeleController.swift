@@ -220,22 +220,54 @@ class ScoringTeleController: UIViewController {
     
     
     @IBAction func r1TCenterBallsPlus(_ sender: AnyObject) {
+       
+        red1.autoVortex += 1
+        refreshLabels()
+    
     }
     @IBAction func r1TCenterBallsMinus(_ sender: AnyObject) {
+        if red1.autoVortex - 1 >= 0{
+            red1.autoVortex -= 1
+            refreshLabels()
+        }
+
     }
     @IBAction func r1TCornerBallsPlus(_ sender: AnyObject) {
+        red1.autoCorner += 1
+        refreshLabels()
     }
     @IBAction func r1TCornerBallsMinus(_ sender: AnyObject) {
+        if red1.autoCorner - 1 >= 0{
+            red1.autoCorner -= 1
+            refreshLabels()
+        }
     }
     @IBAction func r1TBeaconsPlus(_ sender: AnyObject) {
+        if red1.autoBeacons + 1 <= 4{
+            red1.autoBeacons += 1
+            refreshLabels()
+        }
     }
     @IBAction func r1TBeaconsMinus(_ sender: AnyObject) {
+        if red1.autoBeacons - 1 >= -4{
+            red1.autoBeacons -= 1
+            refreshLabels()
+        }
     }
     @IBAction func r1TCapBallPtsPlus(_ sender: AnyObject) {
+        red1.autoVortex += 10
+        refreshLabels()
     }
     @IBAction func r1CapBallPtsMinus(_ sender: AnyObject) {
+        if red1.autoVortex - 1 >= 0{
+            red1.autoVortex -= 1
+            refreshLabels()
+        }
     }
     @IBAction func r1TCapBallDNA(_ sender: AnyObject) {
+        red1.autoCapBallDNA = r1TCapDNA.isOn
+        refreshLabels()
+
     }
     
     
