@@ -1043,9 +1043,7 @@
                                 <state key="normal" title="Go to Tele/End Game"/>
                                 <connections>
                                     <action selector="transferViews:" destination="WLO-gT-cSl" eventType="touchUpInside" id="FBv-ud-4uM"/>
-                                    <segue destination="H5b-M0-wyg" kind="show" id="AAG-az-NF2">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <segue destination="H5b-M0-wyg" kind="show" id="oaJ-q8-ZTn"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Match 000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIJ-TO-ucP">
@@ -1732,6 +1730,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="r2TBeaconsPlus:" destination="H5b-M0-wyg" eventType="touchUpInside" id="gaA-ec-aOE"/>
                                     <action selector="r2TBeaonsPlus:" destination="H5b-M0-wyg" eventType="touchUpInside" id="0m7-8I-5Tu"/>
                                 </connections>
                             </button>
@@ -1875,7 +1874,7 @@
                                 <state key="normal" title="Go to Auto"/>
                                 <connections>
                                     <action selector="transferViews:" destination="WLO-gT-cSl" eventType="touchUpInside" id="BjR-rG-7hy"/>
-                                    <segue destination="WLO-gT-cSl" kind="show" id="NsD-f8-jgF"/>
+                                    <segue destination="WLO-gT-cSl" kind="show" id="If8-A5-FcW"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kog-rY-vC2">
@@ -1933,10 +1932,10 @@
                         <outlet property="b2TScore" destination="rY6-1W-wqa" id="ZGm-cB-lWx"/>
                         <outlet property="blueAllianceScore" destination="lst-tq-bHf" id="zUG-En-BTj"/>
                         <outlet property="matchLabel" destination="CWu-hO-0cd" id="DEr-7J-QRo"/>
-                        <outlet property="r1Center" destination="g4V-2D-XWf" id="9WK-gi-bnU"/>
                         <outlet property="r1TBeacons" destination="GLq-zX-oYg" id="TeG-8O-ow6"/>
                         <outlet property="r1TCapDNA" destination="iAw-vr-4Gg" id="5Kb-5r-qad"/>
                         <outlet property="r1TCapPts" destination="JsM-DN-1dM" id="yde-Wh-JhE"/>
+                        <outlet property="r1TCenter" destination="g4V-2D-XWf" id="BFp-NH-utA"/>
                         <outlet property="r1TCorner" destination="G2Y-fg-s4T" id="hj8-Yy-09j"/>
                         <outlet property="r1TMatchScore" destination="Wvb-RI-3E0" id="8kI-Gu-IYP"/>
                         <outlet property="r1TScore" destination="TRq-oy-fRW" id="arh-5u-gk3"/>

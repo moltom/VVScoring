@@ -23,6 +23,7 @@ class ScoringTeleController: UIViewController {
     
     
     
+
     @IBOutlet var r1TCenter: UILabel!
     @IBOutlet var r1TCorner: UILabel!
     @IBOutlet var r1TBeacons: UILabel!
@@ -310,7 +311,7 @@ class ScoringTeleController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        refreshLabels()
         // Do any additional setup after loading the view.
     }
     
