@@ -1975,7 +1975,7 @@
         <!--New Tournament Controller-->
         <scene sceneID="Vvu-RC-UC7">
             <objects>
-                <viewController id="IKI-of-ai6" customClass="NewTournamentController" customModule="VVScoring" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createTournament" id="IKI-of-ai6" customClass="NewTournamentController" customModule="VVScoring" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ocs-eN-qW7"/>
                         <viewControllerLayoutGuide type="bottom" id="eO1-nd-4hx"/>
@@ -1985,7 +1985,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wFR-w8-6jP">
-                                <frame key="frameInset" minX="371" minY="213" width="283" height="253"/>
+                                <frame key="frameInset" minX="371" minY="213" width="283" height="235"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create New Tournament" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HF1-mq-bwE">
@@ -1996,7 +1996,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ick-OF-8SS">
-                                        <frame key="frameInset" minX="56" minY="215" width="46" height="30"/>
+                                        <frame key="frameInset" minX="189" minY="205" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Create"/>
                                         <connections>
@@ -2028,7 +2028,7 @@
                                         </date>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOe-fm-SHJ">
-                                        <frame key="frameInset" minX="170" minY="215" width="48" height="30"/>
+                                        <frame key="frameInset" minX="48" minY="205" width="48" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Cancel"/>
                                         <connections>
@@ -2036,7 +2036,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2069,12 +2069,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Create New Tournament"/>
                                 <connections>
-                                    <segue destination="5bg-M6-eM2" kind="show" id="00C-Fd-IIk">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <action selector="createTournamentAction:" destination="gTv-xl-vHL" eventType="touchUpInside" id="5Wt-D0-DvQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jey-9l-2Vh">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jey-9l-2Vh">
                                 <frame key="frameInset" minX="384" minY="332" width="256" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -2089,19 +2087,11 @@
                                     <action selector="loadTournament:" destination="gTv-xl-vHL" eventType="touchUpInside" id="s2U-78-JAo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KrK-L0-vkD">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KrK-L0-vkD">
                                 <frame key="frameInset" minX="436" minY="370" width="152" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Download Data"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJj-I0-EyC">
-                                <frame key="frameInset" minX="841" minY="556" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="testFileSave:" destination="gTv-xl-vHL" eventType="touchUpInside" id="YCc-Br-F19"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2179,7 +2169,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="r5a-Sk-nYq">
             <objects>
-                <tabBarController id="5bg-M6-eM2" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" id="5bg-M6-eM2" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="o1j-90-ySZ">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>

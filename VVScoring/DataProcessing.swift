@@ -69,7 +69,7 @@ var matchData: [[teamInMatch]] = [
 
 struct tournament{
     var name: String = "nil"
-    var type: Int = -1
+    var type: String = "nil"
     var date: String = "nil"
     var fileLocation: String = "nil"
 }
@@ -176,7 +176,7 @@ func exampleData(){
     matchData[pos.match][pos.team].officialScore = 220
     
     tournamentList[0].name = "Minnesota State"
-    tournamentList[0].type = 1
+    tournamentList[0].type = "1"
     tournamentList[0].date = "02/22/2017"
 }
 

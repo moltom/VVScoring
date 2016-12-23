@@ -19,6 +19,7 @@ class NewTournamentController: UIViewController {
         super.viewDidLoad()
 
         self.showAnimate()
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         // Do any additional setup after loading the view.
     }
 
@@ -28,27 +29,29 @@ class NewTournamentController: UIViewController {
     }
     
     @IBAction func createButton(_ sender: AnyObject) {
+        //Make sure to not go if the value is nil
         if nameField.text == nil{
             return
         }
         
+        //Get data to create tournament
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         let strDate = dateFormatter.string(from: date.date)
         
-        addTournament(Tname: nameField.text!, Ttype: typeSegmenter.selectedSegmentIndex, Tdate: strDate, TfileName: formatFileName(name: nameField.text!))
+        let Name = nameField.text!
+        let Type = String(typeSegmenter.selectedSegmentIndex)
+        let FileName = formatFileName(name: nameField.text!)
+        
+        //Create tournament
+        addTournament(Tname: Name, Ttype: Type, Tdate: strDate, TfileName: FileName)
+        
+        //Segue to rankings screen
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "tabBarController")
+        present(viewController!, animated: true, completion: nil)
     }
     
-    func formatFileName(name: String) -> String{
-        var out: String = ""
-        for i in 0..<name.characters.count{
-            let char = name.substring(i, end: i+1)
-            if char != " "{
-                out += char
-            }
-        }
-        return out.lowercased()
-    }
+    
     
     @IBAction func cancelButton(_ sender: AnyObject) {
         self.removeAnimate()

@@ -17,6 +17,8 @@ class TournamentSelectController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        _ = readTournamentList()
+        
         self.showAnimate()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         
@@ -49,6 +51,15 @@ class TournamentSelectController: UIViewController, UITableViewDelegate, UITable
                     self.view.removeFromSuperview()
                 }
         });
+    }
+    
+    //Selecting row
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        let tname = tournamentList[indexPath.row].fileLocation
+        currentTournament = tname
+        _ = readMatchDataFromFile(file: tname)
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "tabBarController")
+        present(viewController!, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

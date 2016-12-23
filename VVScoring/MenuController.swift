@@ -25,6 +25,9 @@ class MenuController: UIViewController {
     }
     
     @IBAction func loadTournament(_ sender: AnyObject) {
+        //Read tournament list
+        _ = readTournamentList()
+        
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tournamentSelectTV") as! TournamentSelectController
         self.addChildViewController(popOverVC)
         popOverVC.view.frame = self.view.frame
@@ -32,17 +35,11 @@ class MenuController: UIViewController {
         popOverVC.didMove(toParentViewController: self)
     }
 
-    @IBAction func testFileSave(_ sender: AnyObject) {
-        saveMatchData()
+    @IBAction func createTournamentAction(_ sender: AnyObject) {
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "createTournament") as! NewTournamentController
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

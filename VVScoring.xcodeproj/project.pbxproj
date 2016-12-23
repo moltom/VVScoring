@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33101A221E0D8AB2001AD245 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33101A211E0D8AB2001AD245 /* Utility.swift */; };
+		33101A241E0D8FD5001AD245 /* example.txt in Resources */ = {isa = PBXBuildFile; fileRef = 33101A231E0D8FD5001AD245 /* example.txt */; };
 		333675871E0059FA00DAF49C /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 333675861E0059FA00DAF49C /* data.txt */; };
 		333675891E005C2C00DAF49C /* tournaments.txt in Resources */ = {isa = PBXBuildFile; fileRef = 333675881E005C2C00DAF49C /* tournaments.txt */; };
 		336ABC961DF9C5BB00A588A9 /* TournamentSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336ABC951DF9C5BB00A588A9 /* TournamentSelectController.swift */; };
@@ -49,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33101A211E0D8AB2001AD245 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		33101A231E0D8FD5001AD245 /* example.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.txt; sourceTree = "<group>"; };
 		333675861E0059FA00DAF49C /* data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
 		333675881E005C2C00DAF49C /* tournaments.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tournaments.txt; sourceTree = "<group>"; };
 		336ABC951DF9C5BB00A588A9 /* TournamentSelectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TournamentSelectController.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				333675861E0059FA00DAF49C /* data.txt */,
 				333675881E005C2C00DAF49C /* tournaments.txt */,
 				E29E565F1E05A84000D7BF36 /* NewTournamentController.swift */,
+				33101A211E0D8AB2001AD245 /* Utility.swift */,
+				33101A231E0D8FD5001AD245 /* example.txt */,
 			);
 			path = VVScoring;
 			sourceTree = "<group>";
@@ -280,6 +286,7 @@
 				33B17E6B1DF721EF00D1F443 /* LaunchScreen.storyboard in Resources */,
 				33B17E681DF721EF00D1F443 /* Assets.xcassets in Resources */,
 				333675891E005C2C00DAF49C /* tournaments.txt in Resources */,
+				33101A241E0D8FD5001AD245 /* example.txt in Resources */,
 				333675871E0059FA00DAF49C /* data.txt in Resources */,
 				33B17E661DF721EF00D1F443 /* Main.storyboard in Resources */,
 			);
@@ -318,6 +325,7 @@
 				33E22F491DFB176300D5F845 /* FileUtility.swift in Sources */,
 				33B17E911DF722F400D1F443 /* ScoringTeleController.swift in Sources */,
 				33B17E8F1DF7228E00D1F443 /* DataProcessing.swift in Sources */,
+				33101A221E0D8AB2001AD245 /* Utility.swift in Sources */,
 				33B17E971DF7236E00D1F443 /* RankingsCell.swift in Sources */,
 				33B17E611DF721EF00D1F443 /* AppDelegate.swift in Sources */,
 				336ABC981DF9C5CF00A588A9 /* TournamentCell.swift in Sources */,
