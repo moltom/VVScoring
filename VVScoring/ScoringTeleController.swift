@@ -11,16 +11,9 @@ import UIKit
 class ScoringTeleController: UIViewController {
     
     
-    var red1 = matchData[currentMatch][0]
-    var red2 = matchData[currentMatch][1]
-    var blue1 = matchData[currentMatch][2]
-    var blue2 = matchData[currentMatch][3]
-    
-    
     @IBOutlet var redAllianceScore: UILabel!
     @IBOutlet var blueAllianceScore: UILabel!
     @IBOutlet var matchLabel: UILabel!
-    
     
     
 
@@ -65,98 +58,93 @@ class ScoringTeleController: UIViewController {
     //SCORING
     func refreshLabels(){
         
-        var red1 = matchData[currentMatch][0]
-        var red2 = matchData[currentMatch][1]
-        var blue1 = matchData[currentMatch][2]
-        var blue2 = matchData[currentMatch][3]
-        
         //Calculate and score the calculated data points
         
         
         //RED
-        red1.autoPts = (red1.autoCorner * 5) + (red1.autoVortex * 15) + (red1.autoBeacons * 30) + red1.parkPts + red1.autoCapBallPts
-        red1.telePts = red1.cornerBalls + (red1.vortexBalls * 5)
-        red1.endGamePts = (red1.beacons * 10) + red1.capBallPts
-        red1.calculatedScore = red1.autoPts + red1.telePts + red1.endGamePts
+        matchData[currentMatch][0].autoPts = (matchData[currentMatch][0].autoCorner * 5) + (matchData[currentMatch][0].autoVortex * 15) + (matchData[currentMatch][0].autoBeacons * 30) + matchData[currentMatch][0].parkPts + matchData[currentMatch][0].autoCapBallPts
+        matchData[currentMatch][0].telePts = matchData[currentMatch][0].cornerBalls + (matchData[currentMatch][0].vortexBalls * 5)
+        matchData[currentMatch][0].endGamePts = (matchData[currentMatch][0].beacons * 10) + matchData[currentMatch][0].capBallPts
+        matchData[currentMatch][0].calculatedScore = matchData[currentMatch][0].autoPts + matchData[currentMatch][0].telePts + matchData[currentMatch][0].endGamePts
         
-        red2.autoPts = (red2.autoCorner * 5) + (red2.autoVortex * 15) + (red2.autoBeacons * 30) + red2.parkPts + red2.autoCapBallPts
-        red2.telePts = red2.cornerBalls + (red2.vortexBalls * 5)
-        red2.endGamePts = (red2.beacons * 10) + red2.capBallPts
-        red2.calculatedScore = red2.autoPts + red2.telePts + red2.endGamePts
+        matchData[currentMatch][1].autoPts = (matchData[currentMatch][1].autoCorner * 5) + (matchData[currentMatch][1].autoVortex * 15) + (matchData[currentMatch][1].autoBeacons * 30) + matchData[currentMatch][1].parkPts + matchData[currentMatch][1].autoCapBallPts
+        matchData[currentMatch][1].telePts = matchData[currentMatch][1].cornerBalls + (matchData[currentMatch][1].vortexBalls * 5)
+        matchData[currentMatch][1].endGamePts = (matchData[currentMatch][1].beacons * 10) + matchData[currentMatch][1].capBallPts
+        matchData[currentMatch][1].calculatedScore = matchData[currentMatch][1].autoPts + matchData[currentMatch][1].telePts + matchData[currentMatch][1].endGamePts
         
-        red1.allianceScore = red1.calculatedScore + red2.calculatedScore
-        red2.allianceScore = red1.calculatedScore + red2.calculatedScore
+        matchData[currentMatch][0].allianceScore = matchData[currentMatch][0].calculatedScore + matchData[currentMatch][1].calculatedScore
+        matchData[currentMatch][1].allianceScore = matchData[currentMatch][0].calculatedScore + matchData[currentMatch][1].calculatedScore
         
         //BLUE
-        blue1.autoPts = (blue1.autoCorner * 5) + (blue1.autoVortex * 15) + (blue1.autoBeacons * 30) + blue1.parkPts + blue1.autoCapBallPts
-        blue1.telePts = blue1.cornerBalls + (blue1.vortexBalls * 5)
-        blue1.endGamePts = (blue1.beacons * 10) + blue1.capBallPts
-        blue1.calculatedScore = blue1.autoPts + blue1.telePts + blue1.endGamePts
+        matchData[currentMatch][2].autoPts = (matchData[currentMatch][2].autoCorner * 5) + (matchData[currentMatch][2].autoVortex * 15) + (matchData[currentMatch][2].autoBeacons * 30) + matchData[currentMatch][2].parkPts + matchData[currentMatch][2].autoCapBallPts
+        matchData[currentMatch][2].telePts = matchData[currentMatch][2].cornerBalls + (matchData[currentMatch][2].vortexBalls * 5)
+        matchData[currentMatch][2].endGamePts = (matchData[currentMatch][2].beacons * 10) + matchData[currentMatch][2].capBallPts
+        matchData[currentMatch][2].calculatedScore = matchData[currentMatch][2].autoPts + matchData[currentMatch][2].telePts + matchData[currentMatch][2].endGamePts
         
-        blue2.autoPts = (blue2.autoCorner * 5) + (blue2.autoVortex * 15) + (blue2.autoBeacons * 30) + blue2.parkPts + blue2.autoCapBallPts
-        blue2.telePts = blue2.cornerBalls + (blue2.vortexBalls * 5)
-        blue2.endGamePts = (blue2.beacons * 10) + blue2.capBallPts
-        blue2.calculatedScore = blue2.autoPts + blue2.telePts + blue2.endGamePts
+        matchData[currentMatch][3].autoPts = (matchData[currentMatch][3].autoCorner * 5) + (matchData[currentMatch][3].autoVortex * 15) + (matchData[currentMatch][3].autoBeacons * 30) + matchData[currentMatch][3].parkPts + matchData[currentMatch][3].autoCapBallPts
+        matchData[currentMatch][3].telePts = matchData[currentMatch][3].cornerBalls + (matchData[currentMatch][3].vortexBalls * 5)
+        matchData[currentMatch][3].endGamePts = (matchData[currentMatch][3].beacons * 10) + matchData[currentMatch][3].capBallPts
+        matchData[currentMatch][3].calculatedScore = matchData[currentMatch][3].autoPts + matchData[currentMatch][3].telePts + matchData[currentMatch][3].endGamePts
         
-        blue1.allianceScore = blue1.calculatedScore + blue2.calculatedScore
-        blue2.allianceScore = blue1.calculatedScore + blue2.calculatedScore
+        matchData[currentMatch][2].allianceScore = matchData[currentMatch][2].calculatedScore + matchData[currentMatch][3].calculatedScore
+        matchData[currentMatch][3].allianceScore = matchData[currentMatch][2].calculatedScore + matchData[currentMatch][3].calculatedScore
         
         
         
         //Check if beacons were scored for the other teams
-        if(blue1.autoBeacons < 0){
-            red1.allianceScore += (blue1.autoBeacons * 30)
-            red2.allianceScore += (blue1.autoBeacons * 30)
+        if(matchData[currentMatch][2].autoBeacons < 0){
+            matchData[currentMatch][0].allianceScore += (matchData[currentMatch][2].autoBeacons * 30)
+            matchData[currentMatch][1].allianceScore += (matchData[currentMatch][2].autoBeacons * 30)
         }
-        if(blue2.autoBeacons < 0){
-            red1.allianceScore += (blue2.autoBeacons * 30)
-            red2.allianceScore += (blue2.autoBeacons * 30)
+        if(matchData[currentMatch][3].autoBeacons < 0){
+            matchData[currentMatch][0].allianceScore += (matchData[currentMatch][3].autoBeacons * 30)
+            matchData[currentMatch][1].allianceScore += (matchData[currentMatch][3].autoBeacons * 30)
         }
-        if(red1.autoBeacons < 0){
-            blue1.allianceScore += (red1.autoBeacons * 30)
-            blue2.allianceScore += (red1.autoBeacons * 30)
+        if(matchData[currentMatch][0].autoBeacons < 0){
+            matchData[currentMatch][2].allianceScore += (matchData[currentMatch][0].autoBeacons * 30)
+            matchData[currentMatch][3].allianceScore += (matchData[currentMatch][0].autoBeacons * 30)
         }
-        if(red2.autoBeacons < 0){
-            blue1.allianceScore += (red2.autoBeacons * 30)
-            blue2.allianceScore += (red2.autoBeacons * 30)
+        if(matchData[currentMatch][1].autoBeacons < 0){
+            matchData[currentMatch][2].allianceScore += (matchData[currentMatch][1].autoBeacons * 30)
+            matchData[currentMatch][3].allianceScore += (matchData[currentMatch][1].autoBeacons * 30)
         }
         
         //Tele
-        if(blue1.beacons < 0){
-            red1.allianceScore += (blue1.beacons * 10)
-            red2.allianceScore += (blue1.beacons * 10)
+        if(matchData[currentMatch][2].beacons < 0){
+            matchData[currentMatch][0].allianceScore += (matchData[currentMatch][2].beacons * 10)
+            matchData[currentMatch][1].allianceScore += (matchData[currentMatch][2].beacons * 10)
         }
-        if(blue2.beacons < 0){
-            red1.allianceScore += (blue2.beacons * 10)
-            red2.allianceScore += (blue2.beacons * 10)
+        if(matchData[currentMatch][3].beacons < 0){
+            matchData[currentMatch][0].allianceScore += (matchData[currentMatch][3].beacons * 10)
+            matchData[currentMatch][1].allianceScore += (matchData[currentMatch][3].beacons * 10)
         }
-        if(red1.beacons < 0){
-            blue1.allianceScore += (red1.beacons * 10)
-            blue2.allianceScore += (red1.beacons * 10)
+        if(matchData[currentMatch][0].beacons < 0){
+            matchData[currentMatch][2].allianceScore += (matchData[currentMatch][0].beacons * 10)
+            matchData[currentMatch][3].allianceScore += (matchData[currentMatch][0].beacons * 10)
         }
-        if(red2.beacons < 0){
-            blue1.allianceScore += (red2.beacons * 10)
-            blue2.allianceScore += (red2.beacons * 10)
+        if(matchData[currentMatch][1].beacons < 0){
+            matchData[currentMatch][2].allianceScore += (matchData[currentMatch][1].beacons * 10)
+            matchData[currentMatch][3].allianceScore += (matchData[currentMatch][1].beacons * 10)
         }
 
         
-        if(red1.allianceScore > blue1.allianceScore){
-            red1.outcome = 0
-            red2.outcome = 0
-            blue1.outcome = 1
-            blue1.outcome = 1
+        if(matchData[currentMatch][0].allianceScore > matchData[currentMatch][2].allianceScore){
+            matchData[currentMatch][0].outcome = 0
+            matchData[currentMatch][1].outcome = 0
+            matchData[currentMatch][2].outcome = 1
+            matchData[currentMatch][2].outcome = 1
         }
-        else if(red1.allianceScore < blue1.allianceScore){
-            red1.outcome = 1
-            red2.outcome = 1
-            blue1.outcome = 0
-            blue1.outcome = 0
+        else if(matchData[currentMatch][0].allianceScore < matchData[currentMatch][2].allianceScore){
+            matchData[currentMatch][0].outcome = 1
+            matchData[currentMatch][1].outcome = 1
+            matchData[currentMatch][2].outcome = 0
+            matchData[currentMatch][2].outcome = 0
         }
         else{
-            red1.outcome = 2
-            red2.outcome = 2
-            blue1.outcome = 2
-            blue2.outcome = 2
+            matchData[currentMatch][0].outcome = 2
+            matchData[currentMatch][1].outcome = 2
+            matchData[currentMatch][2].outcome = 2
+            matchData[currentMatch][3].outcome = 2
         }
         
         
@@ -168,166 +156,253 @@ class ScoringTeleController: UIViewController {
         
         
         //RED 1
-        r1TCenter.text = String(red1.vortexBalls)
-        r1TCorner.text = String(red1.cornerBalls)
-        r1TBeacons.text = String(red1.beacons)
-        r1TCapPts.text = String(red1.capBallPts)
-        r1TCapDNA.setOn(red1.capBallDNA, animated: false)
+        r1TCenter.text = String(matchData[currentMatch][0].vortexBalls)
+        r1TCorner.text = String(matchData[currentMatch][0].cornerBalls)
+        r1TBeacons.text = String(matchData[currentMatch][0].beacons)
+        r1TCapPts.text = String(matchData[currentMatch][0].capBallPts)
+        r1TCapDNA.setOn(matchData[currentMatch][0].capBallDNA, animated: false)
         
         //RED 2
-        r2TCenter.text = String(red2.vortexBalls)
-        r2TCorner.text = String(red2.cornerBalls)
-        r2TBeacons.text = String(red2.beacons)
-        r2TCapPts.text = String(red2.capBallPts)
-        r2TCapDNA.setOn(red2.capBallDNA, animated: false)
+        r2TCenter.text = String(matchData[currentMatch][1].vortexBalls)
+        r2TCorner.text = String(matchData[currentMatch][1].cornerBalls)
+        r2TBeacons.text = String(matchData[currentMatch][1].beacons)
+        r2TCapPts.text = String(matchData[currentMatch][1].capBallPts)
+        r2TCapDNA.setOn(matchData[currentMatch][1].capBallDNA, animated: false)
         
         //BLUE 1
-        b1TCenter.text = String(blue1.vortexBalls)
-        b1TCorner.text = String(blue1.cornerBalls)
-        b1TBeacons.text = String(blue1.beacons)
-        b1TCapPts.text = String(blue1.capBallPts)
-        b1TCapDNA.setOn(blue1.capBallDNA, animated: false)
+        b1TCenter.text = String(matchData[currentMatch][2].vortexBalls)
+        b1TCorner.text = String(matchData[currentMatch][2].cornerBalls)
+        b1TBeacons.text = String(matchData[currentMatch][2].beacons)
+        b1TCapPts.text = String(matchData[currentMatch][2].capBallPts)
+        b1TCapDNA.setOn(matchData[currentMatch][2].capBallDNA, animated: false)
         
         //BLUE 2
-        b2TCenter.text = String(blue2.vortexBalls)
-        b2TCorner.text = String(blue2.cornerBalls)
-        b2TBeacons.text = String(blue2.beacons)
-        b2TCapPts.text = String(blue2.capBallPts)
-        b2TCapDNA.setOn(blue2.capBallDNA, animated: false)
+        b2TCenter.text = String(matchData[currentMatch][3].vortexBalls)
+        b2TCorner.text = String(matchData[currentMatch][3].cornerBalls)
+        b2TBeacons.text = String(matchData[currentMatch][3].beacons)
+        b2TCapPts.text = String(matchData[currentMatch][3].capBallPts)
+        b2TCapDNA.setOn(matchData[currentMatch][3].capBallDNA, animated: false)
         
 
         
         
-        redAllianceScore.text = String(red1.allianceScore)
-        blueAllianceScore.text = String(blue1.allianceScore)
+        redAllianceScore.text = String(matchData[currentMatch][0].allianceScore)
+        blueAllianceScore.text = String(matchData[currentMatch][2].allianceScore)
         
         
-        r1TScore.text = String(red1.autoPts)
-        r1TMatchScore.text = String(red1.calculatedScore)
-        r2TScore.text = String(red2.autoPts)
-        r2TMatchScore.text = String(red2.calculatedScore)
-        redAllianceScore.text = String(red1.allianceScore)
+        r1TScore.text = String(matchData[currentMatch][0].telePts)
+        r1TMatchScore.text = String(matchData[currentMatch][0].calculatedScore)
+        r2TScore.text = String(matchData[currentMatch][1].telePts)
+        r2TMatchScore.text = String(matchData[currentMatch][1].calculatedScore)
+        redAllianceScore.text = String(matchData[currentMatch][0].allianceScore)
         
-        b1TScore.text = String(blue1.autoPts)
-        b1TMatchScore.text = String(blue1.calculatedScore)
-        b2TScore.text = String(blue2.autoPts)
-        b2TMatchScore.text = String(blue2.calculatedScore)
-        blueAllianceScore.text = String(blue2.allianceScore)
+        b1TScore.text = String(matchData[currentMatch][2].telePts)
+        b1TMatchScore.text = String(matchData[currentMatch][2].calculatedScore)
+        b2TScore.text = String(matchData[currentMatch][3].telePts)
+        b2TMatchScore.text = String(matchData[currentMatch][3].calculatedScore)
+        blueAllianceScore.text = String(matchData[currentMatch][3].allianceScore)
         
         
     }
     
     
-    
+    //RED 1
     @IBAction func r1TCenterBallsPlus(_ sender: AnyObject) {
        
-        red1.autoVortex += 1
+        matchData[currentMatch][0].vortexBalls += 1
         refreshLabels()
     
     }
     @IBAction func r1TCenterBallsMinus(_ sender: AnyObject) {
-        if red1.autoVortex - 1 >= 0{
-            red1.autoVortex -= 1
+        if matchData[currentMatch][0].vortexBalls - 1 >= 0{
+            matchData[currentMatch][0].vortexBalls -= 1
             refreshLabels()
         }
 
     }
     @IBAction func r1TCornerBallsPlus(_ sender: AnyObject) {
-        red1.autoCorner += 1
+        matchData[currentMatch][0].cornerBalls += 1
         refreshLabels()
     }
     @IBAction func r1TCornerBallsMinus(_ sender: AnyObject) {
-        if red1.autoCorner - 1 >= 0{
-            red1.autoCorner -= 1
+        if matchData[currentMatch][0].cornerBalls - 1 >= 0{
+            matchData[currentMatch][0].cornerBalls -= 1
             refreshLabels()
         }
     }
     @IBAction func r1TBeaconsPlus(_ sender: AnyObject) {
-        if red1.autoBeacons + 1 <= 4{
-            red1.autoBeacons += 1
+        if matchData[currentMatch][0].beacons + 1 <= 4{
+            matchData[currentMatch][0].beacons += 1
             refreshLabels()
         }
     }
     @IBAction func r1TBeaconsMinus(_ sender: AnyObject) {
-        if red1.autoBeacons - 1 >= -4{
-            red1.autoBeacons -= 1
+        if matchData[currentMatch][0].beacons - 1 >= -4{
+            matchData[currentMatch][0].beacons -= 1
             refreshLabels()
         }
     }
     @IBAction func r1TCapBallPtsPlus(_ sender: AnyObject) {
-        red1.autoVortex += 10
+        matchData[currentMatch][0].capBallPts += 10
         refreshLabels()
     }
     @IBAction func r1CapBallPtsMinus(_ sender: AnyObject) {
-        if red1.autoVortex - 1 >= 0{
-            red1.autoVortex -= 1
+        if matchData[currentMatch][0].capBallPts - 1 >= 0{
+            matchData[currentMatch][0].capBallPts -= 1
             refreshLabels()
         }
     }
     @IBAction func r1TCapBallDNA(_ sender: AnyObject) {
-        red1.autoCapBallDNA = r1TCapDNA.isOn
+        matchData[currentMatch][0].capBallDNA = r1TCapDNA.isOn
         refreshLabels()
 
     }
     
     
+    //RED 2
     @IBAction func r2TCenterBallsPlus(_ sender: AnyObject) {
+        matchData[currentMatch][1].vortexBalls += 1
+        refreshLabels()
     }
     @IBAction func r2TCenterBallsMinus(_ sender: AnyObject) {
+        if matchData[currentMatch][1].vortexBalls - 1 >= 0{
+            matchData[currentMatch][1].vortexBalls -= 1
+            refreshLabels()
+        }
     }
     @IBAction func r2TCornerBallsPlus(_ sender: AnyObject) {
+        matchData[currentMatch][1].cornerBalls += 1
+        refreshLabels()
     }
     @IBAction func r2TCornerBallsMinus(_ sender: AnyObject) {
+        if matchData[currentMatch][1].cornerBalls - 1 >= 0{
+            matchData[currentMatch][1].cornerBalls -= 1
+            refreshLabels()
+        }
     }
     @IBAction func r2TBeaconsPlus(_ sender: AnyObject) {
+        if matchData[currentMatch][1].beacons + 1 <= 4{
+            matchData[currentMatch][1].beacons += 1
+            refreshLabels()
+        }
     }
     @IBAction func r2TBeaconsMinus(_ sender: AnyObject) {
+        if matchData[currentMatch][1].beacons - 1 >= -4{
+            matchData[currentMatch][1].beacons -= 1
+            refreshLabels()
+        }
     }
     @IBAction func r2TCapBallPtsPlus(_ sender: AnyObject) {
+        matchData[currentMatch][1].capBallPts += 10
+        refreshLabels()
     }
     @IBAction func r2TCapBallPtsMinus(_ sender: AnyObject) {
+        if matchData[currentMatch][1].capBallPts - 1 >= 0{
+            matchData[currentMatch][1].capBallPts -= 1
+            refreshLabels()
+        }
     }
     @IBAction func r2TCapBallDNA(_ sender: AnyObject) {
+        matchData[currentMatch][1].capBallDNA = r1TCapDNA.isOn
+        refreshLabels()
     }
     
     
+    //BLUE 1
     @IBAction func b1TCenterBallsPlus(_ sender: AnyObject) {
+        matchData[currentMatch][2].vortexBalls += 1
+        refreshLabels()
     }
     @IBAction func b1TCenterBallsMinus(_ sender: AnyObject) {
+        if(matchData[currentMatch][2].vortexBalls != 0){
+            matchData[currentMatch][2].vortexBalls -= 1
+        }
+        refreshLabels()
     }
     @IBAction func b1TCornerBallsPlus(_ sender: AnyObject) {
+        matchData[currentMatch][2].cornerBalls += 1
+        refreshLabels()
     }
     @IBAction func b1TCornerBallsMinus(_ sender: AnyObject) {
+        if(matchData[currentMatch][2].cornerBalls != 0){
+            matchData[currentMatch][2].cornerBalls -= 1
+        }
+        refreshLabels()
     }
     @IBAction func b1TBeaconsPlus(_ sender: AnyObject) {
+        if(matchData[currentMatch][2].beacons + matchData[currentMatch][3].beacons - matchData[currentMatch][0].beacons - matchData[currentMatch][1].beacons != 4){
+            matchData[currentMatch][2].beacons += 1
+        }
+        refreshLabels()
     }
     @IBAction func b1TBeaconsMinus(_ sender: AnyObject) {
+        if(matchData[currentMatch][0].beacons + matchData[currentMatch][1].beacons - matchData[currentMatch][2].beacons - matchData[currentMatch][3].beacons != -4){
+            matchData[currentMatch][2].beacons -= 1
+        }
+        refreshLabels()
     }
     @IBAction func b1TCapBallPtsPlus(_ sender: AnyObject) {
+        matchData[currentMatch][2].capBallPts += 10
+        refreshLabels()
     }
     @IBAction func b1TCapBallPtsMinus(_ sender: AnyObject) {
+        if matchData[currentMatch][2].capBallPts - 1 >= 0{
+            matchData[currentMatch][2].capBallPts -= 1
+            refreshLabels()
+        }
     }
     @IBAction func b1TCapBallDNA(_ sender: AnyObject) {
+        matchData[currentMatch][2].capBallDNA = r1TCapDNA.isOn
+        refreshLabels()
     }
     
     
+    //BLUE 2
     @IBAction func b2TCenterBallsPlus(_ sender: AnyObject) {
+        matchData[currentMatch][3].vortexBalls += 1
+        refreshLabels()
     }
     @IBAction func b2TCenterBallsMinus(_ sender: AnyObject) {
+        if(matchData[currentMatch][3].vortexBalls != 0){
+            matchData[currentMatch][3].vortexBalls -= 1
+        }
+        refreshLabels()
     }
     @IBAction func b2TCornerBallsPlus(_ sender: AnyObject) {
+        matchData[currentMatch][3].cornerBalls += 1
+        refreshLabels()
     }
     @IBAction func b2TCornerBallsMinus(_ sender: AnyObject) {
+        if(matchData[currentMatch][3].cornerBalls != 0){
+            matchData[currentMatch][3].cornerBalls -= 1
+        }
+        refreshLabels()
     }
     @IBAction func b2TBeaconsPlus(_ sender: AnyObject) {
+        if matchData[currentMatch][3].beacons + 1 <= 4{
+            matchData[currentMatch][3].beacons += 1
+            refreshLabels()
+        }
     }
     @IBAction func b2TBeaconsMinus(_ sender: AnyObject) {
+        if matchData[currentMatch][3].beacons - 1 >= -4{
+            matchData[currentMatch][3].beacons -= 1
+            refreshLabels()
+        }
     }
     @IBAction func b2TCapBallPtsPlus(_ sender: AnyObject) {
+        matchData[currentMatch][3].capBallPts += 10
+        refreshLabels()
     }
     @IBAction func b2TCapBallPtsMinus(_ sender: AnyObject) {
+        if matchData[currentMatch][3].capBallPts - 1 >= 0{
+            matchData[currentMatch][3].capBallPts -= 1
+            refreshLabels()
+        }
     }
     @IBAction func b2TCapBallDNA(_ sender: AnyObject) {
+        matchData[currentMatch][3].capBallDNA = r1TCapDNA.isOn
+        refreshLabels()
     }
     
     

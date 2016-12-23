@@ -1689,7 +1689,6 @@
                                 </state>
                                 <connections>
                                     <action selector="r2TBeaconsPlus:" destination="H5b-M0-wyg" eventType="touchUpInside" id="gaA-ec-aOE"/>
-                                    <action selector="r2TBeaonsPlus:" destination="H5b-M0-wyg" eventType="touchUpInside" id="0m7-8I-5Tu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikw-k3-WEE">

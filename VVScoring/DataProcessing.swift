@@ -96,7 +96,7 @@ func exampleData(){
     matchData[pos.match][pos.team].telePts = 100
     matchData[pos.match][pos.team].capBallPts = 0
     matchData[pos.match][pos.team].capBallDNA = false
-    matchData[pos.match][pos.team].beacons = 2
+    matchData[pos.match][pos.team].beacons = 0
     matchData[pos.match][pos.team].endGamePts = 20
     matchData[pos.match][pos.team].outcome = 0
     matchData[pos.match][pos.team].calculatedScore = 220
@@ -120,7 +120,7 @@ func exampleData(){
     matchData[pos.match][pos.team].telePts = 20
     matchData[pos.match][pos.team].capBallPts = 20
     matchData[pos.match][pos.team].capBallDNA = false
-    matchData[pos.match][pos.team].beacons = 2
+    matchData[pos.match][pos.team].beacons = 0
     matchData[pos.match][pos.team].endGamePts = 40
     matchData[pos.match][pos.team].outcome = 0
     matchData[pos.match][pos.team].calculatedScore = 90
@@ -144,7 +144,7 @@ func exampleData(){
     matchData[pos.match][pos.team].telePts = 50
     matchData[pos.match][pos.team].capBallPts = 40
     matchData[pos.match][pos.team].capBallDNA = false
-    matchData[pos.match][pos.team].beacons = 2
+    matchData[pos.match][pos.team].beacons = 0
     matchData[pos.match][pos.team].endGamePts = 60
     matchData[pos.match][pos.team].outcome = 1
     matchData[pos.match][pos.team].calculatedScore = 145
@@ -168,7 +168,7 @@ func exampleData(){
     matchData[pos.match][pos.team].telePts = 100
     matchData[pos.match][pos.team].capBallPts = 0
     matchData[pos.match][pos.team].capBallDNA = false
-    matchData[pos.match][pos.team].beacons = 2
+    matchData[pos.match][pos.team].beacons = 0
     matchData[pos.match][pos.team].endGamePts = 20
     matchData[pos.match][pos.team].outcome = 1
     matchData[pos.match][pos.team].calculatedScore = 220
