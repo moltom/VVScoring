@@ -243,14 +243,30 @@ class ScoringTeleController: UIViewController {
         }
     }
     @IBAction func r1TCapBallPtsPlus(_ sender: AnyObject) {
-        matchData[currentMatch][0].capBallPts += 10
+        switch (matchData[currentMatch][0].capBallPts){
+        case 0:
+            matchData[currentMatch][0].capBallPts = 10
+        case 10:
+            matchData[currentMatch][0].capBallPts = 20
+        case 20:
+            matchData[currentMatch][0].capBallPts = 40
+        default:
+            break
+        }
         refreshLabels()
     }
     @IBAction func r1CapBallPtsMinus(_ sender: AnyObject) {
-        if matchData[currentMatch][0].capBallPts - 1 >= 0{
-            matchData[currentMatch][0].capBallPts -= 1
-            refreshLabels()
+        switch (matchData[currentMatch][0].capBallPts){
+        case 40:
+            matchData[currentMatch][0].capBallPts = 20
+        case 10:
+            matchData[currentMatch][0].capBallPts = 0
+        case 20:
+            matchData[currentMatch][0].capBallPts = 10
+        default:
+            break
         }
+        refreshLabels()
     }
     @IBAction func r1TCapBallDNA(_ sender: AnyObject) {
         matchData[currentMatch][0].capBallDNA = r1TCapDNA.isOn
@@ -293,14 +309,30 @@ class ScoringTeleController: UIViewController {
         }
     }
     @IBAction func r2TCapBallPtsPlus(_ sender: AnyObject) {
-        matchData[currentMatch][1].capBallPts += 10
+        switch (matchData[currentMatch][1].capBallPts){
+        case 0:
+            matchData[currentMatch][1].capBallPts = 10
+        case 10:
+            matchData[currentMatch][1].capBallPts = 20
+        case 20:
+            matchData[currentMatch][1].capBallPts = 40
+        default:
+            break
+        }
         refreshLabels()
     }
     @IBAction func r2TCapBallPtsMinus(_ sender: AnyObject) {
-        if matchData[currentMatch][1].capBallPts - 1 >= 0{
-            matchData[currentMatch][1].capBallPts -= 1
-            refreshLabels()
+        switch (matchData[currentMatch][1].capBallPts){
+        case 40:
+            matchData[currentMatch][1].capBallPts = 20
+        case 10:
+            matchData[currentMatch][1].capBallPts = 0
+        case 20:
+            matchData[currentMatch][1].capBallPts = 10
+        default:
+            break
         }
+        refreshLabels()
     }
     @IBAction func r2TCapBallDNA(_ sender: AnyObject) {
         matchData[currentMatch][1].capBallDNA = r1TCapDNA.isOn
@@ -330,26 +362,54 @@ class ScoringTeleController: UIViewController {
         refreshLabels()
     }
     @IBAction func b1TBeaconsPlus(_ sender: AnyObject) {
-        if(matchData[currentMatch][2].beacons + matchData[currentMatch][3].beacons - matchData[currentMatch][0].beacons - matchData[currentMatch][1].beacons != 4){
+        if(
+            (
+                
+                (
+                    abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)
+                    ) < 4
+                
+            )
+                &&
+            (
+                matchData[currentMatch][2].beacons >= 0
+            )
+        ) {
             matchData[currentMatch][2].beacons += 1
         }
         refreshLabels()
     }
     @IBAction func b1TBeaconsMinus(_ sender: AnyObject) {
-        if(matchData[currentMatch][0].beacons + matchData[currentMatch][1].beacons - matchData[currentMatch][2].beacons - matchData[currentMatch][3].beacons != -4){
+        if(((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4) && (matchData[currentMatch][2].beacons <= 0)){
             matchData[currentMatch][2].beacons -= 1
         }
         refreshLabels()
     }
     @IBAction func b1TCapBallPtsPlus(_ sender: AnyObject) {
-        matchData[currentMatch][2].capBallPts += 10
+        switch (matchData[currentMatch][2].capBallPts){
+        case 0:
+            matchData[currentMatch][2].capBallPts = 10
+        case 10:
+            matchData[currentMatch][2].capBallPts = 20
+        case 20:
+            matchData[currentMatch][2].capBallPts = 40
+        default:
+            break
+        }
         refreshLabels()
     }
     @IBAction func b1TCapBallPtsMinus(_ sender: AnyObject) {
-        if matchData[currentMatch][2].capBallPts - 1 >= 0{
-            matchData[currentMatch][2].capBallPts -= 1
-            refreshLabels()
+        switch (matchData[currentMatch][2].capBallPts){
+        case 40:
+            matchData[currentMatch][2].capBallPts = 20
+        case 10:
+            matchData[currentMatch][2].capBallPts = 0
+        case 20:
+            matchData[currentMatch][2].capBallPts = 10
+        default:
+            break
         }
+        refreshLabels()
     }
     @IBAction func b1TCapBallDNA(_ sender: AnyObject) {
         matchData[currentMatch][2].capBallDNA = r1TCapDNA.isOn
@@ -391,21 +451,35 @@ class ScoringTeleController: UIViewController {
         }
     }
     @IBAction func b2TCapBallPtsPlus(_ sender: AnyObject) {
-        matchData[currentMatch][3].capBallPts += 10
+        switch (matchData[currentMatch][3].capBallPts){
+        case 0:
+            matchData[currentMatch][3].capBallPts = 10
+        case 10:
+            matchData[currentMatch][3].capBallPts = 20
+        case 20:
+            matchData[currentMatch][3].capBallPts = 40
+        default:
+            break
+        }
         refreshLabels()
     }
     @IBAction func b2TCapBallPtsMinus(_ sender: AnyObject) {
-        if matchData[currentMatch][3].capBallPts - 1 >= 0{
-            matchData[currentMatch][3].capBallPts -= 1
-            refreshLabels()
+        switch (matchData[currentMatch][3].capBallPts){
+        case 40:
+            matchData[currentMatch][3].capBallPts = 20
+        case 10:
+            matchData[currentMatch][3].capBallPts = 0
+        case 20:
+            matchData[currentMatch][3].capBallPts = 10
+        default:
+            break
         }
+        refreshLabels()
     }
     @IBAction func b2TCapBallDNA(_ sender: AnyObject) {
         matchData[currentMatch][3].capBallDNA = r1TCapDNA.isOn
         refreshLabels()
     }
-    
-    
     
     
     
