@@ -231,16 +231,22 @@ class ScoringTeleController: UIViewController {
         }
     }
     @IBAction func r1TBeaconsPlus(_ sender: AnyObject) {
-        if matchData[currentMatch][0].beacons + 1 <= 4{
+        if((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4){
             matchData[currentMatch][0].beacons += 1
-            refreshLabels()
         }
+        else if matchData[currentMatch][0].beacons < 0 {
+            matchData[currentMatch][0].beacons += 1
+        }
+        refreshLabels()
     }
     @IBAction func r1TBeaconsMinus(_ sender: AnyObject) {
-        if matchData[currentMatch][0].beacons - 1 >= -4{
+        if((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4){
             matchData[currentMatch][0].beacons -= 1
-            refreshLabels()
         }
+        else if matchData[currentMatch][0].beacons > 0 {
+            matchData[currentMatch][0].beacons -= 1
+        }
+        refreshLabels()
     }
     @IBAction func r1TCapBallPtsPlus(_ sender: AnyObject) {
         switch (matchData[currentMatch][0].capBallPts){
@@ -297,16 +303,22 @@ class ScoringTeleController: UIViewController {
         }
     }
     @IBAction func r2TBeaconsPlus(_ sender: AnyObject) {
-        if matchData[currentMatch][1].beacons + 1 <= 4{
+        if((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4){
             matchData[currentMatch][1].beacons += 1
-            refreshLabels()
         }
+        else if matchData[currentMatch][1].beacons < 0 {
+            matchData[currentMatch][1].beacons += 1
+        }
+        refreshLabels()
     }
     @IBAction func r2TBeaconsMinus(_ sender: AnyObject) {
-        if matchData[currentMatch][1].beacons - 1 >= -4{
+        if((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4){
             matchData[currentMatch][1].beacons -= 1
-            refreshLabels()
         }
+        else if matchData[currentMatch][1].beacons > 0 {
+            matchData[currentMatch][1].beacons -= 1
+        }
+        refreshLabels()
     }
     @IBAction func r2TCapBallPtsPlus(_ sender: AnyObject) {
         switch (matchData[currentMatch][1].capBallPts){
