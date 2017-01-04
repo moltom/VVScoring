@@ -433,16 +433,22 @@ class ScoringTeleController: UIViewController {
         refreshLabels()
     }
     @IBAction func b2TBeaconsPlus(_ sender: AnyObject) {
-        if matchData[currentMatch][3].beacons + 1 <= 4{
+        if((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4){
             matchData[currentMatch][3].beacons += 1
-            refreshLabels()
         }
+        else if matchData[currentMatch][3].beacons < 0 {
+            matchData[currentMatch][3].beacons += 1
+        }
+        refreshLabels()
     }
     @IBAction func b2TBeaconsMinus(_ sender: AnyObject) {
-        if matchData[currentMatch][3].beacons - 1 >= -4{
+        if((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4){
             matchData[currentMatch][3].beacons -= 1
-            refreshLabels()
         }
+        else if matchData[currentMatch][3].beacons > 0 {
+            matchData[currentMatch][3].beacons -= 1
+        }
+        refreshLabels()
     }
     @IBAction func b2TCapBallPtsPlus(_ sender: AnyObject) {
         switch (matchData[currentMatch][3].capBallPts){
