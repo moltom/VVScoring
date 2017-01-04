@@ -362,25 +362,19 @@ class ScoringTeleController: UIViewController {
         refreshLabels()
     }
     @IBAction func b1TBeaconsPlus(_ sender: AnyObject) {
-        if(
-            (
-                
-                (
-                    abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)
-                    ) < 4
-                
-            )
-                &&
-            (
-                matchData[currentMatch][2].beacons >= 0
-            )
-        ) {
+        if((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4){
+            matchData[currentMatch][2].beacons += 1
+        }
+        else if matchData[currentMatch][2].beacons < 0 {
             matchData[currentMatch][2].beacons += 1
         }
         refreshLabels()
     }
     @IBAction func b1TBeaconsMinus(_ sender: AnyObject) {
-        if(((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4) && (matchData[currentMatch][2].beacons <= 0)){
+        if((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4){
+            matchData[currentMatch][2].beacons -= 1
+        }
+        else if matchData[currentMatch][2].beacons > 0 {
             matchData[currentMatch][2].beacons -= 1
         }
         refreshLabels()
