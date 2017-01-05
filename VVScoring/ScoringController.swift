@@ -295,16 +295,22 @@ class ScoringController: UIViewController {
         
     }
     @IBAction func r1ABeaconsPlus(_ sender: AnyObject) {
-        if matchData[currentMatch][0].autoBeacons + 1 <= 2{
+        if((abs(matchData[currentMatch][2].autoBeacons) + abs(matchData[currentMatch][3].autoBeacons) + abs(matchData[currentMatch][0].autoBeacons) + abs(matchData[currentMatch][1].autoBeacons)) < 4){
             matchData[currentMatch][0].autoBeacons += 1
-            refreshLabels()
         }
+        else if matchData[currentMatch][0].autoBeacons < 0 {
+            matchData[currentMatch][0].autoBeacons += 1
+        }
+        refreshLabels()
     }
     @IBAction func r1ABeaconsMinus(_ sender: AnyObject) {
-        if matchData[currentMatch][0].autoBeacons - 1 >= -2{
+        if((abs(matchData[currentMatch][2].autoBeacons) + abs(matchData[currentMatch][3].autoBeacons) + abs(matchData[currentMatch][0].autoBeacons) + abs(matchData[currentMatch][1].autoBeacons)) < 4){
             matchData[currentMatch][0].autoBeacons -= 1
-            refreshLabels()
         }
+        else if matchData[currentMatch][0].autoBeacons > 0 {
+            matchData[currentMatch][0].autoBeacons -= 1
+        }
+        refreshLabels()
     }
     @IBAction func r1ABeaconsDNA(_ sender: AnyObject) {
         matchData[currentMatch][0].autoBeaconsDNA = r1ABeaconsDNA.isOn
@@ -365,16 +371,22 @@ class ScoringController: UIViewController {
     
     //RED 2
     @IBAction func r2ABeaconsPlus(_ sender: AnyObject) {
-        if matchData[currentMatch][1].autoBeacons + 1 <= 2{
+        if((abs(matchData[currentMatch][2].autoBeacons) + abs(matchData[currentMatch][3].autoBeacons) + abs(matchData[currentMatch][0].autoBeacons) + abs(matchData[currentMatch][1].autoBeacons)) < 4){
             matchData[currentMatch][1].autoBeacons += 1
-            refreshLabels()
         }
+        else if matchData[currentMatch][1].autoBeacons < 0 {
+            matchData[currentMatch][1].autoBeacons += 1
+        }
+        refreshLabels()
     }
     @IBAction func r2ABeaconsMinus(_ sender: AnyObject) {
-        if matchData[currentMatch][1].autoBeacons - 1 >= -2{
+        if((abs(matchData[currentMatch][2].autoBeacons) + abs(matchData[currentMatch][3].autoBeacons) + abs(matchData[currentMatch][0].autoBeacons) + abs(matchData[currentMatch][1].autoBeacons)) < 4){
             matchData[currentMatch][1].autoBeacons -= 1
-            refreshLabels()
         }
+        else if matchData[currentMatch][1].autoBeacons > 0 {
+            matchData[currentMatch][1].autoBeacons -= 1
+        }
+        refreshLabels()
     }
     @IBAction func r2ABeaconsDNA(_ sender: AnyObject) {
         matchData[currentMatch][1].autoBeaconsDNA = r1ABeaconsDNA.isOn
@@ -428,16 +440,22 @@ class ScoringController: UIViewController {
     
     //BLUE 1
     @IBAction func b1ABeaconsPlus(_ sender: AnyObject) {
-        if matchData[currentMatch][2].autoBeacons + 1 <= 2{
+        if((abs(matchData[currentMatch][2].autoBeacons) + abs(matchData[currentMatch][3].autoBeacons) + abs(matchData[currentMatch][0].autoBeacons) + abs(matchData[currentMatch][1].autoBeacons)) < 4){
             matchData[currentMatch][2].autoBeacons += 1
-            refreshLabels()
         }
+        else if matchData[currentMatch][2].autoBeacons < 0 {
+            matchData[currentMatch][2].autoBeacons += 1
+        }
+        refreshLabels()
     }
     @IBAction func b1ABeaconsMinus(_ sender: AnyObject) {
-        if matchData[currentMatch][2].autoBeacons - 1 >= -2{
+        if((abs(matchData[currentMatch][2].autoBeacons) + abs(matchData[currentMatch][3].autoBeacons) + abs(matchData[currentMatch][0].autoBeacons) + abs(matchData[currentMatch][1].autoBeacons)) < 4){
             matchData[currentMatch][2].autoBeacons -= 1
-            refreshLabels()
         }
+        else if matchData[currentMatch][2].autoBeacons > 0 {
+            matchData[currentMatch][2].autoBeacons -= 1
+        }
+        refreshLabels()
     }
     @IBAction func b1ABeaconsDNA(_ sender: AnyObject) {
         matchData[currentMatch][2].autoBeaconsDNA = r1ABeaconsDNA.isOn
@@ -491,16 +509,22 @@ class ScoringController: UIViewController {
     
     //BLUE 2
     @IBAction func b2ABeaconsPlus(_ sender: AnyObject) {
-        if matchData[currentMatch][3].autoBeacons + 1 <= 2{
+        if((abs(matchData[currentMatch][2].autoBeacons) + abs(matchData[currentMatch][3].autoBeacons) + abs(matchData[currentMatch][0].autoBeacons) + abs(matchData[currentMatch][1].autoBeacons)) < 4){
             matchData[currentMatch][3].autoBeacons += 1
-            refreshLabels()
         }
+        else if matchData[currentMatch][3].autoBeacons < 0 {
+            matchData[currentMatch][3].autoBeacons += 1
+        }
+        refreshLabels()
     }
     @IBAction func b2ABeaconsMinus(_ sender: AnyObject) {
-        if matchData[currentMatch][3].autoBeacons - 1 >= -2{
+        if((abs(matchData[currentMatch][2].autoBeacons) + abs(matchData[currentMatch][3].autoBeacons) + abs(matchData[currentMatch][0].autoBeacons) + abs(matchData[currentMatch][1].autoBeacons)) < 4){
             matchData[currentMatch][3].autoBeacons -= 1
-            refreshLabels()
         }
+        else if matchData[currentMatch][3].autoBeacons > 0 {
+            matchData[currentMatch][3].autoBeacons -= 1
+        }
+        refreshLabels()
     }
     @IBAction func b2ABeaconsDNA(_ sender: AnyObject) {
         matchData[currentMatch][3].autoBeaconsDNA = r1ABeaconsDNA.isOn
