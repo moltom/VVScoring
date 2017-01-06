@@ -19,12 +19,6 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //POTATOES
-        //POTATOES
-        //teams.append((name: "The Q is Silqent", number: 7655, fav: false))
-        
-        
-        
         tableView.register(RankingsCell.self, forCellReuseIdentifier: cellReuseIdendifier)
         
         tableView.dataSource = self
@@ -40,7 +34,7 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
@@ -78,8 +72,8 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         let dat = sortTeamsBy(mode: "number", dir: 0)
         let t = dat[indexPath.row]
         
-        cell.labels["number"]?.Label.text = String(t.number)
-        cell.labels["name"]?.Label.text = teamList[String(t.number)]?.name
+        cell.labels["number"]?.Label.text = findNumber(indexPath.row)
+        cell.labels["name"]?.Label.text = teamList[findNumber(indexPath.row)]?.name
         cell.labels["rank"]?.Label.text = "1"
         cell.labels["wins"]?.Label.text = String(getAverages(num: t.number).wins)
         cell.labels["losses"]?.Label.text = String(getAverages(num: t.number).losses)

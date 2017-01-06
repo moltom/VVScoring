@@ -25,3 +25,14 @@ extension String
         return range(of: string, options: .literal, range: nil, locale: nil)?.lowerBound
     }
 }
+
+func findNumber(_ index: Int) -> String{
+    var counter = 0
+    for (name, _) in teamList{
+        if counter == index{
+            return name
+        }
+        counter += 1
+    }
+    return ""
+}

@@ -16,8 +16,6 @@ class TournamentSelectController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        _ = readTournamentList()
         
         self.showAnimate()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.7)

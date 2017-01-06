@@ -30,11 +30,23 @@ func readMatchDataFromFile(file: String) -> Bool{
         do{
             let fullText = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
             let lines = fullText.components(separatedBy: "\n") as [String]
-            for i in 2..<lines.count{
-                let data = lines[i].components(separatedBy: ",")
+            
+            //Get team list
+            teamList = [:]
+            let teamInfo = lines[1].components(separatedBy: ",")
+            for f in stride(from: 0, through: teamInfo.count-1, by: 3) {
+                teamList[teamInfo[f]] = (name: teamInfo[f+1], fav: Bool(teamInfo[f+2])!)
+                //print(teamList[teamInfo[f]])
+            }
+            
+            //Get match data
+            matchData = []
+            for k in 2..<lines.count-1{
+                let data = lines[k].components(separatedBy: ",")
                 var tmp = 0
+                var i = 0
+                matchData.append([teamInMatch(), teamInMatch(),teamInMatch(),teamInMatch()])
                 for j in 0..<4{
-                    //matchData[i][j] = data[j]
                     matchData[i][j].number = Int(data[tmp+0])!
                     matchData[i][j].match = Int(data[tmp+1])!
                     matchData[i][j].autoCorner = Int(data[tmp+2])!
@@ -58,6 +70,7 @@ func readMatchDataFromFile(file: String) -> Bool{
                     matchData[i][j].officialScore = Int(data[tmp+20])!
                     tmp += 21
                 }
+                i += 1
             }
             return true
         }catch{
@@ -142,30 +155,31 @@ func writeMatchDataToFile(fileName: String){
 }
 
 //TOURNAMENT CONTROL
-func readTournamentList() -> Bool{
+func readTournamentList(){
     let path = Bundle.main.path(forResource: "tournaments", ofType: "txt")
     let fm = FileManager.default
     
+    //Checks if file exists
     if fm.fileExists(atPath: path!){
         do{
             let fullText = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
             let lines = fullText.components(separatedBy: "\n") as [String]
             var index = 0
+            
+            //Increment through lines
+            tournamentList = []
             for i in 1..<lines.count-1{
                 let data = lines[i].components(separatedBy: ",")
+                tournamentList.append(tournament())
                 tournamentList[index].name = data[0]
                 tournamentList[index].type = data[1]
                 tournamentList[index].date = data[2]
                 tournamentList[index].fileLocation = data[3]
                 index += 1
             }
-            return true
         }catch{
-            return false
+            print("Error in tournament read")
         }
-    }
-    else{
-        return false
     }
 }
 

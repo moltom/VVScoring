@@ -14,7 +14,7 @@ class MenuController: UIViewController {
         super.viewDidLoad()
 
         //LEAVE THIS HERE PLEASE
-        exampleData()
+        //exampleData()
         //----------------------
         // Do any additional setup after loading the view.
     }
