@@ -36,3 +36,12 @@ func findNumber(_ index: Int) -> String{
     }
     return ""
 }
+
+func absn(_ num: Int) -> Int{
+    if(num >= 0){
+        return num
+    }
+    else{
+        return -num
+    }
+}

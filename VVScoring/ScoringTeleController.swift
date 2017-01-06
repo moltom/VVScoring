@@ -253,7 +253,7 @@ class ScoringTeleController: UIViewController {
         }
     }
     @IBAction func r1TBeaconsPlus(_ sender: AnyObject) {
-        if((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4){
+        if((absn(matchData[currentMatch][2].beacons) + absn(matchData[currentMatch][3].beacons) + absn(matchData[currentMatch][0].beacons) + absn(matchData[currentMatch][1].beacons)) < 4){
             matchData[currentMatch][0].beacons += 1
         }
         else if matchData[currentMatch][0].beacons < 0 {
@@ -262,7 +262,7 @@ class ScoringTeleController: UIViewController {
         refreshLabels()
     }
     @IBAction func r1TBeaconsMinus(_ sender: AnyObject) {
-        if((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4){
+        if((absn(matchData[currentMatch][2].beacons) + absn(matchData[currentMatch][3].beacons) + absn(matchData[currentMatch][0].beacons) + absn(matchData[currentMatch][1].beacons)) < 4){
             matchData[currentMatch][0].beacons -= 1
         }
         else if matchData[currentMatch][0].beacons > 0 {
@@ -325,7 +325,7 @@ class ScoringTeleController: UIViewController {
         }
     }
     @IBAction func r2TBeaconsPlus(_ sender: AnyObject) {
-        if((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4){
+        if((absn(matchData[currentMatch][2].beacons) + absn(matchData[currentMatch][3].beacons) + absn(matchData[currentMatch][0].beacons) + absn(matchData[currentMatch][1].beacons)) < 4){
             matchData[currentMatch][1].beacons += 1
         }
         else if matchData[currentMatch][1].beacons < 0 {
@@ -334,7 +334,7 @@ class ScoringTeleController: UIViewController {
         refreshLabels()
     }
     @IBAction func r2TBeaconsMinus(_ sender: AnyObject) {
-        if((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4){
+        if((absn(matchData[currentMatch][2].beacons) + absn(matchData[currentMatch][3].beacons) + absn(matchData[currentMatch][0].beacons) + absn(matchData[currentMatch][1].beacons)) < 4){
             matchData[currentMatch][1].beacons -= 1
         }
         else if matchData[currentMatch][1].beacons > 0 {
@@ -396,7 +396,7 @@ class ScoringTeleController: UIViewController {
         refreshLabels()
     }
     @IBAction func b1TBeaconsPlus(_ sender: AnyObject) {
-        if((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4){
+        if((absn(matchData[currentMatch][2].beacons) + absn(matchData[currentMatch][3].beacons) + absn(matchData[currentMatch][0].beacons) + absn(matchData[currentMatch][1].beacons)) < 4){
             matchData[currentMatch][2].beacons += 1
         }
         else if matchData[currentMatch][2].beacons < 0 {
@@ -405,7 +405,7 @@ class ScoringTeleController: UIViewController {
         refreshLabels()
     }
     @IBAction func b1TBeaconsMinus(_ sender: AnyObject) {
-        if((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4){
+        if((absn(matchData[currentMatch][2].beacons) + absn(matchData[currentMatch][3].beacons) + absn(matchData[currentMatch][0].beacons) + absn(matchData[currentMatch][1].beacons)) < 4){
             matchData[currentMatch][2].beacons -= 1
         }
         else if matchData[currentMatch][2].beacons > 0 {
@@ -467,7 +467,7 @@ class ScoringTeleController: UIViewController {
         refreshLabels()
     }
     @IBAction func b2TBeaconsPlus(_ sender: AnyObject) {
-        if((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4){
+        if((absn(matchData[currentMatch][2].beacons) + absn(matchData[currentMatch][3].beacons) + absn(matchData[currentMatch][0].beacons) + absn(matchData[currentMatch][1].beacons)) < 4){
             matchData[currentMatch][3].beacons += 1
         }
         else if matchData[currentMatch][3].beacons < 0 {
@@ -476,7 +476,7 @@ class ScoringTeleController: UIViewController {
         refreshLabels()
     }
     @IBAction func b2TBeaconsMinus(_ sender: AnyObject) {
-        if((abs(matchData[currentMatch][2].beacons) + abs(matchData[currentMatch][3].beacons) + abs(matchData[currentMatch][0].beacons) + abs(matchData[currentMatch][1].beacons)) < 4){
+        if((absn(matchData[currentMatch][2].beacons) + absn(matchData[currentMatch][3].beacons) + absn(matchData[currentMatch][0].beacons) + absn(matchData[currentMatch][1].beacons)) < 4){
             matchData[currentMatch][3].beacons -= 1
         }
         else if matchData[currentMatch][3].beacons > 0 {
