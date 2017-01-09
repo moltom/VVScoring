@@ -76,98 +76,114 @@ class ScoringController: UIViewController {
         
         //Calculate and score the calculated data points
         
-        var red1 = matchData[currentMatch][0]
-        var red2 = matchData[currentMatch][1]
-        var blue1 = matchData[currentMatch][2]
-        var blue2 = matchData[currentMatch][3]
+        let r1neg = matchData[currentMatch][0].autoBeacons < 0
+        let r2neg = matchData[currentMatch][1].autoBeacons < 0
+        let b1neg = matchData[currentMatch][2].autoBeacons < 0
+        let b2neg = matchData[currentMatch][3].autoBeacons < 0
+        
+        //RED 1
+        matchData[currentMatch][0].autoPts = (matchData[currentMatch][0].autoCorner * 5) + (matchData[currentMatch][0].autoVortex * 15) + matchData[currentMatch][0].parkPts + matchData[currentMatch][0].autoCapBallPts
+        if(!r1neg){
+            matchData[currentMatch][0].autoPts += matchData[currentMatch][0].autoBeacons * 30
+        }
+        matchData[currentMatch][0].telePts = matchData[currentMatch][0].cornerBalls + (matchData[currentMatch][0].vortexBalls * 5)
+        matchData[currentMatch][0].endGamePts = (matchData[currentMatch][0].beacons * 10) + matchData[currentMatch][0].capBallPts
+        matchData[currentMatch][0].calculatedScore = matchData[currentMatch][0].autoPts + matchData[currentMatch][0].telePts + matchData[currentMatch][0].endGamePts
         
         
-        //RED
-        red1.autoPts = (red1.autoCorner * 5) + (red1.autoVortex * 15) + (red1.autoBeacons * 30) + red1.parkPts + red1.autoCapBallPts
-        red1.telePts = red1.cornerBalls + (red1.vortexBalls * 5)
-        red1.endGamePts = (red1.beacons * 10) + red1.capBallPts
-        red1.calculatedScore = red1.autoPts + red1.telePts + red1.endGamePts
+        //RED 2
+        matchData[currentMatch][1].autoPts = (matchData[currentMatch][1].autoCorner * 5) + (matchData[currentMatch][1].autoVortex * 15) + matchData[currentMatch][1].parkPts + matchData[currentMatch][1].autoCapBallPts
+        if(!r2neg){
+            matchData[currentMatch][1].autoPts += matchData[currentMatch][1].autoBeacons * 30
+        }
+        matchData[currentMatch][1].telePts = matchData[currentMatch][1].cornerBalls + (matchData[currentMatch][1].vortexBalls * 5)
+        matchData[currentMatch][1].endGamePts = (matchData[currentMatch][1].beacons * 10) + matchData[currentMatch][1].capBallPts
+        matchData[currentMatch][1].calculatedScore = matchData[currentMatch][1].autoPts + matchData[currentMatch][1].telePts + matchData[currentMatch][1].endGamePts
         
-        red2.autoPts = (red2.autoCorner * 5) + (red2.autoVortex * 15) + (red2.autoBeacons * 30) + red2.parkPts + red2.autoCapBallPts
-        red2.telePts = red2.cornerBalls + (red2.vortexBalls * 5)
-        red2.endGamePts = (red2.beacons * 10) + red2.capBallPts
-        red2.calculatedScore = red2.autoPts + red2.telePts + red2.endGamePts
+        matchData[currentMatch][0].allianceScore = matchData[currentMatch][0].calculatedScore + matchData[currentMatch][1].calculatedScore
+        matchData[currentMatch][1].allianceScore = matchData[currentMatch][0].calculatedScore + matchData[currentMatch][1].calculatedScore
         
-        red1.allianceScore = red1.calculatedScore + red2.calculatedScore
-        red2.allianceScore = red1.calculatedScore + red2.calculatedScore
         
-        //BLUE
-        blue1.autoPts = (blue1.autoCorner * 5) + (blue1.autoVortex * 15) + (blue1.autoBeacons * 30) + blue1.parkPts + blue1.autoCapBallPts
-        blue1.telePts = blue1.cornerBalls + (blue1.vortexBalls * 5)
-        blue1.endGamePts = (blue1.beacons * 10) + blue1.capBallPts
-        blue1.calculatedScore = blue1.autoPts + blue1.telePts + blue1.endGamePts
+        //BLUE 1
+        matchData[currentMatch][2].autoPts = (matchData[currentMatch][2].autoCorner * 5) + (matchData[currentMatch][2].autoVortex * 15) + matchData[currentMatch][2].parkPts + matchData[currentMatch][2].autoCapBallPts
+        if(!b1neg){
+            matchData[currentMatch][2].autoPts += matchData[currentMatch][2].autoBeacons * 30
+        }
+        matchData[currentMatch][2].telePts = matchData[currentMatch][2].cornerBalls + (matchData[currentMatch][2].vortexBalls * 5)
+        matchData[currentMatch][2].endGamePts = (matchData[currentMatch][2].beacons * 10) + matchData[currentMatch][2].capBallPts
+        matchData[currentMatch][2].calculatedScore = matchData[currentMatch][2].autoPts + matchData[currentMatch][2].telePts + matchData[currentMatch][2].endGamePts
         
-        blue2.autoPts = (blue2.autoCorner * 5) + (blue2.autoVortex * 15) + (blue2.autoBeacons * 30) + blue2.parkPts + blue2.autoCapBallPts
-        blue2.telePts = blue2.cornerBalls + (blue2.vortexBalls * 5)
-        blue2.endGamePts = (blue2.beacons * 10) + blue2.capBallPts
-        blue2.calculatedScore = blue2.autoPts + blue2.telePts + blue2.endGamePts
         
-        blue1.allianceScore = blue1.calculatedScore + blue2.calculatedScore
-        blue2.allianceScore = blue1.calculatedScore + blue2.calculatedScore
+        //BLUE 2
+        matchData[currentMatch][3].autoPts = (matchData[currentMatch][3].autoCorner * 5) + (matchData[currentMatch][3].autoVortex * 15) + matchData[currentMatch][3].parkPts + matchData[currentMatch][3].autoCapBallPts
+        if(!b2neg){
+            matchData[currentMatch][3].autoPts += matchData[currentMatch][3].autoBeacons * 30
+        }
+        matchData[currentMatch][3].telePts = matchData[currentMatch][3].cornerBalls + (matchData[currentMatch][3].vortexBalls * 5)
+        matchData[currentMatch][3].endGamePts = (matchData[currentMatch][3].beacons * 10) + matchData[currentMatch][3].capBallPts
+        matchData[currentMatch][3].calculatedScore = matchData[currentMatch][3].autoPts + matchData[currentMatch][3].telePts + matchData[currentMatch][3].endGamePts
+        
+        matchData[currentMatch][2].allianceScore = matchData[currentMatch][2].calculatedScore + matchData[currentMatch][3].calculatedScore
+        matchData[currentMatch][3].allianceScore = matchData[currentMatch][2].calculatedScore + matchData[currentMatch][3].calculatedScore
 
         
         
         //Check if beacons were scored for the other teams
         
         //Auto
-        if(blue1.autoBeacons < 0){
-            red1.allianceScore += (blue1.autoBeacons * 30)
-            red2.allianceScore += (blue1.autoBeacons * 30)
+        if(matchData[currentMatch][2].autoBeacons < 0){
+            matchData[currentMatch][0].allianceScore += (matchData[currentMatch][2].autoBeacons * 30)
+            matchData[currentMatch][1].allianceScore += (matchData[currentMatch][2].autoBeacons * 30)
         }
-        if(blue2.autoBeacons < 0){
-            red1.allianceScore += (blue2.autoBeacons * 30)
-            red2.allianceScore += (blue2.autoBeacons * 30)
+        if(matchData[currentMatch][3].autoBeacons < 0){
+            matchData[currentMatch][0].allianceScore += (matchData[currentMatch][3].autoBeacons * 30)
+            matchData[currentMatch][1].allianceScore += (matchData[currentMatch][3].autoBeacons * 30)
         }
-        if(red1.autoBeacons < 0){
-            blue1.allianceScore += (red1.autoBeacons * 30)
-            blue2.allianceScore += (red1.autoBeacons * 30)
+        if(matchData[currentMatch][0].autoBeacons < 0){
+            matchData[currentMatch][2].allianceScore += (matchData[currentMatch][0].autoBeacons * 30)
+            matchData[currentMatch][3].allianceScore += (matchData[currentMatch][0].autoBeacons * 30)
         }
-        if(red2.autoBeacons < 0){
-            blue1.allianceScore += (red2.autoBeacons * 30)
-            blue2.allianceScore += (red2.autoBeacons * 30)
+        if(matchData[currentMatch][1].autoBeacons < 0){
+            matchData[currentMatch][2].allianceScore += (matchData[currentMatch][1].autoBeacons * 30)
+            matchData[currentMatch][3].allianceScore += (matchData[currentMatch][1].autoBeacons * 30)
         }
         
         //Tele
-        if(blue1.beacons < 0){
-            red1.allianceScore += (blue1.beacons * 10)
-            red2.allianceScore += (blue1.beacons * 10)
+        if(matchData[currentMatch][2].beacons < 0){
+            matchData[currentMatch][0].allianceScore += (matchData[currentMatch][2].beacons * 10)
+            matchData[currentMatch][1].allianceScore += (matchData[currentMatch][2].beacons * 10)
         }
-        if(blue2.beacons < 0){
-            red1.allianceScore += (blue2.beacons * 10)
-            red2.allianceScore += (blue2.beacons * 10)
+        if(matchData[currentMatch][3].beacons < 0){
+            matchData[currentMatch][0].allianceScore += (matchData[currentMatch][3].beacons * 10)
+            matchData[currentMatch][1].allianceScore += (matchData[currentMatch][3].beacons * 10)
         }
-        if(red1.beacons < 0){
-            blue1.allianceScore += (red1.beacons * 10)
-            blue2.allianceScore += (red1.beacons * 10)
+        if(matchData[currentMatch][0].beacons < 0){
+            matchData[currentMatch][2].allianceScore += (matchData[currentMatch][0].beacons * 10)
+            matchData[currentMatch][3].allianceScore += (matchData[currentMatch][0].beacons * 10)
         }
-        if(red2.beacons < 0){
-            blue1.allianceScore += (red2.beacons * 10)
-            blue2.allianceScore += (red2.beacons * 10)
+        if(matchData[currentMatch][1].beacons < 0){
+            matchData[currentMatch][2].allianceScore += (matchData[currentMatch][1].beacons * 10)
+            matchData[currentMatch][3].allianceScore += (matchData[currentMatch][1].beacons * 10)
         }
         
         
-        if(red1.allianceScore > blue1.allianceScore){
-            red1.outcome = 0
-            red2.outcome = 0
-            blue1.outcome = 1
-            blue1.outcome = 1
+        if(matchData[currentMatch][0].allianceScore > matchData[currentMatch][2].allianceScore){
+            matchData[currentMatch][0].outcome = 0
+            matchData[currentMatch][1].outcome = 0
+            matchData[currentMatch][2].outcome = 1
+            matchData[currentMatch][2].outcome = 1
         }
-        else if(red1.allianceScore < blue1.allianceScore){
-            red1.outcome = 1
-            red2.outcome = 1
-            blue1.outcome = 0
-            blue1.outcome = 0
+        else if(matchData[currentMatch][0].allianceScore < matchData[currentMatch][2].allianceScore){
+            matchData[currentMatch][0].outcome = 1
+            matchData[currentMatch][1].outcome = 1
+            matchData[currentMatch][2].outcome = 0
+            matchData[currentMatch][2].outcome = 0
         }
         else{
-            red1.outcome = 2
-            red2.outcome = 2
-            blue1.outcome = 2
-            blue2.outcome = 2
+            matchData[currentMatch][0].outcome = 2
+            matchData[currentMatch][1].outcome = 2
+            matchData[currentMatch][2].outcome = 2
+            matchData[currentMatch][3].outcome = 2
         }
         
         
@@ -280,17 +296,17 @@ class ScoringController: UIViewController {
 
         
         
-        r1AScore.text = String(red1.autoPts)
-        r1MatchScore.text = String(red1.calculatedScore)
-        r2AScore.text = String(red2.autoPts)
-        r2MatchScore.text = String(red2.calculatedScore)
-        redAllianceScore.text = String(red1.allianceScore)
+        r1AScore.text = String(matchData[currentMatch][0].autoPts)
+        r1MatchScore.text = String(matchData[currentMatch][0].calculatedScore)
+        r2AScore.text = String(matchData[currentMatch][1].autoPts)
+        r2MatchScore.text = String(matchData[currentMatch][1].calculatedScore)
+        redAllianceScore.text = String(matchData[currentMatch][0].allianceScore)
         
-        b1AScore.text = String(blue1.autoPts)
-        b1MatchScore.text = String(blue1.calculatedScore)
-        b2AScore.text = String(blue2.autoPts)
-        b2MatchScore.text = String(blue2.calculatedScore)
-        blueAllianceScore.text = String(blue2.allianceScore)
+        b1AScore.text = String(matchData[currentMatch][2].autoPts)
+        b1MatchScore.text = String(matchData[currentMatch][2].calculatedScore)
+        b2AScore.text = String(matchData[currentMatch][3].autoPts)
+        b2MatchScore.text = String(matchData[currentMatch][3].calculatedScore)
+        blueAllianceScore.text = String(matchData[currentMatch][3].allianceScore)
         
         
     }

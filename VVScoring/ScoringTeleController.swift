@@ -58,10 +58,10 @@ class ScoringTeleController: UIViewController {
     //SCORING
     func refreshLabels(){
         
-        let r1neg = matchData[currentMatch][0].autoBeacons < 0
-        let r2neg = matchData[currentMatch][1].autoBeacons < 0
-        let b1neg = matchData[currentMatch][2].autoBeacons < 0
-        let b2neg = matchData[currentMatch][3].autoBeacons < 0
+        let r1neg = matchData[currentMatch][0].beacons < 0
+        let r2neg = matchData[currentMatch][1].beacons < 0
+        let b1neg = matchData[currentMatch][2].beacons < 0
+        let b2neg = matchData[currentMatch][3].beacons < 0
         
         //Calculate and score the calculated data points
         
@@ -212,15 +212,15 @@ class ScoringTeleController: UIViewController {
         blueAllianceScore.text = String(matchData[currentMatch][2].allianceScore)
         
         
-        r1TScore.text = String(matchData[currentMatch][0].telePts)
+        r1TScore.text = String(matchData[currentMatch][0].telePts + matchData[currentMatch][0].endGamePts)
         r1TMatchScore.text = String(matchData[currentMatch][0].calculatedScore)
-        r2TScore.text = String(matchData[currentMatch][1].telePts)
+        r2TScore.text = String(matchData[currentMatch][1].telePts + matchData[currentMatch][1].endGamePts)
         r2TMatchScore.text = String(matchData[currentMatch][1].calculatedScore)
         redAllianceScore.text = String(matchData[currentMatch][0].allianceScore)
         
-        b1TScore.text = String(matchData[currentMatch][2].telePts)
+        b1TScore.text = String(matchData[currentMatch][2].telePts + matchData[currentMatch][2].endGamePts)
         b1TMatchScore.text = String(matchData[currentMatch][2].calculatedScore)
-        b2TScore.text = String(matchData[currentMatch][3].telePts)
+        b2TScore.text = String(matchData[currentMatch][3].telePts + matchData[currentMatch][3].endGamePts)
         b2TMatchScore.text = String(matchData[currentMatch][3].calculatedScore)
         blueAllianceScore.text = String(matchData[currentMatch][3].allianceScore)
         

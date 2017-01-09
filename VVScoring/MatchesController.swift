@@ -27,8 +27,15 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     @IBAction func addMatchTriggered(_ sender: AnyObject) {
-        matchData.append([teamInMatch(),teamInMatch(),teamInMatch(),teamInMatch()])
-        tView.reloadData()
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "newMatch") as! NewMatchController
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
+        
+        
+        /*matchData.append([teamInMatch(),teamInMatch(),teamInMatch(),teamInMatch()])
+        tView.reloadData()*/
     }
     
     override func didReceiveMemoryWarning() {
