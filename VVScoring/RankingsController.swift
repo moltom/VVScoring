@@ -69,7 +69,7 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdendifier, for: indexPath as IndexPath) as! RankingsCell
         
         //Data for Cells
-        let dat = sortTeamsBy(mode: "number", dir: 0)
+        let dat = sortTeamsBy(mode: "number", dir: 0).averages
         let t = dat[indexPath.row]
         
         cell.labels["number"]?.Label.text = findNumber(indexPath.row)
