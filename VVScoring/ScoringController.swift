@@ -132,38 +132,38 @@ class ScoringController: UIViewController {
         
         //Auto
         if(matchData[currentMatch][2].autoBeacons < 0){
-            matchData[currentMatch][0].allianceScore += (matchData[currentMatch][2].autoBeacons * 30)
-            matchData[currentMatch][1].allianceScore += (matchData[currentMatch][2].autoBeacons * 30)
+            matchData[currentMatch][0].allianceScore -= (matchData[currentMatch][2].autoBeacons * 30)
+            matchData[currentMatch][1].allianceScore -= (matchData[currentMatch][2].autoBeacons * 30)
         }
         if(matchData[currentMatch][3].autoBeacons < 0){
-            matchData[currentMatch][0].allianceScore += (matchData[currentMatch][3].autoBeacons * 30)
-            matchData[currentMatch][1].allianceScore += (matchData[currentMatch][3].autoBeacons * 30)
+            matchData[currentMatch][0].allianceScore -= (matchData[currentMatch][3].autoBeacons * 30)
+            matchData[currentMatch][1].allianceScore -= (matchData[currentMatch][3].autoBeacons * 30)
         }
         if(matchData[currentMatch][0].autoBeacons < 0){
-            matchData[currentMatch][2].allianceScore += (matchData[currentMatch][0].autoBeacons * 30)
-            matchData[currentMatch][3].allianceScore += (matchData[currentMatch][0].autoBeacons * 30)
+            matchData[currentMatch][2].allianceScore -= (matchData[currentMatch][0].autoBeacons * 30)
+            matchData[currentMatch][3].allianceScore -= (matchData[currentMatch][0].autoBeacons * 30)
         }
         if(matchData[currentMatch][1].autoBeacons < 0){
-            matchData[currentMatch][2].allianceScore += (matchData[currentMatch][1].autoBeacons * 30)
-            matchData[currentMatch][3].allianceScore += (matchData[currentMatch][1].autoBeacons * 30)
+            matchData[currentMatch][2].allianceScore -= (matchData[currentMatch][1].autoBeacons * 30)
+            matchData[currentMatch][3].allianceScore -= (matchData[currentMatch][1].autoBeacons * 30)
         }
         
         //Tele
         if(matchData[currentMatch][2].beacons < 0){
-            matchData[currentMatch][0].allianceScore += (matchData[currentMatch][2].beacons * 10)
-            matchData[currentMatch][1].allianceScore += (matchData[currentMatch][2].beacons * 10)
+            matchData[currentMatch][0].allianceScore -= (matchData[currentMatch][2].beacons * 10)
+            matchData[currentMatch][1].allianceScore -= (matchData[currentMatch][2].beacons * 10)
         }
         if(matchData[currentMatch][3].beacons < 0){
-            matchData[currentMatch][0].allianceScore += (matchData[currentMatch][3].beacons * 10)
-            matchData[currentMatch][1].allianceScore += (matchData[currentMatch][3].beacons * 10)
+            matchData[currentMatch][0].allianceScore -= (matchData[currentMatch][3].beacons * 10)
+            matchData[currentMatch][1].allianceScore -= (matchData[currentMatch][3].beacons * 10)
         }
         if(matchData[currentMatch][0].beacons < 0){
-            matchData[currentMatch][2].allianceScore += (matchData[currentMatch][0].beacons * 10)
-            matchData[currentMatch][3].allianceScore += (matchData[currentMatch][0].beacons * 10)
+            matchData[currentMatch][2].allianceScore -= (matchData[currentMatch][0].beacons * 10)
+            matchData[currentMatch][3].allianceScore -= (matchData[currentMatch][0].beacons * 10)
         }
         if(matchData[currentMatch][1].beacons < 0){
-            matchData[currentMatch][2].allianceScore += (matchData[currentMatch][1].beacons * 10)
-            matchData[currentMatch][3].allianceScore += (matchData[currentMatch][1].beacons * 10)
+            matchData[currentMatch][2].allianceScore -= (matchData[currentMatch][1].beacons * 10)
+            matchData[currentMatch][3].allianceScore -= (matchData[currentMatch][1].beacons * 10)
         }
         
         
