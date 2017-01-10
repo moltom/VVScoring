@@ -180,7 +180,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Match"/>
                                 <connections>
-                                    <action selector="addMatchTriggered:" destination="Ji8-FH-2SI" eventType="touchUpInside" id="Hcs-9w-Qlf"/>
+                                    <segue destination="uKB-3f-3XF" kind="popoverPresentation" identifier="popoverSegue" popoverAnchorView="g0M-gT-FMJ" id="4o7-8J-PIO">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -213,10 +215,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="363"/>
         </scene>
-        <!--View Controller-->
+        <!--New Match Controller-->
         <scene sceneID="kpH-2I-Wy8">
             <objects>
-                <viewController id="uKB-3f-3XF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newMatch" id="uKB-3f-3XF" customClass="NewMatchController" customModule="VVScoring" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="phI-YX-rPt"/>
                         <viewControllerLayoutGuide type="bottom" id="8EH-XA-hxX"/>
@@ -254,7 +256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U3Z-OZ-uI1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1762" y="-108"/>
+            <point key="canvasLocation" x="1762" y="-140"/>
         </scene>
         <!--Scoring Controller-->
         <scene sceneID="SoR-gj-tef">

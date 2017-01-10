@@ -26,17 +26,11 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
         // Do any additional setup after loading the view.
     }
     
+    /*
     @IBAction func addMatchTriggered(_ sender: AnyObject) {
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "newMatch") as! NewMatchController
-        self.addChildViewController(popOverVC)
-        popOverVC.view.frame = self.view.frame
-        self.view.addSubview(popOverVC.view)
-        popOverVC.didMove(toParentViewController: self)
-        
-        
         /*matchData.append([teamInMatch(),teamInMatch(),teamInMatch(),teamInMatch()])
         tView.reloadData()*/
-    }
+    }*/
     
     //POPOVER
     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
