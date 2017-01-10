@@ -10,7 +10,7 @@ import UIKit
 
 var currentMatch = 0
 
-class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
     let cellReuseIdendifier = "MatchCell"
     
@@ -37,6 +37,20 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
         /*matchData.append([teamInMatch(),teamInMatch(),teamInMatch(),teamInMatch()])
         tView.reloadData()*/
     }
+    
+    //POPOVER
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "popoverSegue" {
+            let popoverViewController = segue.destination as! NewMatchController
+            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+            popoverViewController.popoverPresentationController!.delegate = self
+        }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
+    }
+    //-------
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
