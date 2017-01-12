@@ -242,7 +242,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihl-AI-1t4">
-                                <frame key="frameInset" minX="26" minY="50" width="76" height="30"/>
+                                <frame key="frameInset" minX="25" minY="50" width="76" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Semifinal 2"/>
                                 <connections>
@@ -250,27 +250,27 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x82-RR-lE6">
-                                <frame key="frameInset" minX="42" minY="76" width="40" height="30"/>
+                                <frame key="frameInset" minX="43" minY="74" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Finals"/>
                                 <connections>
                                     <action selector="F:" destination="uKB-3f-3XF" eventType="touchUpInside" id="TaK-kb-TEc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31T-f1-6if">
-                                <frame key="frameInset" minX="13" minY="100" width="99" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Championship"/>
-                                <connections>
-                                    <action selector="C:" destination="uKB-3f-3XF" eventType="touchUpInside" id="xbU-W4-GaI"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sM1-WI-Y9W">
-                                <frame key="frameInset" minX="27" minY="26" width="74" height="30"/>
+                                <frame key="frameInset" minX="25" minY="26" width="74" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Semifinal 1"/>
                                 <connections>
                                     <action selector="SF1:" destination="uKB-3f-3XF" eventType="touchUpInside" id="YTH-fC-P6V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31T-f1-6if">
+                                <frame key="frameInset" minX="14" minY="100" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Championship"/>
+                                <connections>
+                                    <action selector="C:" destination="uKB-3f-3XF" eventType="touchUpInside" id="xbU-W4-GaI"/>
                                 </connections>
                             </button>
                         </subviews>
