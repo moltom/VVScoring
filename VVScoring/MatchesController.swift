@@ -138,7 +138,7 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         //Blue Score
         if matchData[nindex][2].allianceScore == -1{
-            cell.labels["rscore"]?.Label.text = "-"
+            cell.labels["bscore"]?.Label.text = "-"
         }else{
             if matchData[nindex][2].officialScore == -1{
                 cell.labels["bscore"]?.Label.text = String(matchData[nindex][2].allianceScore)
