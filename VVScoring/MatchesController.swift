@@ -12,6 +12,7 @@ var currentMatch = 0
 
 class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
+    
     let cellReuseIdendifier = "MatchCell"
     
     @IBOutlet weak var tView: UITableView!
@@ -24,6 +25,17 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
         tView.dataSource = self
         tView.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool){
+        tView.reloadData()
+    }
+    
+    func reloadMatchTable(){
+        if let _ = tView{
+            tView.reloadData()
+        }
     }
     
     /*
