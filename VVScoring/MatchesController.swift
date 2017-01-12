@@ -25,7 +25,10 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
         tView.register(MatchCell.self, forCellReuseIdentifier: self.cellReuseIdendifier)
         tView.dataSource = self
         tView.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector (MatchesController.loadList(notification:)),name:NSNotification.Name(rawValue: "load"), object: nil)
     }
+    
+    
     
     @IBAction func popover(_ sender: AnyObject) {
         // get a reference to the view controller for the popover
@@ -44,15 +47,15 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.present(popController, animated: true, completion: nil)
     }
     
-    override func viewDidAppear(_ animated: Bool){
+    func loadList(notification: NSNotification){
+        //load data here
         tView.reloadData()
     }
     
-    func reloadMatchTable(){
-        if let _ = tView{
-            tView.reloadData()
-        }
+    override func viewDidAppear(_ animated: Bool){
+        tView.reloadData()
     }
+
     
     // UIPopoverPresentationControllerDelegate method
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {

@@ -11,7 +11,6 @@ import UIKit
 class NewMatchController: UIViewController {
 
     
-    let variable = MatchesController()
 
     @IBAction func Q(_ sender: AnyObject) {
         countMatches()
@@ -20,7 +19,7 @@ class NewMatchController: UIViewController {
         matchData[matchData.count - 1][1].match = Q + 1
         matchData[matchData.count - 1][2].match = Q + 1
         matchData[matchData.count - 1][3].match = Q + 1
-        variable.reloadMatchTable()
+        reload()
     }
     
     @IBAction func SF1(_ sender: AnyObject) {
@@ -30,7 +29,7 @@ class NewMatchController: UIViewController {
         matchData[matchData.count - 1][1].match = SF1 + 1010
         matchData[matchData.count - 1][2].match = SF1 + 1010
         matchData[matchData.count - 1][3].match = SF1 + 1010
-        variable.reloadMatchTable()
+        reload()
     }
     
     @IBAction func SF2(_ sender: AnyObject) {
@@ -40,7 +39,7 @@ class NewMatchController: UIViewController {
         matchData[matchData.count - 1][1].match = SF2 + 1020
         matchData[matchData.count - 1][2].match = SF2 + 1020
         matchData[matchData.count - 1][3].match = SF2 + 1020
-        variable.reloadMatchTable()
+        reload()
     }
 
     
@@ -51,7 +50,7 @@ class NewMatchController: UIViewController {
         matchData[matchData.count - 1][1].match = F + 10001
         matchData[matchData.count - 1][2].match = F + 10001
         matchData[matchData.count - 1][3].match = F + 10001
-        variable.reloadMatchTable()
+        reload()
     }
     
     @IBAction func C(_ sender: AnyObject) {
@@ -61,7 +60,7 @@ class NewMatchController: UIViewController {
         matchData[matchData.count - 1][1].match = C + 100001
         matchData[matchData.count - 1][2].match = C + 100001
         matchData[matchData.count - 1][3].match = C + 100001
-        variable.reloadMatchTable()
+        reload()
     }
 
     var Q = 0
@@ -69,6 +68,10 @@ class NewMatchController: UIViewController {
     var SF2 = 0
     var F = 0
     var C = 0
+    
+    func reload(){
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+    }
     
     
     func countMatches(){
