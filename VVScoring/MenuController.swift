@@ -13,9 +13,6 @@ class MenuController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //LEAVE THIS HERE PLEASE
-        //exampleData()
-        //----------------------
         // Do any additional setup after loading the view.
     }
 

@@ -168,29 +168,35 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExF-x8-eo5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExF-x8-eo5">
                                 <frame key="frameInset" minX="20" minY="64" width="16" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0M-gT-FMJ">
-                                <frame key="frameInset" minX="923" minY="64" width="81" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0M-gT-FMJ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cwR-OQ-BUB"/>
+                                    <constraint firstAttribute="width" constant="81" id="ygB-Ef-LPu"/>
+                                </constraints>
                                 <state key="normal" title="Add Match"/>
                                 <connections>
-                                    <segue destination="uKB-3f-3XF" kind="popoverPresentation" identifier="popoverSegue" popoverAnchorView="g0M-gT-FMJ" id="4o7-8J-PIO">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="popover:" destination="Ji8-FH-2SI" eventType="touchUpInside" id="y4t-L9-tIq"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="g0M-gT-FMJ" firstAttribute="leading" secondItem="ExF-x8-eo5" secondAttribute="trailing" constant="887" id="EuE-zo-hIX"/>
+                            <constraint firstItem="g0M-gT-FMJ" firstAttribute="top" secondItem="6sc-eE-a7U" secondAttribute="bottom" id="Vyc-3X-fZN"/>
+                            <constraint firstItem="cQW-aY-Xj6" firstAttribute="top" secondItem="g0M-gT-FMJ" secondAttribute="bottom" constant="625" id="b0k-4c-pL6"/>
+                            <constraint firstItem="g0M-gT-FMJ" firstAttribute="trailing" secondItem="fHk-ed-W0j" secondAttribute="trailingMargin" id="pCn-LJ-5A6"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Matches" image="second" id="Crx-Kf-Zhv"/>
                     <navigationItem key="navigationItem" title="Matches" id="9py-n0-w8Z"/>
                     <connections>
+                        <outlet property="addMatchButton" destination="g0M-gT-FMJ" id="AR2-KF-OzU"/>
                         <outlet property="tView" destination="j6D-la-WuG" id="0sv-ng-2fh"/>
                     </connections>
                 </viewController>
@@ -257,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U3Z-OZ-uI1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1762" y="-140"/>
+            <point key="canvasLocation" x="1645" y="-60"/>
         </scene>
         <!--Scoring Controller-->
         <scene sceneID="SoR-gj-tef">
