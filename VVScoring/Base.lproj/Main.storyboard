@@ -1138,6 +1138,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="r1NumChange:" destination="WLO-gT-cSl" eventType="editingDidEnd" id="4V0-AQ-set"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ls9-EP-P9W">
                                 <frame key="frameInset" minX="234" minY="142" width="158" height="30"/>
@@ -1202,6 +1205,7 @@
                         <outlet property="r1APark" destination="PCT-QB-BzX" id="sMh-GG-63E"/>
                         <outlet property="r1AScore" destination="SYB-KM-S0Z" id="tIb-nm-Pmu"/>
                         <outlet property="r1MatchScore" destination="DTY-ae-rfX" id="CiC-Y8-OhK"/>
+                        <outlet property="r1NameField" destination="JPv-P6-TwQ" id="tsr-Jf-5Ij"/>
                         <outlet property="r1NumField" destination="jvM-me-EZp" id="O8t-O9-Ojc"/>
                         <outlet property="r2ABeacons" destination="BOT-Sf-zYQ" id="ysQ-zL-55g"/>
                         <outlet property="r2ABeaconsDNA" destination="SH9-Pk-oHi" id="IGj-R0-Wbk"/>

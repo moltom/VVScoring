@@ -32,6 +32,23 @@ class ScoringController: UIViewController {
     @IBOutlet weak var r1ACapDNA: UISwitch!
     @IBOutlet weak var r1AScore: UILabel!
     @IBOutlet weak var r1MatchScore: UILabel!
+    @IBOutlet var r1NameField: UITextField!
+    var r1numValid = true
+    
+    @IBAction func r1NumChange(_ sender: AnyObject) {
+        if let temp = teamList[r1NumField.text!]?.name {
+            r1NameField.text = teamList[r1NumField.text!]?.name
+            matchData[currentMatch][0].number = Int (r1NumField.text!)!
+            r1numValid = true
+        }
+        else {
+            r1NameField.text = "Wrong Number"
+            r1numValid = false
+        }
+        refreshLabels()
+    }
+
+    
     
     //RED 2
     @IBOutlet weak var r2NumField: UITextField!
@@ -195,7 +212,12 @@ class ScoringController: UIViewController {
         
         
         //RED 1
-        r1NumField.text = String(matchData[currentMatch][0].number)
+        if(r1numValid){
+            r1NumField.text = String(matchData[currentMatch][0].number)
+        }
+        if(r1numValid){
+            r1NameField.text = teamList[r1NumField.text!]?.name
+        }
         r1ABeaconsDNA.setOn(matchData[currentMatch][0].autoBeaconsDNA, animated: false)
         r1ABeacons.text = String(matchData[currentMatch][0].autoBeacons)
         r1ACenter.text = String(matchData[currentMatch][0].autoVortex)
