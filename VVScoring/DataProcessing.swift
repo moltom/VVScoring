@@ -55,7 +55,7 @@ struct teamAverage{
     var allianceScore: Double = 0.0
 }
 
-var teamList: [String: (name: String, fav: Bool)] = [:]
+var teamList: [String : (name: String, fav: Bool)] = [:]
 
 var matchData: [[teamInMatch]] = [[]]
 

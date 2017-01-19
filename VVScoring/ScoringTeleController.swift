@@ -17,6 +17,7 @@ class ScoringTeleController: UIViewController {
     
     
 
+    @IBOutlet weak var r1TNumField: UITextField!
     @IBOutlet var r1TCenter: UILabel!
     @IBOutlet var r1TCorner: UILabel!
     @IBOutlet var r1TBeacons: UILabel!
@@ -25,7 +26,11 @@ class ScoringTeleController: UIViewController {
     @IBOutlet var r1TMatchScore: UILabel!
     @IBOutlet var r1TCapDNA: UISwitch!
     
+    @IBAction func r1TNameChange(_ sender: AnyObject) {
+    }
     
+    
+    @IBOutlet weak var r2TNumField: UITextField!
     @IBOutlet var r2TCenter: UILabel!
     @IBOutlet var r2TCorner: UILabel!
     @IBOutlet var r2TBeacons: UILabel!
@@ -34,7 +39,10 @@ class ScoringTeleController: UIViewController {
     @IBOutlet var r2TMatchScore: UILabel!
     @IBOutlet var r2TCapDNA: UISwitch!
     
+    @IBAction func r2TNameChange(_ sender: AnyObject) {
+    }
     
+    @IBOutlet weak var b1TNumField: UITextField!
     @IBOutlet var b1TCenter: UILabel!
     @IBOutlet var b1TCorner: UILabel!
     @IBOutlet var b1TBeacons: UILabel!
@@ -43,7 +51,10 @@ class ScoringTeleController: UIViewController {
     @IBOutlet var b1TMatchScore: UILabel!
     @IBOutlet var b1TCapDNA: UISwitch!
     
+    @IBAction func b1TNameChange(_ sender: AnyObject) {
+    }
     
+    @IBOutlet weak var b2TNumField: UITextField!
     @IBOutlet var b2TCenter: UILabel!
     @IBOutlet var b2TCorner: UILabel!
     @IBOutlet var b2TBeacons: UILabel!
@@ -52,6 +63,8 @@ class ScoringTeleController: UIViewController {
     @IBOutlet var b2TMatchScore: UILabel!
     @IBOutlet var b2TCapDNA: UISwitch!
     
+    @IBAction func b2TNameChange(_ sender: AnyObject) {
+    }
     
     
     
