@@ -1093,6 +1093,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="r2NumChange:" destination="WLO-gT-cSl" eventType="editingDidEnd" id="CJy-cB-e7d"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Blue 1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IJF-Pa-oMQ">
                                 <frame key="frameInset" minX="669" minY="94" width="97" height="30"/>
@@ -1100,6 +1103,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="b1NumChange:" destination="WLO-gT-cSl" eventType="editingDidEnd" id="mNi-IA-l8x"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Blue 2" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y2H-Mo-RLk">
                                 <frame key="frameInset" minX="880" minY="94" width="97" height="30"/>
@@ -1162,6 +1168,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="b2NumChange:" destination="WLO-gT-cSl" eventType="editingDidEnd" id="lm9-IK-jEg"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scored" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D92-sy-1Wo">
                                 <frame key="frameInset" minX="632" minY="497" width="58" height="21"/>
@@ -1183,6 +1192,7 @@
                         <outlet property="b1APark" destination="5uL-SG-U72" id="zGc-Fr-oqJ"/>
                         <outlet property="b1AScore" destination="Y0D-mw-Xwf" id="ePQ-kx-UE7"/>
                         <outlet property="b1MatchScore" destination="AUH-Hf-RT3" id="lN5-DZ-vUN"/>
+                        <outlet property="b1NameField" destination="Wad-2K-YSQ" id="oOJ-aw-FOZ"/>
                         <outlet property="b1NumField" destination="IJF-Pa-oMQ" id="lKq-aS-Gq1"/>
                         <outlet property="b2ABeacons" destination="jmc-qt-V1d" id="Z7d-kW-nq6"/>
                         <outlet property="b2ABeaconsDNA" destination="Jid-HR-Lsp" id="nZZ-eM-bsq"/>
@@ -1193,6 +1203,7 @@
                         <outlet property="b2APark" destination="aYg-bg-A77" id="IXc-xX-B9t"/>
                         <outlet property="b2AScore" destination="kVG-DK-C0M" id="Xi9-qM-NHJ"/>
                         <outlet property="b2MatchScore" destination="50Y-5d-qvj" id="eV5-EO-mOf"/>
+                        <outlet property="b2NameField" destination="d1Q-qZ-2Wm" id="1np-yk-9d7"/>
                         <outlet property="b2NumField" destination="y2H-Mo-RLk" id="b8r-88-iR7"/>
                         <outlet property="blueAllianceScore" destination="Tqo-ia-1BX" id="0oo-V5-umE"/>
                         <outlet property="matchLabel" destination="lIJ-TO-ucP" id="2k4-aE-sFx"/>
@@ -1216,6 +1227,7 @@
                         <outlet property="r2APark" destination="qeG-3q-Lgc" id="BWI-oo-FZn"/>
                         <outlet property="r2AScore" destination="cfP-YS-83z" id="fW5-WE-DpL"/>
                         <outlet property="r2MatchScore" destination="HKp-DU-Rxh" id="RY7-pt-xrg"/>
+                        <outlet property="r2NameField" destination="ls9-EP-P9W" id="hm8-Cn-gTR"/>
                         <outlet property="r2NumField" destination="tWe-Wk-zQE" id="cdv-vq-6Ba"/>
                         <outlet property="redAllianceScore" destination="qfz-be-naV" id="ech-7r-jr6"/>
                     </connections>

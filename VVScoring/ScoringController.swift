@@ -61,6 +61,22 @@ class ScoringController: UIViewController {
     @IBOutlet weak var r2ACapDNA: UISwitch!
     @IBOutlet weak var r2AScore: UILabel!
     @IBOutlet weak var r2MatchScore: UILabel!
+    @IBOutlet var r2NameField: UITextField!
+    var r2numValid = true
+    
+    @IBAction func r2NumChange(_ sender: AnyObject) {
+        if let temp = teamList[r2NumField.text!]?.name {
+            r2NameField.text = teamList[r2NumField.text!]?.name
+            matchData[currentMatch][1].number = Int (r2NumField.text!)!
+            r2numValid = true
+        }
+        else {
+            r2NameField.text = "Wrong Number"
+            r2numValid = false
+        }
+        refreshLabels()
+    }
+    
     
     //BLUE 1
     @IBOutlet weak var b1NumField: UITextField!
@@ -73,6 +89,23 @@ class ScoringController: UIViewController {
     @IBOutlet weak var b1ACapDNA: UISwitch!
     @IBOutlet weak var b1AScore: UILabel!
     @IBOutlet weak var b1MatchScore: UILabel!
+    @IBOutlet var b1NameField: UITextField!
+    var b1numValid = true
+    
+    @IBAction func b1NumChange(_ sender: AnyObject) {
+        if let temp = teamList[b1NumField.text!]?.name {
+            b1NameField.text = teamList[b1NumField.text!]?.name
+            matchData[currentMatch][2].number = Int (b1NumField.text!)!
+            b1numValid = true
+        }
+        else {
+            b1NameField.text = "Wrong Number"
+            b1numValid = false
+        }
+        refreshLabels()
+
+    }
+    
     
     //BLUE 2
     @IBOutlet weak var b2NumField: UITextField!
@@ -85,8 +118,22 @@ class ScoringController: UIViewController {
     @IBOutlet weak var b2ACapDNA: UISwitch!
     @IBOutlet weak var b2AScore: UILabel!
     @IBOutlet weak var b2MatchScore: UILabel!
+    @IBOutlet var b2NameField: UITextField!
+    var b2numValid = true
     
-    
+    @IBAction func b2NumChange(_ sender: AnyObject) {
+        if let temp = teamList[b2NumField.text!]?.name {
+            b2NameField.text = teamList[b2NumField.text!]?.name
+            matchData[currentMatch][3].number = Int (b2NumField.text!)!
+            b2numValid = true
+        }
+        else {
+            b2NameField.text = "Wrong Number"
+            b2numValid = false
+        }
+        refreshLabels()
+
+    }
     
     //SCORING
     func refreshLabels(){
@@ -242,7 +289,12 @@ class ScoringController: UIViewController {
         
         
         //RED 2
-        r2NumField.text = String(matchData[currentMatch][1].number)
+        if(r2numValid){
+            r2NumField.text = String(matchData[currentMatch][1].number)
+        }
+        if(r2numValid){
+            r2NameField.text = teamList[r2NumField.text!]?.name
+        }
         r2ABeaconsDNA.setOn(matchData[currentMatch][1].autoBeaconsDNA, animated: false)
         r2ABeacons.text = String(matchData[currentMatch][1].autoBeacons)
         r2ACenter.text = String(matchData[currentMatch][1].autoVortex)
@@ -269,7 +321,12 @@ class ScoringController: UIViewController {
         redAllianceScore.text = String(matchData[currentMatch][0].allianceScore)
         
         //BLUE 1
-        b1NumField.text = String(matchData[currentMatch][2].number)
+        if(b1numValid){
+            b1NumField.text = String(matchData[currentMatch][2].number)
+        }
+        if(b1numValid){
+            b1NameField.text = teamList[b1NumField.text!]?.name
+        }
         b1ABeaconsDNA.setOn(matchData[currentMatch][2].autoBeaconsDNA, animated: false)
         b1ABeacons.text = String(matchData[currentMatch][2].autoBeacons)
         b1ACenter.text = String(matchData[currentMatch][2].autoVortex)
@@ -295,8 +352,12 @@ class ScoringController: UIViewController {
         b1MatchScore.text = String(matchData[currentMatch][2].calculatedScore)
         
         //BLUE 2
-        b2NumField.text = String(matchData[currentMatch][3].number)
-        b2ABeaconsDNA.setOn(matchData[currentMatch][3].autoBeaconsDNA, animated: false)
+        if(b2numValid){
+            b2NumField.text = String(matchData[currentMatch][3].number)
+        }
+        if(b2numValid){
+            b2NameField.text = teamList[b2NumField.text!]?.name
+        }        b2ABeaconsDNA.setOn(matchData[currentMatch][3].autoBeaconsDNA, animated: false)
         b2ABeacons.text = String(matchData[currentMatch][3].autoBeacons)
         b2ACenter.text = String(matchData[currentMatch][3].autoVortex)
         b2ACorner.text = String(matchData[currentMatch][3].autoCorner)
