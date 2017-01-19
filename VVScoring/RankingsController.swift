@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RankingsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RankingsController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
@@ -24,6 +24,23 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         tableView.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func addTeamButton(_ sender: AnyObject) {
+        // get a reference to the view controller for the popover
+        let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "addTeamPop")
+        
+        // set the presentation style
+        popController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        // set up the popover presentation controller
+        popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popController.popoverPresentationController?.delegate = self
+        popController.popoverPresentationController?.sourceView = sender as? UIView // button
+        popController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        // present the popover
+        self.present(popController, animated: true, completion: nil)
     }
     
     @IBAction func editMode(_ sender: AnyObject) {
