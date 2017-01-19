@@ -10,15 +10,19 @@ import UIKit
 
 class NewMatchController: UIViewController {
 
-    
+    var Q = 0
+    var SF1 = 0
+    var SF2 = 0
+    var F = 0
+    var C = 0
 
     @IBAction func Q(_ sender: AnyObject) {
         countMatches()
         matchData.append([teamInMatch(), teamInMatch(), teamInMatch(), teamInMatch()])
-        matchData[matchData.count - 1][0].match = Q + 1
-        matchData[matchData.count - 1][1].match = Q + 1
-        matchData[matchData.count - 1][2].match = Q + 1
-        matchData[matchData.count - 1][3].match = Q + 1
+        matchData[matchData.count - 1][0].match = Q
+        matchData[matchData.count - 1][1].match = Q
+        matchData[matchData.count - 1][2].match = Q
+        matchData[matchData.count - 1][3].match = Q
         reload()
     }
     
@@ -46,28 +50,22 @@ class NewMatchController: UIViewController {
     @IBAction func F(_ sender: AnyObject) {
         countMatches()
         matchData.append([teamInMatch(), teamInMatch(), teamInMatch(), teamInMatch()])
-        matchData[matchData.count - 1][0].match = F + 10001
-        matchData[matchData.count - 1][1].match = F + 10001
-        matchData[matchData.count - 1][2].match = F + 10001
-        matchData[matchData.count - 1][3].match = F + 10001
+        matchData[matchData.count - 1][0].match = F + 1030
+        matchData[matchData.count - 1][1].match = F + 1030
+        matchData[matchData.count - 1][2].match = F + 1030
+        matchData[matchData.count - 1][3].match = F + 1030
         reload()
     }
     
     @IBAction func C(_ sender: AnyObject) {
         countMatches()
         matchData.append([teamInMatch(), teamInMatch(), teamInMatch(), teamInMatch()])
-        matchData[matchData.count - 1][0].match = C + 100001
-        matchData[matchData.count - 1][1].match = C + 100001
-        matchData[matchData.count - 1][2].match = C + 100001
-        matchData[matchData.count - 1][3].match = C + 100001
+        matchData[matchData.count - 1][0].match = C + 1040
+        matchData[matchData.count - 1][1].match = C + 1040
+        matchData[matchData.count - 1][2].match = C + 1040
+        matchData[matchData.count - 1][3].match = C + 1040
         reload()
     }
-
-    var Q = 0
-    var SF1 = 0
-    var SF2 = 0
-    var F = 0
-    var C = 0
     
     func reload(){
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
@@ -75,23 +73,29 @@ class NewMatchController: UIViewController {
     
     
     func countMatches(){
+        Q = 0
+        SF1 = 0
+        SF2 = 0
+        F = 0
+        C = 0
         for match in matchData{
             if(match[0].match < 1010){
                 Q += 1
             }
-            else if((match[0].match <= 1019) && (match[0].match >= 1010)){
+            else if(match[0].match <= 1019){
                 SF1 += 1
             }
-            else if((match[0].match <= 1029) && (match[0].match >= 1020)){
+            else if(match[0].match <= 1029){
                 SF2 += 1
             }
-            else if((match[0].match < 100000) && (match[0].match >= 10000)){
-                SF2 += 1
+            else if(match[0].match <= 1039){
+                F += 1
             }
-            else if(match[0].match >= 100000){
-                SF2 += 1
+            else if(match[0].match <= 1049){
+                C += 1
             }
         }
+        //print("\n\ncountMatches: Q:\(Q), SF1:\(SF1), SF2:\(SF2), F:\(F), C:\(C)\n\n")
     }
     
     

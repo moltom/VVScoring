@@ -52,11 +52,6 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
         tView.reloadData()
     }
     
-    override func viewDidAppear(_ animated: Bool){
-        tView.reloadData()
-    }
-
-    
     // UIPopoverPresentationControllerDelegate method
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         // Force popover style
@@ -91,6 +86,9 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
         //Non reversed Index
         let nindex = (matchData.count - 1) - indexPath.row
         
+        //Sort match data by number
+        sortMatchData()
+        
         //Get Team numbers
         var tmpTeams: [String] = []
         for x in 0..<4{
@@ -105,7 +103,7 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
         let cfs: CGFloat = 18
         
         //Match Number
-        cell.labels["match"]?.Label.text = "Q\(nindex)"
+        cell.labels["match"]?.Label.text = getMatchLabel(index: nindex)
         cell.labels["match"]?.Label.font = UIFont.boldSystemFont(ofSize: cfs)
         
         //Red 1

@@ -70,6 +70,29 @@ var tournamentList: [tournament] = []
 
 let elimData: [[teamInMatch]] = []
 
+func sortMatchData(){
+    matchData = matchData.sorted{ $0[0].match < $1[0].match }
+}
+
+func getMatchLabel(index: Int) -> String {
+    if matchData[index][0].match < 1010 {
+        return "Q\(matchData[index][0].match + 1)"
+    }
+    if matchData[index][0].match < 1020 {
+        return "S1-\(matchData[index][0].match - 1009)"
+    }
+    if matchData[index][0].match < 1030 {
+        return "S2-\(matchData[index][0].match - 1019)"
+    }
+    if matchData[index][0].match < 1040 {
+        return "F\(matchData[index][0].match - 1029)"
+    }
+    else {
+        return "C\(matchData[index][0].match - 1039)"
+    }
+    
+}
+
 func sortTeamsBy(mode: String, dir: Int) -> (averages: [teamAverage], QP: [Int]){
     //dir: Int is the sorting direction (increasing/decreasing) inc is 1, dec is 0
     //Output array
