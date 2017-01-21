@@ -250,7 +250,7 @@ func writeToTournamentList(){
 
 //FORMATTING AND UTILITY
 func formatTournamentsToCSV() -> String{
-    var out: String = ""
+    var out: String = "\n"
     
     for i in 0..<tournamentList.count{
         out += (tournamentList[i].name + ",")

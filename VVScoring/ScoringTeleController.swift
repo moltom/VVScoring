@@ -11,6 +11,17 @@ import UIKit
 class ScoringTeleController: UIViewController {
     
     
+    //save data
+    @IBAction func toAuto(_ sender: AnyObject) {
+        saveMatchData()
+    }
+    
+    //save data
+    @IBAction func toMatches(_ sender: AnyObject) {
+        saveMatchData()
+    }
+    
+    
     @IBOutlet var redAllianceScore: UILabel!
     @IBOutlet var blueAllianceScore: UILabel!
     @IBOutlet var matchLabel: UILabel!
@@ -25,8 +36,22 @@ class ScoringTeleController: UIViewController {
     @IBOutlet var r1TScore: UILabel!
     @IBOutlet var r1TMatchScore: UILabel!
     @IBOutlet var r1TCapDNA: UISwitch!
+    @IBOutlet weak var r1NameField: UITextField!
+    var r1numValid = true
     
-    @IBAction func r1TNameChange(_ sender: AnyObject) {
+    @IBAction func r1NameChange(_ sender: AnyObject) {
+
+        if let temp = teamList[r1TNumField.text!]?.name {
+            r1NameField.text = teamList[r1TNumField.text!]?.name
+            matchData[currentMatch][0].number = Int (r1TNumField.text!)!
+            r1numValid = true
+        }
+        else {
+            r1NameField.text = "Wrong Number"
+            r1numValid = false
+        }
+        refreshLabels()
+
     }
     
     
@@ -38,8 +63,21 @@ class ScoringTeleController: UIViewController {
     @IBOutlet var r2TScore: UILabel!
     @IBOutlet var r2TMatchScore: UILabel!
     @IBOutlet var r2TCapDNA: UISwitch!
+    @IBOutlet weak var r2NameField: UITextField!
+    var r2numValid = true
     
-    @IBAction func r2TNameChange(_ sender: AnyObject) {
+    @IBAction func r2NameChange(_ sender: AnyObject) {
+
+        if let temp = teamList[r2TNumField.text!]?.name {
+            r2NameField.text = teamList[r2TNumField.text!]?.name
+            matchData[currentMatch][1].number = Int (r2TNumField.text!)!
+            r2numValid = true
+        }
+        else {
+            r2NameField.text = "Wrong Number"
+            r2numValid = false
+        }
+        refreshLabels()
     }
     
     @IBOutlet weak var b1TNumField: UITextField!
@@ -50,8 +88,21 @@ class ScoringTeleController: UIViewController {
     @IBOutlet var b1TScore: UILabel!
     @IBOutlet var b1TMatchScore: UILabel!
     @IBOutlet var b1TCapDNA: UISwitch!
+    @IBOutlet weak var b1NameField: UITextField!
+    var b1numValid = true
     
-    @IBAction func b1TNameChange(_ sender: AnyObject) {
+    @IBAction func b1NameChange(_ sender: AnyObject) {
+
+        if let temp = teamList[b1TNumField.text!]?.name {
+            b1NameField.text = teamList[b1TNumField.text!]?.name
+            matchData[currentMatch][2].number = Int (b1TNumField.text!)!
+            b1numValid = true
+        }
+        else {
+            b1NameField.text = "Wrong Number"
+            b1numValid = false
+        }
+        refreshLabels()
     }
     
     @IBOutlet weak var b2TNumField: UITextField!
@@ -62,8 +113,22 @@ class ScoringTeleController: UIViewController {
     @IBOutlet var b2TScore: UILabel!
     @IBOutlet var b2TMatchScore: UILabel!
     @IBOutlet var b2TCapDNA: UISwitch!
+    @IBOutlet weak var b2NameField: UITextField!
+    var b2numValid = true
     
-    @IBAction func b2TNameChange(_ sender: AnyObject) {
+
+    @IBAction func b2NameChange(_ sender: AnyObject) {
+    
+        if let temp = teamList[b2TNumField.text!]?.name {
+            b2NameField.text = teamList[b2TNumField.text!]?.name
+            matchData[currentMatch][3].number = Int (b2TNumField.text!)!
+            b2numValid = true
+        }
+        else {
+            b2NameField.text = "Wrong Number"
+            b2numValid = false
+        }
+        refreshLabels()
     }
     
     
@@ -71,29 +136,40 @@ class ScoringTeleController: UIViewController {
     //SCORING
     func refreshLabels(){
         
-        let r1neg = matchData[currentMatch][0].beacons < 0
-        let r2neg = matchData[currentMatch][1].beacons < 0
-        let b1neg = matchData[currentMatch][2].beacons < 0
-        let b2neg = matchData[currentMatch][3].beacons < 0
+        let r1Aneg = matchData[currentMatch][0].autoBeacons < 0
+        let r2Aneg = matchData[currentMatch][1].autoBeacons < 0
+        let b1Aneg = matchData[currentMatch][2].autoBeacons < 0
+        let b2Aneg = matchData[currentMatch][3].autoBeacons < 0
+        
+        let r1Tneg = matchData[currentMatch][0].beacons < 0
+        let r2Tneg = matchData[currentMatch][1].beacons < 0
+        let b1Tneg = matchData[currentMatch][2].beacons < 0
+        let b2Tneg = matchData[currentMatch][3].beacons < 0
         
         //Calculate and score the calculated data points
         
         
         //RED 1
-        matchData[currentMatch][0].autoPts = (matchData[currentMatch][0].autoCorner * 5) + (matchData[currentMatch][0].autoVortex * 15) + (matchData[currentMatch][0].autoBeacons * 30) + matchData[currentMatch][0].parkPts + matchData[currentMatch][0].autoCapBallPts
+        matchData[currentMatch][0].autoPts = (matchData[currentMatch][0].autoCorner * 5) + (matchData[currentMatch][0].autoVortex * 15) + matchData[currentMatch][0].parkPts + matchData[currentMatch][0].autoCapBallPts
+        if(!r1Aneg){
+            matchData[currentMatch][0].autoPts += matchData[currentMatch][0].autoBeacons * 30
+        }
         matchData[currentMatch][0].telePts = matchData[currentMatch][0].cornerBalls + (matchData[currentMatch][0].vortexBalls * 5)
         matchData[currentMatch][0].endGamePts = matchData[currentMatch][0].capBallPts
-        if(!r1neg){
+        if(!r1Tneg){
             matchData[currentMatch][0].endGamePts += matchData[currentMatch][0].beacons * 10
         }
         matchData[currentMatch][0].calculatedScore = matchData[currentMatch][0].autoPts + matchData[currentMatch][0].telePts + matchData[currentMatch][0].endGamePts
         
         
         //RED 2
-        matchData[currentMatch][1].autoPts = (matchData[currentMatch][1].autoCorner * 5) + (matchData[currentMatch][1].autoVortex * 15) + (matchData[currentMatch][1].autoBeacons * 30) + matchData[currentMatch][1].parkPts + matchData[currentMatch][1].autoCapBallPts
+        matchData[currentMatch][1].autoPts = (matchData[currentMatch][1].autoCorner * 5) + (matchData[currentMatch][1].autoVortex * 15) + matchData[currentMatch][1].parkPts + matchData[currentMatch][1].autoCapBallPts
+        if(!r2Aneg){
+            matchData[currentMatch][1].autoPts += matchData[currentMatch][1].autoBeacons * 30
+        }
         matchData[currentMatch][1].telePts = matchData[currentMatch][1].cornerBalls + (matchData[currentMatch][1].vortexBalls * 5)
         matchData[currentMatch][1].endGamePts = matchData[currentMatch][1].capBallPts
-        if(!r2neg){
+        if(!r2Tneg){
             matchData[currentMatch][1].endGamePts += matchData[currentMatch][1].beacons * 10
         }
         matchData[currentMatch][1].calculatedScore = matchData[currentMatch][1].autoPts + matchData[currentMatch][1].telePts + matchData[currentMatch][1].endGamePts
@@ -103,20 +179,26 @@ class ScoringTeleController: UIViewController {
         
         
         //BLUE 1
-        matchData[currentMatch][2].autoPts = (matchData[currentMatch][2].autoCorner * 5) + (matchData[currentMatch][2].autoVortex * 15) + (matchData[currentMatch][2].autoBeacons * 30) + matchData[currentMatch][2].parkPts + matchData[currentMatch][2].autoCapBallPts
+        matchData[currentMatch][2].autoPts = (matchData[currentMatch][2].autoCorner * 5) + (matchData[currentMatch][2].autoVortex * 15) + matchData[currentMatch][2].parkPts + matchData[currentMatch][2].autoCapBallPts
+        if(!b1Aneg){
+            matchData[currentMatch][2].autoPts += matchData[currentMatch][2].autoBeacons * 30
+        }
         matchData[currentMatch][2].telePts = matchData[currentMatch][2].cornerBalls + (matchData[currentMatch][2].vortexBalls * 5)
         matchData[currentMatch][2].endGamePts = matchData[currentMatch][2].capBallPts
-        if(!b1neg){
+        if(!b1Tneg){
             matchData[currentMatch][2].endGamePts += matchData[currentMatch][2].beacons * 10
         }
         matchData[currentMatch][2].calculatedScore = matchData[currentMatch][2].autoPts + matchData[currentMatch][2].telePts + matchData[currentMatch][2].endGamePts
         
         
         //BLUE 2
-        matchData[currentMatch][3].autoPts = (matchData[currentMatch][3].autoCorner * 5) + (matchData[currentMatch][3].autoVortex * 15) + (matchData[currentMatch][3].autoBeacons * 30) + matchData[currentMatch][3].parkPts + matchData[currentMatch][3].autoCapBallPts
+        matchData[currentMatch][3].autoPts = (matchData[currentMatch][3].autoCorner * 5) + (matchData[currentMatch][3].autoVortex * 15) + matchData[currentMatch][3].parkPts + matchData[currentMatch][3].autoCapBallPts
+        if(!b2Aneg){
+            matchData[currentMatch][3].autoPts += matchData[currentMatch][3].autoBeacons * 30
+        }
         matchData[currentMatch][3].telePts = matchData[currentMatch][3].cornerBalls + (matchData[currentMatch][3].vortexBalls * 5)
         matchData[currentMatch][3].endGamePts = matchData[currentMatch][3].capBallPts
-        if(!b2neg){
+        if(!b2Tneg){
             matchData[currentMatch][3].endGamePts += matchData[currentMatch][3].beacons * 10
         }
         matchData[currentMatch][3].calculatedScore = matchData[currentMatch][3].autoPts + matchData[currentMatch][3].telePts + matchData[currentMatch][3].endGamePts
@@ -191,6 +273,12 @@ class ScoringTeleController: UIViewController {
         
         
         //RED 1
+        if(r1numValid){
+            r1TNumField.text = String(matchData[currentMatch][0].number)
+        }
+        if(r1numValid){
+            r1NameField.text = teamList[r1TNumField.text!]?.name
+        }
         r1TCenter.text = String(matchData[currentMatch][0].vortexBalls)
         r1TCorner.text = String(matchData[currentMatch][0].cornerBalls)
         r1TBeacons.text = String(matchData[currentMatch][0].beacons)
@@ -198,6 +286,12 @@ class ScoringTeleController: UIViewController {
         r1TCapDNA.setOn(matchData[currentMatch][0].capBallDNA, animated: false)
         
         //RED 2
+        if(r2numValid){
+            r2TNumField.text = String(matchData[currentMatch][1].number)
+        }
+        if(r2numValid){
+            r2NameField.text = teamList[r2TNumField.text!]?.name
+        }
         r2TCenter.text = String(matchData[currentMatch][1].vortexBalls)
         r2TCorner.text = String(matchData[currentMatch][1].cornerBalls)
         r2TBeacons.text = String(matchData[currentMatch][1].beacons)
@@ -205,6 +299,12 @@ class ScoringTeleController: UIViewController {
         r2TCapDNA.setOn(matchData[currentMatch][1].capBallDNA, animated: false)
         
         //BLUE 1
+        if(b1numValid){
+            b1TNumField.text = String(matchData[currentMatch][2].number)
+        }
+        if(b1numValid){
+            b1NameField.text = teamList[b1TNumField.text!]?.name
+        }
         b1TCenter.text = String(matchData[currentMatch][2].vortexBalls)
         b1TCorner.text = String(matchData[currentMatch][2].cornerBalls)
         b1TBeacons.text = String(matchData[currentMatch][2].beacons)
@@ -212,6 +312,12 @@ class ScoringTeleController: UIViewController {
         b1TCapDNA.setOn(matchData[currentMatch][2].capBallDNA, animated: false)
         
         //BLUE 2
+        if(b2numValid){
+            b2TNumField.text = String(matchData[currentMatch][3].number)
+        }
+        if(b2numValid){
+            b2NameField.text = teamList[b2TNumField.text!]?.name
+        }
         b2TCenter.text = String(matchData[currentMatch][3].vortexBalls)
         b2TCorner.text = String(matchData[currentMatch][3].cornerBalls)
         b2TBeacons.text = String(matchData[currentMatch][3].beacons)

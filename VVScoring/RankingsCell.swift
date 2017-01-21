@@ -14,13 +14,18 @@ class RankingsCell: UITableViewCell {
         "number": (UILabel(),20, 0, 50, 30),
         "name": (UILabel(),90, 0, 150, 30),
         "rank": (UILabel(),285, 0, 30, 30),
-        "wins": (UILabel(),335, 0, 30, 30),
-        "losses": (UILabel(),390, 0, 30, 30),
-        "tie": (UILabel(),441, 0, 30, 30),
-        "opr": (UILabel(),478, 0, 50, 30),
-        "autoPts": (UILabel(),562, 0, 60, 30),
-        "telePts": (UILabel(), 688, 0, 60, 30),
-        "endGamePts": (UILabel(), 820, 0, 60, 30)
+        "RP": (UILabel(),325, 0, 100, 30),
+        "wins": (UILabel(),385, 0, 30, 30),
+        "losses": (UILabel(),420, 0, 30, 30),
+        "tie": (UILabel(),455, 0, 30, 30),
+        "opr": (UILabel(),490, 0, 50, 30),
+        "autoPts": (UILabel(),558, 0, 60, 30),
+        "autoBalls": (UILabel(),625, 0, 30, 30),
+        "autoBeacons": (UILabel(),685, 0, 30, 30),
+        "teleBalls": (UILabel(),745, 0, 50, 30),
+        "endBeacons": (UILabel(), 817, 0, 30, 30),
+        "capPts": (UILabel(), 872, 0, 30, 30),
+        "partnerScore": (UILabel(), 920, 0, 60, 30)
     ]
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

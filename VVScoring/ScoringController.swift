@@ -12,7 +12,19 @@ class ScoringController: UIViewController {
     
     //TRANSITION TO TELE
     @IBAction func transferViews(_ sender: AnyObject) {
-        
+        saveMatchData()
+    }
+    
+    //save data
+    @IBAction func toMatches(_ sender: AnyObject) {
+        saveMatchData()
+    }
+    
+    @IBAction func unwindToAuto(sender: UIStoryboardSegue){
+    }
+    
+    @IBAction func save(_ sender: AnyObject) {
+        saveMatchData()
     }
     
     //LABEL MARK PROPERTIES
@@ -34,8 +46,10 @@ class ScoringController: UIViewController {
     @IBOutlet weak var r1MatchScore: UILabel!
     @IBOutlet var r1NameField: UITextField!
     var r1numValid = true
-    
+
+
     @IBAction func r1NumChange(_ sender: AnyObject) {
+    
         if let temp = teamList[r1NumField.text!]?.name {
             r1NameField.text = teamList[r1NumField.text!]?.name
             matchData[currentMatch][0].number = Int (r1NumField.text!)!
@@ -47,7 +61,6 @@ class ScoringController: UIViewController {
         }
         refreshLabels()
     }
-
     
     
     //RED 2
@@ -64,7 +77,9 @@ class ScoringController: UIViewController {
     @IBOutlet var r2NameField: UITextField!
     var r2numValid = true
     
+
     @IBAction func r2NumChange(_ sender: AnyObject) {
+    
         if let temp = teamList[r2NumField.text!]?.name {
             r2NameField.text = teamList[r2NumField.text!]?.name
             matchData[currentMatch][1].number = Int (r2NumField.text!)!
@@ -92,7 +107,9 @@ class ScoringController: UIViewController {
     @IBOutlet var b1NameField: UITextField!
     var b1numValid = true
     
+
     @IBAction func b1NumChange(_ sender: AnyObject) {
+    
         if let temp = teamList[b1NumField.text!]?.name {
             b1NameField.text = teamList[b1NumField.text!]?.name
             matchData[currentMatch][2].number = Int (b1NumField.text!)!
@@ -121,7 +138,9 @@ class ScoringController: UIViewController {
     @IBOutlet var b2NameField: UITextField!
     var b2numValid = true
     
+    
     @IBAction func b2NumChange(_ sender: AnyObject) {
+    
         if let temp = teamList[b2NumField.text!]?.name {
             b2NameField.text = teamList[b2NumField.text!]?.name
             matchData[currentMatch][3].number = Int (b2NumField.text!)!
@@ -132,36 +151,47 @@ class ScoringController: UIViewController {
             b2numValid = false
         }
         refreshLabels()
-
     }
+    
     
     //SCORING
     func refreshLabels(){
         
         //Calculate and score the calculated data points
         
-        let r1neg = matchData[currentMatch][0].autoBeacons < 0
-        let r2neg = matchData[currentMatch][1].autoBeacons < 0
-        let b1neg = matchData[currentMatch][2].autoBeacons < 0
-        let b2neg = matchData[currentMatch][3].autoBeacons < 0
+        let r1Aneg = matchData[currentMatch][0].autoBeacons < 0
+        let r2Aneg = matchData[currentMatch][1].autoBeacons < 0
+        let b1Aneg = matchData[currentMatch][2].autoBeacons < 0
+        let b2Aneg = matchData[currentMatch][3].autoBeacons < 0
+        
+        let r1Tneg = matchData[currentMatch][0].beacons < 0
+        let r2Tneg = matchData[currentMatch][1].beacons < 0
+        let b1Tneg = matchData[currentMatch][2].beacons < 0
+        let b2Tneg = matchData[currentMatch][3].beacons < 0
         
         //RED 1
         matchData[currentMatch][0].autoPts = (matchData[currentMatch][0].autoCorner * 5) + (matchData[currentMatch][0].autoVortex * 15) + matchData[currentMatch][0].parkPts + matchData[currentMatch][0].autoCapBallPts
-        if(!r1neg){
+        if(!r1Aneg){
             matchData[currentMatch][0].autoPts += matchData[currentMatch][0].autoBeacons * 30
         }
         matchData[currentMatch][0].telePts = matchData[currentMatch][0].cornerBalls + (matchData[currentMatch][0].vortexBalls * 5)
-        matchData[currentMatch][0].endGamePts = (matchData[currentMatch][0].beacons * 10) + matchData[currentMatch][0].capBallPts
+        matchData[currentMatch][0].endGamePts = matchData[currentMatch][0].capBallPts
+        if(!r1Tneg){
+            matchData[currentMatch][0].endGamePts += matchData[currentMatch][0].beacons * 10
+        }
         matchData[currentMatch][0].calculatedScore = matchData[currentMatch][0].autoPts + matchData[currentMatch][0].telePts + matchData[currentMatch][0].endGamePts
         
         
         //RED 2
         matchData[currentMatch][1].autoPts = (matchData[currentMatch][1].autoCorner * 5) + (matchData[currentMatch][1].autoVortex * 15) + matchData[currentMatch][1].parkPts + matchData[currentMatch][1].autoCapBallPts
-        if(!r2neg){
+        if(!r2Aneg){
             matchData[currentMatch][1].autoPts += matchData[currentMatch][1].autoBeacons * 30
         }
         matchData[currentMatch][1].telePts = matchData[currentMatch][1].cornerBalls + (matchData[currentMatch][1].vortexBalls * 5)
-        matchData[currentMatch][1].endGamePts = (matchData[currentMatch][1].beacons * 10) + matchData[currentMatch][1].capBallPts
+        matchData[currentMatch][1].endGamePts = matchData[currentMatch][1].capBallPts
+        if(!r2Tneg){
+            matchData[currentMatch][1].endGamePts += matchData[currentMatch][1].beacons * 10
+        }
         matchData[currentMatch][1].calculatedScore = matchData[currentMatch][1].autoPts + matchData[currentMatch][1].telePts + matchData[currentMatch][1].endGamePts
         
         matchData[currentMatch][0].allianceScore = matchData[currentMatch][0].calculatedScore + matchData[currentMatch][1].calculatedScore
@@ -170,27 +200,31 @@ class ScoringController: UIViewController {
         
         //BLUE 1
         matchData[currentMatch][2].autoPts = (matchData[currentMatch][2].autoCorner * 5) + (matchData[currentMatch][2].autoVortex * 15) + matchData[currentMatch][2].parkPts + matchData[currentMatch][2].autoCapBallPts
-        if(!b1neg){
+        if(!b1Aneg){
             matchData[currentMatch][2].autoPts += matchData[currentMatch][2].autoBeacons * 30
         }
         matchData[currentMatch][2].telePts = matchData[currentMatch][2].cornerBalls + (matchData[currentMatch][2].vortexBalls * 5)
-        matchData[currentMatch][2].endGamePts = (matchData[currentMatch][2].beacons * 10) + matchData[currentMatch][2].capBallPts
+        matchData[currentMatch][2].endGamePts = matchData[currentMatch][2].capBallPts
+        if(!b1Tneg){
+            matchData[currentMatch][2].endGamePts += matchData[currentMatch][2].beacons * 10
+        }
         matchData[currentMatch][2].calculatedScore = matchData[currentMatch][2].autoPts + matchData[currentMatch][2].telePts + matchData[currentMatch][2].endGamePts
         
         
         //BLUE 2
         matchData[currentMatch][3].autoPts = (matchData[currentMatch][3].autoCorner * 5) + (matchData[currentMatch][3].autoVortex * 15) + matchData[currentMatch][3].parkPts + matchData[currentMatch][3].autoCapBallPts
-        if(!b2neg){
+        if(!b2Aneg){
             matchData[currentMatch][3].autoPts += matchData[currentMatch][3].autoBeacons * 30
         }
         matchData[currentMatch][3].telePts = matchData[currentMatch][3].cornerBalls + (matchData[currentMatch][3].vortexBalls * 5)
-        matchData[currentMatch][3].endGamePts = (matchData[currentMatch][3].beacons * 10) + matchData[currentMatch][3].capBallPts
+        matchData[currentMatch][3].endGamePts = matchData[currentMatch][3].capBallPts
+        if(!b2Tneg){
+            matchData[currentMatch][3].endGamePts += matchData[currentMatch][3].beacons * 10
+        }
         matchData[currentMatch][3].calculatedScore = matchData[currentMatch][3].autoPts + matchData[currentMatch][3].telePts + matchData[currentMatch][3].endGamePts
         
         matchData[currentMatch][2].allianceScore = matchData[currentMatch][2].calculatedScore + matchData[currentMatch][3].calculatedScore
         matchData[currentMatch][3].allianceScore = matchData[currentMatch][2].calculatedScore + matchData[currentMatch][3].calculatedScore
-
-        
         
         //Check if beacons were scored for the other teams
         
@@ -235,13 +269,13 @@ class ScoringController: UIViewController {
             matchData[currentMatch][0].outcome = 0
             matchData[currentMatch][1].outcome = 0
             matchData[currentMatch][2].outcome = 1
-            matchData[currentMatch][2].outcome = 1
+            matchData[currentMatch][3].outcome = 1
         }
         else if(matchData[currentMatch][0].allianceScore < matchData[currentMatch][2].allianceScore){
             matchData[currentMatch][0].outcome = 1
             matchData[currentMatch][1].outcome = 1
             matchData[currentMatch][2].outcome = 0
-            matchData[currentMatch][2].outcome = 0
+            matchData[currentMatch][3].outcome = 0
         }
         else{
             matchData[currentMatch][0].outcome = 2
@@ -357,7 +391,8 @@ class ScoringController: UIViewController {
         }
         if(b2numValid){
             b2NameField.text = teamList[b2NumField.text!]?.name
-        }        b2ABeaconsDNA.setOn(matchData[currentMatch][3].autoBeaconsDNA, animated: false)
+        }
+        b2ABeaconsDNA.setOn(matchData[currentMatch][3].autoBeaconsDNA, animated: false)
         b2ABeacons.text = String(matchData[currentMatch][3].autoBeacons)
         b2ACenter.text = String(matchData[currentMatch][3].autoVortex)
         b2ACorner.text = String(matchData[currentMatch][3].autoCorner)

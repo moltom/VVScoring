@@ -10,11 +10,13 @@ import UIKit
 
 class RankingsController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
+    @IBAction func reloadThings(_ sender: AnyObject) {
+        tableView.reloadData()
+    }
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     
     let cellReuseIdendifier = "RankingsCell"
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,29 +29,21 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func addTeamButton(_ sender: AnyObject) {
-        // get a reference to the view controller for the popover
-        let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "addTeamPop")
-        
-        // set the presentation style
-        popController.modalPresentationStyle = UIModalPresentationStyle.popover
-        
-        // set up the popover presentation controller
-        popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
-        popController.popoverPresentationController?.delegate = self
-        popController.popoverPresentationController?.sourceView = sender as? UIView // button
-        popController.popoverPresentationController?.sourceRect = sender.bounds
-        
-        // present the popover
-        self.present(popController, animated: true, completion: nil)
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "addTeamController") as! AddTeamController
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
     }
     
+    /*
     @IBAction func editMode(_ sender: AnyObject) {
         if(!tableView.isEditing){
             tableView.setEditing(true, animated: true)
         }else{
             tableView.setEditing(false, animated: true)
         }
-    }
+    }*/
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -86,19 +80,24 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdendifier, for: indexPath as IndexPath) as! RankingsCell
         
         //Data for Cells
-        let dat = sortTeamsBy(mode: "number", dir: 0).averages
+        let dat = sortTeamsBy(mode: "", dir: 0)
         let t = dat[indexPath.row]
         
-        cell.labels["number"]?.Label.text = findNumber(indexPath.row)
-        cell.labels["name"]?.Label.text = teamList[findNumber(indexPath.row)]?.name
-        cell.labels["rank"]?.Label.text = "1"
+        cell.labels["number"]?.Label.text = String (t.number)
+        cell.labels["name"]?.Label.text = teamList[String (t.number)]?.name
+        cell.labels["rank"]?.Label.text = String (indexPath.row + 1)
+        cell.labels["RP"]?.Label.text = String(getAverages(num: t.number).averages.RP)
         cell.labels["wins"]?.Label.text = String(getAverages(num: t.number).wins)
         cell.labels["losses"]?.Label.text = String(getAverages(num: t.number).losses)
         cell.labels["tie"]?.Label.text = String(getAverages(num: t.number).ties)
         cell.labels["opr"]?.Label.text = String(t.opr)
         cell.labels["autoPts"]?.Label.text = String(t.autoPts)
-        cell.labels["telePts"]?.Label.text = String(t.telePts)
-        cell.labels["endGamePts"]?.Label.text = String(t.endGamePts)
+        cell.labels["autoBalls"]?.Label.text = String(t.autoVortex)
+        cell.labels["autoBeacons"]?.Label.text = String(t.autoBeacons)
+        cell.labels["teleBalls"]?.Label.text = String(t.vortexBalls)
+        cell.labels["endBeacons"]?.Label.text = String(t.beacons)
+        cell.labels["capPts"]?.Label.text = String(t.capBallPts)
+        cell.labels["partnerScore"]?.Label.text = String(t.allianceScore - t.opr)
         
         
         return cell

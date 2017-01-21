@@ -28,7 +28,9 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
         NotificationCenter.default.addObserver(self, selector: #selector (MatchesController.loadList(notification:)),name:NSNotification.Name(rawValue: "load"), object: nil)
     }
     
-    
+    @IBAction func unwindToMatches(sender: UIStoryboardSegue){
+        saveMatchData()
+    }
     
     @IBAction func popover(_ sender: AnyObject) {
         // get a reference to the view controller for the popover
@@ -75,8 +77,11 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
         //Transfer Views
         let vcName = "match"
         let viewController = storyboard?.instantiateViewController(withIdentifier: vcName)
-        self.navigationController?.pushViewController(viewController!, animated: true)
-        viewController?.navigationItem.title = "Autonomous Scoring"
+        present(viewController!, animated: true, completion: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -11,8 +11,8 @@ import UIKit
 class addTeamCell: UITableViewCell {
 
     var labels: [String: (Label: UITextField, x: Int, y: Int, width: Int, height: Int)] = [
-        "number": (UITextField(),20, 0, 100, 40),
-        "name": (UITextField(),140, 0, 150, 40)
+        "number": (UITextField(),10, 0, 50, 40),
+        "name": (UITextField(),65, 0, 150, 40)
     ]
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

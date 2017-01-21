@@ -18,21 +18,43 @@ class AddTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.showAnimate()
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        
         tableView.register(addTeamCell.self, forCellReuseIdentifier: cellReuseIdendifier)
         
         tableView.dataSource = self
         tableView.delegate = self
         
         loadList()
+        
+        //NotificationCenter.default.addObserver(self, selector: #selector (MatchesController.loadList(notification:)),name:NSNotification.Name(rawValue: "teamFieldChanged"), object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    //Editing changed
+    func textFieldDidChangeName(_ textField: UITextField) {
+        let cell: UITableViewCell = textField.superview!.superview as! UITableViewCell
+        let table: UITableView = cell.superview!.superview as! UITableView
+        let textFieldIndexPath = table.indexPath(for: cell)!
+        
+        tempTeamList[textFieldIndexPath.row].name = textField.text!
+    }
+    func textFieldDidChangeNumber(_ textField: UITextField) {
+        let cell: UITableViewCell = textField.superview!.superview as! UITableViewCell
+        let table: UITableView = cell.superview!.superview as! UITableView
+        let textFieldIndexPath = table.indexPath(for: cell)!
+        
+        tempTeamList[textFieldIndexPath.row].num = textField.text!
     }
     
     func loadList(){
         tempTeamList = []
-        var x = 0
         for (num, val) in teamList{
-            tempTeamList[x].num = num
-            tempTeamList[x].name = val.name
-            x += 1
+            tempTeamList.append((num: num, name: val.name))
         }
     }
     
@@ -111,10 +133,21 @@ class AddTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdendifier, for: indexPath as IndexPath) as! addTeamCell
         
-        cell.labels["number"]?.Label.placeholder = "Number"
-        cell.labels["number"]?.Label.addTarget(self, action: #selector(self.teamNumberEdit(_:)), for: UIControlEvents.touchUpInside)
+        cell.labels["number"]?.Label.placeholder = "#"
+        if tempTeamList[indexPath.row].num != "-"{
+            cell.labels["number"]?.Label.text = tempTeamList[indexPath.row].num
+        }
+        //cell.labels["number"]?.Label.addTarget(self, action: #selector(self.teamNumberEdit(_:)), for: UIControlEvents.editingDidBegin)
+        //let dummy: UIView = UIView()
+        //cell.labels["number"]?.Label.inputView = dummy
         
         cell.labels["name"]?.Label.placeholder = "Name"
+        if tempTeamList[indexPath.row].name != "-"{
+            cell.labels["name"]?.Label.text = tempTeamList[indexPath.row].name
+        }
+        
+        cell.labels["name"]?.Label.addTarget(self, action: #selector(self.textFieldDidChangeName(_:)), for: .editingChanged)
+        cell.labels["number"]?.Label.addTarget(self, action: #selector(self.textFieldDidChangeNumber(_:)), for: .editingChanged)
         
         return cell
     }
