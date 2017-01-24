@@ -16,6 +16,10 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     let cellReuseIdendifier = "RankingsCell"
     
     override func viewDidLoad() {
