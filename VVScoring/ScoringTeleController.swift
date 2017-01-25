@@ -31,7 +31,6 @@ class ScoringTeleController: UIViewController {
     @IBOutlet weak var r1TNumField: UITextField!
     @IBOutlet var r1TCenter: UILabel!
     @IBOutlet var r1TCorner: UILabel!
-    @IBOutlet var r1TBeacons: UILabel!
     @IBOutlet var r1TCapPts: UILabel!
     @IBOutlet var r1TScore: UILabel!
     @IBOutlet var r1TMatchScore: UILabel!
@@ -58,7 +57,6 @@ class ScoringTeleController: UIViewController {
     @IBOutlet weak var r2TNumField: UITextField!
     @IBOutlet var r2TCenter: UILabel!
     @IBOutlet var r2TCorner: UILabel!
-    @IBOutlet var r2TBeacons: UILabel!
     @IBOutlet var r2TCapPts: UILabel!
     @IBOutlet var r2TScore: UILabel!
     @IBOutlet var r2TMatchScore: UILabel!
@@ -83,7 +81,6 @@ class ScoringTeleController: UIViewController {
     @IBOutlet weak var b1TNumField: UITextField!
     @IBOutlet var b1TCenter: UILabel!
     @IBOutlet var b1TCorner: UILabel!
-    @IBOutlet var b1TBeacons: UILabel!
     @IBOutlet var b1TCapPts: UILabel!
     @IBOutlet var b1TScore: UILabel!
     @IBOutlet var b1TMatchScore: UILabel!
@@ -108,7 +105,6 @@ class ScoringTeleController: UIViewController {
     @IBOutlet weak var b2TNumField: UITextField!
     @IBOutlet var b2TCenter: UILabel!
     @IBOutlet var b2TCorner: UILabel!
-    @IBOutlet var b2TBeacons: UILabel!
     @IBOutlet var b2TCapPts: UILabel!
     @IBOutlet var b2TScore: UILabel!
     @IBOutlet var b2TMatchScore: UILabel!
@@ -130,6 +126,64 @@ class ScoringTeleController: UIViewController {
         }
         refreshLabels()
     }
+    
+    //Beacons
+    //R1
+    @IBAction func r1Beaconr1(_ sender: AnyObject) {
+    }
+    @IBAction func r1Beaconr2(_ sender: AnyObject) {
+    }
+    @IBAction func r1Beaconr3(_ sender: AnyObject) {
+    }
+    @IBAction func r1Beaconr4(_ sender: AnyObject) {
+    }
+    @IBOutlet weak var r1BeaconTeamr1: UILabel!
+    @IBOutlet weak var r1BeaconTeamr2: UILabel!
+    @IBOutlet weak var r1BeaconTeamr3: UILabel!
+    @IBOutlet weak var r1BeaconTeamr4: UILabel!
+    
+    //R2
+    @IBAction func r2Beaconr1(_ sender: AnyObject) {
+    }
+    @IBAction func r2Beaconr2(_ sender: AnyObject) {
+    }
+    @IBAction func r2Beaconr3(_ sender: AnyObject) {
+    }
+    @IBAction func r2Beaconr4(_ sender: AnyObject) {
+    }
+    @IBOutlet weak var r2BeaconTeamr1: UILabel!
+    @IBOutlet weak var r2BeaconTeamr2: UILabel!
+    @IBOutlet weak var r2BeaconTeamr3: UILabel!
+    @IBOutlet weak var r2BeaconTeamr4: UILabel!
+    
+    //B1
+    @IBAction func b1Beaconb1(_ sender: AnyObject) {
+    }
+    @IBAction func b1Beaconb2(_ sender: AnyObject) {
+    }
+    @IBAction func b1Beaconb3(_ sender: AnyObject) {
+    }
+    @IBAction func b1Beaconb4(_ sender: AnyObject) {
+    }
+    @IBOutlet weak var b1BeaconTeamb1: UILabel!
+    @IBOutlet weak var b1BeaconTeamb2: UILabel!
+    @IBOutlet weak var b1BeaconTeamb3: UILabel!
+    @IBOutlet weak var b1BeaconTeamb4: UILabel!
+    
+    //B2
+    @IBAction func b2Beaconb1(_ sender: AnyObject) {
+    }
+    @IBAction func b2Beaconb2(_ sender: AnyObject) {
+    }
+    @IBAction func b2Beaconb3(_ sender: AnyObject) {
+    }
+    @IBAction func b2Beaconb4(_ sender: AnyObject) {
+    }
+    @IBOutlet weak var b2BeaconTeamb1: UILabel!
+    @IBOutlet weak var b2BeaconTeamb2: UILabel!
+    @IBOutlet weak var b2BeaconTeamb3: UILabel!
+    @IBOutlet weak var b2BeaconTeamb4: UILabel!
+    
     
     
     
