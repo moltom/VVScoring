@@ -55,7 +55,7 @@ class TournamentSelectController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let tname = tournamentList[indexPath.row].fileLocation
         currentTournament = tname
-        _ = readMatchDataFromFile(file: tname)
+        _ = readMatchDataFromFile(fileName: tname)
         let viewController = storyboard?.instantiateViewController(withIdentifier: "tabBarController")
         present(viewController!, animated: true, completion: nil)
     }

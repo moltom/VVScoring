@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		33101A221E0D8AB2001AD245 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33101A211E0D8AB2001AD245 /* Utility.swift */; };
 		33101A241E0D8FD5001AD245 /* example.txt in Resources */ = {isa = PBXBuildFile; fileRef = 33101A231E0D8FD5001AD245 /* example.txt */; };
-		333675871E0059FA00DAF49C /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 333675861E0059FA00DAF49C /* data.txt */; };
 		333675891E005C2C00DAF49C /* tournaments.txt in Resources */ = {isa = PBXBuildFile; fileRef = 333675881E005C2C00DAF49C /* tournaments.txt */; };
 		336449E91E2FD0F600D728DD /* AddTeamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336449E81E2FD0F600D728DD /* AddTeamController.swift */; };
 		336449EB1E2FD57200D728DD /* NumPadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336449EA1E2FD57200D728DD /* NumPadController.swift */; };
@@ -57,7 +56,6 @@
 /* Begin PBXFileReference section */
 		33101A211E0D8AB2001AD245 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		33101A231E0D8FD5001AD245 /* example.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.txt; sourceTree = "<group>"; };
-		333675861E0059FA00DAF49C /* data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
 		333675881E005C2C00DAF49C /* tournaments.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tournaments.txt; sourceTree = "<group>"; };
 		336449E81E2FD0F600D728DD /* AddTeamController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamController.swift; sourceTree = "<group>"; };
 		336449EA1E2FD57200D728DD /* NumPadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumPadController.swift; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 				336ABC971DF9C5CF00A588A9 /* TournamentCell.swift */,
 				336ABC991DF9C94E00A588A9 /* MenuController.swift */,
 				33E22F481DFB176300D5F845 /* FileUtility.swift */,
-				333675861E0059FA00DAF49C /* data.txt */,
 				333675881E005C2C00DAF49C /* tournaments.txt */,
 				E29E565F1E05A84000D7BF36 /* NewTournamentController.swift */,
 				33101A211E0D8AB2001AD245 /* Utility.swift */,
@@ -299,7 +296,6 @@
 				33B17E681DF721EF00D1F443 /* Assets.xcassets in Resources */,
 				333675891E005C2C00DAF49C /* tournaments.txt in Resources */,
 				33101A241E0D8FD5001AD245 /* example.txt in Resources */,
-				333675871E0059FA00DAF49C /* data.txt in Resources */,
 				33B17E661DF721EF00D1F443 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,7 +492,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = VVScoring/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = silqent.VVScoring;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -508,7 +506,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = VVScoring/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = silqent.VVScoring;
 				PRODUCT_NAME = "$(TARGET_NAME)";

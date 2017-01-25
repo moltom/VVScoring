@@ -15,20 +15,26 @@ let tournamentHeader: String = "Name,Type,Date,FileLocation"
 
 var currentTournament: String = ""
 
+let docsPath = NSSearchPathForDirectoriesInDomains(
+    FileManager.SearchPathDirectory.documentDirectory,
+    FileManager.SearchPathDomainMask.userDomainMask,
+    true)[0] as NSString
+
 //MATCH DATA
 
 //Reads match data from the given file name and returns error status
 //@parameter file The file name (assuming txt file) to read the match data from
 //@return A boolean that returns false if an error occured.
-func readMatchDataFromFile(file: String) -> Bool{
-    let path = Bundle.main.path(forResource: file, ofType: "txt")
+func readMatchDataFromFile(fileName: String) -> Bool{
+    //let path = Bundle.main.path(forResource: file, ofType: "txt")
+    let path = docsPath.appendingPathComponent("\(fileName).txt")
     let fm = FileManager.default
     
     print("\nReading match data from: \(path)\n")
     
-    if fm.fileExists(atPath: path!){
+    if fm.fileExists(atPath: path){
         do{
-            let fullText = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
+            let fullText = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
             let lines = fullText.components(separatedBy: "\n") as [String]
             
             //Get team list
@@ -79,6 +85,42 @@ func readMatchDataFromFile(file: String) -> Bool{
     }
     else{
         return false
+    }
+}
+
+func setupInitialUtilityFiles(){
+    let fm = FileManager.default
+    let tPath = docsPath.appendingPathComponent("tournaments.txt")
+    let mPath = docsPath.appendingPathComponent("example.txt")
+    
+    print("Checking if tournament file exists at: \(tPath)")
+    let tResult = fm.fileExists(atPath: tPath)
+    print("Result->\(tResult)")
+    if !tResult{
+        let path = Bundle.main.path(forResource: "tournaments", ofType: "txt")!
+        do{
+            try fm.copyItem(atPath: path, toPath: tPath)
+        }catch{
+            print("(Tournament) Error in copying file to \(tPath)\n")
+        }
+    }
+    else{
+        print("Tournament file exists at location\n")
+    }
+    
+    print("Checking if tournament file exists at: \(mPath)")
+    let mResult = fm.fileExists(atPath: tPath)
+    print("Result->\(mResult)")
+    if !mResult{
+        let path = Bundle.main.path(forResource: "example", ofType: "txt")!
+        do{
+            try fm.copyItem(atPath: path, toPath: mPath)
+        }catch{
+            print("(Match Data) Error in copying file to \(mPath)\n")
+        }
+    }
+    else{
+        print("Example file exists at location\n")
     }
 }
 
@@ -133,7 +175,8 @@ func formatMatchDataToCSV() -> String{
 }
 
 func writeMatchDataToFile(fileName: String){
-    let path = Bundle.main.path(forResource: fileName, ofType: "txt")!
+    //let path = Bundle.main.path(forResource: fileName, ofType: "txt")!
+    let path = docsPath.appendingPathComponent("\(fileName).txt")
     let file: FileHandle? = FileHandle(forWritingAtPath: path)
     
     print("\nWriting to match file at: \(path)\n")
@@ -156,13 +199,14 @@ func writeMatchDataToFile(fileName: String){
 
 //TOURNAMENT CONTROL
 func readTournamentList(){
-    let path = Bundle.main.path(forResource: "tournaments", ofType: "txt")
+    //let path = Bundle.main.path(forResource: "tournaments", ofType: "txt")
+    let path = docsPath.appendingPathComponent("tournaments.txt")
     let fm = FileManager.default
     
     //Checks if file exists
-    if fm.fileExists(atPath: path!){
+    if fm.fileExists(atPath: path){
         do{
-            let fullText = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
+            let fullText = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
             let lines = fullText.components(separatedBy: "\n") as [String]
             var index = 0
             
@@ -200,7 +244,7 @@ func addTournament(Tname: String, Ttype: String, Tdate: String, TfileName: Strin
     writeToTournamentList()
     
     //Create new file for data
-    createFileWithName(name: TfileName)
+    createFile(withName: TfileName)
     
     //Set current tournament
     currentTournament = TfileName
@@ -227,7 +271,8 @@ func removeTournament(fileName: String){
 }
 
 func writeToTournamentList(){
-    let path = Bundle.main.path(forResource: "tournaments", ofType: "txt")!
+    //let path = Bundle.main.path(forResource: "tournaments", ofType: "txt")!
+    let path = docsPath.appendingPathComponent("tournaments.txt")
     let file: FileHandle? = FileHandle(forWritingAtPath: path)
     
     print("\nWriting to tournament list file at: \(path)\n")
@@ -289,7 +334,8 @@ func formatTeamListToString() -> String{
 }
 
 func truncateFile(fileName: String){
-    let path = Bundle.main.path(forResource: fileName, ofType: "txt")!
+    //let path = Bundle.main.path(forResource: fileName, ofType: "txt")!
+    let path = docsPath.appendingPathComponent("\(fileName).txt")
     let file: FileHandle? = FileHandle(forWritingAtPath: path)
     
     print("\nTruncating file at path: \(path)\n")
@@ -303,12 +349,13 @@ func truncateFile(fileName: String){
         file?.closeFile()
     }
     else {
-        print("Ooops! Something went wrong! (Tournaments)")
+        print("Truncating matchData file failed!")
     }
 }
 
 func truncateTournamentFile(){
-    let path = Bundle.main.path(forResource: "tournaments", ofType: "txt")!
+    //let path = Bundle.main.path(forResource: "tournaments", ofType: "txt")!
+    let path = docsPath.appendingPathComponent("tournaments.txt")
     let file: FileHandle? = FileHandle(forWritingAtPath: path)
     
     print("\nTruncating file at path: \(path)\n")
@@ -322,12 +369,13 @@ func truncateTournamentFile(){
         file?.closeFile()
     }
     else {
-        print("Ooops! Something went wrong! (Tournaments)")
+        print("Truncating tournament file failed!")
     }
 }
 
-func createFileWithName(name: String){
-    let path = Bundle.main.bundlePath + "/\(name).txt"
+func createFile(withName fileName: String){
+    //let path = Bundle.main.bundlePath + "/\(name).txt"
+    let path = docsPath.appendingPathComponent("\(fileName).txt")
     
     print("\nCreated file at path: \(path)\n")
     let header: String = matchHeader
