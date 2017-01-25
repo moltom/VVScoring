@@ -294,10 +294,13 @@ class ScoringController: UIViewController {
         
         //RED 1
         if(r1numValid){
-            r1NumField.text = String(matchData[currentMatch][0].number)
-        }
-        if(r1numValid){
-            r1NameField.text = teamList[r1NumField.text!]?.name
+            if(matchData[currentMatch][0].number != 0){
+                r1NumField.text = String(matchData[currentMatch][0].number)
+                r1NameField.text = teamList[r1NumField.text!]?.name
+            }
+            else {
+                r1NumField.text = ""
+            }
         }
         r1ABeaconsDNA.setOn(matchData[currentMatch][0].autoBeaconsDNA, animated: false)
         r1ABeacons.text = String(matchData[currentMatch][0].autoBeacons)
@@ -324,10 +327,13 @@ class ScoringController: UIViewController {
         
         //RED 2
         if(r2numValid){
-            r2NumField.text = String(matchData[currentMatch][1].number)
-        }
-        if(r2numValid){
-            r2NameField.text = teamList[r2NumField.text!]?.name
+            if(matchData[currentMatch][1].number != 0){
+                r2NumField.text = String(matchData[currentMatch][1].number)
+                r2NameField.text = teamList[r2NumField.text!]?.name
+            }
+            else {
+                r2NumField.text = ""
+            }
         }
         r2ABeaconsDNA.setOn(matchData[currentMatch][1].autoBeaconsDNA, animated: false)
         r2ABeacons.text = String(matchData[currentMatch][1].autoBeacons)
@@ -356,10 +362,13 @@ class ScoringController: UIViewController {
         
         //BLUE 1
         if(b1numValid){
-            b1NumField.text = String(matchData[currentMatch][2].number)
-        }
-        if(b1numValid){
-            b1NameField.text = teamList[b1NumField.text!]?.name
+            if(matchData[currentMatch][2].number != 0){
+                b1NumField.text = String(matchData[currentMatch][2].number)
+                b1NameField.text = teamList[b1NumField.text!]?.name
+            }
+            else {
+                b1NumField.text = ""
+            }
         }
         b1ABeaconsDNA.setOn(matchData[currentMatch][2].autoBeaconsDNA, animated: false)
         b1ABeacons.text = String(matchData[currentMatch][2].autoBeacons)
@@ -387,10 +396,13 @@ class ScoringController: UIViewController {
         
         //BLUE 2
         if(b2numValid){
-            b2NumField.text = String(matchData[currentMatch][3].number)
-        }
-        if(b2numValid){
-            b2NameField.text = teamList[b2NumField.text!]?.name
+            if(matchData[currentMatch][3].number != 0){
+                b2NumField.text = String(matchData[currentMatch][3].number)
+                b2NameField.text = teamList[b2NumField.text!]?.name
+            }
+            else {
+                b2NumField.text = ""
+            }
         }
         b2ABeaconsDNA.setOn(matchData[currentMatch][3].autoBeaconsDNA, animated: false)
         b2ABeacons.text = String(matchData[currentMatch][3].autoBeacons)

@@ -13,14 +13,14 @@ class MatchCell: UITableViewCell {
     var labels: [String: (Label: UILabel, x: Int, y: Int, width: Int, height: Int)] = [
         "match": (UILabel(), 0, 0, 40, 40),
         "r1": (UILabel(), 40, 0, 60, 40),
-        "r1name": (UILabel(), 95, 0, 150, 40),
+        "r1name": (UILabel(), 95, 0, 130, 40),
         "r2": (UILabel(), 230, 0, 60, 40),
         "r2name": (UILabel(), 285, 0, 150, 40),
         "rscore": (UILabel(), 445, 2, 40, 40),
         "divider": (UILabel(), 485, 0, 10, 40),
         "bscore": (UILabel(), 498, 2, 40, 40),
         "b1": (UILabel(), 570, 0, 60, 40),
-        "b1name": (UILabel(), 630, 0, 150, 40),
+        "b1name": (UILabel(), 630, 0, 140, 40),
         "b2": (UILabel(), 780, 0, 60, 40),
         "b2name": (UILabel(), 830, 0, 150, 40)
     ]
