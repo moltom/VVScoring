@@ -95,23 +95,28 @@ func setupInitialUtilityFiles(){
     
     //-Tournament file-
     let tExist = fm.fileExists(atPath: mPath)
-    tExist ? print("Tournament file exits\n") : print("Tournament file doesn't exist\n")
     //Copying file
-    let oldTpath = Bundle.main.path(forResource: "tournaments", ofType: "txt")!
-    do{
-        if tExist{
-            do{
-                try fm.removeItem(atPath: mPath)
-            }catch{
-                print("\nError removing item!\n")
+    if !tExist{
+        print("Tournament file doesn't exist\n")
+        let oldTpath = Bundle.main.path(forResource: "tournaments", ofType: "txt")!
+        do{
+            if tExist{
+                do{
+                    try fm.removeItem(atPath: mPath)
+                }catch{
+                    print("\nError removing item!\n")
+                }
             }
+            let fullText = try String(contentsOfFile: oldTpath, encoding: String.Encoding.utf8)
+            fm.createFile(atPath: tPath, contents: fullText.data(using: .utf8), attributes: nil)
+            //try fm.copyItem(atPath: oldTpath, toPath: tPath)
+        }catch{
+            print("(Tournament) Error in copying file to \(tPath)\n")
         }
-        let fullText = try String(contentsOfFile: oldTpath, encoding: String.Encoding.utf8)
-        fm.createFile(atPath: tPath, contents: fullText.data(using: .utf8), attributes: nil)
-        //try fm.copyItem(atPath: oldTpath, toPath: tPath)
-    }catch{
-        print("(Tournament) Error in copying file to \(tPath)\n")
+    }else{
+        print("Tournament file exits\n")
     }
+    
     
     //-Match File-
     let mExist = fm.fileExists(atPath: mPath)
@@ -215,6 +220,7 @@ func readTournamentList(){
     
     //Checks if file exists
     if fm.fileExists(atPath: path){
+        print("Tournament file exists...reading file")
         do{
             let fullText = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
             let lines = fullText.components(separatedBy: "\n") as [String]
