@@ -335,8 +335,8 @@ class ScoringTeleController: UIViewController {
         }
         r1TCenter.text = String(matchData[currentMatch][0].vortexBalls)
         r1TCorner.text = String(matchData[currentMatch][0].cornerBalls)
-        r1TBeacons.text = String(matchData[currentMatch][0].beacons)
-        r1TCapPts.text = String(matchData[currentMatch][0].capBallPts)
+        //r1TBeacons.text = String(matchData[currentMatch][0].beacons)
+ r1TCapPts.text = String(matchData[currentMatch][0].capBallPts)
         r1TCapDNA.setOn(matchData[currentMatch][0].capBallDNA, animated: false)
         
         //RED 2
@@ -348,7 +348,7 @@ class ScoringTeleController: UIViewController {
         }
         r2TCenter.text = String(matchData[currentMatch][1].vortexBalls)
         r2TCorner.text = String(matchData[currentMatch][1].cornerBalls)
-        r2TBeacons.text = String(matchData[currentMatch][1].beacons)
+        //r2TBeacons.text = String(matchData[currentMatch][1].beacons)
         r2TCapPts.text = String(matchData[currentMatch][1].capBallPts)
         r2TCapDNA.setOn(matchData[currentMatch][1].capBallDNA, animated: false)
         
@@ -361,7 +361,7 @@ class ScoringTeleController: UIViewController {
         }
         b1TCenter.text = String(matchData[currentMatch][2].vortexBalls)
         b1TCorner.text = String(matchData[currentMatch][2].cornerBalls)
-        b1TBeacons.text = String(matchData[currentMatch][2].beacons)
+        //b1TBeacons.text = String(matchData[currentMatch][2].beacons)
         b1TCapPts.text = String(matchData[currentMatch][2].capBallPts)
         b1TCapDNA.setOn(matchData[currentMatch][2].capBallDNA, animated: false)
         
@@ -374,7 +374,7 @@ class ScoringTeleController: UIViewController {
         }
         b2TCenter.text = String(matchData[currentMatch][3].vortexBalls)
         b2TCorner.text = String(matchData[currentMatch][3].cornerBalls)
-        b2TBeacons.text = String(matchData[currentMatch][3].beacons)
+        //b2TBeacons.text = String(matchData[currentMatch][3].beacons)
         b2TCapPts.text = String(matchData[currentMatch][3].capBallPts)
         b2TCapDNA.setOn(matchData[currentMatch][3].capBallDNA, animated: false)
         
