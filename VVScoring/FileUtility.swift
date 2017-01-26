@@ -93,34 +93,44 @@ func setupInitialUtilityFiles(){
     let tPath = docsPath.appendingPathComponent("tournaments.txt")
     let mPath = docsPath.appendingPathComponent("example.txt")
     
-    print("Checking if tournament file exists at: \(tPath)")
-    let tResult = fm.fileExists(atPath: tPath)
-    print("Result->\(tResult)")
-    if !tResult{
-        let path = Bundle.main.path(forResource: "tournaments", ofType: "txt")!
-        do{
-            try fm.copyItem(atPath: path, toPath: tPath)
-        }catch{
-            print("(Tournament) Error in copying file to \(tPath)\n")
+    //-Tournament file-
+    let tExist = fm.fileExists(atPath: mPath)
+    tExist ? print("Tournament file exits\n") : print("Tournament file doesn't exist\n")
+    //Copying file
+    let oldTpath = Bundle.main.path(forResource: "tournaments", ofType: "txt")!
+    do{
+        if tExist{
+            do{
+                try fm.removeItem(atPath: mPath)
+            }catch{
+                print("\nError removing item!\n")
+            }
         }
-    }
-    else{
-        print("Tournament file exists at location\n")
+        let fullText = try String(contentsOfFile: oldTpath, encoding: String.Encoding.utf8)
+        fm.createFile(atPath: tPath, contents: fullText.data(using: .utf8), attributes: nil)
+        //try fm.copyItem(atPath: oldTpath, toPath: tPath)
+    }catch{
+        print("(Tournament) Error in copying file to \(tPath)\n")
     }
     
-    print("Checking if tournament file exists at: \(mPath)")
-    let mResult = fm.fileExists(atPath: tPath)
-    print("Result->\(mResult)")
-    if !mResult{
-        let path = Bundle.main.path(forResource: "example", ofType: "txt")!
-        do{
-            try fm.copyItem(atPath: path, toPath: mPath)
-        }catch{
-            print("(Match Data) Error in copying file to \(mPath)\n")
+    //-Match File-
+    let mExist = fm.fileExists(atPath: mPath)
+    mExist ? print("Match file exits\n") : print("Match file doesn't exist\n")
+    //Copying file
+    let oldMpath = Bundle.main.path(forResource: "example", ofType: "txt")!
+    do{
+        if mExist{
+            do{
+                try fm.removeItem(atPath: mPath)
+            }catch{
+                print("\nError removing item!\n")
+            }
         }
-    }
-    else{
-        print("Example file exists at location\n")
+        let fullText = try String(contentsOfFile: oldMpath, encoding: String.Encoding.utf8)
+        fm.createFile(atPath: mPath, contents: fullText.data(using: .utf8), attributes: nil)
+        //try fm.copyItem(atPath: oldMpath, toPath: mPath)
+    }catch{
+        print("(Match Data) Error in copying file to \(mPath)\n")
     }
 }
 
