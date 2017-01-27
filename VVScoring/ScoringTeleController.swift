@@ -128,61 +128,31 @@ class ScoringTeleController: UIViewController {
     }
     
     //Beacons
-    //R1
-    @IBAction func r1Beaconr1(_ sender: AnyObject) {
+    @IBAction func r1red(_ sender: AnyObject) {
     }
-    @IBAction func r1Beaconr2(_ sender: AnyObject) {
+    @IBAction func r1blue(_ sender: AnyObject) {
     }
-    @IBAction func r1Beaconr3(_ sender: AnyObject) {
-    }
-    @IBAction func r1Beaconr4(_ sender: AnyObject) {
-    }
-    @IBOutlet weak var r1BeaconTeamr1: UILabel!
-    @IBOutlet weak var r1BeaconTeamr2: UILabel!
-    @IBOutlet weak var r1BeaconTeamr3: UILabel!
-    @IBOutlet weak var r1BeaconTeamr4: UILabel!
+    @IBOutlet var r1owner: UILabel!
     
-    //R2
-    @IBAction func r2Beaconr1(_ sender: AnyObject) {
+    @IBAction func r2red(_ sender: AnyObject) {
     }
-    @IBAction func r2Beaconr2(_ sender: AnyObject) {
+    @IBAction func r2blue(_ sender: AnyObject) {
     }
-    @IBAction func r2Beaconr3(_ sender: AnyObject) {
-    }
-    @IBAction func r2Beaconr4(_ sender: AnyObject) {
-    }
-    @IBOutlet weak var r2BeaconTeamr1: UILabel!
-    @IBOutlet weak var r2BeaconTeamr2: UILabel!
-    @IBOutlet weak var r2BeaconTeamr3: UILabel!
-    @IBOutlet weak var r2BeaconTeamr4: UILabel!
+    @IBOutlet var r2owner: UILabel!
     
-    //B1
-    @IBAction func b1Beaconb1(_ sender: AnyObject) {
+    @IBAction func b1red(_ sender: AnyObject) {
     }
-    @IBAction func b1Beaconb2(_ sender: AnyObject) {
+    @IBAction func b1blue(_ sender: AnyObject) {
     }
-    @IBAction func b1Beaconb3(_ sender: AnyObject) {
+    @IBOutlet var b1owner: UILabel!
+
+    @IBAction func b2red(_ sender: AnyObject) {
     }
-    @IBAction func b1Beaconb4(_ sender: AnyObject) {
+    @IBAction func b2blue(_ sender: AnyObject) {
     }
-    @IBOutlet weak var b1BeaconTeamb1: UILabel!
-    @IBOutlet weak var b1BeaconTeamb2: UILabel!
-    @IBOutlet weak var b1BeaconTeamb3: UILabel!
-    @IBOutlet weak var b1BeaconTeamb4: UILabel!
+    @IBOutlet var b2owner: UILabel!
+
     
-    //B2
-    @IBAction func b2Beaconb1(_ sender: AnyObject) {
-    }
-    @IBAction func b2Beaconb2(_ sender: AnyObject) {
-    }
-    @IBAction func b2Beaconb3(_ sender: AnyObject) {
-    }
-    @IBAction func b2Beaconb4(_ sender: AnyObject) {
-    }
-    @IBOutlet weak var b2BeaconTeamb1: UILabel!
-    @IBOutlet weak var b2BeaconTeamb2: UILabel!
-    @IBOutlet weak var b2BeaconTeamb3: UILabel!
-    @IBOutlet weak var b2BeaconTeamb4: UILabel!
     
     
     
