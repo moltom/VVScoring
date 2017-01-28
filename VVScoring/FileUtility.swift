@@ -35,19 +35,22 @@ func readMatchDataFromFile(fileName: String) -> Bool{
     if fm.fileExists(atPath: path){
         do{
             let fullText = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+            print("\nfullText for matchData: \n\(fullText)-ENDOFFILE-")
             let lines = fullText.components(separatedBy: "\n") as [String]
             
             //Get team list
             teamList = [:]
             let teamInfo = lines[1].components(separatedBy: ",")
-            for f in stride(from: 0, through: teamInfo.count-1, by: 3) {
-                teamList[teamInfo[f]] = (name: teamInfo[f+1], fav: Bool(teamInfo[f+2])!)
-                //print(teamList[teamInfo[f]])
+            if(teamInfo.count % 3 == 0){
+                for f in stride(from: 0, through: teamInfo.count-1, by: 3) {
+                    teamList[teamInfo[f]] = (name: teamInfo[f+1], fav: Bool(teamInfo[f+2])!)
+                    //print(teamList[teamInfo[f]])
+                }
             }
             
             //Get match data
             matchData = []
-            for k in 2..<lines.count-1{
+            for k in 2..<lines.count{
                 let data = lines[k].components(separatedBy: ",")
                 var tmp = 0
                 var i = 0
@@ -88,41 +91,55 @@ func readMatchDataFromFile(fileName: String) -> Bool{
     }
 }
 
-func setupInitialUtilityFiles(){
+func setupInitialUtilityFiles(refresh: Bool){
     let fm = FileManager.default
-    let tPath = docsPath.appendingPathComponent("tournaments.txt")
-    let mPath = docsPath.appendingPathComponent("example.txt")
     
-    //-Tournament file-
-    let tExist = fm.fileExists(atPath: mPath)
-    //Copying file
-    if !tExist{
-        print("Tournament file doesn't exist\n")
+    //Refresh tournament file
+    if refresh{
+        //Get paths and check if file already exists
         let oldTpath = Bundle.main.path(forResource: "tournaments", ofType: "txt")!
+        let tPath = docsPath.appendingPathComponent("tournaments.txt")
+        let tExist = fm.fileExists(atPath: tPath)
+        
+        print("Refreshing tournament file\n")
+        
         do{
+            //Remove old file
             if tExist{
+                print("Removing old tournament file...")
                 do{
-                    try fm.removeItem(atPath: mPath)
+                    try fm.removeItem(atPath: tPath)
                 }catch{
                     print("\nError removing item!\n")
                 }
             }
+            
+            //Get contents of old file
             let fullText = try String(contentsOfFile: oldTpath, encoding: String.Encoding.utf8)
-            fm.createFile(atPath: tPath, contents: fullText.data(using: .utf8), attributes: nil)
-            //try fm.copyItem(atPath: oldTpath, toPath: tPath)
+            let length = fullText.characters.count
+            let newText = fullText.substring(0, end: length - 2)
+            
+            print("Using fullText: \(newText)")
+            
+            //Create new file with copied contents
+            fm.createFile(atPath: tPath, contents: newText.data(using: .utf8), attributes: nil)
         }catch{
             print("(Tournament) Error in copying file to \(tPath)\n")
         }
     }else{
-        print("Tournament file exits\n")
+        print("Not refreshing tournament file\n")
     }
     
     
     //-Match File-
-    let mExist = fm.fileExists(atPath: mPath)
-    mExist ? print("Match file exits\n") : print("Match file doesn't exist\n")
-    //Copying file
+    //Get paths to files and check if file already exists
+    let mPath = docsPath.appendingPathComponent("example.txt")
     let oldMpath = Bundle.main.path(forResource: "example", ofType: "txt")!
+    let mExist = fm.fileExists(atPath: mPath)
+    
+    //Print whether the file exists
+    mExist ? print("Match file exits\n") : print("Match file doesn't exist\n")
+    
     do{
         if mExist{
             do{
@@ -131,9 +148,12 @@ func setupInitialUtilityFiles(){
                 print("\nError removing item!\n")
             }
         }
+        
+        //Get contents of old file
         let fullText = try String(contentsOfFile: oldMpath, encoding: String.Encoding.utf8)
+        
+        //Create file with copied contents
         fm.createFile(atPath: mPath, contents: fullText.data(using: .utf8), attributes: nil)
-        //try fm.copyItem(atPath: oldMpath, toPath: mPath)
     }catch{
         print("(Match Data) Error in copying file to \(mPath)\n")
     }
@@ -223,12 +243,13 @@ func readTournamentList(){
         print("Tournament file exists...reading file")
         do{
             let fullText = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+            print("List: \(fullText)")
             let lines = fullText.components(separatedBy: "\n") as [String]
             var index = 0
             
             //Increment through lines
             tournamentList = []
-            for i in 1..<lines.count-1{
+            for i in 1..<lines.count{
                 let data = lines[i].components(separatedBy: ",")
                 tournamentList.append(tournament())
                 tournamentList[index].name = data[0]
@@ -311,7 +332,7 @@ func writeToTournamentList(){
 
 //FORMATTING AND UTILITY
 func formatTournamentsToCSV() -> String{
-    var out: String = "\n"
+    var out: String = ""
     
     for i in 0..<tournamentList.count{
         out += (tournamentList[i].name + ",")
@@ -394,7 +415,7 @@ func createFile(withName fileName: String){
     let path = docsPath.appendingPathComponent("\(fileName).txt")
     
     print("\nCreated file at path: \(path)\n")
-    let header: String = matchHeader
+    let header: String = "\(matchHeader)\n"
     
     do{
         try header.write(toFile: path, atomically: true, encoding: .utf8)

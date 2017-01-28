@@ -13,7 +13,7 @@ class MenuController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupInitialUtilityFiles()
+        setupInitialUtilityFiles(refresh: false)
         // Do any additional setup after loading the view.
     }
 

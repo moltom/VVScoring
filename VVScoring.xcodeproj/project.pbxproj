@@ -253,6 +253,7 @@
 				TargetAttributes = {
 					33B17E5C1DF721EF00D1F443 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = G8TSB5UPX9;
 						ProvisioningStyle = Automatic;
 					};
 					33B17E701DF721EF00D1F443 = {
@@ -492,7 +493,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = G8TSB5UPX9;
 				INFOPLIST_FILE = VVScoring/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -506,7 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = G8TSB5UPX9;
 				INFOPLIST_FILE = VVScoring/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
