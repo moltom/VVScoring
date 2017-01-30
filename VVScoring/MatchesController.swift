@@ -29,7 +29,7 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     @IBAction func unwindToMatches(sender: UIStoryboardSegue){
-        saveMatchData()
+        //saveMatchData()
     }
     
     @IBAction func popover(_ sender: AnyObject) {
