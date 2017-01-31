@@ -50,10 +50,10 @@ func readMatchDataFromFile(fileName: String) -> Bool{
             
             //Get match data
             matchData = []
+            var i = 0
             for k in 2..<lines.count{
                 let data = lines[k].components(separatedBy: ",")
                 var tmp = 0
-                var i = 0
                 matchData.append([teamInMatch(), teamInMatch(),teamInMatch(),teamInMatch()])
                 for j in 0..<4{
                     matchData[i][j].number = Int(data[tmp+0])!
