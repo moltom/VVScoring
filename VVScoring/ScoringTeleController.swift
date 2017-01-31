@@ -11,6 +11,8 @@ import UIKit
 class ScoringTeleController: UIViewController {
     
     
+    
+    
     //save data
     @IBAction func toAuto(_ sender: AnyObject) {
         saveMatchData()
@@ -127,10 +129,55 @@ class ScoringTeleController: UIViewController {
         refreshLabels()
     }
     
+    
     //Beacons
+    var bCurrent: [Int] = [0,0,0,0]
+    
+    func bCheck(beacon: Int, check: Int){
+        for i in 0..<4{
+            if(matchData[currentMatch][i].bType[beacon] == check){
+                matchData[currentMatch][i].bType[beacon] = 0
+                matchData[currentMatch][i].beacons -= 1
+            }
+        }
+    }
+    
+    func teamIndex(number: Int) -> Int {
+        for i in 0..<4{
+            if(matchData[currentMatch][i].number == number){
+                return i
+            }
+        }
+        return -1
+    }
+
     @IBAction func r1red(_ sender: AnyObject) {
+        if(bCurrent[0] == 1){
+            return
+        }
+        else if (bCurrent[0] == 2){
+            bCheck(beacon: 0, check: 2)
+        }
+        else{
+            
+            matchData[currentMatch][teamIndex(number: currentTeam)].bType[0] = 1
+            matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
+            r1owner.text = String (currentTeam)
+        }
     }
     @IBAction func r1blue(_ sender: AnyObject) {
+        if(bCurrent[0] == 2){
+            return
+        }
+        else if (bCurrent[0] == 1){
+            bCheck(beacon: 0, check: 2)
+        }
+        else{
+            
+            matchData[currentMatch][teamIndex(number: currentTeam)].bType[0] = 2
+            matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
+            r1owner.text = String (currentTeam)
+        }
     }
     @IBOutlet var r1owner: UILabel!
     
@@ -153,12 +200,49 @@ class ScoringTeleController: UIViewController {
     @IBOutlet var b2owner: UILabel!
 
     
-    
+    var currentTeam = 7655
     
     
     
     //SCORING
     func refreshLabels(){
+        
+        //populate bCurrent
+        for i in 0..<4{
+            for j in 0..<4{
+                if(matchData[currentMatch][i].bType[j] == 1){
+                    bCurrent[i] = 1
+                    if(j == 0){
+                        r1owner.text = String (matchData[currentMatch][i].number)
+                    }
+                    else if(j == 1){
+                        r1owner.text = String (matchData[currentMatch][i].number)
+                    }
+                    else if(j == 2){
+                        r1owner.text = String (matchData[currentMatch][i].number)
+                    }
+                    else if(j == 3){
+                        r1owner.text = String (matchData[currentMatch][i].number)
+                    }
+                }
+                if(matchData[currentMatch][i].bType[j] == 2){
+                    bCurrent[i] = 2
+                    if(j == 0){
+                        r1owner.text = String (matchData[currentMatch][i].number)
+                    }
+                    else if(j == 1){
+                        r1owner.text = String (matchData[currentMatch][i].number)
+                    }
+                    else if(j == 2){
+                        r1owner.text = String (matchData[currentMatch][i].number)
+                    }
+                    else if(j == 3){
+                        r1owner.text = String (matchData[currentMatch][i].number)
+                    }
+                }
+            }
+        }
+        
         
         let r1Aneg = matchData[currentMatch][0].autoBeacons < 0
         let r2Aneg = matchData[currentMatch][1].autoBeacons < 0
@@ -305,7 +389,6 @@ class ScoringTeleController: UIViewController {
         }
         r1TCenter.text = String(matchData[currentMatch][0].vortexBalls)
         r1TCorner.text = String(matchData[currentMatch][0].cornerBalls)
-        //r1TBeacons.text = String(matchData[currentMatch][0].beacons)
  r1TCapPts.text = String(matchData[currentMatch][0].capBallPts)
         r1TCapDNA.setOn(matchData[currentMatch][0].capBallDNA, animated: false)
         
@@ -318,7 +401,6 @@ class ScoringTeleController: UIViewController {
         }
         r2TCenter.text = String(matchData[currentMatch][1].vortexBalls)
         r2TCorner.text = String(matchData[currentMatch][1].cornerBalls)
-        //r2TBeacons.text = String(matchData[currentMatch][1].beacons)
         r2TCapPts.text = String(matchData[currentMatch][1].capBallPts)
         r2TCapDNA.setOn(matchData[currentMatch][1].capBallDNA, animated: false)
         
@@ -331,7 +413,6 @@ class ScoringTeleController: UIViewController {
         }
         b1TCenter.text = String(matchData[currentMatch][2].vortexBalls)
         b1TCorner.text = String(matchData[currentMatch][2].cornerBalls)
-        //b1TBeacons.text = String(matchData[currentMatch][2].beacons)
         b1TCapPts.text = String(matchData[currentMatch][2].capBallPts)
         b1TCapDNA.setOn(matchData[currentMatch][2].capBallDNA, animated: false)
         
@@ -344,7 +425,6 @@ class ScoringTeleController: UIViewController {
         }
         b2TCenter.text = String(matchData[currentMatch][3].vortexBalls)
         b2TCorner.text = String(matchData[currentMatch][3].cornerBalls)
-        //b2TBeacons.text = String(matchData[currentMatch][3].beacons)
         b2TCapPts.text = String(matchData[currentMatch][3].capBallPts)
         b2TCapDNA.setOn(matchData[currentMatch][3].capBallDNA, animated: false)
         
@@ -662,10 +742,10 @@ class ScoringTeleController: UIViewController {
     
     
     
-    
-    
-    
-    
+    override func viewDidAppear(_ animated: Bool) {
+        refreshLabels()
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

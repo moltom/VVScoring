@@ -30,6 +30,13 @@ struct teamInMatch{
     var capBallPts: Int = 0 //points
     var capBallDNA: Bool = false
     var beacons: Int = 0 //amount
+    var bType: [Int] = [0,0,0,0] //which beacon
+    /*
+        0,0,0,0: nothing
+        1,1,1,1: all red
+        2,2,2,2: all blue
+    */
+    var bCount: Int = 0 //total claims
     var endGamePts: Int = 0 //points
     var outcome: Int = 0 //Win 0, loss 1, tie 2
     var calculatedScore: Int = 0 //OPR points
@@ -69,8 +76,6 @@ struct tournament{
 }
 
 var tournamentList: [tournament] = []
-
-let elimData: [[teamInMatch]] = []
 
 func sortMatchData(){
     matchData = matchData.sorted{ $0[0].match < $1[0].match }

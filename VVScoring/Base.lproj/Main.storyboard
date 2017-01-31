@@ -2265,6 +2265,9 @@
                                 <state key="normal" title="Red">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="r1red:" destination="H5b-M0-wyg" eventType="touchUpInside" id="qf0-mM-0T0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0F-ph-HL1">
                                 <frame key="frameInset" minX="66" minY="162" width="65" height="39"/>
@@ -2274,6 +2277,9 @@
                                 <state key="normal" title="Blue">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="r1blue:" destination="H5b-M0-wyg" eventType="touchUpInside" id="dwf-6O-MN3"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYQ-8z-eeX">
                                 <frame key="frameInset" minX="76" minY="250" width="42" height="21"/>
@@ -2297,6 +2303,9 @@
                                 <state key="normal" title="Red">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="b1red:" destination="H5b-M0-wyg" eventType="touchUpInside" id="NdX-HJ-80h"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SH8-Pq-k0m">
                                 <frame key="frameInset" minX="660" minY="162" width="65" height="39"/>
@@ -2306,6 +2315,9 @@
                                 <state key="normal" title="Blue">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="b1blue:" destination="H5b-M0-wyg" eventType="touchUpInside" id="6b6-EK-g0q"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icP-3r-OVy">
                                 <frame key="frameInset" minX="673" minY="250" width="42" height="21"/>
@@ -2329,6 +2341,9 @@
                                 <state key="normal" title="Red">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="b2red:" destination="H5b-M0-wyg" eventType="touchUpInside" id="RsB-Mm-m7R"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8c-tE-w0p">
                                 <frame key="frameInset" minX="893" minY="162" width="65" height="39"/>
@@ -2338,6 +2353,9 @@
                                 <state key="normal" title="Blue">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="b2blue:" destination="H5b-M0-wyg" eventType="touchUpInside" id="AwS-pe-WaF"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AG2-E7-ZT0">
                                 <frame key="frameInset" minX="893" minY="250" width="42" height="21"/>
@@ -2361,6 +2379,9 @@
                                 <state key="normal" title="Red">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="r2red:" destination="H5b-M0-wyg" eventType="touchUpInside" id="4gd-cO-9xM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QwV-N6-I1s">
                                 <frame key="frameInset" minX="294" minY="162" width="65" height="39"/>
@@ -2370,6 +2391,9 @@
                                 <state key="normal" title="Blue">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="r2blue:" destination="H5b-M0-wyg" eventType="touchUpInside" id="YYG-CS-IJZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0a-db-Gu2">
                                 <frame key="frameInset" minX="301" minY="250" width="42" height="21"/>
@@ -2475,6 +2499,7 @@
                         <outlet property="b1TMatchScore" destination="Xdu-Nm-grK" id="hUn-qc-vua"/>
                         <outlet property="b1TNumField" destination="K1A-f2-wav" id="lmB-Pq-DLZ"/>
                         <outlet property="b1TScore" destination="fpO-x1-90Q" id="eED-nc-Dwm"/>
+                        <outlet property="b1owner" destination="icP-3r-OVy" id="lc6-yc-J9Z"/>
                         <outlet property="b2NameField" destination="bDD-hn-43D" id="TWv-nu-v4y"/>
                         <outlet property="b2TCapDNA" destination="knt-Vf-hlD" id="3XM-tq-nGn"/>
                         <outlet property="b2TCapPts" destination="lA2-Hi-dL9" id="IEQ-ea-tA2"/>
@@ -2483,6 +2508,7 @@
                         <outlet property="b2TMatchScore" destination="eOa-Mw-VbR" id="eyk-ao-yRX"/>
                         <outlet property="b2TNumField" destination="DiE-RP-aHN" id="Bgu-AO-rEM"/>
                         <outlet property="b2TScore" destination="rY6-1W-wqa" id="ZGm-cB-lWx"/>
+                        <outlet property="b2owner" destination="AG2-E7-ZT0" id="IqA-9p-4gX"/>
                         <outlet property="blueAllianceScore" destination="lst-tq-bHf" id="zUG-En-BTj"/>
                         <outlet property="matchLabel" destination="CWu-hO-0cd" id="DEr-7J-QRo"/>
                         <outlet property="r1NameField" destination="Kog-rY-vC2" id="TXJ-gy-fcE"/>
@@ -2493,6 +2519,7 @@
                         <outlet property="r1TMatchScore" destination="Wvb-RI-3E0" id="8kI-Gu-IYP"/>
                         <outlet property="r1TNumField" destination="3bX-BZ-3sP" id="7rw-dN-Wlb"/>
                         <outlet property="r1TScore" destination="TRq-oy-fRW" id="arh-5u-gk3"/>
+                        <outlet property="r1owner" destination="BYQ-8z-eeX" id="FqU-qo-mO7"/>
                         <outlet property="r2NameField" destination="cRC-X8-g1X" id="h56-Mj-270"/>
                         <outlet property="r2TCapDNA" destination="6UE-fx-nGG" id="P2r-c3-OqF"/>
                         <outlet property="r2TCapPts" destination="Vz3-qS-uXw" id="cu9-hc-ip0"/>
@@ -2501,6 +2528,7 @@
                         <outlet property="r2TMatchScore" destination="VXx-z6-VBj" id="6Rz-jw-GCX"/>
                         <outlet property="r2TNumField" destination="tsf-1T-iG3" id="WHX-La-WGg"/>
                         <outlet property="r2TScore" destination="pdg-kE-qHf" id="PPT-0y-Qjz"/>
+                        <outlet property="r2owner" destination="u0a-db-Gu2" id="VoL-Zd-ceC"/>
                         <outlet property="redAllianceScore" destination="1Jq-Kb-h37" id="ltm-XE-iQA"/>
                     </connections>
                 </viewController>
