@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		33101A221E0D8AB2001AD245 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33101A211E0D8AB2001AD245 /* Utility.swift */; };
 		33101A241E0D8FD5001AD245 /* example.txt in Resources */ = {isa = PBXBuildFile; fileRef = 33101A231E0D8FD5001AD245 /* example.txt */; };
+		3320FD251E40F48600DC1B78 /* SingleTeamViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3320FD241E40F48600DC1B78 /* SingleTeamViewCell.swift */; };
+		3320FD271E40F4CD00DC1B78 /* SingleTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3320FD261E40F4CD00DC1B78 /* SingleTeamViewController.swift */; };
 		333675891E005C2C00DAF49C /* tournaments.txt in Resources */ = {isa = PBXBuildFile; fileRef = 333675881E005C2C00DAF49C /* tournaments.txt */; };
 		336449E91E2FD0F600D728DD /* AddTeamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336449E81E2FD0F600D728DD /* AddTeamController.swift */; };
 		336449EB1E2FD57200D728DD /* NumPadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336449EA1E2FD57200D728DD /* NumPadController.swift */; };
@@ -56,6 +58,8 @@
 /* Begin PBXFileReference section */
 		33101A211E0D8AB2001AD245 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		33101A231E0D8FD5001AD245 /* example.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.txt; sourceTree = "<group>"; };
+		3320FD241E40F48600DC1B78 /* SingleTeamViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleTeamViewCell.swift; sourceTree = "<group>"; };
+		3320FD261E40F4CD00DC1B78 /* SingleTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleTeamViewController.swift; sourceTree = "<group>"; };
 		333675881E005C2C00DAF49C /* tournaments.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tournaments.txt; sourceTree = "<group>"; };
 		336449E81E2FD0F600D728DD /* AddTeamController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamController.swift; sourceTree = "<group>"; };
 		336449EA1E2FD57200D728DD /* NumPadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumPadController.swift; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 				336449E81E2FD0F600D728DD /* AddTeamController.swift */,
 				336449EA1E2FD57200D728DD /* NumPadController.swift */,
 				33D0E2FE1E3122B6009506F4 /* addTeamCell.swift */,
+				3320FD241E40F48600DC1B78 /* SingleTeamViewCell.swift */,
+				3320FD261E40F4CD00DC1B78 /* SingleTeamViewController.swift */,
 			);
 			path = VVScoring;
 			sourceTree = "<group>";
@@ -328,8 +334,10 @@
 				336449EB1E2FD57200D728DD /* NumPadController.swift in Sources */,
 				33B17E9D1DF7240100D1F443 /* OptionsController.swift in Sources */,
 				E29E56601E05A84000D7BF36 /* NewTournamentController.swift in Sources */,
+				3320FD251E40F48600DC1B78 /* SingleTeamViewCell.swift in Sources */,
 				33B17E931DF7230F00D1F443 /* ScoringController.swift in Sources */,
 				351E8C1C1E23F06500C0D38A /* NewMatchController.swift in Sources */,
+				3320FD271E40F4CD00DC1B78 /* SingleTeamViewController.swift in Sources */,
 				33B17E991DF7238900D1F443 /* RankingsController.swift in Sources */,
 				33B17E9B1DF723B700D1F443 /* OurTeamController.swift in Sources */,
 				33B17E9F1DF7241D00D1F443 /* MatchCell.swift in Sources */,
