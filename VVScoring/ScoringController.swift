@@ -302,8 +302,8 @@ class ScoringController: UIViewController {
                 r1NumField.text = ""
             }
         }
-        r1ABeaconsDNA.setOn(matchData[currentMatch][0].autoBeaconsDNA, animated: false)
-        r1ABeacons.text = String(matchData[currentMatch][0].autoBeacons)
+       // r1ABeaconsDNA.setOn(matchData[currentMatch][0].autoBeaconsDNA, animated: false)
+        //r1ABeacons.text = String(matchData[currentMatch][0].autoBeacons)
         r1ACenter.text = String(matchData[currentMatch][0].autoVortex)
         r1ACorner.text = String(matchData[currentMatch][0].autoCorner)
         
@@ -335,8 +335,8 @@ class ScoringController: UIViewController {
                 r2NumField.text = ""
             }
         }
-        r2ABeaconsDNA.setOn(matchData[currentMatch][1].autoBeaconsDNA, animated: false)
-        r2ABeacons.text = String(matchData[currentMatch][1].autoBeacons)
+        //r2ABeaconsDNA.setOn(matchData[currentMatch][1].autoBeaconsDNA, animated: false)
+        //r2ABeacons.text = String(matchData[currentMatch][1].autoBeacons)
         r2ACenter.text = String(matchData[currentMatch][1].autoVortex)
         r2ACorner.text = String(matchData[currentMatch][1].autoCorner)
         
@@ -370,8 +370,8 @@ class ScoringController: UIViewController {
                 b1NumField.text = ""
             }
         }
-        b1ABeaconsDNA.setOn(matchData[currentMatch][2].autoBeaconsDNA, animated: false)
-        b1ABeacons.text = String(matchData[currentMatch][2].autoBeacons)
+        //b1ABeaconsDNA.setOn(matchData[currentMatch][2].autoBeaconsDNA, animated: false)
+        //b1ABeacons.text = String(matchData[currentMatch][2].autoBeacons)
         b1ACenter.text = String(matchData[currentMatch][2].autoVortex)
         b1ACorner.text = String(matchData[currentMatch][2].autoCorner)
         
@@ -404,8 +404,8 @@ class ScoringController: UIViewController {
                 b2NumField.text = ""
             }
         }
-        b2ABeaconsDNA.setOn(matchData[currentMatch][3].autoBeaconsDNA, animated: false)
-        b2ABeacons.text = String(matchData[currentMatch][3].autoBeacons)
+        //b2ABeaconsDNA.setOn(matchData[currentMatch][3].autoBeaconsDNA, animated: false)
+        //b2ABeacons.text = String(matchData[currentMatch][3].autoBeacons)
         b2ACenter.text = String(matchData[currentMatch][3].autoVortex)
         b2ACorner.text = String(matchData[currentMatch][3].autoCorner)
         
