@@ -131,6 +131,33 @@ class ScoringTeleController: UIViewController {
     
     
     //Beacons
+    
+    @IBOutlet var r1team: UIButton!
+    @IBOutlet var r2team: UIButton!
+    @IBOutlet var b1team: UIButton!
+    @IBOutlet var b2team: UIButton!
+    
+    
+    @IBAction func r1select(_ sender: AnyObject) {
+        currentTeam = matchData[currentMatch][0].number
+        selectedTeam.text = String (currentTeam)
+    }
+    @IBAction func r2select(_ sender: AnyObject) {
+        currentTeam = matchData[currentMatch][1].number
+        selectedTeam.text = String (currentTeam)
+    }
+    @IBAction func b1select(_ sender: AnyObject) {
+        currentTeam = matchData[currentMatch][2].number
+        selectedTeam.text = String (currentTeam)
+    }
+    @IBAction func b2select(_ sender: AnyObject) {
+        currentTeam = matchData[currentMatch][3].number
+        selectedTeam.text = String (currentTeam)
+    }
+    
+    
+    @IBOutlet var selectedTeam: UILabel!
+    
     var bCurrent: [Int] = [0,0,0,0]
     
     func bCheck(beacon: Int, check: Int){
@@ -170,7 +197,7 @@ class ScoringTeleController: UIViewController {
             return
         }
         else if (bCurrent[0] == 1){
-            bCheck(beacon: 0, check: 2)
+            bCheck(beacon: 0, check: 1)
         }
         else{
             
@@ -182,20 +209,92 @@ class ScoringTeleController: UIViewController {
     @IBOutlet var r1owner: UILabel!
     
     @IBAction func r2red(_ sender: AnyObject) {
+        if(bCurrent[1] == 1){
+            return
+        }
+        else if (bCurrent[1] == 2){
+            bCheck(beacon: 1, check: 2)
+        }
+        else{
+            
+            matchData[currentMatch][teamIndex(number: currentTeam)].bType[1] = 1
+            matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
+            r2owner.text = String (currentTeam)
+        }
     }
     @IBAction func r2blue(_ sender: AnyObject) {
+        if(bCurrent[1] == 2){
+            return
+        }
+        else if (bCurrent[1] == 1){
+            bCheck(beacon: 1, check: 1)
+        }
+        else{
+            
+            matchData[currentMatch][teamIndex(number: currentTeam)].bType[1] = 2
+            matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
+            r2owner.text = String (currentTeam)
+        }
     }
     @IBOutlet var r2owner: UILabel!
     
     @IBAction func b1red(_ sender: AnyObject) {
+        if(bCurrent[2] == 1){
+            return
+        }
+        else if (bCurrent[2] == 2){
+            bCheck(beacon: 2, check: 2)
+        }
+        else{
+            
+            matchData[currentMatch][teamIndex(number: currentTeam)].bType[2] = 1
+            matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
+            b1owner.text = String (currentTeam)
+        }
     }
     @IBAction func b1blue(_ sender: AnyObject) {
+        if(bCurrent[2] == 2){
+            return
+        }
+        else if (bCurrent[2] == 1){
+            bCheck(beacon: 2, check: 1)
+        }
+        else{
+            
+            matchData[currentMatch][teamIndex(number: currentTeam)].bType[2] = 2
+            matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
+            b1owner.text = String (currentTeam)
+        }
     }
     @IBOutlet var b1owner: UILabel!
 
     @IBAction func b2red(_ sender: AnyObject) {
+        if(bCurrent[3] == 1){
+            return
+        }
+        else if (bCurrent[3] == 2){
+            bCheck(beacon: 3, check: 2)
+        }
+        else{
+            
+            matchData[currentMatch][teamIndex(number: currentTeam)].bType[3] = 1
+            matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
+            b2owner.text = String (currentTeam)
+        }
     }
     @IBAction func b2blue(_ sender: AnyObject) {
+        if(bCurrent[3] == 2){
+            return
+        }
+        else if (bCurrent[3] == 1){
+            bCheck(beacon: 3, check: 1)
+        }
+        else{
+            
+            matchData[currentMatch][teamIndex(number: currentTeam)].bType[3] = 2
+            matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
+            b2owner.text = String (currentTeam)
+        }
     }
     @IBOutlet var b2owner: UILabel!
 
@@ -241,6 +340,23 @@ class ScoringTeleController: UIViewController {
                     }
                 }
             }
+        }
+        
+        r1team.setTitle(String (matchData[currentMatch][0].number), for: .normal)
+        r2team.setTitle(String (matchData[currentMatch][1].number), for: .normal)
+        b1team.setTitle(String (matchData[currentMatch][2].number), for: .normal)
+        b2team.setTitle(String (matchData[currentMatch][3].number), for: .normal)
+        if(r1team.titleLabel?.text == "0"){
+             r1team.setTitle("", for: .normal)
+        }
+        if(r2team.titleLabel?.text == "0"){
+            r2team.setTitle("", for: .normal)
+        }
+        if(b1team.titleLabel?.text == "0"){
+            b1team.setTitle("", for: .normal)
+        }
+        if(b2team.titleLabel?.text == "0"){
+            b2team.setTitle("", for: .normal)
         }
         
         
@@ -382,11 +498,15 @@ class ScoringTeleController: UIViewController {
         
         //RED 1
         if(r1numValid){
-            r1TNumField.text = String(matchData[currentMatch][0].number)
+            if(matchData[currentMatch][0].number != 0){
+                r1TNumField.text = String(matchData[currentMatch][0].number)
+                r1NameField.text = teamList[r1TNumField.text!]?.name
+            }
+            else {
+                r1TNumField.text = ""
+            }
         }
-        if(r1numValid){
-            r1NameField.text = teamList[r1TNumField.text!]?.name
-        }
+        
         r1TCenter.text = String(matchData[currentMatch][0].vortexBalls)
         r1TCorner.text = String(matchData[currentMatch][0].cornerBalls)
  r1TCapPts.text = String(matchData[currentMatch][0].capBallPts)
@@ -394,10 +514,13 @@ class ScoringTeleController: UIViewController {
         
         //RED 2
         if(r2numValid){
-            r2TNumField.text = String(matchData[currentMatch][1].number)
-        }
-        if(r2numValid){
-            r2NameField.text = teamList[r2TNumField.text!]?.name
+            if(matchData[currentMatch][1].number != 0){
+                r2TNumField.text = String(matchData[currentMatch][1].number)
+                r2NameField.text = teamList[r2TNumField.text!]?.name
+            }
+            else {
+                r2TNumField.text = ""
+            }
         }
         r2TCenter.text = String(matchData[currentMatch][1].vortexBalls)
         r2TCorner.text = String(matchData[currentMatch][1].cornerBalls)
@@ -406,10 +529,13 @@ class ScoringTeleController: UIViewController {
         
         //BLUE 1
         if(b1numValid){
-            b1TNumField.text = String(matchData[currentMatch][2].number)
-        }
-        if(b1numValid){
-            b1NameField.text = teamList[b1TNumField.text!]?.name
+            if(matchData[currentMatch][2].number != 0){
+                b1TNumField.text = String(matchData[currentMatch][2].number)
+                b1NameField.text = teamList[b1TNumField.text!]?.name
+            }
+            else {
+                b1TNumField.text = ""
+            }
         }
         b1TCenter.text = String(matchData[currentMatch][2].vortexBalls)
         b1TCorner.text = String(matchData[currentMatch][2].cornerBalls)
@@ -418,10 +544,13 @@ class ScoringTeleController: UIViewController {
         
         //BLUE 2
         if(b2numValid){
-            b2TNumField.text = String(matchData[currentMatch][3].number)
-        }
-        if(b2numValid){
-            b2NameField.text = teamList[b2TNumField.text!]?.name
+            if(matchData[currentMatch][3].number != 0){
+                b2TNumField.text = String(matchData[currentMatch][3].number)
+                b2NameField.text = teamList[b2TNumField.text!]?.name
+            }
+            else {
+                b2TNumField.text = ""
+            }
         }
         b2TCenter.text = String(matchData[currentMatch][3].vortexBalls)
         b2TCorner.text = String(matchData[currentMatch][3].cornerBalls)
