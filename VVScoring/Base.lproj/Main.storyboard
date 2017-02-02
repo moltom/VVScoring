@@ -1426,14 +1426,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVz-JQ-ofX">
-                                <frame key="frameInset" minX="489" minY="102" width="46" height="30"/>
+                                <frame key="frameInset" minX="489" minY="131" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="R1"/>
+                                <connections>
+                                    <action selector="r1select:" destination="WLO-gT-cSl" eventType="touchUpInside" id="yW2-TR-n64"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJy-F3-fYp">
-                                <frame key="frameInset" minX="489" minY="137" width="46" height="30"/>
+                                <frame key="frameInset" minX="489" minY="166" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="R2"/>
+                                <connections>
+                                    <action selector="r2select:" destination="WLO-gT-cSl" eventType="touchUpInside" id="uqw-G2-maA"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Red 1 Beacon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggW-Q2-Zpe">
                                 <frame key="frameInset" minX="32" minY="69" width="104" height="21"/>
@@ -1451,6 +1457,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="r1red:" destination="WLO-gT-cSl" eventType="touchUpInside" id="2eN-C2-6tb"/>
                                     <action selector="r1red:" destination="H5b-M0-wyg" eventType="touchUpInside" id="akj-9w-aIg"/>
                                 </connections>
                             </button>
@@ -1464,6 +1471,7 @@
                                 </state>
                                 <connections>
                                     <action selector="r1blue:" destination="H5b-M0-wyg" eventType="touchUpInside" id="Pdj-bO-dTV"/>
+                                    <action selector="r1blue:" destination="WLO-gT-cSl" eventType="touchUpInside" id="pKd-BN-0sr"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4X-d7-WjR">
@@ -1489,6 +1497,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="b1red:" destination="WLO-gT-cSl" eventType="touchUpInside" id="DFz-9g-rxu"/>
                                     <action selector="b1red:" destination="H5b-M0-wyg" eventType="touchUpInside" id="bCN-Jy-qFb"/>
                                 </connections>
                             </button>
@@ -1501,6 +1510,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="b1blue:" destination="WLO-gT-cSl" eventType="touchUpInside" id="dYh-Hb-gJO"/>
                                     <action selector="b1blue:" destination="H5b-M0-wyg" eventType="touchUpInside" id="daB-Az-Upr"/>
                                 </connections>
                             </button>
@@ -1527,6 +1537,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="b2red:" destination="WLO-gT-cSl" eventType="touchUpInside" id="07G-h7-1c4"/>
                                     <action selector="b2red:" destination="H5b-M0-wyg" eventType="touchUpInside" id="B0P-by-VRf"/>
                                 </connections>
                             </button>
@@ -1539,6 +1550,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="b2blue:" destination="WLO-gT-cSl" eventType="touchUpInside" id="SnT-0u-Fcy"/>
                                     <action selector="b2blue:" destination="H5b-M0-wyg" eventType="touchUpInside" id="ycr-mq-fYg"/>
                                 </connections>
                             </button>
@@ -1566,6 +1578,7 @@
                                 </state>
                                 <connections>
                                     <action selector="r2red:" destination="H5b-M0-wyg" eventType="touchUpInside" id="Uy1-2b-eEU"/>
+                                    <action selector="r2red:" destination="WLO-gT-cSl" eventType="touchUpInside" id="W1Y-cz-qfF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7z-Za-X0m">
@@ -1578,6 +1591,7 @@
                                 </state>
                                 <connections>
                                     <action selector="r2blue:" destination="H5b-M0-wyg" eventType="touchUpInside" id="R20-go-bLG"/>
+                                    <action selector="r2blue:" destination="WLO-gT-cSl" eventType="touchUpInside" id="Wg2-TI-7fP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FsY-FX-1w5">
@@ -1595,19 +1609,39 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8O-Uu-3JY">
-                                <frame key="frameInset" minX="489" minY="181" width="46" height="30"/>
+                                <frame key="frameInset" minX="489" minY="210" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="B1"/>
+                                <connections>
+                                    <action selector="b1select:" destination="WLO-gT-cSl" eventType="touchUpInside" id="rya-Ie-ugj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BO9-Ct-hNl">
-                                <frame key="frameInset" minX="489" minY="216" width="46" height="30"/>
+                                <frame key="frameInset" minX="489" minY="245" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="B2"/>
+                                <connections>
+                                    <action selector="b2select:" destination="WLO-gT-cSl" eventType="touchUpInside" id="Arh-fN-iX1"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txp-XL-Ai0">
                                 <frame key="frameInset" minX="-15" minY="279" width="1054" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selected Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laU-QV-NQ4">
+                                <frame key="frameInset" minX="447" minY="78" width="131" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Team Selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEo-y8-JIw">
+                                <frame key="frameInset" minX="437" minY="104" width="151" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1625,6 +1659,8 @@
                         <outlet property="b1MatchScore" destination="AUH-Hf-RT3" id="lN5-DZ-vUN"/>
                         <outlet property="b1NameField" destination="Wad-2K-YSQ" id="oOJ-aw-FOZ"/>
                         <outlet property="b1NumField" destination="IJF-Pa-oMQ" id="lKq-aS-Gq1"/>
+                        <outlet property="b1owner" destination="ZgQ-cJ-Cl1" id="Uog-dR-gzh"/>
+                        <outlet property="b1team" destination="t8O-Uu-3JY" id="2tq-wt-JRj"/>
                         <outlet property="b2ACapDNA" destination="3ll-cn-v4Y" id="syS-AZ-wFx"/>
                         <outlet property="b2ACapSwitch" destination="E7q-v3-IQu" id="jsF-Nu-cVc"/>
                         <outlet property="b2ACenter" destination="rPa-Pm-RHV" id="jAt-Uv-YIe"/>
@@ -1634,6 +1670,8 @@
                         <outlet property="b2MatchScore" destination="50Y-5d-qvj" id="eV5-EO-mOf"/>
                         <outlet property="b2NameField" destination="d1Q-qZ-2Wm" id="1np-yk-9d7"/>
                         <outlet property="b2NumField" destination="y2H-Mo-RLk" id="b8r-88-iR7"/>
+                        <outlet property="b2owner" destination="PG2-6f-iTS" id="NtW-FS-5wq"/>
+                        <outlet property="b2team" destination="BO9-Ct-hNl" id="8CK-w4-xt5"/>
                         <outlet property="blueAllianceScore" destination="Tqo-ia-1BX" id="0oo-V5-umE"/>
                         <outlet property="matchLabel" destination="lIJ-TO-ucP" id="2k4-aE-sFx"/>
                         <outlet property="r1ACapDNA" destination="ElR-Xu-uw2" id="fAW-wE-kzv"/>
@@ -1645,6 +1683,8 @@
                         <outlet property="r1MatchScore" destination="DTY-ae-rfX" id="CiC-Y8-OhK"/>
                         <outlet property="r1NameField" destination="JPv-P6-TwQ" id="tsr-Jf-5Ij"/>
                         <outlet property="r1NumField" destination="jvM-me-EZp" id="O8t-O9-Ojc"/>
+                        <outlet property="r1owner" destination="w4X-d7-WjR" id="NNH-7h-HJW"/>
+                        <outlet property="r1team" destination="XVz-JQ-ofX" id="cfa-M1-egb"/>
                         <outlet property="r2ACapDNA" destination="3Rv-8L-Xmy" id="6Ii-Oh-6Tn"/>
                         <outlet property="r2ACapSwitch" destination="Xb8-xe-Jrz" id="41R-0E-eeQ"/>
                         <outlet property="r2ACenter" destination="hvF-EE-z1Q" id="QwU-dl-2mz"/>
@@ -1654,7 +1694,10 @@
                         <outlet property="r2MatchScore" destination="HKp-DU-Rxh" id="RY7-pt-xrg"/>
                         <outlet property="r2NameField" destination="ls9-EP-P9W" id="hm8-Cn-gTR"/>
                         <outlet property="r2NumField" destination="tWe-Wk-zQE" id="cdv-vq-6Ba"/>
+                        <outlet property="r2owner" destination="FsY-FX-1w5" id="5O1-FQ-ECl"/>
+                        <outlet property="r2team" destination="cJy-F3-fYp" id="lWk-a6-JJJ"/>
                         <outlet property="redAllianceScore" destination="qfz-be-naV" id="ech-7r-jr6"/>
+                        <outlet property="selectedTeam" destination="DEo-y8-JIw" id="TDr-fM-xmF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxR-R2-OKE" userLabel="First Responder" sceneMemberID="firstResponder"/>

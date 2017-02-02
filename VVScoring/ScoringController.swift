@@ -153,6 +153,173 @@ class ScoringController: UIViewController {
         refreshLabels()
     }
     
+    //Beacons
+    
+    @IBOutlet var r1team: UIButton!
+    @IBOutlet var r2team: UIButton!
+    @IBOutlet var b1team: UIButton!
+    @IBOutlet var b2team: UIButton!
+    
+    @IBAction func r1select(_ sender: AnyObject) {
+        currentTeam = matchData[currentMatch][0].number
+        selectedTeam.text = String (currentTeam)
+    }
+    @IBAction func r2select(_ sender: AnyObject) {
+        currentTeam = matchData[currentMatch][1].number
+        selectedTeam.text = String (currentTeam)
+    }
+    @IBAction func b1select(_ sender: AnyObject) {
+        currentTeam = matchData[currentMatch][2].number
+        selectedTeam.text = String (currentTeam)
+    }
+    @IBAction func b2select(_ sender: AnyObject) {
+        currentTeam = matchData[currentMatch][3].number
+        selectedTeam.text = String (currentTeam)
+    }
+    
+    @IBOutlet var selectedTeam: UILabel!
+    
+    var currentTeam = 7655
+    
+    var bCurrent: [Int] = [0,0,0,0]
+    
+    func bCheck(beacon: Int, check: Int){
+        for i in 0..<4{
+            if(matchData[currentMatch][i].bType[beacon] == check){
+                matchData[currentMatch][i].bType[beacon] = 0
+                matchData[currentMatch][i].beacons -= 1
+            }
+        }
+    }
+    
+    func teamIndex(number: Int) -> Int {
+        for i in 0..<4{
+            if(matchData[currentMatch][i].number == number){
+                return i
+            }
+        }
+        return -1
+    }
+    
+    @IBAction func r1red(_ sender: AnyObject) {
+        if(bCurrent[0] == 1){
+            return
+        }
+        else if (bCurrent[0] == 2){
+            bCheck(beacon: 0, check: 2)
+        }
+        else{
+            
+            matchData[currentMatch][teamIndex(number: currentTeam)].bType[0] = 1
+            matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
+            r1owner.text = String (currentTeam)
+        }
+    }
+    @IBAction func r1blue(_ sender: AnyObject) {
+        if(bCurrent[0] == 2){
+            return
+        }
+        else if (bCurrent[0] == 1){
+            bCheck(beacon: 0, check: 1)
+        }
+        else{
+            
+            matchData[currentMatch][teamIndex(number: currentTeam)].bType[0] = 2
+            matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
+            r1owner.text = String (currentTeam)
+        }
+    }
+    @IBOutlet var r1owner: UILabel!
+    
+    @IBAction func r2red(_ sender: AnyObject) {
+        if(bCurrent[1] == 1){
+            return
+        }
+        else if (bCurrent[1] == 2){
+            bCheck(beacon: 1, check: 2)
+        }
+        else{
+            
+            matchData[currentMatch][teamIndex(number: currentTeam)].bType[1] = 1
+            matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
+            r2owner.text = String (currentTeam)
+        }
+    }
+    @IBAction func r2blue(_ sender: AnyObject) {
+        if(bCurrent[1] == 2){
+            return
+        }
+        else if (bCurrent[1] == 1){
+            bCheck(beacon: 1, check: 1)
+        }
+        else{
+            
+            matchData[currentMatch][teamIndex(number: currentTeam)].bType[1] = 2
+            matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
+            r2owner.text = String (currentTeam)
+        }
+    }
+    @IBOutlet var r2owner: UILabel!
+    
+    @IBAction func b1red(_ sender: AnyObject) {
+        if(bCurrent[2] == 1){
+            return
+        }
+        else if (bCurrent[2] == 2){
+            bCheck(beacon: 2, check: 2)
+        }
+        else{
+            
+            matchData[currentMatch][teamIndex(number: currentTeam)].bType[2] = 1
+            matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
+            b1owner.text = String (currentTeam)
+        }
+    }
+    @IBAction func b1blue(_ sender: AnyObject) {
+        if(bCurrent[2] == 2){
+            return
+        }
+        else if (bCurrent[2] == 1){
+            bCheck(beacon: 2, check: 1)
+        }
+        else{
+            
+            matchData[currentMatch][teamIndex(number: currentTeam)].bType[2] = 2
+            matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
+            b1owner.text = String (currentTeam)
+        }
+    }
+    @IBOutlet var b1owner: UILabel!
+    
+    @IBAction func b2red(_ sender: AnyObject) {
+        if(bCurrent[3] == 1){
+            return
+        }
+        else if (bCurrent[3] == 2){
+            bCheck(beacon: 3, check: 2)
+        }
+        else{
+            
+            matchData[currentMatch][teamIndex(number: currentTeam)].bType[3] = 1
+            matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
+            b2owner.text = String (currentTeam)
+        }
+    }
+    @IBAction func b2blue(_ sender: AnyObject) {
+        if(bCurrent[3] == 2){
+            return
+        }
+        else if (bCurrent[3] == 1){
+            bCheck(beacon: 3, check: 1)
+        }
+        else{
+            
+            matchData[currentMatch][teamIndex(number: currentTeam)].bType[3] = 2
+            matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
+            b2owner.text = String (currentTeam)
+        }
+    }
+    @IBOutlet var b2owner: UILabel!
     
     //SCORING
     func refreshLabels(){
