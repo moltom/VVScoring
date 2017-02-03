@@ -425,4 +425,31 @@ func createFile(withName fileName: String){
     }
 }
 
+//DEBUGING
+func getFileList() -> [String]{
+    do {
+        // Get the directory contents urls (including subfolders urls)
+        let directoryContents = try FileManager.default.contentsOfDirectory(atPath: docsPath as String)
+        return directoryContents
+        //print(directoryContents)
+    }
+    catch{
+        print("Error getting file list")
+    }
+    return []
+}
 
+func removeFile(withName file: String){
+    //let path = Bundle.main.path(forResource: "tournaments", ofType: "txt")
+    let path = docsPath.appendingPathComponent(file)
+    let fm = FileManager.default
+    
+    //Checks if file exists
+    if fm.fileExists(atPath: path){
+        do{
+            try fm.removeItem(atPath: path)
+        }catch{
+            print("Error removing file")
+        }
+    }
+}

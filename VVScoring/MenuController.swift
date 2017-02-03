@@ -40,4 +40,8 @@ class MenuController: UIViewController {
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
     }
+    
+    @IBAction func DebugButton(_ sender: AnyObject) {
+        
+    }
 }
