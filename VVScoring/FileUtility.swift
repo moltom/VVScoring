@@ -287,16 +287,6 @@ func addTournament(Tname: String, Ttype: String, Tdate: String, TfileName: Strin
     currentTournament = TfileName
 }
 
-//Removes tournament from list by name
-func removeTournament(name: String){
-    for t in 0..<tournamentList.count{
-        if tournamentList[t].name == name{
-            tournamentList.remove(at: t)
-        }
-    }
-    writeToTournamentList()
-}
-
 //Removes tournament from list by file name
 func removeTournament(fileName: String){
     for t in 0..<tournamentList.count{
@@ -304,6 +294,7 @@ func removeTournament(fileName: String){
             tournamentList.remove(at: t)
         }
     }
+    truncateTournamentFile()
     writeToTournamentList()
 }
 
@@ -439,17 +430,25 @@ func getFileList() -> [String]{
     return []
 }
 
-func removeFile(withName file: String){
+func removeFile(withName file: String) -> Bool{
     //let path = Bundle.main.path(forResource: "tournaments", ofType: "txt")
     let path = docsPath.appendingPathComponent(file)
     let fm = FileManager.default
+    
+    if path == ""{
+        return false
+    }
     
     //Checks if file exists
     if fm.fileExists(atPath: path){
         do{
             try fm.removeItem(atPath: path)
+            removeTournament(fileName: file)
+            return true
         }catch{
             print("Error removing file")
+            return false
         }
     }
+    return false
 }

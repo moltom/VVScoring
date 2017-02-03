@@ -22,6 +22,9 @@ class MenuController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func unwindToMenu(sender: UIStoryboardSegue){
+    }
+    
     @IBAction func loadTournament(_ sender: AnyObject) {
         //Read tournament list
         _ = readTournamentList()
@@ -39,9 +42,5 @@ class MenuController: UIViewController {
         popOverVC.view.frame = self.view.frame
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
-    }
-    
-    @IBAction func DebugButton(_ sender: AnyObject) {
-        
     }
 }
