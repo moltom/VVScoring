@@ -2661,11 +2661,17 @@
                                 <frame key="frameInset" minX="489" minY="214" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="B1"/>
+                                <connections>
+                                    <action selector="b1select:" destination="H5b-M0-wyg" eventType="touchUpInside" id="Yjh-Ir-Y8V"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEE-b9-Ooh">
                                 <frame key="frameInset" minX="489" minY="249" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="B2"/>
+                                <connections>
+                                    <action selector="b2select:" destination="H5b-M0-wyg" eventType="touchUpInside" id="sXe-VO-JG0"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDL-Sz-6SJ">
                                 <frame key="frameInset" minX="4" minY="280" width="1054" height="2"/>
@@ -2693,11 +2699,17 @@
                                 <frame key="frameInset" minX="489" minY="141" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="R1"/>
+                                <connections>
+                                    <action selector="r1select:" destination="H5b-M0-wyg" eventType="touchUpInside" id="KgG-kI-WXB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3a-nq-KB6">
                                 <frame key="frameInset" minX="489" minY="176" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="R2"/>
+                                <connections>
+                                    <action selector="r2select:" destination="H5b-M0-wyg" eventType="touchUpInside" id="mth-iu-lzo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2712,6 +2724,7 @@
                         <outlet property="b1TNumField" destination="K1A-f2-wav" id="lmB-Pq-DLZ"/>
                         <outlet property="b1TScore" destination="fpO-x1-90Q" id="eED-nc-Dwm"/>
                         <outlet property="b1owner" destination="icP-3r-OVy" id="lc6-yc-J9Z"/>
+                        <outlet property="b1team" destination="H6x-pV-vqS" id="dBY-jl-AYq"/>
                         <outlet property="b2NameField" destination="bDD-hn-43D" id="TWv-nu-v4y"/>
                         <outlet property="b2TCapDNA" destination="knt-Vf-hlD" id="3XM-tq-nGn"/>
                         <outlet property="b2TCapPts" destination="lA2-Hi-dL9" id="IEQ-ea-tA2"/>
@@ -2721,6 +2734,7 @@
                         <outlet property="b2TNumField" destination="DiE-RP-aHN" id="Bgu-AO-rEM"/>
                         <outlet property="b2TScore" destination="rY6-1W-wqa" id="ZGm-cB-lWx"/>
                         <outlet property="b2owner" destination="AG2-E7-ZT0" id="IqA-9p-4gX"/>
+                        <outlet property="b2team" destination="YEE-b9-Ooh" id="NO2-Kb-L51"/>
                         <outlet property="blueAllianceScore" destination="lst-tq-bHf" id="zUG-En-BTj"/>
                         <outlet property="matchLabel" destination="CWu-hO-0cd" id="DEr-7J-QRo"/>
                         <outlet property="r1NameField" destination="Kog-rY-vC2" id="TXJ-gy-fcE"/>
@@ -2732,6 +2746,7 @@
                         <outlet property="r1TNumField" destination="3bX-BZ-3sP" id="7rw-dN-Wlb"/>
                         <outlet property="r1TScore" destination="TRq-oy-fRW" id="arh-5u-gk3"/>
                         <outlet property="r1owner" destination="BYQ-8z-eeX" id="FqU-qo-mO7"/>
+                        <outlet property="r1team" destination="FKM-rd-8aM" id="GPQ-hx-zAS"/>
                         <outlet property="r2NameField" destination="cRC-X8-g1X" id="h56-Mj-270"/>
                         <outlet property="r2TCapDNA" destination="6UE-fx-nGG" id="P2r-c3-OqF"/>
                         <outlet property="r2TCapPts" destination="Vz3-qS-uXw" id="cu9-hc-ip0"/>
@@ -2741,6 +2756,7 @@
                         <outlet property="r2TNumField" destination="tsf-1T-iG3" id="WHX-La-WGg"/>
                         <outlet property="r2TScore" destination="pdg-kE-qHf" id="PPT-0y-Qjz"/>
                         <outlet property="r2owner" destination="u0a-db-Gu2" id="VoL-Zd-ceC"/>
+                        <outlet property="r2team" destination="a3a-nq-KB6" id="9Ru-yo-NNd"/>
                         <outlet property="redAllianceScore" destination="1Jq-Kb-h37" id="ltm-XE-iQA"/>
                         <outlet property="selectedTeam" destination="AaA-gc-3V4" id="6HS-lz-Ja6"/>
                     </connections>

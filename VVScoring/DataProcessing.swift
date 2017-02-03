@@ -19,6 +19,8 @@ struct teamInMatch{
     var autoCorner: Int = 0 //amount
     var autoVortex: Int = 0 //amount
     var autoBeacons: Int = 0 //amount
+    var autoNBeacons: Int = 0 //amount
+    var autoBType: [Int] = [0,0,0,0] //which beacon
     var autoBeaconsDNA: Bool = false
     var parkPts: Int = 0 //points
     var autoCapBallPts: Int = 0 //points
@@ -30,6 +32,7 @@ struct teamInMatch{
     var capBallPts: Int = 0 //points
     var capBallDNA: Bool = false
     var beacons: Int = 0 //amount
+    var NBeacons: Int = 0 //amount
     var bType: [Int] = [0,0,0,0] //which beacon
     /*
         0,0,0,0: nothing
