@@ -29,7 +29,8 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.dataSource = self
         tableView.delegate = self
-        // Do any additional setup after loading the view.
+        
+        tableView.reloadData()
     }
     
     @IBAction func addTeamButton(_ sender: AnyObject) {

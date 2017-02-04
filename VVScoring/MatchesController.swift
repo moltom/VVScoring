@@ -26,11 +26,11 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
         tView.dataSource = self
         tView.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector (MatchesController.loadList(notification:)),name:NSNotification.Name(rawValue: "load"), object: nil)
+        
+        tView.reloadData()
     }
     
-    @IBAction func unwindToMatches(sender: UIStoryboardSegue){
-        //saveMatchData()
-    }
+    @IBAction func unwindToMatches(sender: UIStoryboardSegue){}
     
     @IBAction func popover(_ sender: AnyObject) {
         // get a reference to the view controller for the popover

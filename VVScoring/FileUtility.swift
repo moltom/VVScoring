@@ -23,8 +23,6 @@ let docsPath = NSSearchPathForDirectoriesInDomains(
 //MATCH DATA
 
 //Reads match data from the given file name and returns error status
-//@parameter file The file name (assuming txt file) to read the match data from
-//@return A boolean that returns false if an error occured.
 func readMatchDataFromFile(fileName: String) -> Bool{
     //let path = Bundle.main.path(forResource: file, ofType: "txt")
     let path = docsPath.appendingPathComponent("\(fileName).txt")
@@ -202,9 +200,7 @@ func formatMatchDataToCSV() -> String{
                 output += ","
             }
         }
-        if i != matchData.count-1{
-            output += "\n"
-        }
+        output += "\n"
     }
     return output
 }
@@ -323,16 +319,14 @@ func writeToTournamentList(){
 
 //FORMATTING AND UTILITY
 func formatTournamentsToCSV() -> String{
-    var out: String = ""
+    var out: String = "\n"
     
     for i in 0..<tournamentList.count{
         out += (tournamentList[i].name + ",")
         out += (tournamentList[i].type + ",")
         out += (tournamentList[i].date + ",")
         out += (tournamentList[i].fileLocation)
-        if i != tournamentList.count - 1{
-            out += "\n"
-        }
+        out += "\n"
     }
     return out
 }
@@ -391,7 +385,7 @@ func truncateTournamentFile(){
     if file != nil {
         
         // Write it to the file
-        file?.truncateFile(atOffset: 27)
+        file?.truncateFile(atOffset: 28)
         
         // Close the file
         file?.closeFile()

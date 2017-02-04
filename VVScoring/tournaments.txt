@@ -1,2 +1,2 @@
 Name,Type,Date,FileLocation
-Minnesota State,1,02/22/2016,example
+Example Set,1,02/22/2016,example

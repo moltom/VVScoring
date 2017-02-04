@@ -163,10 +163,8 @@
 				336ABC971DF9C5CF00A588A9 /* TournamentCell.swift */,
 				336ABC991DF9C94E00A588A9 /* MenuController.swift */,
 				33E22F481DFB176300D5F845 /* FileUtility.swift */,
-				333675881E005C2C00DAF49C /* tournaments.txt */,
 				E29E565F1E05A84000D7BF36 /* NewTournamentController.swift */,
 				33101A211E0D8AB2001AD245 /* Utility.swift */,
-				33101A231E0D8FD5001AD245 /* example.txt */,
 				351E8C1B1E23F06500C0D38A /* NewMatchController.swift */,
 				336449E81E2FD0F600D728DD /* AddTeamController.swift */,
 				336449EA1E2FD57200D728DD /* NumPadController.swift */,
@@ -175,6 +173,8 @@
 				3320FD261E40F4CD00DC1B78 /* SingleTeamViewController.swift */,
 				33DDA6171E44EB1E00288FE8 /* DebugController.swift */,
 				335E00B81E439688009D1761 /* FileCell.swift */,
+				333675881E005C2C00DAF49C /* tournaments.txt */,
+				33101A231E0D8FD5001AD245 /* example.txt */,
 			);
 			path = VVScoring;
 			sourceTree = "<group>";
