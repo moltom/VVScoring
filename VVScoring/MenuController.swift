@@ -13,6 +13,7 @@ class MenuController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        _ = readTournamentList()
         setupInitialUtilityFiles(refresh: false)
         // Do any additional setup after loading the view.
     }
@@ -23,6 +24,7 @@ class MenuController: UIViewController {
     }
     
     @IBAction func unwindToMenu(sender: UIStoryboardSegue){
+        resetArrays()
     }
     
     @IBAction func loadTournament(_ sender: AnyObject) {

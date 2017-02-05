@@ -46,6 +46,8 @@ class NewTournamentController: UIViewController {
         //Create tournament
         addTournament(Tname: Name, Ttype: Type, Tdate: strDate, TfileName: FileName)
         
+        self.removeAnimate()
+        
         //Segue to rankings screen
         let viewController = storyboard?.instantiateViewController(withIdentifier: "tabBarController")
         present(viewController!, animated: true, completion: nil)

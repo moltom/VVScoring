@@ -56,6 +56,9 @@ class TournamentSelectController: UIViewController, UITableViewDelegate, UITable
         let tname = tournamentList[indexPath.row].fileLocation
         currentTournament = tname
         _ = readMatchDataFromFile(fileName: tname)
+        
+        removeAnimate()
+        
         let viewController = storyboard?.instantiateViewController(withIdentifier: "tabBarController")
         present(viewController!, animated: true, completion: nil)
     }

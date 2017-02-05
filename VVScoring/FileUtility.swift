@@ -49,35 +49,37 @@ func readMatchDataFromFile(fileName: String) -> Bool{
             //Get match data
             matchData = []
             var i = 0
-            for k in 2..<lines.count - 1{
-                let data = lines[k].components(separatedBy: ",")
-                var tmp = 0
-                matchData.append([teamInMatch(), teamInMatch(),teamInMatch(),teamInMatch()])
-                for j in 0..<4{
-                    matchData[i][j].number = Int(data[tmp+0])!
-                    matchData[i][j].match = Int(data[tmp+1])!
-                    matchData[i][j].autoCorner = Int(data[tmp+2])!
-                    matchData[i][j].autoVortex = Int(data[tmp+3])!
-                    matchData[i][j].autoBeacons = Int(data[tmp+4])!
-                    matchData[i][j].autoBeaconsDNA = Bool(data[tmp+5])!
-                    matchData[i][j].parkPts = Int(data[tmp+6])!
-                    matchData[i][j].autoCapBallPts = Int(data[tmp+7])!
-                    matchData[i][j].autoCapBallDNA = Bool(data[tmp+8])!
-                    matchData[i][j].autoPts = Int(data[tmp+9])!
-                    matchData[i][j].cornerBalls = Int(data[tmp+10])!
-                    matchData[i][j].vortexBalls = Int(data[tmp+11])!
-                    matchData[i][j].telePts = Int(data[tmp+12])!
-                    matchData[i][j].capBallPts = Int(data[tmp+13])!
-                    matchData[i][j].capBallDNA = Bool(data[tmp+14])!
-                    matchData[i][j].beacons = Int(data[tmp+15])!
-                    matchData[i][j].endGamePts = Int(data[tmp+16])!
-                    matchData[i][j].outcome = Int(data[tmp+17])!
-                    matchData[i][j].calculatedScore = Int(data[tmp+18])!
-                    matchData[i][j].allianceScore = Int(data[tmp+19])!
-                    matchData[i][j].officialScore = Int(data[tmp+20])!
-                    tmp += 21
+            for k in 2..<lines.count{
+                if lines[k] != ""{
+                    let data = lines[k].components(separatedBy: ",")
+                    var tmp = 0
+                    matchData.append([teamInMatch(),teamInMatch(),teamInMatch(),teamInMatch()])
+                    for j in 0..<4{
+                        matchData[i][j].number = Int(data[tmp+0])!
+                        matchData[i][j].match = Int(data[tmp+1])!
+                        matchData[i][j].autoCorner = Int(data[tmp+2])!
+                        matchData[i][j].autoVortex = Int(data[tmp+3])!
+                        matchData[i][j].autoBeacons = Int(data[tmp+4])!
+                        matchData[i][j].autoBeaconsDNA = Bool(data[tmp+5])!
+                        matchData[i][j].parkPts = Int(data[tmp+6])!
+                        matchData[i][j].autoCapBallPts = Int(data[tmp+7])!
+                        matchData[i][j].autoCapBallDNA = Bool(data[tmp+8])!
+                        matchData[i][j].autoPts = Int(data[tmp+9])!
+                        matchData[i][j].cornerBalls = Int(data[tmp+10])!
+                        matchData[i][j].vortexBalls = Int(data[tmp+11])!
+                        matchData[i][j].telePts = Int(data[tmp+12])!
+                        matchData[i][j].capBallPts = Int(data[tmp+13])!
+                        matchData[i][j].capBallDNA = Bool(data[tmp+14])!
+                        matchData[i][j].beacons = Int(data[tmp+15])!
+                        matchData[i][j].endGamePts = Int(data[tmp+16])!
+                        matchData[i][j].outcome = Int(data[tmp+17])!
+                        matchData[i][j].calculatedScore = Int(data[tmp+18])!
+                        matchData[i][j].allianceScore = Int(data[tmp+19])!
+                        matchData[i][j].officialScore = Int(data[tmp+20])!
+                        tmp += 21
+                    }
+                    i += 1
                 }
-                i += 1
             }
             return true
         }catch{
@@ -245,14 +247,16 @@ func readTournamentList(){
             
             //Increment through lines
             tournamentList = []
-            for i in 1..<lines.count-1{
-                let data = lines[i].components(separatedBy: ",")
-                tournamentList.append(tournament())
-                tournamentList[index].name = data[0]
-                tournamentList[index].type = data[1]
-                tournamentList[index].date = data[2]
-                tournamentList[index].fileLocation = data[3]
-                index += 1
+            for i in 1..<lines.count{
+                if lines[i] != ""{
+                    let data = lines[i].components(separatedBy: ",")
+                    tournamentList.append(tournament())
+                    tournamentList[index].name = data[0]
+                    tournamentList[index].type = data[1]
+                    tournamentList[index].date = data[2]
+                    tournamentList[index].fileLocation = data[3]
+                    index += 1
+                }
             }
         }catch{
             print("Error in tournament read")
@@ -445,4 +449,10 @@ func removeFile(withName file: String) -> Bool{
         }
     }
     return false
+}
+
+func resetArrays(){
+    matchData = []
+    teamList = [:]
+    tournamentList = []
 }
