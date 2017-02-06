@@ -448,7 +448,9 @@ func removeFile(withName file: String) -> Bool{
     if fm.fileExists(atPath: path){
         do{
             try fm.removeItem(atPath: path)
-            removeTournament(fileName: file)
+            let fileN = file.substring(0, end: file.characters.count - 5)
+            print("\n\(fileN)\n")
+            removeTournament(fileName: fileN)
             return true
         }catch{
             print("Error removing file")

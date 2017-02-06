@@ -63,6 +63,16 @@ class TournamentSelectController: UIViewController, UITableViewDelegate, UITable
         present(viewController!, animated: true, completion: nil)
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
+        if editingStyle == UITableViewCellEditingStyle.delete{
+            //Deleting files
+            let fileN = "\(tournamentList[indexPath.row].fileLocation).txt"
+            if removeFile(withName: fileN){
+                tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
