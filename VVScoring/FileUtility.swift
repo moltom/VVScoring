@@ -248,7 +248,6 @@ func readTournamentList(){
             //Increment through lines
             tournamentList = []
             for i in 1..<lines.count{
-<<<<<<< HEAD
                 let data = lines[i].components(separatedBy: ",")
                 tournamentList.append(tournament())
                 tournamentList[index].name = data[0]
@@ -256,7 +255,6 @@ func readTournamentList(){
                 tournamentList[index].date = data[2]
                 tournamentList[index].fileLocation = data[3]
                 index += 1
-=======
                 if lines[i] != ""{
                     let data = lines[i].components(separatedBy: ",")
                     tournamentList.append(tournament())
@@ -266,7 +264,6 @@ func readTournamentList(){
                     tournamentList[index].fileLocation = data[3]
                     index += 1
                 }
->>>>>>> origin/master
             }
         }catch{
             print("Error in tournament read")
