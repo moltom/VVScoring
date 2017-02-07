@@ -208,12 +208,12 @@ class ScoringController: UIViewController {
         else if (bCurrent[0] == 2){
             bCheck(beacon: 0, check: 2)
         }
-        else{
+        
             
             matchData[currentMatch][teamIndex(number: currentTeam)].bType[0] = 1
             matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
             r1owner.text = String (currentTeam)
-        }
+        refreshLabels()
     }
     @IBAction func r1blue(_ sender: AnyObject) {
         if(bCurrent[0] == 2){
@@ -222,12 +222,12 @@ class ScoringController: UIViewController {
         else if (bCurrent[0] == 1){
             bCheck(beacon: 0, check: 1)
         }
-        else{
+        
             
             matchData[currentMatch][teamIndex(number: currentTeam)].bType[0] = 2
             matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
             r1owner.text = String (currentTeam)
-        }
+        refreshLabels()
     }
     @IBOutlet var r1owner: UILabel!
     
@@ -238,12 +238,12 @@ class ScoringController: UIViewController {
         else if (bCurrent[1] == 2){
             bCheck(beacon: 1, check: 2)
         }
-        else{
+        
             
             matchData[currentMatch][teamIndex(number: currentTeam)].bType[1] = 1
             matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
             r2owner.text = String (currentTeam)
-        }
+        refreshLabels()
     }
     @IBAction func r2blue(_ sender: AnyObject) {
         if(bCurrent[1] == 2){
@@ -252,12 +252,12 @@ class ScoringController: UIViewController {
         else if (bCurrent[1] == 1){
             bCheck(beacon: 1, check: 1)
         }
-        else{
+        
             
             matchData[currentMatch][teamIndex(number: currentTeam)].bType[1] = 2
             matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
             r2owner.text = String (currentTeam)
-        }
+        refreshLabels()
     }
     @IBOutlet var r2owner: UILabel!
     
@@ -268,12 +268,12 @@ class ScoringController: UIViewController {
         else if (bCurrent[2] == 2){
             bCheck(beacon: 2, check: 2)
         }
-        else{
+       
             
             matchData[currentMatch][teamIndex(number: currentTeam)].bType[2] = 1
             matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
             b1owner.text = String (currentTeam)
-        }
+        refreshLabels()
     }
     @IBAction func b1blue(_ sender: AnyObject) {
         if(bCurrent[2] == 2){
@@ -282,12 +282,12 @@ class ScoringController: UIViewController {
         else if (bCurrent[2] == 1){
             bCheck(beacon: 2, check: 1)
         }
-        else{
+        
             
             matchData[currentMatch][teamIndex(number: currentTeam)].bType[2] = 2
             matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
             b1owner.text = String (currentTeam)
-        }
+        refreshLabels()
     }
     @IBOutlet var b1owner: UILabel!
     
@@ -298,12 +298,12 @@ class ScoringController: UIViewController {
         else if (bCurrent[3] == 2){
             bCheck(beacon: 3, check: 2)
         }
-        else{
+        
             
             matchData[currentMatch][teamIndex(number: currentTeam)].bType[3] = 1
             matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
             b2owner.text = String (currentTeam)
-        }
+        refreshLabels()
     }
     @IBAction func b2blue(_ sender: AnyObject) {
         if(bCurrent[3] == 2){
@@ -312,12 +312,12 @@ class ScoringController: UIViewController {
         else if (bCurrent[3] == 1){
             bCheck(beacon: 3, check: 1)
         }
-        else{
+        
             
             matchData[currentMatch][teamIndex(number: currentTeam)].bType[3] = 2
             matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
             b2owner.text = String (currentTeam)
-        }
+        refreshLabels()
     }
     @IBOutlet var b2owner: UILabel!
     
@@ -326,39 +326,156 @@ class ScoringController: UIViewController {
         
         //Calculate and score the calculated data points
         
-        let r1Aneg = matchData[currentMatch][0].autoBeacons < 0
-        let r2Aneg = matchData[currentMatch][1].autoBeacons < 0
-        let b1Aneg = matchData[currentMatch][2].autoBeacons < 0
-        let b2Aneg = matchData[currentMatch][3].autoBeacons < 0
+        for teams in 0..<4{
+            for beacons in 0..<4{
+                if(matchData[currentMatch][teams].bType[beacons] == 1){
+                    bCurrent[beacons] = 1
+                    if(beacons == 0){
+                        r1owner.text = String (matchData[currentMatch][teams].number)
+                    }
+                    else if(beacons == 1){
+                        r2owner.text = String (matchData[currentMatch][teams].number)
+                    }
+                    else if(beacons == 2){
+                        b1owner.text = String (matchData[currentMatch][teams].number)
+                    }
+                    else if(beacons == 3){
+                        b2owner.text = String (matchData[currentMatch][teams].number)
+                    }
+                }
+                if(matchData[currentMatch][teams].bType[beacons] == 2){
+                    bCurrent[beacons] = 2
+                    if(beacons == 0){
+                        r1owner.text = String (matchData[currentMatch][teams].number)
+                    }
+                    else if(beacons == 1){
+                        r2owner.text = String (matchData[currentMatch][teams].number)
+                    }
+                    else if(beacons == 2){
+                        b1owner.text = String (matchData[currentMatch][teams].number)
+                    }
+                    else if(beacons == 3){
+                        b2owner.text = String (matchData[currentMatch][teams].number)
+                    }
+                }
+            }
+        }
         
-        let r1Tneg = matchData[currentMatch][0].beacons < 0
-        let r2Tneg = matchData[currentMatch][1].beacons < 0
-        let b1Tneg = matchData[currentMatch][2].beacons < 0
-        let b2Tneg = matchData[currentMatch][3].beacons < 0
+        if matchData[currentMatch][0].number == 0 {
+            r1team.setTitle("", for: .normal)
+        }
+        else {
+            print("\n\nsomething:\(matchData[currentMatch][0].number)")
+            r1team.setTitle(String (matchData[currentMatch][0].number), for: .normal)
+        }
+        if matchData[currentMatch][1].number == 0 {
+            r2team.setTitle("", for: .normal)
+        }
+        else {
+            print("\n\nsomething:\(matchData[currentMatch][1].number)")
+            r2team.setTitle(String (matchData[currentMatch][1].number), for: .normal)
+        }
+        if matchData[currentMatch][2].number == 0 {
+            b1team.setTitle("", for: .normal)
+        }
+        else {
+            print("\n\nsomething:\(matchData[currentMatch][2].number)")
+            b1team.setTitle(String (matchData[currentMatch][2].number), for: .normal)
+        }
+        if matchData[currentMatch][3].number == 0 {
+            b2team.setTitle("", for: .normal)
+        }
+        else {
+            print("\n\nsomething:\(matchData[currentMatch][3].number)")
+            b2team.setTitle(String (matchData[currentMatch][3].number), for: .normal)
+        }
+        
+        
+        if(r1team.titleLabel?.text == "0"){
+            r1team.setTitle("", for: .normal)
+        }
+        if(r2team.titleLabel?.text == "0"){
+            r2team.setTitle("", for: .normal)
+        }
+        if(b1team.titleLabel?.text == "0"){
+            b1team.setTitle("", for: .normal)
+        }
+        if(b2team.titleLabel?.text == "0"){
+            b2team.setTitle("", for: .normal)
+        }
+        
+        
+        for teams in 0..<4{
+            matchData[currentMatch][teams].beacons = 0
+            matchData[currentMatch][teams].NBeacons = 0
+            matchData[currentMatch][teams].autoBeacons = 0
+            matchData[currentMatch][teams].autoNBeacons = 0
+        }
+        
+        
+        //AUTO
+        for teams in 0..<2{
+            for beacons in 0..<4{
+                if(matchData[currentMatch][teams].autoBType[beacons] == 1){
+                    matchData[currentMatch][teams].autoBeacons += 1
+                }
+                if(matchData[currentMatch][teams].autoBType[beacons] == 2){
+                    matchData[currentMatch][teams].autoNBeacons += 1
+                }
+            }
+        }
+        
+        for teams in 2..<4{
+            for beacons in 0..<4{
+                if(matchData[currentMatch][teams].autoBType[beacons] == 1){
+                    matchData[currentMatch][teams].autoNBeacons += 1
+                }
+                if(matchData[currentMatch][teams].autoBType[beacons] == 2){
+                    matchData[currentMatch][teams].autoBeacons += 1
+                }
+            }
+        }
+        
+        
+        
+        //TELE
+        for teams in 0..<2{
+            for beacons in 0..<4{
+                if(matchData[currentMatch][teams].bType[beacons] == 1){
+                    matchData[currentMatch][teams].beacons += 1
+                }
+                if(matchData[currentMatch][teams].bType[beacons] == 2){
+                    matchData[currentMatch][teams].NBeacons += 1
+                }
+            }
+        }
+        
+        for teams in 2..<4{
+            for beacons in 0..<4{
+                if(matchData[currentMatch][teams].bType[beacons] == 1){
+                    matchData[currentMatch][teams].NBeacons += 1
+                }
+                if(matchData[currentMatch][teams].bType[beacons] == 2){
+                    matchData[currentMatch][teams].beacons += 1
+                }
+            }
+        }
         
         //RED 1
         matchData[currentMatch][0].autoPts = (matchData[currentMatch][0].autoCorner * 5) + (matchData[currentMatch][0].autoVortex * 15) + matchData[currentMatch][0].parkPts + matchData[currentMatch][0].autoCapBallPts
-        if(!r1Aneg){
-            matchData[currentMatch][0].autoPts += matchData[currentMatch][0].autoBeacons * 30
-        }
+        matchData[currentMatch][0].autoPts += matchData[currentMatch][0].autoBeacons * 30
         matchData[currentMatch][0].telePts = matchData[currentMatch][0].cornerBalls + (matchData[currentMatch][0].vortexBalls * 5)
         matchData[currentMatch][0].endGamePts = matchData[currentMatch][0].capBallPts
-        if(!r1Tneg){
-            matchData[currentMatch][0].endGamePts += matchData[currentMatch][0].beacons * 10
-        }
+        matchData[currentMatch][0].endGamePts += matchData[currentMatch][0].beacons * 10
         matchData[currentMatch][0].calculatedScore = matchData[currentMatch][0].autoPts + matchData[currentMatch][0].telePts + matchData[currentMatch][0].endGamePts
         
         
         //RED 2
         matchData[currentMatch][1].autoPts = (matchData[currentMatch][1].autoCorner * 5) + (matchData[currentMatch][1].autoVortex * 15) + matchData[currentMatch][1].parkPts + matchData[currentMatch][1].autoCapBallPts
-        if(!r2Aneg){
-            matchData[currentMatch][1].autoPts += matchData[currentMatch][1].autoBeacons * 30
-        }
+        matchData[currentMatch][1].autoPts += matchData[currentMatch][1].autoBeacons * 30
         matchData[currentMatch][1].telePts = matchData[currentMatch][1].cornerBalls + (matchData[currentMatch][1].vortexBalls * 5)
         matchData[currentMatch][1].endGamePts = matchData[currentMatch][1].capBallPts
-        if(!r2Tneg){
-            matchData[currentMatch][1].endGamePts += matchData[currentMatch][1].beacons * 10
-        }
+        matchData[currentMatch][1].endGamePts += matchData[currentMatch][1].beacons * 10
         matchData[currentMatch][1].calculatedScore = matchData[currentMatch][1].autoPts + matchData[currentMatch][1].telePts + matchData[currentMatch][1].endGamePts
         
         matchData[currentMatch][0].allianceScore = matchData[currentMatch][0].calculatedScore + matchData[currentMatch][1].calculatedScore
@@ -367,27 +484,19 @@ class ScoringController: UIViewController {
         
         //BLUE 1
         matchData[currentMatch][2].autoPts = (matchData[currentMatch][2].autoCorner * 5) + (matchData[currentMatch][2].autoVortex * 15) + matchData[currentMatch][2].parkPts + matchData[currentMatch][2].autoCapBallPts
-        if(!b1Aneg){
-            matchData[currentMatch][2].autoPts += matchData[currentMatch][2].autoBeacons * 30
-        }
+        matchData[currentMatch][2].autoPts += matchData[currentMatch][2].autoBeacons * 30
         matchData[currentMatch][2].telePts = matchData[currentMatch][2].cornerBalls + (matchData[currentMatch][2].vortexBalls * 5)
         matchData[currentMatch][2].endGamePts = matchData[currentMatch][2].capBallPts
-        if(!b1Tneg){
-            matchData[currentMatch][2].endGamePts += matchData[currentMatch][2].beacons * 10
-        }
+        matchData[currentMatch][2].endGamePts += matchData[currentMatch][2].beacons * 10
         matchData[currentMatch][2].calculatedScore = matchData[currentMatch][2].autoPts + matchData[currentMatch][2].telePts + matchData[currentMatch][2].endGamePts
         
         
         //BLUE 2
         matchData[currentMatch][3].autoPts = (matchData[currentMatch][3].autoCorner * 5) + (matchData[currentMatch][3].autoVortex * 15) + matchData[currentMatch][3].parkPts + matchData[currentMatch][3].autoCapBallPts
-        if(!b2Aneg){
-            matchData[currentMatch][3].autoPts += matchData[currentMatch][3].autoBeacons * 30
-        }
+        matchData[currentMatch][3].autoPts += matchData[currentMatch][3].autoBeacons * 30
         matchData[currentMatch][3].telePts = matchData[currentMatch][3].cornerBalls + (matchData[currentMatch][3].vortexBalls * 5)
         matchData[currentMatch][3].endGamePts = matchData[currentMatch][3].capBallPts
-        if(!b2Tneg){
-            matchData[currentMatch][3].endGamePts += matchData[currentMatch][3].beacons * 10
-        }
+        matchData[currentMatch][3].endGamePts += matchData[currentMatch][3].beacons * 10
         matchData[currentMatch][3].calculatedScore = matchData[currentMatch][3].autoPts + matchData[currentMatch][3].telePts + matchData[currentMatch][3].endGamePts
         
         matchData[currentMatch][2].allianceScore = matchData[currentMatch][2].calculatedScore + matchData[currentMatch][3].calculatedScore
@@ -396,40 +505,25 @@ class ScoringController: UIViewController {
         //Check if beacons were scored for the other teams
         
         //Auto
-        if(matchData[currentMatch][2].autoBeacons < 0){
-            matchData[currentMatch][0].allianceScore -= (matchData[currentMatch][2].autoBeacons * 30)
-            matchData[currentMatch][1].allianceScore -= (matchData[currentMatch][2].autoBeacons * 30)
-        }
-        if(matchData[currentMatch][3].autoBeacons < 0){
-            matchData[currentMatch][0].allianceScore -= (matchData[currentMatch][3].autoBeacons * 30)
-            matchData[currentMatch][1].allianceScore -= (matchData[currentMatch][3].autoBeacons * 30)
-        }
-        if(matchData[currentMatch][0].autoBeacons < 0){
-            matchData[currentMatch][2].allianceScore -= (matchData[currentMatch][0].autoBeacons * 30)
-            matchData[currentMatch][3].allianceScore -= (matchData[currentMatch][0].autoBeacons * 30)
-        }
-        if(matchData[currentMatch][1].autoBeacons < 0){
-            matchData[currentMatch][2].allianceScore -= (matchData[currentMatch][1].autoBeacons * 30)
-            matchData[currentMatch][3].allianceScore -= (matchData[currentMatch][1].autoBeacons * 30)
-        }
+        matchData[currentMatch][0].allianceScore += (matchData[currentMatch][2].autoNBeacons * 30)
+        matchData[currentMatch][1].allianceScore += (matchData[currentMatch][2].autoNBeacons * 30)
+        matchData[currentMatch][0].allianceScore += (matchData[currentMatch][3].autoNBeacons * 30)
+        matchData[currentMatch][1].allianceScore += (matchData[currentMatch][3].autoNBeacons * 30)
+        matchData[currentMatch][2].allianceScore += (matchData[currentMatch][0].autoNBeacons * 30)
+        matchData[currentMatch][3].allianceScore += (matchData[currentMatch][0].autoNBeacons * 30)
+        matchData[currentMatch][2].allianceScore += (matchData[currentMatch][1].autoNBeacons * 30)
+        matchData[currentMatch][3].allianceScore += (matchData[currentMatch][1].autoNBeacons * 30)
         
         //Tele
-        if(matchData[currentMatch][2].beacons < 0){
-            matchData[currentMatch][0].allianceScore -= (matchData[currentMatch][2].beacons * 10)
-            matchData[currentMatch][1].allianceScore -= (matchData[currentMatch][2].beacons * 10)
-        }
-        if(matchData[currentMatch][3].beacons < 0){
-            matchData[currentMatch][0].allianceScore -= (matchData[currentMatch][3].beacons * 10)
-            matchData[currentMatch][1].allianceScore -= (matchData[currentMatch][3].beacons * 10)
-        }
-        if(matchData[currentMatch][0].beacons < 0){
-            matchData[currentMatch][2].allianceScore -= (matchData[currentMatch][0].beacons * 10)
-            matchData[currentMatch][3].allianceScore -= (matchData[currentMatch][0].beacons * 10)
-        }
-        if(matchData[currentMatch][1].beacons < 0){
-            matchData[currentMatch][2].allianceScore -= (matchData[currentMatch][1].beacons * 10)
-            matchData[currentMatch][3].allianceScore -= (matchData[currentMatch][1].beacons * 10)
-        }
+        matchData[currentMatch][0].allianceScore += (matchData[currentMatch][2].NBeacons * 10)
+        matchData[currentMatch][1].allianceScore += (matchData[currentMatch][2].NBeacons * 10)
+        matchData[currentMatch][0].allianceScore += (matchData[currentMatch][3].NBeacons * 10)
+        matchData[currentMatch][1].allianceScore += (matchData[currentMatch][3].NBeacons * 10)
+        matchData[currentMatch][2].allianceScore += (matchData[currentMatch][0].NBeacons * 10)
+        matchData[currentMatch][3].allianceScore += (matchData[currentMatch][0].NBeacons * 10)
+        matchData[currentMatch][2].allianceScore += (matchData[currentMatch][1].NBeacons * 10)
+        matchData[currentMatch][3].allianceScore += (matchData[currentMatch][1].NBeacons * 10)
+
         
         
         if(matchData[currentMatch][0].allianceScore > matchData[currentMatch][2].allianceScore){
