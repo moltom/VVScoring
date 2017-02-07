@@ -12,7 +12,6 @@
 		3320FD251E40F48600DC1B78 /* SingleTeamViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3320FD241E40F48600DC1B78 /* SingleTeamViewCell.swift */; };
 		3320FD271E40F4CD00DC1B78 /* SingleTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3320FD261E40F4CD00DC1B78 /* SingleTeamViewController.swift */; };
 		333675891E005C2C00DAF49C /* tournaments.txt in Resources */ = {isa = PBXBuildFile; fileRef = 333675881E005C2C00DAF49C /* tournaments.txt */; };
-		335E00B71E439572009D1761 /* DebugController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335E00B61E439572009D1761 /* DebugController.swift */; };
 		335E00B91E439688009D1761 /* FileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335E00B81E439688009D1761 /* FileCell.swift */; };
 		336449E91E2FD0F600D728DD /* AddTeamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336449E81E2FD0F600D728DD /* AddTeamController.swift */; };
 		336449EB1E2FD57200D728DD /* NumPadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336449EA1E2FD57200D728DD /* NumPadController.swift */; };
@@ -35,6 +34,7 @@
 		33B17E9F1DF7241D00D1F443 /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B17E9E1DF7241C00D1F443 /* MatchCell.swift */; };
 		33B17EA11DF7245F00D1F443 /* MatchesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B17EA01DF7245F00D1F443 /* MatchesController.swift */; };
 		33D0E2FF1E3122B6009506F4 /* addTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0E2FE1E3122B6009506F4 /* addTeamCell.swift */; };
+		33DDA6181E44EB1E00288FE8 /* DebugController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DDA6171E44EB1E00288FE8 /* DebugController.swift */; };
 		33E22F491DFB176300D5F845 /* FileUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E22F481DFB176300D5F845 /* FileUtility.swift */; };
 		351E8C1C1E23F06500C0D38A /* NewMatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351E8C1B1E23F06500C0D38A /* NewMatchController.swift */; };
 		E29E56601E05A84000D7BF36 /* NewTournamentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29E565F1E05A84000D7BF36 /* NewTournamentController.swift */; };
@@ -63,7 +63,6 @@
 		3320FD241E40F48600DC1B78 /* SingleTeamViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleTeamViewCell.swift; sourceTree = "<group>"; };
 		3320FD261E40F4CD00DC1B78 /* SingleTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleTeamViewController.swift; sourceTree = "<group>"; };
 		333675881E005C2C00DAF49C /* tournaments.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tournaments.txt; sourceTree = "<group>"; };
-		335E00B61E439572009D1761 /* DebugController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugController.swift; sourceTree = "<group>"; };
 		335E00B81E439688009D1761 /* FileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileCell.swift; sourceTree = "<group>"; };
 		336449E81E2FD0F600D728DD /* AddTeamController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamController.swift; sourceTree = "<group>"; };
 		336449EA1E2FD57200D728DD /* NumPadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumPadController.swift; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		33B17E9E1DF7241C00D1F443 /* MatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchCell.swift; sourceTree = "<group>"; };
 		33B17EA01DF7245F00D1F443 /* MatchesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesController.swift; sourceTree = "<group>"; };
 		33D0E2FE1E3122B6009506F4 /* addTeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addTeamCell.swift; sourceTree = "<group>"; };
+		33DDA6171E44EB1E00288FE8 /* DebugController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugController.swift; sourceTree = "<group>"; };
 		33E22F481DFB176300D5F845 /* FileUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtility.swift; sourceTree = "<group>"; };
 		351E8C1B1E23F06500C0D38A /* NewMatchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMatchController.swift; sourceTree = "<group>"; };
 		E29E565F1E05A84000D7BF36 /* NewTournamentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTournamentController.swift; sourceTree = "<group>"; };
@@ -163,18 +163,18 @@
 				336ABC971DF9C5CF00A588A9 /* TournamentCell.swift */,
 				336ABC991DF9C94E00A588A9 /* MenuController.swift */,
 				33E22F481DFB176300D5F845 /* FileUtility.swift */,
-				333675881E005C2C00DAF49C /* tournaments.txt */,
 				E29E565F1E05A84000D7BF36 /* NewTournamentController.swift */,
 				33101A211E0D8AB2001AD245 /* Utility.swift */,
-				33101A231E0D8FD5001AD245 /* example.txt */,
 				351E8C1B1E23F06500C0D38A /* NewMatchController.swift */,
 				336449E81E2FD0F600D728DD /* AddTeamController.swift */,
 				336449EA1E2FD57200D728DD /* NumPadController.swift */,
 				33D0E2FE1E3122B6009506F4 /* addTeamCell.swift */,
 				3320FD241E40F48600DC1B78 /* SingleTeamViewCell.swift */,
 				3320FD261E40F4CD00DC1B78 /* SingleTeamViewController.swift */,
-				335E00B61E439572009D1761 /* DebugController.swift */,
+				33DDA6171E44EB1E00288FE8 /* DebugController.swift */,
 				335E00B81E439688009D1761 /* FileCell.swift */,
+				333675881E005C2C00DAF49C /* tournaments.txt */,
+				33101A231E0D8FD5001AD245 /* example.txt */,
 			);
 			path = VVScoring;
 			sourceTree = "<group>";
@@ -353,8 +353,8 @@
 				33B17E911DF722F400D1F443 /* ScoringTeleController.swift in Sources */,
 				33B17E8F1DF7228E00D1F443 /* DataProcessing.swift in Sources */,
 				33101A221E0D8AB2001AD245 /* Utility.swift in Sources */,
+				33DDA6181E44EB1E00288FE8 /* DebugController.swift in Sources */,
 				336449E91E2FD0F600D728DD /* AddTeamController.swift in Sources */,
-				335E00B71E439572009D1761 /* DebugController.swift in Sources */,
 				33B17E971DF7236E00D1F443 /* RankingsCell.swift in Sources */,
 				33B17E611DF721EF00D1F443 /* AppDelegate.swift in Sources */,
 				336ABC981DF9C5CF00A588A9 /* TournamentCell.swift in Sources */,

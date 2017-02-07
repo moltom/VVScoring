@@ -11,16 +11,27 @@ import UIKit
 class DebugController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    var documentList: [String] = []
+    
     let cellReuseIdendifier = "FileCell"
+    
+    @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        documentList = getFileList()
+        
         tableView.register(FileCell.self, forCellReuseIdentifier: cellReuseIdendifier)
         
         tableView.dataSource = self
         tableView.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func forceRefresh(_ sender: AnyObject) {
+        setupInitialUtilityFiles(refresh: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,25 +43,44 @@ class DebugController: UIViewController, UITableViewDelegate, UITableViewDataSou
         return true
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        let path = docsPath.appendingPathComponent(documentList[indexPath.row])
+        
+        do{
+            let fullText = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+            textView.text = fullText
+        }catch{
+            print("ERROR")
+        }
+        
+        
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         if editingStyle == UITableViewCellEditingStyle.delete{
-            
             //Deleting files
-            removeFile(withName: <#T##String#>)
+<<<<<<< HEAD
+            //removeFile(withName: <#T##String#>)
             
             tableView.deleteRows(at: [indexPath], with: .fade)
+=======
+            if removeFile(withName: documentList[indexPath.row]){
+                documentList.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            }
+>>>>>>> origin/master
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return teamList.count
+        return documentList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdendifier, for: indexPath as IndexPath) as! FileCell
         
-        let documentList = getFileList()
+        documentList = getFileList()
         
         cell.labels["file"]?.Label.text = documentList[indexPath.row]
         

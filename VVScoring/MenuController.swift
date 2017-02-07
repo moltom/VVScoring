@@ -13,6 +13,7 @@ class MenuController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        _ = readTournamentList()
         setupInitialUtilityFiles(refresh: false)
         // Do any additional setup after loading the view.
     }
@@ -20,6 +21,10 @@ class MenuController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func unwindToMenu(sender: UIStoryboardSegue){
+        resetArrays()
     }
     
     @IBAction func loadTournament(_ sender: AnyObject) {
@@ -39,9 +44,5 @@ class MenuController: UIViewController {
         popOverVC.view.frame = self.view.frame
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
-    }
-    
-    @IBAction func DebugButton(_ sender: AnyObject) {
-        
     }
 }

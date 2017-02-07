@@ -23,8 +23,6 @@ let docsPath = NSSearchPathForDirectoriesInDomains(
 //MATCH DATA
 
 //Reads match data from the given file name and returns error status
-//@parameter file The file name (assuming txt file) to read the match data from
-//@return A boolean that returns false if an error occured.
 func readMatchDataFromFile(fileName: String) -> Bool{
     //let path = Bundle.main.path(forResource: file, ofType: "txt")
     let path = docsPath.appendingPathComponent("\(fileName).txt")
@@ -51,35 +49,37 @@ func readMatchDataFromFile(fileName: String) -> Bool{
             //Get match data
             matchData = []
             var i = 0
-            for k in 2..<lines.count - 1{
-                let data = lines[k].components(separatedBy: ",")
-                var tmp = 0
-                matchData.append([teamInMatch(), teamInMatch(),teamInMatch(),teamInMatch()])
-                for j in 0..<4{
-                    matchData[i][j].number = Int(data[tmp+0])!
-                    matchData[i][j].match = Int(data[tmp+1])!
-                    matchData[i][j].autoCorner = Int(data[tmp+2])!
-                    matchData[i][j].autoVortex = Int(data[tmp+3])!
-                    matchData[i][j].autoBeacons = Int(data[tmp+4])!
-                    matchData[i][j].autoBeaconsDNA = Bool(data[tmp+5])!
-                    matchData[i][j].parkPts = Int(data[tmp+6])!
-                    matchData[i][j].autoCapBallPts = Int(data[tmp+7])!
-                    matchData[i][j].autoCapBallDNA = Bool(data[tmp+8])!
-                    matchData[i][j].autoPts = Int(data[tmp+9])!
-                    matchData[i][j].cornerBalls = Int(data[tmp+10])!
-                    matchData[i][j].vortexBalls = Int(data[tmp+11])!
-                    matchData[i][j].telePts = Int(data[tmp+12])!
-                    matchData[i][j].capBallPts = Int(data[tmp+13])!
-                    matchData[i][j].capBallDNA = Bool(data[tmp+14])!
-                    matchData[i][j].beacons = Int(data[tmp+15])!
-                    matchData[i][j].endGamePts = Int(data[tmp+16])!
-                    matchData[i][j].outcome = Int(data[tmp+17])!
-                    matchData[i][j].calculatedScore = Int(data[tmp+18])!
-                    matchData[i][j].allianceScore = Int(data[tmp+19])!
-                    matchData[i][j].officialScore = Int(data[tmp+20])!
-                    tmp += 21
+            for k in 2..<lines.count{
+                if lines[k] != ""{
+                    let data = lines[k].components(separatedBy: ",")
+                    var tmp = 0
+                    matchData.append([teamInMatch(),teamInMatch(),teamInMatch(),teamInMatch()])
+                    for j in 0..<4{
+                        matchData[i][j].number = Int(data[tmp+0])!
+                        matchData[i][j].match = Int(data[tmp+1])!
+                        matchData[i][j].autoCorner = Int(data[tmp+2])!
+                        matchData[i][j].autoVortex = Int(data[tmp+3])!
+                        matchData[i][j].autoBeacons = Int(data[tmp+4])!
+                        matchData[i][j].autoBeaconsDNA = Bool(data[tmp+5])!
+                        matchData[i][j].parkPts = Int(data[tmp+6])!
+                        matchData[i][j].autoCapBallPts = Int(data[tmp+7])!
+                        matchData[i][j].autoCapBallDNA = Bool(data[tmp+8])!
+                        matchData[i][j].autoPts = Int(data[tmp+9])!
+                        matchData[i][j].cornerBalls = Int(data[tmp+10])!
+                        matchData[i][j].vortexBalls = Int(data[tmp+11])!
+                        matchData[i][j].telePts = Int(data[tmp+12])!
+                        matchData[i][j].capBallPts = Int(data[tmp+13])!
+                        matchData[i][j].capBallDNA = Bool(data[tmp+14])!
+                        matchData[i][j].beacons = Int(data[tmp+15])!
+                        matchData[i][j].endGamePts = Int(data[tmp+16])!
+                        matchData[i][j].outcome = Int(data[tmp+17])!
+                        matchData[i][j].calculatedScore = Int(data[tmp+18])!
+                        matchData[i][j].allianceScore = Int(data[tmp+19])!
+                        matchData[i][j].officialScore = Int(data[tmp+20])!
+                        tmp += 21
+                    }
+                    i += 1
                 }
-                i += 1
             }
             return true
         }catch{
@@ -202,9 +202,7 @@ func formatMatchDataToCSV() -> String{
                 output += ","
             }
         }
-        if i != matchData.count-1{
-            output += "\n"
-        }
+        output += "\n"
     }
     return output
 }
@@ -249,7 +247,8 @@ func readTournamentList(){
             
             //Increment through lines
             tournamentList = []
-            for i in 1..<lines.count-1{
+            for i in 1..<lines.count{
+<<<<<<< HEAD
                 let data = lines[i].components(separatedBy: ",")
                 tournamentList.append(tournament())
                 tournamentList[index].name = data[0]
@@ -257,6 +256,17 @@ func readTournamentList(){
                 tournamentList[index].date = data[2]
                 tournamentList[index].fileLocation = data[3]
                 index += 1
+=======
+                if lines[i] != ""{
+                    let data = lines[i].components(separatedBy: ",")
+                    tournamentList.append(tournament())
+                    tournamentList[index].name = data[0]
+                    tournamentList[index].type = data[1]
+                    tournamentList[index].date = data[2]
+                    tournamentList[index].fileLocation = data[3]
+                    index += 1
+                }
+>>>>>>> origin/master
             }
         }catch{
             print("Error in tournament read")
@@ -287,16 +297,6 @@ func addTournament(Tname: String, Ttype: String, Tdate: String, TfileName: Strin
     currentTournament = TfileName
 }
 
-//Removes tournament from list by name
-func removeTournament(name: String){
-    for t in 0..<tournamentList.count{
-        if tournamentList[t].name == name{
-            tournamentList.remove(at: t)
-        }
-    }
-    writeToTournamentList()
-}
-
 //Removes tournament from list by file name
 func removeTournament(fileName: String){
     for t in 0..<tournamentList.count{
@@ -304,6 +304,7 @@ func removeTournament(fileName: String){
             tournamentList.remove(at: t)
         }
     }
+    truncateTournamentFile()
     writeToTournamentList()
 }
 
@@ -332,16 +333,14 @@ func writeToTournamentList(){
 
 //FORMATTING AND UTILITY
 func formatTournamentsToCSV() -> String{
-    var out: String = ""
+    var out: String = "\n"
     
     for i in 0..<tournamentList.count{
         out += (tournamentList[i].name + ",")
         out += (tournamentList[i].type + ",")
         out += (tournamentList[i].date + ",")
         out += (tournamentList[i].fileLocation)
-        if i != tournamentList.count - 1{
-            out += "\n"
-        }
+        out += "\n"
     }
     return out
 }
@@ -400,7 +399,7 @@ func truncateTournamentFile(){
     if file != nil {
         
         // Write it to the file
-        file?.truncateFile(atOffset: 27)
+        file?.truncateFile(atOffset: 28)
         
         // Close the file
         file?.closeFile()
@@ -439,17 +438,31 @@ func getFileList() -> [String]{
     return []
 }
 
-func removeFile(withName file: String){
+func removeFile(withName file: String) -> Bool{
     //let path = Bundle.main.path(forResource: "tournaments", ofType: "txt")
     let path = docsPath.appendingPathComponent(file)
     let fm = FileManager.default
+    
+    if path == ""{
+        return false
+    }
     
     //Checks if file exists
     if fm.fileExists(atPath: path){
         do{
             try fm.removeItem(atPath: path)
+            removeTournament(fileName: file)
+            return true
         }catch{
             print("Error removing file")
+            return false
         }
     }
+    return false
+}
+
+func resetArrays(){
+    matchData = []
+    teamList = [:]
+    tournamentList = []
 }
