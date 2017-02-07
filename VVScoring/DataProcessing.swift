@@ -399,6 +399,19 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
 }
 
 
+func getMatches(num: Int) -> [teamInMatch]{
+    var output: [teamInMatch] = []
+    for match in matchData{
+        for team in match{
+            if team.number == num{
+                output.append(team)
+            }
+        }
+    }
+    return output
+}
+
+
 func getAverages(num: Int) -> (wins: Int, losses: Int, ties: Int, averages: teamAverage){
     var output = teamAverage()
     var extra: (w: Int, l: Int, t: Int) = (0, 0, 0)
