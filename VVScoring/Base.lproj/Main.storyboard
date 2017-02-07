@@ -1779,7 +1779,9 @@
                         <outlet property="b1MatchScore" destination="AUH-Hf-RT3" id="lN5-DZ-vUN"/>
                         <outlet property="b1NameField" destination="Wad-2K-YSQ" id="oOJ-aw-FOZ"/>
                         <outlet property="b1NumField" destination="IJF-Pa-oMQ" id="lKq-aS-Gq1"/>
+                        <outlet property="b1b" destination="te7-Dz-4Iy" id="BOY-XT-iJR"/>
                         <outlet property="b1owner" destination="ZgQ-cJ-Cl1" id="Uog-dR-gzh"/>
+                        <outlet property="b1r" destination="ek3-gG-9YH" id="kUX-GK-du6"/>
                         <outlet property="b1team" destination="t8O-Uu-3JY" id="2tq-wt-JRj"/>
                         <outlet property="b2ACapDNA" destination="3ll-cn-v4Y" id="syS-AZ-wFx"/>
                         <outlet property="b2ACapSwitch" destination="E7q-v3-IQu" id="jsF-Nu-cVc"/>
@@ -1790,7 +1792,9 @@
                         <outlet property="b2MatchScore" destination="50Y-5d-qvj" id="eV5-EO-mOf"/>
                         <outlet property="b2NameField" destination="d1Q-qZ-2Wm" id="1np-yk-9d7"/>
                         <outlet property="b2NumField" destination="y2H-Mo-RLk" id="b8r-88-iR7"/>
+                        <outlet property="b2b" destination="Mlw-5z-gss" id="G5l-37-f3I"/>
                         <outlet property="b2owner" destination="PG2-6f-iTS" id="NtW-FS-5wq"/>
+                        <outlet property="b2r" destination="O2E-X8-lT2" id="xCI-RU-Cys"/>
                         <outlet property="b2team" destination="BO9-Ct-hNl" id="8CK-w4-xt5"/>
                         <outlet property="blueAllianceScore" destination="Tqo-ia-1BX" id="0oo-V5-umE"/>
                         <outlet property="matchLabel" destination="lIJ-TO-ucP" id="2k4-aE-sFx"/>
@@ -1803,7 +1807,9 @@
                         <outlet property="r1MatchScore" destination="DTY-ae-rfX" id="CiC-Y8-OhK"/>
                         <outlet property="r1NameField" destination="JPv-P6-TwQ" id="tsr-Jf-5Ij"/>
                         <outlet property="r1NumField" destination="jvM-me-EZp" id="O8t-O9-Ojc"/>
+                        <outlet property="r1b" destination="QPm-ps-wgv" id="2ml-JR-96P"/>
                         <outlet property="r1owner" destination="w4X-d7-WjR" id="NNH-7h-HJW"/>
+                        <outlet property="r1r" destination="rki-GW-9OX" id="sgD-k6-bEw"/>
                         <outlet property="r1team" destination="XVz-JQ-ofX" id="cfa-M1-egb"/>
                         <outlet property="r2ACapDNA" destination="3Rv-8L-Xmy" id="6Ii-Oh-6Tn"/>
                         <outlet property="r2ACapSwitch" destination="Xb8-xe-Jrz" id="41R-0E-eeQ"/>
@@ -1814,7 +1820,9 @@
                         <outlet property="r2MatchScore" destination="HKp-DU-Rxh" id="RY7-pt-xrg"/>
                         <outlet property="r2NameField" destination="ls9-EP-P9W" id="hm8-Cn-gTR"/>
                         <outlet property="r2NumField" destination="tWe-Wk-zQE" id="cdv-vq-6Ba"/>
+                        <outlet property="r2b" destination="W7z-Za-X0m" id="Ay7-F6-TPA"/>
                         <outlet property="r2owner" destination="FsY-FX-1w5" id="5O1-FQ-ECl"/>
+                        <outlet property="r2r" destination="RJs-TS-JQH" id="ANC-Vl-Tid"/>
                         <outlet property="r2team" destination="cJy-F3-fYp" id="lWk-a6-JJJ"/>
                         <outlet property="redAllianceScore" destination="qfz-be-naV" id="ech-7r-jr6"/>
                         <outlet property="selectedTeam" destination="DEo-y8-JIw" id="TDr-fM-xmF"/>

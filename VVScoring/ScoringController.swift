@@ -155,6 +155,18 @@ class ScoringController: UIViewController {
     
     //Beacons
     
+    @IBOutlet var r1r: UIButton!
+    @IBOutlet var r1b: UIButton!
+    @IBOutlet var r2r: UIButton!
+    @IBOutlet var r2b: UIButton!
+    @IBOutlet var b1r: UIButton!
+    @IBOutlet var b1b: UIButton!
+    @IBOutlet var b2r: UIButton!
+    @IBOutlet var b2b: UIButton!
+    
+    
+    
+    
     @IBOutlet var r1team: UIButton!
     @IBOutlet var r2team: UIButton!
     @IBOutlet var b1team: UIButton!
@@ -460,6 +472,89 @@ class ScoringController: UIViewController {
                 }
             }
         }
+        
+        
+        //color beacon buttons
+        if(bCurrent[0] == 0) {
+            r1r.backgroundColor = UIColor.gray
+        }
+        else if bCurrent[0] == 1 {
+            r1r.backgroundColor = UIColor.red
+        }
+        else {
+            r1r.backgroundColor = UIColor.gray
+        }
+        
+        if(bCurrent[0] == 0) {
+            r1b.backgroundColor = UIColor.gray
+        }
+        else if bCurrent[0] == 1 {
+            r1b.backgroundColor = UIColor.gray
+        }
+        else {
+            r1b.backgroundColor = UIColor.blue
+        }
+        
+        if(bCurrent[1] == 0) {
+            r2r.backgroundColor = UIColor.gray
+        }
+        else if bCurrent[1] == 1 {
+            r2r.backgroundColor = UIColor.red
+        }
+        else {
+            r2r.backgroundColor = UIColor.gray
+        }
+        
+        if(bCurrent[1] == 0) {
+            r2b.backgroundColor = UIColor.gray
+        }
+        else if bCurrent[1] == 1 {
+            r2b.backgroundColor = UIColor.gray
+        }
+        else {
+            r2b.backgroundColor = UIColor.blue
+        }
+        
+        if(bCurrent[2] == 0) {
+            b1r.backgroundColor = UIColor.gray
+        }
+        else if bCurrent[2] == 1 {
+            b1r.backgroundColor = UIColor.red
+        }
+        else {
+            b1r.backgroundColor = UIColor.gray
+        }
+        
+        if(bCurrent[2] == 0) {
+            b1b.backgroundColor = UIColor.gray
+        }
+        else if bCurrent[2] == 1 {
+            b1b.backgroundColor = UIColor.gray
+        }
+        else {
+            b1b.backgroundColor = UIColor.blue
+        }
+        
+        if(bCurrent[3] == 0) {
+            b2r.backgroundColor = UIColor.gray
+        }
+        else if bCurrent[3] == 1 {
+            b2r.backgroundColor = UIColor.red
+        }
+        else {
+            b2r.backgroundColor = UIColor.gray
+        }
+        
+        if(bCurrent[3] == 0) {
+            b2b.backgroundColor = UIColor.gray
+        }
+        else if bCurrent[3] == 1 {
+            b2b.backgroundColor = UIColor.gray
+        }
+        else {
+            b2b.backgroundColor = UIColor.blue
+        }
+        
         
         //RED 1
         matchData[currentMatch][0].autoPts = (matchData[currentMatch][0].autoCorner * 5) + (matchData[currentMatch][0].autoVortex * 15) + matchData[currentMatch][0].parkPts + matchData[currentMatch][0].autoCapBallPts
