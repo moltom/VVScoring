@@ -247,7 +247,7 @@ func readTournamentList(){
             
             //Increment through lines
             tournamentList = []
-            for i in 1..<lines.count{
+            for i in 1..<lines.count-1{
                 let data = lines[i].components(separatedBy: ",")
                 tournamentList.append(tournament())
                 tournamentList[index].name = data[0]
