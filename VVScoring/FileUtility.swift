@@ -60,23 +60,32 @@ func readMatchDataFromFile(fileName: String) -> Bool{
                         matchData[i][j].autoCorner = Int(data[tmp+2])!
                         matchData[i][j].autoVortex = Int(data[tmp+3])!
                         matchData[i][j].autoBeacons = Int(data[tmp+4])!
-                        matchData[i][j].autoBeaconsDNA = Bool(data[tmp+5])!
-                        matchData[i][j].parkPts = Int(data[tmp+6])!
-                        matchData[i][j].autoCapBallPts = Int(data[tmp+7])!
-                        matchData[i][j].autoCapBallDNA = Bool(data[tmp+8])!
-                        matchData[i][j].autoPts = Int(data[tmp+9])!
-                        matchData[i][j].cornerBalls = Int(data[tmp+10])!
-                        matchData[i][j].vortexBalls = Int(data[tmp+11])!
-                        matchData[i][j].telePts = Int(data[tmp+12])!
-                        matchData[i][j].capBallPts = Int(data[tmp+13])!
-                        matchData[i][j].capBallDNA = Bool(data[tmp+14])!
-                        matchData[i][j].beacons = Int(data[tmp+15])!
-                        matchData[i][j].endGamePts = Int(data[tmp+16])!
-                        matchData[i][j].outcome = Int(data[tmp+17])!
-                        matchData[i][j].calculatedScore = Int(data[tmp+18])!
-                        matchData[i][j].allianceScore = Int(data[tmp+19])!
-                        matchData[i][j].officialScore = Int(data[tmp+20])!
-                        tmp += 21
+                        
+                        matchData[i][j].autoNBeacons = Int(data[tmp+5])!
+                        matchData[i][j].autoBType = getTypeIntArray(data[tmp+6])
+                        
+                        matchData[i][j].autoBeaconsDNA = Bool(data[tmp+7])!
+                        matchData[i][j].parkPts = Int(data[tmp+8])!
+                        matchData[i][j].autoCapBallPts = Int(data[tmp+9])!
+                        matchData[i][j].autoCapBallDNA = Bool(data[tmp+10])!
+                        matchData[i][j].autoPts = Int(data[tmp+11])!
+                        matchData[i][j].cornerBalls = Int(data[tmp+12])!
+                        matchData[i][j].vortexBalls = Int(data[tmp+13])!
+                        matchData[i][j].telePts = Int(data[tmp+14])!
+                        matchData[i][j].capBallPts = Int(data[tmp+15])!
+                        matchData[i][j].capBallDNA = Bool(data[tmp+16])!
+                        matchData[i][j].beacons = Int(data[tmp+17])!
+                        
+                        matchData[i][j].NBeacons = Int(data[tmp+18])!
+                        matchData[i][j].bType = getTypeIntArray(data[tmp+19])
+                        matchData[i][j].bCount = Int(data[tmp+20])!
+                        
+                        matchData[i][j].endGamePts = Int(data[tmp+21])!
+                        matchData[i][j].outcome = Int(data[tmp+22])!
+                        matchData[i][j].calculatedScore = Int(data[tmp+23])!
+                        matchData[i][j].allianceScore = Int(data[tmp+24])!
+                        matchData[i][j].officialScore = Int(data[tmp+25])!
+                        tmp += 26
                     }
                     i += 1
                 }
@@ -168,6 +177,21 @@ func saveMatchData(){
     writeMatchDataToFile(fileName: currentTournament)
 }
 
+func createTypeString(array: [Int]) -> String{
+    var out: String = ""
+    for i in 0..<array.count{
+        out += "\(array[i])"
+        if i != array.count - 1{
+            out += "."
+        }
+    }
+    return out
+}
+
+func getTypeIntArray(_ val: String) -> [Int]{
+    return (val.components(separatedBy: ".")).map{ Int($0)! }
+}
+
 func formatMatchDataToCSV() -> String{
     var output: String = ""
     
@@ -182,6 +206,10 @@ func formatMatchDataToCSV() -> String{
             output += String(matchData[i][j].autoCorner) + ","
             output += String(matchData[i][j].autoVortex) + ","
             output += String(matchData[i][j].autoBeacons) + ","
+            
+            output += String(matchData[i][j].autoNBeacons) + ","
+            output += createTypeString(array: matchData[i][j].autoBType) + ","
+            
             output += String(matchData[i][j].autoBeaconsDNA) + ","
             output += String(matchData[i][j].parkPts) + ","
             output += String(matchData[i][j].autoCapBallPts) + ","
@@ -193,6 +221,11 @@ func formatMatchDataToCSV() -> String{
             output += String(matchData[i][j].capBallPts) + ","
             output += String(matchData[i][j].capBallDNA) + ","
             output += String(matchData[i][j].beacons) + ","
+            
+            output += String(matchData[i][j].NBeacons) + ","
+            output += createTypeString(array: matchData[i][j].bType) + ","
+            output += String(matchData[i][j].bCount) + ","
+            
             output += String(matchData[i][j].endGamePts) + ","
             output += String(matchData[i][j].outcome) + ","
             output += String(matchData[i][j].calculatedScore) + ","
