@@ -11,19 +11,23 @@ import UIKit
 class SingleTeamViewCell: UITableViewCell {
 
     var labels: [String: (Label: UILabel, x: Int, y: Int, width: Int, height: Int)] = [
-        "number":        (UILabel(),20, 0, 50, 30),
-        "autoCorBalls":  (UILabel(),20, 0, 50, 30),
-        "autoVorBalls":  (UILabel(),20, 0, 50, 30),
-        "autoBeacons":   (UILabel(),20, 0, 50, 30),
-        "autoPark":      (UILabel(),20, 0, 50, 30),
-        "autoPts":       (UILabel(),20, 0, 50, 30),
-        "corBalls":      (UILabel(),20, 0, 50, 30),
-        "vorBalls":      (UILabel(),20, 0, 50, 30),
-        "telePts":       (UILabel(),20, 0, 50, 30),
-        "beaconsHit":    (UILabel(),20, 0, 50, 30),
-        "beaconsCntrled":(UILabel(),20, 0, 50, 30),
-        "capBall":       (UILabel(),20, 0, 50, 30),
-        "totalPts":      (UILabel(),20, 0, 50, 30),
+        "match":            (UILabel(), 18, 0, 50, 30),
+        "autoCorBalls":     (UILabel(), 75, 0, 50, 30),
+        "autoVorBalls":     (UILabel(),124, 0, 50, 30),
+        "autoBeacons":      (UILabel(),185, 0, 50, 30),
+        "autoPark":         (UILabel(),250, 0, 50, 30),
+        "autoCapPts":       (UILabel(),315, 0, 50, 30),
+        "autoPts":          (UILabel(),370, 0, 50, 30),
+        "corBalls":         (UILabel(),433, 0, 50, 30),
+        "vorBalls":         (UILabel(),486, 0, 50, 30),
+        "telePts":          (UILabel(),546, 0, 50, 30),
+        "capPts":           (UILabel(),610, 0, 50, 30),
+        "beaconsControlled":(UILabel(),675, 0, 50, 30),
+        "beaconsHit":       (UILabel(),740, 0, 50, 30),
+        "endPts":           (UILabel(),800, 0, 50, 30),
+        "calcScore":        (UILabel(),860, 0, 50, 30),
+        "allianceScore":    (UILabel(),920, 0, 50, 30),
+        "officialScore":    (UILabel(),980, 0, 50, 30),
     ]
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

@@ -80,6 +80,8 @@ struct tournament{
 
 var tournamentList: [tournament] = []
 
+var selectedTeam: Int = -1
+
 func sortMatchData(){
     matchData = matchData.sorted{ $0[0].match < $1[0].match }
 }
@@ -503,4 +505,44 @@ func getAverages(num: Int) -> (wins: Int, losses: Int, ties: Int, averages: team
     return (extra.w, extra.l, extra.t, output)
 }
 
-
+func calculateOutcome(forMatch number: Int){
+    if(matchData[number][0].officialScore == -1){
+        if(matchData[number][0].allianceScore > matchData[number][2].allianceScore){
+            matchData[number][0].outcome = 0
+            matchData[number][1].outcome = 0
+            matchData[number][2].outcome = 1
+            matchData[number][2].outcome = 1
+        }
+        else if(matchData[number][0].allianceScore < matchData[number][2].allianceScore){
+            matchData[number][0].outcome = 1
+            matchData[number][1].outcome = 1
+            matchData[number][2].outcome = 0
+            matchData[number][2].outcome = 0
+        }
+        else{
+            matchData[number][0].outcome = 2
+            matchData[number][1].outcome = 2
+            matchData[number][2].outcome = 2
+            matchData[number][3].outcome = 2
+        }
+    }else{
+        if(matchData[number][0].officialScore > matchData[currentMatch][2].officialScore){
+            matchData[number][0].outcome = 0
+            matchData[number][1].outcome = 0
+            matchData[number][2].outcome = 1
+            matchData[number][3].outcome = 1
+        }
+        else if(matchData[number][0].officialScore < matchData[number][2].officialScore){
+            matchData[number][0].outcome = 1
+            matchData[number][1].outcome = 1
+            matchData[number][2].outcome = 0
+            matchData[number][3].outcome = 0
+        }
+        else{
+            matchData[number][0].outcome = 2
+            matchData[number][1].outcome = 2
+            matchData[number][2].outcome = 2
+            matchData[number][3].outcome = 2
+        }
+    }
+}

@@ -24,7 +24,7 @@ class RankingsCell: UITableViewCell {
         "autoBeacons": (UILabel(),685, 0, 30, 30),
         "teleBalls": (UILabel(),745, 0, 50, 30),
         "endBeacons": (UILabel(), 817, 0, 30, 30),
-        "capPts": (UILabel(), 872, 0, 30, 30),
+        "capPts": (UILabel(), 872, 0, 50, 30),
         "partnerScore": (UILabel(), 920, 0, 60, 30)
     ]
     

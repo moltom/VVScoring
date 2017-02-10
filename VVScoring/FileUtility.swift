@@ -280,14 +280,7 @@ func readTournamentList(){
             
             //Increment through lines
             tournamentList = []
-            for i in 1..<lines.count-1{
-                let data = lines[i].components(separatedBy: ",")
-                tournamentList.append(tournament())
-                tournamentList[index].name = data[0]
-                tournamentList[index].type = data[1]
-                tournamentList[index].date = data[2]
-                tournamentList[index].fileLocation = data[3]
-                index += 1
+            for i in 1..<lines.count{
                 if lines[i] != ""{
                     let data = lines[i].components(separatedBy: ",")
                     tournamentList.append(tournament())
@@ -363,7 +356,7 @@ func writeToTournamentList(){
 
 //FORMATTING AND UTILITY
 func formatTournamentsToCSV() -> String{
-    var out: String = "\n"
+    var out: String = ""
     
     for i in 0..<tournamentList.count{
         out += (tournamentList[i].name + ",")

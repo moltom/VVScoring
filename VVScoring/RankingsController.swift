@@ -33,6 +33,20 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.reloadData()
     }
     
+    @IBAction func unwindToRankings(sender: UIStoryboardSegue){
+        //Leave this here
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        //Get reversed index
+        selectedTeam = Int(findNumber(indexPath.row))!
+        
+        //Transfer Views
+        let vcName = "singleView"
+        let viewController = storyboard?.instantiateViewController(withIdentifier: vcName)
+        present(viewController!, animated: true, completion: nil)
+    }
+    
     @IBAction func addTeamButton(_ sender: AnyObject) {
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "addTeamController") as! AddTeamController
         self.addChildViewController(popOverVC)

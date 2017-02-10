@@ -169,7 +169,7 @@ class ScoringTeleController: UIViewController {
     
     @IBOutlet var selectedTeam: UILabel!
     
-    var bCurrent: [Int] = [0,0,0,0]
+    //var bCurrent: [Int] = [0,0,0,0]
     
     func bCheck(beacon: Int, check: Int){
         for i in 0..<4{ //i -> 4 teams
@@ -306,11 +306,43 @@ class ScoringTeleController: UIViewController {
     var currentTeam = 7655
     
     
-    
-    //SCORING
-    func refreshLabels(){
-        
-        //populate bCurrent
+    func populateBeacons(){
+        /*
+        for teams in 0..<4{
+            for beacons in 0..<4{
+                if(matchData[currentMatch][teams].autoBType[beacons] == 1){
+                    bCurrent[beacons] = 1
+                    if(beacons == 0){
+                        r1owner.text = String (matchData[currentMatch][teams].number)
+                    }
+                    else if(beacons == 1){
+                        r2owner.text = String (matchData[currentMatch][teams].number)
+                    }
+                    else if(beacons == 2){
+                        b1owner.text = String (matchData[currentMatch][teams].number)
+                    }
+                    else if(beacons == 3){
+                        b2owner.text = String (matchData[currentMatch][teams].number)
+                    }
+                }
+                if(matchData[currentMatch][teams].autoBType[beacons] == 2){
+                    bCurrent[beacons] = 2
+                    if(beacons == 0){
+                        r1owner.text = String (matchData[currentMatch][teams].number)
+                    }
+                    else if(beacons == 1){
+                        r2owner.text = String (matchData[currentMatch][teams].number)
+                    }
+                    else if(beacons == 2){
+                        b1owner.text = String (matchData[currentMatch][teams].number)
+                    }
+                    else if(beacons == 3){
+                        b2owner.text = String (matchData[currentMatch][teams].number)
+                    }
+                }
+            }
+        }
+        */
         for teams in 0..<4{
             for beacons in 0..<4{
                 if(matchData[currentMatch][teams].bType[beacons] == 1){
@@ -345,6 +377,15 @@ class ScoringTeleController: UIViewController {
                 }
             }
         }
+    }
+    
+    
+    //SCORING
+    func refreshLabels(){
+        
+        //populate bCurrent
+        populateBeacons()
+        
         
         if matchData[currentMatch][0].number == 0 {
             r1team.setTitle("", for: .normal)
@@ -598,32 +639,11 @@ class ScoringTeleController: UIViewController {
         matchData[currentMatch][2].allianceScore += (matchData[currentMatch][1].NBeacons * 10)
         matchData[currentMatch][3].allianceScore += (matchData[currentMatch][1].NBeacons * 10)
 
+        //CALCULATE WIN/LOSS
+        calculateOutcome(forMatch: currentMatch)
         
-        if(matchData[currentMatch][0].allianceScore > matchData[currentMatch][2].allianceScore){
-            matchData[currentMatch][0].outcome = 0
-            matchData[currentMatch][1].outcome = 0
-            matchData[currentMatch][2].outcome = 1
-            matchData[currentMatch][2].outcome = 1
-        }
-        else if(matchData[currentMatch][0].allianceScore < matchData[currentMatch][2].allianceScore){
-            matchData[currentMatch][0].outcome = 1
-            matchData[currentMatch][1].outcome = 1
-            matchData[currentMatch][2].outcome = 0
-            matchData[currentMatch][2].outcome = 0
-        }
-        else{
-            matchData[currentMatch][0].outcome = 2
-            matchData[currentMatch][1].outcome = 2
-            matchData[currentMatch][2].outcome = 2
-            matchData[currentMatch][3].outcome = 2
-        }
-        
-        
-        
-        
-        
-        
-        matchLabel.text = "Match \(currentMatch)"
+        //MATCH LABEL
+        matchLabel.text = "Match \(getMatchLabel(index: currentMatch))"
         
         
         //RED 1

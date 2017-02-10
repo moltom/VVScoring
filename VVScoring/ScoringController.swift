@@ -8,16 +8,21 @@
 
 import UIKit
 
+var bCurrent: [Int] = [0,0,0,0]
+
 class ScoringController: UIViewController {
     
     //TRANSITION TO TELE
     @IBAction func transferViews(_ sender: AnyObject) {
         saveMatchData()
+        transferBeaconValues()
+        //refreshLabels()
     }
     
     //save data
     @IBAction func toMatches(_ sender: AnyObject) {
         saveMatchData()
+        
     }
     
     @IBAction func unwindToAuto(sender: UIStoryboardSegue){
@@ -25,6 +30,19 @@ class ScoringController: UIViewController {
     
     @IBAction func save(_ sender: AnyObject) {
         saveMatchData()
+    }
+    
+    func transferBeaconValues(){
+        for x in 0..<4{
+            let autoBeac = matchData[currentMatch][x].autoBType
+            
+            for i in 0..<4{
+                if matchData[currentMatch][x].bType[i] == 0{
+                    matchData[currentMatch][x].bType[i] = autoBeac[i]
+                }
+            }
+        }
+        
     }
     
     //LABEL MARK PROPERTIES
@@ -193,13 +211,11 @@ class ScoringController: UIViewController {
     
     var currentTeam = 7655
     
-    var bCurrent: [Int] = [0,0,0,0]
-    
     func bCheck(beacon: Int, check: Int){
         for i in 0..<4{
-            if(matchData[currentMatch][i].bType[beacon] == check){
-                matchData[currentMatch][i].bType[beacon] = 0
-                matchData[currentMatch][i].beacons -= 1
+            if(matchData[currentMatch][i].autoBType[beacon] == check){
+                matchData[currentMatch][i].autoBType[beacon] = 0
+                matchData[currentMatch][i].autoBeacons -= 1
             }
         }
     }
@@ -222,7 +238,7 @@ class ScoringController: UIViewController {
         }
         
             
-            matchData[currentMatch][teamIndex(number: currentTeam)].bType[0] = 1
+            matchData[currentMatch][teamIndex(number: currentTeam)].autoBType[0] = 1
             matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
             r1owner.text = String (currentTeam)
         refreshLabels()
@@ -236,7 +252,7 @@ class ScoringController: UIViewController {
         }
         
             
-            matchData[currentMatch][teamIndex(number: currentTeam)].bType[0] = 2
+            matchData[currentMatch][teamIndex(number: currentTeam)].autoBType[0] = 2
             matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
             r1owner.text = String (currentTeam)
         refreshLabels()
@@ -252,7 +268,7 @@ class ScoringController: UIViewController {
         }
         
             
-            matchData[currentMatch][teamIndex(number: currentTeam)].bType[1] = 1
+            matchData[currentMatch][teamIndex(number: currentTeam)].autoBType[1] = 1
             matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
             r2owner.text = String (currentTeam)
         refreshLabels()
@@ -266,7 +282,7 @@ class ScoringController: UIViewController {
         }
         
             
-            matchData[currentMatch][teamIndex(number: currentTeam)].bType[1] = 2
+            matchData[currentMatch][teamIndex(number: currentTeam)].autoBType[1] = 2
             matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
             r2owner.text = String (currentTeam)
         refreshLabels()
@@ -282,7 +298,7 @@ class ScoringController: UIViewController {
         }
        
             
-            matchData[currentMatch][teamIndex(number: currentTeam)].bType[2] = 1
+            matchData[currentMatch][teamIndex(number: currentTeam)].autoBType[2] = 1
             matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
             b1owner.text = String (currentTeam)
         refreshLabels()
@@ -296,7 +312,7 @@ class ScoringController: UIViewController {
         }
         
             
-            matchData[currentMatch][teamIndex(number: currentTeam)].bType[2] = 2
+            matchData[currentMatch][teamIndex(number: currentTeam)].autoBType[2] = 2
             matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
             b1owner.text = String (currentTeam)
         refreshLabels()
@@ -312,7 +328,7 @@ class ScoringController: UIViewController {
         }
         
             
-            matchData[currentMatch][teamIndex(number: currentTeam)].bType[3] = 1
+            matchData[currentMatch][teamIndex(number: currentTeam)].autoBType[3] = 1
             matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
             b2owner.text = String (currentTeam)
         refreshLabels()
@@ -326,12 +342,15 @@ class ScoringController: UIViewController {
         }
         
             
-            matchData[currentMatch][teamIndex(number: currentTeam)].bType[3] = 2
+            matchData[currentMatch][teamIndex(number: currentTeam)].autoBType[3] = 2
             matchData[currentMatch][teamIndex(number: currentTeam)].bCount += 1
             b2owner.text = String (currentTeam)
         refreshLabels()
     }
     @IBOutlet var b2owner: UILabel!
+    
+    
+    
     
     //SCORING
     func refreshLabels(){
@@ -340,7 +359,7 @@ class ScoringController: UIViewController {
         
         for teams in 0..<4{
             for beacons in 0..<4{
-                if(matchData[currentMatch][teams].bType[beacons] == 1){
+                if(matchData[currentMatch][teams].autoBType[beacons] == 1){
                     bCurrent[beacons] = 1
                     if(beacons == 0){
                         r1owner.text = String (matchData[currentMatch][teams].number)
@@ -355,7 +374,7 @@ class ScoringController: UIViewController {
                         b2owner.text = String (matchData[currentMatch][teams].number)
                     }
                 }
-                if(matchData[currentMatch][teams].bType[beacons] == 2){
+                if(matchData[currentMatch][teams].autoBType[beacons] == 2){
                     bCurrent[beacons] = 2
                     if(beacons == 0){
                         r1owner.text = String (matchData[currentMatch][teams].number)
@@ -619,33 +638,9 @@ class ScoringController: UIViewController {
         matchData[currentMatch][2].allianceScore += (matchData[currentMatch][1].NBeacons * 10)
         matchData[currentMatch][3].allianceScore += (matchData[currentMatch][1].NBeacons * 10)
 
+        calculateOutcome(forMatch: currentMatch)
         
-        
-        if(matchData[currentMatch][0].allianceScore > matchData[currentMatch][2].allianceScore){
-            matchData[currentMatch][0].outcome = 0
-            matchData[currentMatch][1].outcome = 0
-            matchData[currentMatch][2].outcome = 1
-            matchData[currentMatch][3].outcome = 1
-        }
-        else if(matchData[currentMatch][0].allianceScore < matchData[currentMatch][2].allianceScore){
-            matchData[currentMatch][0].outcome = 1
-            matchData[currentMatch][1].outcome = 1
-            matchData[currentMatch][2].outcome = 0
-            matchData[currentMatch][3].outcome = 0
-        }
-        else{
-            matchData[currentMatch][0].outcome = 2
-            matchData[currentMatch][1].outcome = 2
-            matchData[currentMatch][2].outcome = 2
-            matchData[currentMatch][3].outcome = 2
-        }
-        
-        
-        
-        
-        
-        
-        matchLabel.text = "Match \(currentMatch)"
+        matchLabel.text = "Match \(getMatchLabel(index: currentMatch))"
         
         
         //RED 1

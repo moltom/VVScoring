@@ -15,6 +15,7 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     let cellReuseIdendifier = "MatchCell"
     
+    @IBOutlet weak var modeSegment: UISegmentedControl!
     @IBOutlet weak var tView: UITableView!
     
     @IBOutlet weak var addMatchButton: UIButton!
@@ -49,6 +50,24 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.present(popController, animated: true, completion: nil)
     }
     
+    @IBAction func officialPop(_ sender: AnyObject) {
+        // get a reference to the view controller for the popover
+        let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "officialEntry")
+        
+        // set the presentation style
+        popController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        // set up the popover presentation controller
+        popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popController.popoverPresentationController?.delegate = self
+        popController.popoverPresentationController?.sourceView = sender as? UIView // button
+        popController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        // present the popover
+        self.present(popController, animated: true, completion: nil)
+    }
+    
+    
     func loadList(notification: NSNotification){
         //load data here
         tView.reloadData()
@@ -74,10 +93,18 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
         let nindex = (matchData.count - 1) - indexPath.row
         currentMatch = nindex
         
-        //Transfer Views
-        let vcName = "match"
-        let viewController = storyboard?.instantiateViewController(withIdentifier: vcName)
-        present(viewController!, animated: true, completion: nil)
+        if modeSegment.selectedSegmentIndex == 0{
+            //Transfer Views
+            let vcName = "match"
+            let viewController = storyboard?.instantiateViewController(withIdentifier: vcName)
+            present(viewController!, animated: true, completion: nil)
+        }else{
+            let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "officialEntry") as! officialController
+            self.addChildViewController(popOverVC)
+            popOverVC.view.frame = self.view.frame
+            self.view.addSubview(popOverVC.view)
+            popOverVC.didMove(toParentViewController: self)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -128,9 +155,17 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
             cell.labels["rscore"]?.Label.text = "-"
         }else{
             if matchData[nindex][0].officialScore == -1{
-                cell.labels["rscore"]?.Label.text = String(matchData[nindex][0].allianceScore)
+                let allianceScore = matchData[nindex][0].allianceScore
+                cell.labels["rscore"]?.Label.text = String(allianceScore)
+                if allianceScore > matchData[nindex][2].allianceScore{
+                    cell.labels["rscore"]?.Label.textColor = UIColor.red
+                }
             }else{
-                cell.labels["rscore"]?.Label.text = String(matchData[nindex][0].officialScore)
+                let officialScore = matchData[nindex][0].officialScore
+                cell.labels["rscore"]?.Label.text = String(officialScore)
+                if officialScore > matchData[nindex][2].officialScore{
+                    cell.labels["rscore"]?.Label.textColor = UIColor.red
+                }
             }
         }
         cell.labels["rscore"]?.Label.font = cell.labels["rscore"]?.Label.font.withSize(20)
@@ -144,9 +179,17 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
             cell.labels["bscore"]?.Label.text = "-"
         }else{
             if matchData[nindex][2].officialScore == -1{
-                cell.labels["bscore"]?.Label.text = String(matchData[nindex][2].allianceScore)
+                let allianceScore = matchData[nindex][2].allianceScore
+                cell.labels["bscore"]?.Label.text = String(allianceScore)
+                if allianceScore > matchData[nindex][0].allianceScore{
+                    cell.labels["bscore"]?.Label.textColor = UIColor.blue
+                }
             }else{
-                cell.labels["bscore"]?.Label.text = String(matchData[nindex][2].officialScore)
+                let officialScore = matchData[nindex][2].officialScore
+                cell.labels["bscore"]?.Label.text = String(officialScore)
+                if officialScore > matchData[nindex][0].officialScore{
+                    cell.labels["bscore"]?.Label.textColor = UIColor.blue
+                }
             }
         }
         

@@ -12,10 +12,9 @@ class MenuController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        _ = readTournamentList()
+        
         setupInitialUtilityFiles(refresh: false)
-        // Do any additional setup after loading the view.
+        _ = readTournamentList()
     }
 
     override func didReceiveMemoryWarning() {
