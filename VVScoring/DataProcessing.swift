@@ -60,6 +60,7 @@ struct teamAverage{
     var telePts: Double = 0.0
     var capBallPts: Double = 0.0
     var beacons: Double = 0.0
+    var totalBeacons: Double = 0.0
     var endGamePts: Double = 0.0
     var opr: Double = 0.0
     var allianceScore: Double = 0.0
@@ -441,6 +442,7 @@ func getAverages(num: Int) -> (wins: Int, losses: Int, ties: Int, averages: team
                     output.capBallPts += Double(team.capBallPts)
                 }
                 output.beacons += Double(team.beacons)
+                output.totalBeacons += Double(team.bCount)
                 output.endGamePts += Double(team.endGamePts)
                 output.allianceScore += Double(team.allianceScore)
                 output.opr += Double(team.calculatedScore)
@@ -498,6 +500,7 @@ func getAverages(num: Int) -> (wins: Int, losses: Int, ties: Int, averages: team
     output.telePts /= matchAmount
     output.capBallPts /= matchAmount
     output.beacons /= matchAmount
+    output.totalBeacons /= matchAmount
     output.endGamePts /= matchAmount
     output.allianceScore /= matchAmount
     output.opr /= matchAmount
@@ -511,13 +514,13 @@ func calculateOutcome(forMatch number: Int){
             matchData[number][0].outcome = 0
             matchData[number][1].outcome = 0
             matchData[number][2].outcome = 1
-            matchData[number][2].outcome = 1
+            matchData[number][3].outcome = 1
         }
         else if(matchData[number][0].allianceScore < matchData[number][2].allianceScore){
             matchData[number][0].outcome = 1
             matchData[number][1].outcome = 1
             matchData[number][2].outcome = 0
-            matchData[number][2].outcome = 0
+            matchData[number][3].outcome = 0
         }
         else{
             matchData[number][0].outcome = 2

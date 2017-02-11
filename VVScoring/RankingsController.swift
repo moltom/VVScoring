@@ -10,6 +10,8 @@ import UIKit
 
 class RankingsController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
+    var data: [teamAverage] = []
+    
     @IBAction func reloadThings(_ sender: AnyObject) {
         tableView.reloadData()
     }
@@ -39,7 +41,7 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         //Get reversed index
-        selectedTeam = Int(findNumber(indexPath.row))!
+        selectedTeam = data[indexPath.row].number
         
         //Transfer Views
         let vcName = "singleView"
@@ -54,15 +56,6 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
     }
-    
-    /*
-    @IBAction func editMode(_ sender: AnyObject) {
-        if(!tableView.isEditing){
-            tableView.setEditing(true, animated: true)
-        }else{
-            tableView.setEditing(false, animated: true)
-        }
-    }*/
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -99,8 +92,8 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdendifier, for: indexPath as IndexPath) as! RankingsCell
         
         //Data for Cells
-        let dat = sortTeamsBy(mode: "", dir: 0)
-        let t = dat[indexPath.row]
+        data = sortTeamsBy(mode: "", dir: 0)
+        let t = data[indexPath.row]
         
         cell.labels["number"]?.Label.text = String (t.number)
         cell.labels["name"]?.Label.text = teamList[String (t.number)]?.name
@@ -109,15 +102,14 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         cell.labels["wins"]?.Label.text = String(getAverages(num: t.number).wins)
         cell.labels["losses"]?.Label.text = String(getAverages(num: t.number).losses)
         cell.labels["tie"]?.Label.text = String(getAverages(num: t.number).ties)
-        cell.labels["opr"]?.Label.text = String(t.opr)
-        cell.labels["autoPts"]?.Label.text = String(t.autoPts)
-        cell.labels["autoBalls"]?.Label.text = String(t.autoVortex)
-        cell.labels["autoBeacons"]?.Label.text = String(t.autoBeacons)
-        cell.labels["teleBalls"]?.Label.text = String(t.vortexBalls)
-        cell.labels["endBeacons"]?.Label.text = String(t.beacons)
-        cell.labels["capPts"]?.Label.text = String(t.capBallPts)
-        cell.labels["partnerScore"]?.Label.text = String(t.allianceScore - t.opr)
-        
+        cell.labels["opr"]?.Label.text = String(Round(t.opr))
+        cell.labels["autoPts"]?.Label.text = String(Round(t.autoPts))
+        cell.labels["autoBalls"]?.Label.text = String(Round(t.autoVortex))
+        cell.labels["autoBeacons"]?.Label.text = String(Round(t.autoBeacons))
+        cell.labels["teleBalls"]?.Label.text = String(Round(t.vortexBalls))
+        cell.labels["endBeacons"]?.Label.text = String(Round(t.beacons))
+        cell.labels["capPts"]?.Label.text = String(Round(t.capBallPts))
+        cell.labels["partnerScore"]?.Label.text = String(Round(t.allianceScore - t.opr))
         
         return cell
     }

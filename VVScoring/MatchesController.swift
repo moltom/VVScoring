@@ -31,7 +31,9 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
         tView.reloadData()
     }
     
-    @IBAction func unwindToMatches(sender: UIStoryboardSegue){}
+    @IBAction func unwindToMatches(sender: UIStoryboardSegue){
+        bCurrent = [0,0,0,0]
+    }
     
     @IBAction func popover(_ sender: AnyObject) {
         // get a reference to the view controller for the popover

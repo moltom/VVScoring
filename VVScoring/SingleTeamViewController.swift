@@ -13,12 +13,45 @@ class SingleTeamViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var tableView: UITableView!
     let cellReuseIdendifier = "SingleTeamViewCell"
     
+    //Definitions
+    //Top bar
+    @IBOutlet weak var teamName: UILabel!
+    @IBOutlet weak var teamNumber: UILabel!
+    @IBOutlet weak var rank: UILabel!
+    @IBOutlet weak var ratio: UILabel!
+    @IBOutlet weak var opr: UILabel!
+    //Auto
+    @IBOutlet weak var autoCorner: UILabel!
+    @IBOutlet weak var autoVortex: UILabel!
+    @IBOutlet weak var parkingPoints: UILabel!
+    @IBOutlet weak var autoBeacons: UILabel!
+    @IBOutlet weak var capBallPoints: UILabel!
+    @IBOutlet weak var autoPoints: UILabel!
+    //Tele
+    @IBOutlet weak var teleCorner: UILabel!
+    @IBOutlet weak var teleVortex: UILabel!
+    @IBOutlet weak var telePoints: UILabel!
+    //End
+    @IBOutlet weak var endCapPoints: UILabel!
+    @IBOutlet weak var beacons: UILabel!
+    @IBOutlet weak var beaconPresses: UILabel!
+    @IBOutlet weak var endGame: UILabel!
+    //Other
+    @IBOutlet weak var allianceScore: UILabel!
+    @IBOutlet weak var opposingScore: UILabel!
+    @IBOutlet weak var officialScore: UILabel!
+    @IBOutlet weak var luck: UILabel!
+    
     var matches: [teamInMatch] = []
+    var averages: (wins: Int, losses: Int, ties: Int, averages: teamAverage) = (0, 0, 0, teamAverage())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        averages = getAverages(num: selectedTeam)
         matches = getMatches(num: selectedTeam)
+        
+        setLabels()
         
         tableView.register(SingleTeamViewCell.self, forCellReuseIdentifier: cellReuseIdendifier)
         
@@ -30,6 +63,32 @@ class SingleTeamViewController: UIViewController, UITableViewDelegate, UITableVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getRatioString() -> String{
+        return "\(averages.wins)-\(averages.losses)=\(averages.ties)"
+    }
+    
+    func setLabels(){
+        teamName.text = String (findNumber(selectedTeam))
+        teamNumber.text = String (selectedTeam)
+        opr.text = String (Round(averages.averages.opr, to: 100))
+        autoCorner.text = String (Round(averages.averages.autoCorner))
+        autoVortex.text = String (Round(averages.averages.autoVortex))
+        parkingPoints.text = String (Round(averages.averages.parkPts))
+        autoBeacons.text = String (Round(averages.averages.autoBeacons))
+        capBallPoints.text = String (Round(averages.averages.autoCapBallPts))
+        autoPoints.text = String (Round(averages.averages.autoPts))
+        teleCorner.text = String (Round(averages.averages.cornerBalls))
+        teleVortex.text = String (Round(averages.averages.vortexBalls))
+        telePoints.text = String (Round(averages.averages.telePts))
+        endCapPoints.text = String (Round(averages.averages.capBallPts))
+        beacons.text = String (Round(averages.averages.beacons))
+        beaconPresses.text = String (Round(averages.averages.totalBeacons, to: 1))
+        endGame.text = String (averages.averages.endGamePts)
+        allianceScore.text = String (Round(averages.averages.allianceScore))
+        luck.text = String (Round(averages.averages.allianceScore - averages.averages.opr))
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -45,3 +45,11 @@ func absn(_ num: Int) -> Int{
         return -num
     }
 }
+
+func Round(_ num: Double, to decimal: Double) -> Double{
+    return (Double (round(decimal * num) / decimal))
+}
+
+func Round(_ num: Double) -> Double{
+    return (Double (round(10 * num) / 10))
+}
