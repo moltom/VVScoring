@@ -139,7 +139,6 @@ func setupInitialUtilityFiles(refresh: Bool){
         print("Not refreshing tournament file\n")
     }
     
-    
     //-Match File-
     //Get paths to files and check if file already exists
     let mPath = docsPath.appendingPathComponent("example.txt")
@@ -321,14 +320,16 @@ func addTournament(Tname: String, Ttype: String, Tdate: String, TfileName: Strin
 }
 
 //Removes tournament from list by file name
-func removeTournament(fileName: String){
+func removeTournament(fileName: String) -> Bool{
     for t in 0..<tournamentList.count{
         if tournamentList[t].fileLocation == fileName{
             tournamentList.remove(at: t)
+            truncateTournamentFile()
+            writeToTournamentList()
+            return true
         }
     }
-    truncateTournamentFile()
-    writeToTournamentList()
+    return false
 }
 
 func writeToTournamentList(){
@@ -476,7 +477,10 @@ func removeFile(withName file: String) -> Bool{
             try fm.removeItem(atPath: path)
             let fileN = file.substring(0, end: file.characters.count - 5)
             print("\n\(fileN)\n")
-            removeTournament(fileName: fileN)
+            if !removeTournament(fileName: fileN){
+                print("Tournament remove failed")
+                return false
+            }
             return true
         }catch{
             print("Error removing file")

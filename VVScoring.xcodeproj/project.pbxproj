@@ -175,9 +175,9 @@
 				3320FD261E40F4CD00DC1B78 /* SingleTeamViewController.swift */,
 				33DDA6171E44EB1E00288FE8 /* DebugController.swift */,
 				335E00B81E439688009D1761 /* FileCell.swift */,
+				E208ACD01E4D6200001B15B3 /* officialController.swift */,
 				333675881E005C2C00DAF49C /* tournaments.txt */,
 				33101A231E0D8FD5001AD245 /* example.txt */,
-				E208ACD01E4D6200001B15B3 /* officialController.swift */,
 			);
 			path = VVScoring;
 			sourceTree = "<group>";
