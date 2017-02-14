@@ -85,6 +85,7 @@ class AddTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     @IBAction func plusButton(_ sender: AnyObject) {
+        //Swift.print(tempTeamList)
         tempTeamList.append(("-", "-"))
         tableView.reloadData()
     }
@@ -135,16 +136,24 @@ class AddTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdendifier, for: indexPath as IndexPath) as! addTeamCell
         
         cell.labels["number"]?.Label.placeholder = "#"
-        if tempTeamList[indexPath.row].num != "-"{
+        print("\ntempTeamList: \(tempTeamList[indexPath.row].num) at indexPath: \(indexPath.row), array Length: \(tempTeamList.count)")
+        if tempTeamList[indexPath.row].num != "-"
+        {
+            Swift.print("Into if statement with index: \(indexPath.row)")
             cell.labels["number"]?.Label.text = tempTeamList[indexPath.row].num
         }
-        //cell.labels["number"]?.Label.addTarget(self, action: #selector(self.teamNumberEdit(_:)), for: UIControlEvents.editingDidBegin)
-        //let dummy: UIView = UIView()
-        //cell.labels["number"]?.Label.inputView = dummy
+        else
+        {
+            cell.labels["number"]?.Label.text = ""
+        }
         
         cell.labels["name"]?.Label.placeholder = "Name"
         if tempTeamList[indexPath.row].name != "-"{
             cell.labels["name"]?.Label.text = tempTeamList[indexPath.row].name
+        }
+        else
+        {
+            cell.labels["name"]?.Label.text = ""
         }
         
         cell.labels["name"]?.Label.addTarget(self, action: #selector(self.textFieldDidChangeName(_:)), for: .editingChanged)
