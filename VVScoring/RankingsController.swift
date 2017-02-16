@@ -111,6 +111,9 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         cell.labels["capPts"]?.Label.text = String(Round(t.capBallPts))
         cell.labels["partnerScore"]?.Label.text = String(Round(t.allianceScore - t.opr))
         
+        cell.accessoryType = cell.isSelected?.checkmark:.none
+        cell.selectionStyle = .none
+        
         return cell
     }
 }

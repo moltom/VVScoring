@@ -19,30 +19,27 @@ class NewMatchController: UIViewController {
     @IBAction func Q(_ sender: AnyObject) {
         countMatches()
         matchData.append([teamInMatch(), teamInMatch(), teamInMatch(), teamInMatch()])
-        matchData[matchData.count - 1][0].match = Q
-        matchData[matchData.count - 1][1].match = Q
-        matchData[matchData.count - 1][2].match = Q
-        matchData[matchData.count - 1][3].match = Q
+        for i in 0..<4{
+            matchData[matchData.count - 1][i].match = Q
+        }
         reload()
     }
     
     @IBAction func SF1(_ sender: AnyObject) {
         countMatches()
         matchData.append([teamInMatch(), teamInMatch(), teamInMatch(), teamInMatch()])
-        matchData[matchData.count - 1][0].match = SF1 + 1010
-        matchData[matchData.count - 1][1].match = SF1 + 1010
-        matchData[matchData.count - 1][2].match = SF1 + 1010
-        matchData[matchData.count - 1][3].match = SF1 + 1010
+        for i in 0..<4{
+            matchData[matchData.count - 1][i].match = SF1 + 1010
+        }
         reload()
     }
     
     @IBAction func SF2(_ sender: AnyObject) {
         countMatches()
         matchData.append([teamInMatch(), teamInMatch(), teamInMatch(), teamInMatch()])
-        matchData[matchData.count - 1][0].match = SF2 + 1020
-        matchData[matchData.count - 1][1].match = SF2 + 1020
-        matchData[matchData.count - 1][2].match = SF2 + 1020
-        matchData[matchData.count - 1][3].match = SF2 + 1020
+        for i in 0..<4{
+            matchData[matchData.count - 1][i].match = SF2 + 1020
+        }
         reload()
     }
 
@@ -50,10 +47,9 @@ class NewMatchController: UIViewController {
     @IBAction func F(_ sender: AnyObject) {
         countMatches()
         matchData.append([teamInMatch(), teamInMatch(), teamInMatch(), teamInMatch()])
-        matchData[matchData.count - 1][0].match = F + 1030
-        matchData[matchData.count - 1][1].match = F + 1030
-        matchData[matchData.count - 1][2].match = F + 1030
-        matchData[matchData.count - 1][3].match = F + 1030
+        for i in 0..<4{
+            matchData[matchData.count - 1][i].match = F + 1030
+        }
         reload()
     }
     
