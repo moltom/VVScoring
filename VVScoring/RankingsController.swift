@@ -197,13 +197,19 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        //Get reversed index
-        selectedTeam = data[indexPath.row].number
-        
-        //Transfer Views
-        let vcName = "singleView"
-        let viewController = storyboard?.instantiateViewController(withIdentifier: vcName)
-        present(viewController!, animated: true, completion: nil)
+        if tableView.isEditing{
+            let cell = tableView.cellForRow(at: indexPath)
+            
+            cell!.accessoryType = cell!.isSelected ? UITableViewCellAccessoryType.checkmark : UITableViewCellAccessoryType.none
+        }else{
+            //Get reversed index
+            selectedTeam = data[indexPath.row].number
+            
+            //Transfer Views
+            let vcName = "singleView"
+            let viewController = storyboard?.instantiateViewController(withIdentifier: vcName)
+            present(viewController!, animated: true, completion: nil)
+        }
     }
     
     @IBAction func addTeamButton(_ sender: AnyObject) {
@@ -266,6 +272,9 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         cell.labels["endBeacons"]?.Label.text = String(Round(t.beacons))
         cell.labels["capPts"]?.Label.text = String(Round(t.capBallPts))
         cell.labels["partnerScore"]?.Label.text = String(Round(t.allianceScore - t.opr))
+        
+        //Check handling
+        cell.accessoryType = cell.isSelected ? UITableViewCellAccessoryType.checkmark : UITableViewCellAccessoryType.none
         
         return cell
     }

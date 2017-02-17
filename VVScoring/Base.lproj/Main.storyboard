@@ -242,20 +242,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUB-r3-fFq">
-                                <frame key="frameInset" minX="20" minY="11" width="89" height="34"/>
+                                <frame key="frameInset" minX="26" minY="11" width="78" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Edit Teams"/>
+                                <state key="normal" title="Team List"/>
                                 <connections>
                                     <action selector="addTeamButton:" destination="g70-vW-BpO" eventType="touchUpInside" id="SIQ-PH-kCX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5f-MF-3po">
-                                <frame key="frameInset" minX="186" minY="13" width="47" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Reload"/>
-                                <connections>
-                                    <action selector="reloadThings:" destination="g70-vW-BpO" eventType="touchUpInside" id="8yQ-MJ-fDN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2w-da-SLX">
@@ -396,11 +388,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzr-2i-Dg6">
-                                <frame key="frameInset" minX="314" minY="13" width="46" height="30"/>
+                                <frame key="frameInset" minX="137" minY="13" width="76" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Compare"/>
                                 <connections>
                                     <action selector="editButton:" destination="g70-vW-BpO" eventType="touchUpInside" id="Xje-kB-a9l"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5f-MF-3po">
+                                <frame key="frameInset" minX="288" minY="9" width="47" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reload"/>
+                                <connections>
+                                    <action selector="reloadThings:" destination="g70-vW-BpO" eventType="touchUpInside" id="8yQ-MJ-fDN"/>
                                 </connections>
                             </button>
                         </subviews>
