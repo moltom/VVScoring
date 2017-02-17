@@ -66,6 +66,9 @@ struct teamAverage{
     var allianceScore: Double = 0.0
     var QP: Int = 0
     var RP: Int = 0
+    var W: Int = 0
+    var L: Int = 0
+    var T: Int = 0
 }
 
 var teamList: [String : (name: String, fav: Bool)] = [:]
@@ -106,6 +109,37 @@ func getMatchLabel(index: Int) -> String {
     
 }
 
+func getRank(num: Int) -> Int {
+    var rank = -1
+    var sorted: [teamAverage] = []
+    var teamAverages: [teamAverage] = []
+    
+    for (number, _) in teamList {
+        teamAverages.append(getAverages(num: Int(number)!))
+    }
+    
+    sorted = teamAverages.sorted{
+        if $0.QP != $1.QP{
+            return $0.QP > $1.QP
+        }
+        else if $0.RP != $1.RP {
+            return $0.RP > $1.RP
+        }
+        else{
+            return $0.opr > $1.opr
+        }
+    }
+    
+    for i in 0..<sorted.count {
+        if(sorted[i].number == num){
+            rank = i + 1
+            break
+        }
+    }
+    
+    return rank
+}
+
 func sortTeamsBy(mode: String, dir: Int) -> [teamAverage]{
     //dir: Int is the sorting direction (increasing/decreasing) inc is 1, dec is 0
     //Output array
@@ -122,15 +156,40 @@ func sortTeamsBy(mode: String, dir: Int) -> [teamAverage]{
     
     //Stores all averages based on all teams in list
     for (number, _) in teamList {
-        teamAverages.append(getAverages(num: Int(number)!).averages)    }
+        teamAverages.append(getAverages(num: Int(number)!))
+    }
     
     //Check mode to sort by
     switch(mode){
+    case "W":
+        if(dir == 0){
+            output = teamAverages.sorted{ $0.W < $1.W }
+        }else{
+            output = teamAverages.sorted{ $0.W > $1.W }
+        }
+    case "L":
+        if(dir == 0){
+            output = teamAverages.sorted{ $0.L < $1.L }
+        }else{
+            output = teamAverages.sorted{ $0.L > $1.L }
+        }
+    case "T":
+        if(dir == 0){
+            output = teamAverages.sorted{ $0.T < $1.T }
+        }else{
+            output = teamAverages.sorted{ $0.T > $1.T }
+        }
     case "autoCorner":
         if(dir == 0){
             output = teamAverages.sorted{ $0.autoCorner < $1.autoCorner }
         }else{
             output = teamAverages.sorted{ $0.autoCorner > $1.autoCorner }
+        }
+    case "capPts":
+        if(dir == 0){
+            output = teamAverages.sorted{ $0.capBallPts < $1.capBallPts }
+        }else{
+            output = teamAverages.sorted{ $0.capBallPts > $1.capBallPts }
         }
     case "autoVortex":
         if(dir == 0){
@@ -138,7 +197,12 @@ func sortTeamsBy(mode: String, dir: Int) -> [teamAverage]{
         }else{
             output = teamAverages.sorted{ $0.autoVortex > $1.autoVortex }
         }
-        
+    case "luck":
+        if(dir == 0){
+            output = teamAverages.sorted{ $0.allianceScore - $0.opr < $1.allianceScore - $1.opr }
+        }else{
+            output = teamAverages.sorted{ $0.allianceScore - $0.opr > $1.allianceScore - $1.opr }
+        }
     case "autoBeacons":
         if(dir == 0){
             output = teamAverages.sorted{ $0.autoBeacons < $1.autoBeacons }
@@ -222,15 +286,30 @@ func sortTeamsBy(mode: String, dir: Int) -> [teamAverage]{
                 if $0.QP != $1.QP{
                     return $0.QP > $1.QP
                 }
-                else{
+                else if $0.RP != $1.RP {
                     return $0.RP > $1.RP
+                }
+                else{
+                    return $0.opr > $1.opr
                 }
             }
         }
         else{
-            output = teamAverages.sorted{ $0.QP > $1.QP }
+            output = teamAverages.sorted{
+                if $0.QP != $1.QP{
+                return $0.QP < $1.QP
+            }
+                else if $0.RP != $1.RP {
+                    return $0.RP < $1.RP
+                }
+                else{
+                    return $0.opr < $1.opr
+                }
+            }
         }
     }
+    
+    
     
     //Return sorted averages array
     return output
@@ -239,8 +318,8 @@ func sortTeamsBy(mode: String, dir: Int) -> [teamAverage]{
 
 func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Averages: teamAverage, compare: [Int])
 {
-    var team1Averages = getAverages(num: num1).averages
-    var team2Averages = getAverages(num: num2).averages
+    var team1Averages = getAverages(num: num1)
+    var team2Averages = getAverages(num: num2)
     var compare = [Int]()                           // 0=team1 greater  1=team2 greater     2=equal or close
     if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
         compare[0] = 2
@@ -415,9 +494,8 @@ func getMatches(num: Int) -> [teamInMatch]{
 }
 
 
-func getAverages(num: Int) -> (wins: Int, losses: Int, ties: Int, averages: teamAverage){
+func getAverages(num: Int) -> teamAverage{
     var output = teamAverage()
-    var extra: (w: Int, l: Int, t: Int) = (0, 0, 0)
     var matchAmount = 0.0
     
     for match in matchData{
@@ -450,12 +528,12 @@ func getAverages(num: Int) -> (wins: Int, losses: Int, ties: Int, averages: team
                 //Outcome
                 switch(team.outcome){
                 case 0:
-                    extra.w += 1
+                    output.W += 1
                     output.QP += 2
                 case 1:
-                    extra.l += 1
+                    output.L += 1
                 case 2:
-                    extra.t += 1
+                    output.T += 1
                     output.QP += 1
                 default:
                     print("Error in data process: Outcome is not desired")
@@ -470,18 +548,18 @@ func getAverages(num: Int) -> (wins: Int, losses: Int, ties: Int, averages: team
             if matchData[x][i].number == num {
                 if (i == 0)||(i == 1){
                     if matchData[x][i].outcome == 0 {
-                        output.RP += matchData[x][2].calculatedScore
+                        output.RP += matchData[x][2].allianceScore
                     }
                     else{
-                        output.RP += matchData[x][0].calculatedScore
+                        output.RP += matchData[x][0].allianceScore
                     }
                 }
                 else{
                     if matchData[x][i].outcome == 0 {
-                        output.RP += matchData[x][0].calculatedScore
+                        output.RP += matchData[x][0].allianceScore
                     }
                     else{
-                        output.RP += matchData[x][2].calculatedScore
+                        output.RP += matchData[x][2].allianceScore
                     }
                 }
 
@@ -505,7 +583,7 @@ func getAverages(num: Int) -> (wins: Int, losses: Int, ties: Int, averages: team
     output.allianceScore /= matchAmount
     output.opr /= matchAmount
     
-    return (extra.w, extra.l, extra.t, output)
+    return output
 }
 
 func calculateOutcome(forMatch number: Int){

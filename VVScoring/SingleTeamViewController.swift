@@ -43,7 +43,7 @@ class SingleTeamViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var luck: UILabel!
     
     var matches: [teamInMatch] = []
-    var averages: (wins: Int, losses: Int, ties: Int, averages: teamAverage) = (0, 0, 0, teamAverage())
+    var averages: teamAverage = teamAverage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,29 +66,29 @@ class SingleTeamViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func getRatioString() -> String{
-        return "\(averages.wins)-\(averages.losses)=\(averages.ties)"
+        return "\(averages.W)-\(averages.L)=\(averages.T)"
     }
     
     func setLabels(){
         teamName.text = String (findNumber(selectedTeam))
         teamNumber.text = String (selectedTeam)
-        opr.text = String (Round(averages.averages.opr, to: 100))
-        autoCorner.text = String (Round(averages.averages.autoCorner))
-        autoVortex.text = String (Round(averages.averages.autoVortex))
-        parkingPoints.text = String (Round(averages.averages.parkPts))
-        autoBeacons.text = String (Round(averages.averages.autoBeacons))
-        capBallPoints.text = String (Round(averages.averages.autoCapBallPts))
-        autoPoints.text = String (Round(averages.averages.autoPts))
-        teleCorner.text = String (Round(averages.averages.cornerBalls))
-        teleVortex.text = String (Round(averages.averages.vortexBalls))
-        telePoints.text = String (Round(averages.averages.telePts))
-        endCapPoints.text = String (Round(averages.averages.capBallPts))
-        beacons.text = String (Round(averages.averages.beacons))
-        beaconPresses.text = String (Round(averages.averages.totalBeacons, to: 1))
-        endGame.text = String (averages.averages.endGamePts)
-        allianceScore.text = String (Round(averages.averages.allianceScore))
-        luck.text = String (Round(averages.averages.allianceScore - averages.averages.opr))
-        
+        opr.text = String (Round(averages.opr, to: 100))
+        autoCorner.text = String (Round(averages.autoCorner))
+        autoVortex.text = String (Round(averages.autoVortex))
+        parkingPoints.text = String (Round(averages.parkPts))
+        autoBeacons.text = String (Round(averages.autoBeacons))
+        capBallPoints.text = String (Round(averages.autoCapBallPts))
+        autoPoints.text = String (Round(averages.autoPts))
+        teleCorner.text = String (Round(averages.cornerBalls))
+        teleVortex.text = String (Round(averages.vortexBalls))
+        telePoints.text = String (Round(averages.telePts))
+        endCapPoints.text = String (Round(averages.capBallPts))
+        beacons.text = String (Round(averages.beacons))
+        beaconPresses.text = String (Round(averages.totalBeacons, to: 1))
+        endGame.text = String (averages.endGamePts)
+        allianceScore.text = String (Round(averages.allianceScore))
+        luck.text = String (Round(averages.allianceScore - averages.opr))
+        rank.text = String (getRank(num: selectedTeam))
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -119,6 +119,7 @@ class SingleTeamViewController: UIViewController, UITableViewDelegate, UITableVi
         if(cell.labels["officialScore"]?.Label.text == "-1"){
             cell.labels["officialScore"]?.Label.text = "N/A"
         }
+        
         
         return cell
     }

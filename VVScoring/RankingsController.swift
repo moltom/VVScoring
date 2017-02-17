@@ -10,7 +10,160 @@ import UIKit
 
 class RankingsController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
-    var data: [teamAverage] = []
+    //default sorting by rank
+    var data = sortTeamsBy(mode: "", dir: 0)
+    
+    //Sort be each header (data structure here is made bad to trigger Josh)
+
+    var currentSort = 0
+    
+    //first number is decreasing, second is increasing
+    
+    @IBAction func rank(_ sender: AnyObject) {//1,2
+        if currentSort == 1 {
+            data = sortTeamsBy(mode: "rank", dir: 1)
+            currentSort = 2
+        }
+        else {
+            data = sortTeamsBy(mode: "rank", dir: 0)
+            currentSort = 1
+        }
+        tableView.reloadData()
+    }
+    @IBAction func RP(_ sender: AnyObject) {//3,4
+        if currentSort == 3 {
+            data = sortTeamsBy(mode: "rp", dir: 1)
+            currentSort = 4
+        }
+        else {
+            data = sortTeamsBy(mode: "rp", dir: 0)
+            currentSort = 3
+        }
+        tableView.reloadData()
+    }
+    @IBAction func W(_ sender: AnyObject) {//5,6
+        if currentSort == 5 {
+            data = sortTeamsBy(mode: "", dir: 1)
+            currentSort = 6
+        }
+        else {
+            data = sortTeamsBy(mode: "", dir: 0)
+            currentSort = 5
+        }
+        tableView.reloadData()
+    }
+    @IBAction func L(_ sender: AnyObject) {//7,8
+        if currentSort == 7 {
+            data = sortTeamsBy(mode: "", dir: 1)
+            currentSort = 8
+        }
+        else {
+            data = sortTeamsBy(mode: "", dir: 0)
+            currentSort = 7
+        }
+        tableView.reloadData()
+    }
+    @IBAction func T(_ sender: AnyObject) {//9,10
+        if currentSort == 9 {
+            data = sortTeamsBy(mode: "", dir: 1)
+            currentSort = 10
+        }
+        else {
+            data = sortTeamsBy(mode: "", dir: 0)
+            currentSort = 9
+        }
+        tableView.reloadData()
+    }
+    @IBAction func OPR(_ sender: AnyObject) {//11,12
+        if currentSort == 11 {
+            data = sortTeamsBy(mode: "opr", dir: 1)
+            currentSort = 12
+        }
+        else {
+            data = sortTeamsBy(mode: "opr", dir: 0)
+            currentSort = 11
+        }
+        tableView.reloadData()
+    }
+    @IBAction func autoPts(_ sender: AnyObject) {//13,14
+        if currentSort == 13 {
+            data = sortTeamsBy(mode: "autoPts", dir: 1)
+            currentSort = 14
+        }
+        else {
+            data = sortTeamsBy(mode: "autoPts", dir: 0)
+            currentSort = 13
+        }
+        tableView.reloadData()
+    }
+    @IBAction func autoBalls(_ sender: AnyObject) {//15,16
+        if currentSort == 15 {
+            data = sortTeamsBy(mode: "autoVortex", dir: 1)
+            currentSort = 16
+        }
+        else {
+            data = sortTeamsBy(mode: "autoVortex", dir: 0)
+            currentSort = 15
+        }
+        tableView.reloadData()
+    }
+    @IBAction func autoBs(_ sender: AnyObject) {//17,18
+        if currentSort == 17 {
+            data = sortTeamsBy(mode: "autoBeacons", dir: 1)
+            currentSort = 18
+        }
+        else {
+            data = sortTeamsBy(mode: "autoBeacons", dir: 0)
+            currentSort = 17
+        }
+        tableView.reloadData()
+    }
+    @IBAction func teleBalls(_ sender: AnyObject) {//19,20
+        if currentSort == 19 {
+            data = sortTeamsBy(mode: "vortexBalls", dir: 1)
+            currentSort = 20
+        }
+        else {
+            data = sortTeamsBy(mode: "vortexBalls", dir: 0)
+            currentSort = 19
+        }
+        tableView.reloadData()
+    }
+    @IBAction func endBs(_ sender: AnyObject) {//21,22
+        if currentSort == 21 {
+            data = sortTeamsBy(mode: "beacons", dir: 1)
+            currentSort = 22
+        }
+        else {
+            data = sortTeamsBy(mode: "beacons", dir: 0)
+            currentSort = 21
+        }
+        tableView.reloadData()
+    }
+    @IBAction func capPts(_ sender: AnyObject) {//23,24
+        if currentSort == 23 {
+            data = sortTeamsBy(mode: "capPts", dir: 1)
+            currentSort = 24
+        }
+        else {
+            data = sortTeamsBy(mode: "capPts", dir: 0)
+            currentSort = 23
+        }
+        tableView.reloadData()
+    }
+    @IBAction func luck(_ sender: AnyObject) {//25,26
+        if currentSort == 25 {
+            data = sortTeamsBy(mode: "luck", dir: 1)
+            currentSort = 26
+        }
+        else {
+            data = sortTeamsBy(mode: "luck", dir: 0)
+            currentSort = 25
+        }
+        tableView.reloadData()
+    }
+    
+
     
     @IBAction func reloadThings(_ sender: AnyObject) {
         tableView.reloadData()
@@ -92,16 +245,15 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdendifier, for: indexPath as IndexPath) as! RankingsCell
         
         //Data for Cells
-        data = sortTeamsBy(mode: "", dir: 0)
         let t = data[indexPath.row]
         
         cell.labels["number"]?.Label.text = String (t.number)
         cell.labels["name"]?.Label.text = teamList[String (t.number)]?.name
-        cell.labels["rank"]?.Label.text = String (indexPath.row + 1)
-        cell.labels["RP"]?.Label.text = String(getAverages(num: t.number).averages.RP)
-        cell.labels["wins"]?.Label.text = String(getAverages(num: t.number).wins)
-        cell.labels["losses"]?.Label.text = String(getAverages(num: t.number).losses)
-        cell.labels["tie"]?.Label.text = String(getAverages(num: t.number).ties)
+        cell.labels["rank"]?.Label.text = String (getRank(num: t.number))
+        cell.labels["RP"]?.Label.text = String(getAverages(num: t.number).RP)
+        cell.labels["wins"]?.Label.text = String(getAverages(num: t.number).W)
+        cell.labels["losses"]?.Label.text = String(getAverages(num: t.number).L)
+        cell.labels["tie"]?.Label.text = String(getAverages(num: t.number).T)
         cell.labels["opr"]?.Label.text = String(Round(t.opr))
         cell.labels["autoPts"]?.Label.text = String(Round(t.autoPts))
         cell.labels["autoBalls"]?.Label.text = String(Round(t.autoVortex))
