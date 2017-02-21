@@ -42,10 +42,11 @@ class RankingsCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
+    /*
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         accessoryType = selected ? UITableViewCellAccessoryType.checkmark : UITableViewCellAccessoryType.none
-    }
+    }*/
     
     override func layoutSubviews() {
         super.layoutSubviews()
