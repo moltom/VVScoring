@@ -8,13 +8,13 @@
 
 import UIKit
 
+var selected: [Int] = [-1, -1]
+
 class RankingsController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
     //default sorting by rank
     var data = sortTeamsBy(mode: "", dir: 0)
     
-    //Sort be each header (data structure here is made bad to trigger Josh)
-
     var currentSort = 0
     
     //first number is decreasing, second is increasing
@@ -162,12 +162,6 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         }
         tableView.reloadData()
     }
-    
-
-    
-    @IBAction func reloadThings(_ sender: AnyObject) {
-        tableView.reloadData()
-    }
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     
@@ -196,19 +190,58 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         //Leave this here
     }
     
+    func transferToVC(withName name: String){
+        //Transfer Views
+        let vcName = name
+        let viewController = storyboard?.instantiateViewController(withIdentifier: vcName)
+        present(viewController!, animated: true, completion: nil)
+    }
+    
+    func addSelection(withNumber num: Int){
+        for i in 0..<selected.count{
+            if selected[i] == -1{
+                selected[i] = num
+                break
+            }
+        }
+        if selected[0] != -1 && selected[1] != -1{
+            transferToVC(withName: "compare")
+        }
+    }
+    
+    func removeSelection(withNumber num: Int){
+        for i in 0..<selected.count{
+            if selected[i] == num{
+                selected[i] = -1
+                return
+            }
+        }
+        print("Error: no team found for removal")
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?{
+        if let sr = tableView.indexPathsForSelectedRows {
+            if sr.count == 2 {
+                return nil
+            }
+        }
+        let selectedNumber = data[indexPath.row].number
+        addSelection(withNumber: selectedNumber)
+        return indexPath
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath){
+        let selectedNumber = data[indexPath.row].number
+        removeSelection(withNumber: selectedNumber)
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        if tableView.isEditing{
-            let cell = tableView.cellForRow(at: indexPath)
-            
-            cell!.accessoryType = cell!.isSelected ? UITableViewCellAccessoryType.checkmark : UITableViewCellAccessoryType.none
-        }else{
+        if !tableView.isEditing{
             //Get reversed index
             selectedTeam = data[indexPath.row].number
             
-            //Transfer Views
-            let vcName = "singleView"
-            let viewController = storyboard?.instantiateViewController(withIdentifier: vcName)
-            present(viewController!, animated: true, completion: nil)
+            //Transfer
+            transferToVC(withName: "singleView")
         }
     }
     
@@ -272,9 +305,6 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         cell.labels["endBeacons"]?.Label.text = String(Round(t.beacons))
         cell.labels["capPts"]?.Label.text = String(Round(t.capBallPts))
         cell.labels["partnerScore"]?.Label.text = String(Round(t.allianceScore - t.opr))
-        
-        //Check handling
-        cell.accessoryType = cell.isSelected ? UITableViewCellAccessoryType.checkmark : UITableViewCellAccessoryType.none
         
         return cell
     }

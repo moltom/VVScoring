@@ -396,14 +396,6 @@
                                     <action selector="editButton:" destination="g70-vW-BpO" eventType="touchUpInside" id="Xje-kB-a9l"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5f-MF-3po">
-                                <frame key="frameInset" minX="288" minY="9" width="47" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Reload"/>
-                                <connections>
-                                    <action selector="reloadThings:" destination="g70-vW-BpO" eventType="touchUpInside" id="8yQ-MJ-fDN"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -1219,10 +1211,10 @@
             </objects>
             <point key="canvasLocation" x="1458.3984375" y="1171.09375"/>
         </scene>
-        <!--View Controller-->
+        <!--Compare Screen-->
         <scene sceneID="Q31-6h-Vj8">
             <objects>
-                <viewController id="NVN-HB-tJr" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="compare" title="Compare Screen" id="NVN-HB-tJr" customClass="CompareController" customModule="VVScoring" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VBE-sl-Zev"/>
                         <viewControllerLayoutGuide type="bottom" id="6Pg-nX-aF7"/>
