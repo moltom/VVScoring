@@ -163,10 +163,31 @@ func sortTeamsBy(mode: String, dir: Int) -> [teamAverage]{
     switch(mode){
     case "W":
         if(dir == 0){
-            output = teamAverages.sorted{ $0.W < $1.W }
+            output = teamAverages.sorted{
+                if $0.W != $1.W{
+                    return $0.W > $1.W
+                }
+                else if $0.T != $1.T {
+                    return $0.T > $1.T
+                }
+                else{
+                    return $0.L < $1.L
+                }
+            }
         }else{
-            output = teamAverages.sorted{ $0.W > $1.W }
-        }
+            output = teamAverages.sorted{
+                if $0.W != $1.W{
+                    return $0.W < $1.W
+                }
+                else if $0.T != $1.T {
+                    return $0.T < $1.T
+                }
+                else{
+                    return $0.L > $1.L
+                }
+            }
+
+    }
     case "L":
         if(dir == 0){
             output = teamAverages.sorted{ $0.L < $1.L }

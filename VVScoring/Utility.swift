@@ -26,6 +26,11 @@ extension String
     }
 }
 
+func getRecord(num: Int) -> String {
+    var data = getAverages(num: num)
+    return "\(data.W)-\(data.L)-\(data.T)"
+}
+
 func findNumber(_ index: Int) -> String{
     var counter = 0
     for (name, _) in teamList{
