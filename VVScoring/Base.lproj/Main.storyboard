@@ -1771,13 +1771,55 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XvZ-sN-Z2O">
+                                <frame key="frameInset" minX="20" minY="10" width="137" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Back to Rankings"/>
+                                <connections>
+                                    <segue destination="8V0-d5-aAG" kind="unwind" unwindAction="unwindToRankingsWithSender:" id="LhZ-MC-5LN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="OOPR" destination="hZf-FR-DM0" id="x4a-nP-bMM"/>
+                        <outlet property="OPR" destination="4qR-7C-D7x" id="31i-xx-vM1"/>
+                        <outlet property="Oalliance" destination="zZl-EU-Nwl" id="YbJ-nf-b4x"/>
+                        <outlet property="OautoBeacons" destination="L2t-Lg-dyc" id="7mZ-ln-6Ea"/>
+                        <outlet property="OautoCapBall" destination="q8Z-fH-1We" id="3Zs-fJ-rjB"/>
+                        <outlet property="OautoCorner" destination="9mt-1d-4gj" id="hv2-A7-meU"/>
+                        <outlet property="OautoParkPts" destination="reH-Rd-RwU" id="vfv-MI-wbD"/>
+                        <outlet property="OautoVortex" destination="STl-ma-fTC" id="7I9-Y7-a4c"/>
+                        <outlet property="Obeacons" destination="lEc-uw-wwB" id="SCA-Xm-3Vx"/>
+                        <outlet property="ObeaconsControl" destination="k5Y-Pg-Jr6" id="MZM-aN-VUB"/>
+                        <outlet property="OcapBallPts" destination="CXF-IW-teE" id="LPM-rz-do3"/>
+                        <outlet property="Ocorner" destination="8JX-fk-GK0" id="YmR-5D-ZJY"/>
+                        <outlet property="OteleTotal" destination="dzY-GG-oSu" id="ibR-YH-9H8"/>
+                        <outlet property="OtotalAuto" destination="YpJ-RA-5w6" id="fi9-pD-tgI"/>
+                        <outlet property="OtotalEnd" destination="kqY-qy-2Xa" id="FEP-Q0-N8E"/>
+                        <outlet property="Ovortex" destination="CSh-D1-SOy" id="ede-Z5-GL9"/>
+                        <outlet property="alliance" destination="q7P-YU-jQt" id="yUI-JL-1D8"/>
+                        <outlet property="autoBeacons" destination="hKK-VV-x8k" id="Asd-DX-jGg"/>
+                        <outlet property="autoCapBall" destination="obp-M3-BRk" id="4gI-4f-yk4"/>
+                        <outlet property="autoCorner" destination="k7I-CC-xKU" id="GAv-kH-2kG"/>
+                        <outlet property="autoParkPts" destination="5t1-1E-tUS" id="Fc8-aT-sAV"/>
+                        <outlet property="autoVortex" destination="Xsc-7c-s2P" id="Cez-fQ-H5p"/>
+                        <outlet property="beacons" destination="i1W-6e-oUX" id="KUy-zb-Nhe"/>
+                        <outlet property="beaconsControl" destination="PyK-yr-DKM" id="Dpp-Ab-g35"/>
+                        <outlet property="capBallPts" destination="CHJ-XM-lWG" id="kkW-UV-0uM"/>
+                        <outlet property="corner" destination="V7N-Ry-CUd" id="eNn-WA-rlo"/>
+                        <outlet property="teleTotal" destination="tG7-HD-Zbh" id="PwC-ge-5Sr"/>
+                        <outlet property="totalAuto" destination="1vA-gY-YOX" id="vsz-sY-mmQ"/>
+                        <outlet property="totalEnd" destination="SzI-zo-tF4" id="TRf-Om-wK4"/>
+                        <outlet property="vortex" destination="kQC-Nj-g17" id="ioV-Du-pU3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W0X-0E-HXQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8V0-d5-aAG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1336.5234375" y="1978.125"/>
+            <point key="canvasLocation" x="1473.6328125" y="1733.59375"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="FWx-UP-xiG">

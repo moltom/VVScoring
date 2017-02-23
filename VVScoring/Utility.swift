@@ -58,3 +58,12 @@ func Round(_ num: Double, to decimal: Double) -> Double{
 func Round(_ num: Double) -> Double{
     return (Double (round(10 * num) / 10))
 }
+
+func filledSelections() -> Bool{
+    for i in 0..<selected.count{
+        if selected[i] == -1{
+            return false
+        }
+    }
+    return true
+}
