@@ -341,162 +341,161 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
 {
     var team1Averages = getAverages(num: num1)
     var team2Averages = getAverages(num: num2)
-    var compare = [Int]()                           // 0=team1 greater  1=team2 greater     2=equal or close
+    var compare: [Int] = []                          // 0=team1 greater  1=team2 greater     2=equal or close
     if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
-        compare[0] = 2
+        compare.append(2)
     }
     else{
         if(team1Averages.allianceScore < team2Averages.allianceScore){
-            compare[0] = 1
+            compare.append(1)
         }
         else{
-            compare[0] = 0
+            compare.append(0)
         }
     }
     if(abs(team1Averages.autoBeacons - team2Averages.autoBeacons) <= 0.2){
-        compare[0] = 2
+        compare.append(2)
     }
     else{
         if(team1Averages.autoBeacons < team2Averages.autoBeacons){
-            compare[0] = 1
+            compare.append(1)
         }
         else{
-            compare[0] = 0
+            compare.append(0)
         }
     }
     if(abs(team1Averages.autoCapBallPts - team2Averages.autoCapBallPts) <= 5){
-        compare[0] = 2
+        compare.append(2)
     }
     else{
         if(team1Averages.autoCapBallPts < team2Averages.autoCapBallPts){
-            compare[0] = 1
+            compare.append(1)
         }
         else{
-            compare[0] = 0
+            compare.append(0)
         }
     }
     if(abs(team1Averages.autoCorner - team2Averages.autoCorner) <= 0.5){
-        compare[0] = 2
+        compare.append(2)
     }
     else{
         if(team1Averages.autoCorner < team2Averages.autoCorner){
-            compare[0] = 1
+            compare.append(1)
         }
         else{
-            compare[0] = 0
+            compare.append(0)
         }
     }
     if(abs(team1Averages.autoPts - team2Averages.autoPts) <= 5){
-        compare[0] = 2
+        compare.append(2)
     }
     else{
         if(team1Averages.autoPts < team2Averages.autoPts){
-            compare[0] = 1
+            compare.append(1)
         }
         else{
-            compare[0] = 0
+            compare.append(0)
         }
     }
     if(abs(team1Averages.autoVortex - team2Averages.autoVortex) <= 0.5){
-        compare[0] = 2
+        compare.append(2)
     }
     else{
         if(team1Averages.autoVortex < team2Averages.autoVortex){
-            compare[0] = 1
+            compare.append(1)
         }
         else{
-            compare[0] = 0
+            compare.append(0)
         }
     }
     if(abs(team1Averages.beacons - team2Averages.beacons) <= 0.5){
-        compare[0] = 2
+        compare.append(2)
     }
     else{
         if(team1Averages.beacons < team2Averages.beacons){
-            compare[0] = 1
+            compare.append(1)
         }
         else{
-            compare[0] = 0
+            compare.append(0)
         }
     }
     if(abs(team1Averages.capBallPts - team2Averages.capBallPts) <= 5){
-        compare[0] = 2
+        compare.append(2)
     }
     else{
         if(team1Averages.capBallPts < team2Averages.capBallPts){
-            compare[0] = 1
+            compare.append(1)
         }
         else{
-            compare[0] = 0
+            compare.append(0)
         }
     }
     if(abs(team1Averages.cornerBalls - team2Averages.cornerBalls) <= 1){
-        compare[0] = 2
+        compare.append(2)
     }
     else{
         if(team1Averages.cornerBalls < team2Averages.cornerBalls){
-            compare[0] = 1
+            compare.append(1)
         }
         else{
-            compare[0] = 0
+            compare.append(0)
         }
     }
     if(abs(team1Averages.endGamePts - team2Averages.endGamePts) <= 5){
-        compare[0] = 2
+        compare.append(2)
     }
     else{
         if(team1Averages.endGamePts < team2Averages.endGamePts){
-            compare[0] = 1
+            compare.append(1)
         }
         else{
-            compare[0] = 0
+            compare.append(0)
         }
     }
     if(abs(team1Averages.opr - team2Averages.opr) <= 3){
-        compare[0] = 2
+        compare.append(2)
     }
     else{
         if(team1Averages.opr < team2Averages.opr){
-            compare[0] = 1
+            compare.append(1)
         }
         else{
-            compare[0] = 0
+            compare.append(0)
         }
     }
     if(abs(team1Averages.parkPts - team2Averages.parkPts) <= 2){
-        compare[0] = 2
+        compare.append(2)
     }
     else{
         if(team1Averages.parkPts < team2Averages.parkPts){
-            compare[0] = 1
+            compare.append(1)
         }
         else{
-            compare[0] = 0
+            compare.append(0)
         }
     }
     if(abs(team1Averages.telePts - team2Averages.telePts) <= 5){
-        compare[0] = 2
+        compare.append(2)
     }
     else{
         if(team1Averages.telePts < team2Averages.telePts){
-            compare[0] = 1
+            compare.append(1)
         }
         else{
-            compare[0] = 0
+            compare.append(0)
         }
     }
     if(abs(team1Averages.vortexBalls - team2Averages.vortexBalls) <= 1){
-        compare[0] = 2
+        compare.append(2)
     }
     else{
         if(team1Averages.vortexBalls < team2Averages.vortexBalls){
-            compare[0] = 1
+            compare.append(1)
         }
         else{
-            compare[0] = 0
+            compare.append(0)
         }
     }
-    
     
     return (team1Averages, team2Averages, compare)
 }
