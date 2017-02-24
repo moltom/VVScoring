@@ -17,13 +17,20 @@ class OurTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     //Definitions
     //Top bar
+    
     @IBOutlet weak var teamName: UILabel!
     @IBOutlet var teamNumber: UITextField!
+    
+    
     var isNameValid = false
+    
     @IBAction func numberChanged(_ sender: AnyObject) {
         if let temp = teamList[teamNumber.text!]?.name {
             teamName.text = teamList[teamNumber.text!]?.name
             isNameValid = true
+            ourTeam = Int (teamNumber.text!)!
+            averages = getAverages(num: Int (teamNumber.text!)!)
+            matches = getMatches(num: Int (teamNumber.text!)!)
         }
         else {
             teamName.text = "Wrong Number"
@@ -31,12 +38,16 @@ class OurTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         refresh()
     }
+    
+    
     func refresh(){
         if(isNameValid){
         tableView.reloadData()
         setLabels()
         }
     }
+    
+    
     @IBOutlet weak var rank: UILabel!
     @IBOutlet weak var ratio: UILabel!
     @IBOutlet weak var opr: UILabel!
@@ -75,8 +86,12 @@ class OurTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func setLabels(){
-        teamName.text = String (findNumber(Int (teamNumber.text!)!))
+        averages = getAverages(num: Int (teamNumber.text!)!)
+        matches = getMatches(num: Int (teamNumber.text!)!)
+        
+        teamName.text = teamList["\(ourTeam)"]?.name
         opr.text = String (Round(averages.opr, to: 100))
+        ratio.text = getRecord(num: ourTeam)
         autoCorner.text = String (Round(averages.autoCorner))
         autoVortex.text = String (Round(averages.autoVortex))
         parkingPoints.text = String (Round(averages.parkPts))
@@ -135,7 +150,7 @@ class OurTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (ourTeam != -1){
+        if let temp = teamList[teamNumber.text!]?.name{
         averages = getAverages(num: Int (teamNumber.text!)!)
         matches = getMatches(num: Int (teamNumber.text!)!)
         setLabels()
