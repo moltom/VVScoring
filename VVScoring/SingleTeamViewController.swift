@@ -72,6 +72,7 @@ class SingleTeamViewController: UIViewController, UITableViewDelegate, UITableVi
     func setLabels(){
         teamName.text = String (findNumber(selectedTeam))
         teamNumber.text = String (selectedTeam)
+        ratio.text = getRecord(num: selectedTeam)
         opr.text = String (Round(averages.opr, to: 100))
         autoCorner.text = String (Round(averages.autoCorner))
         autoVortex.text = String (Round(averages.autoVortex))
