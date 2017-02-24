@@ -187,14 +187,11 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func unwindToRankings(sender: UIStoryboardSegue){
-        //Leave this here
+        selected = [-1, -1]
     }
     
-    func transferToVC(withName name: String){
-        //Transfer Views
-        let vcName = name
-        let viewController = storyboard?.instantiateViewController(withIdentifier: vcName)
-        present(viewController!, animated: true, completion: nil)
+    func vc(withName vcName: String) -> UIViewController{
+        return (storyboard?.instantiateViewController(withIdentifier: vcName))!
     }
     
     func addSelection(withNumber num: Int){
@@ -205,7 +202,7 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         if selected[0] != -1 && selected[1] != -1{
-            transferToVC(withName: "compare")
+            present(vc(withName: "compare"), animated: true, completion: nil)
         }
     }
     
@@ -241,7 +238,7 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
             selectedTeam = data[indexPath.row].number
             
             //Transfer
-            transferToVC(withName: "singleView")
+            present(vc(withName: "singleView"), animated: true, completion: nil)
         }
     }
     
