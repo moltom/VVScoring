@@ -64,6 +64,8 @@ struct teamAverage{
     var endGamePts: Double = 0.0
     var opr: Double = 0.0
     var allianceScore: Double = 0.0
+    var opposingScore: Double = 0.0
+    var officialScore: Double = 0.0
     var QP: Int = 0
     var RP: Int = 0
     var W: Int = 0
@@ -517,6 +519,7 @@ func getMatches(num: Int) -> [teamInMatch]{
 func getAverages(num: Int) -> teamAverage{
     var output = teamAverage()
     var matchAmount = 0.0
+    var officialMatchAmount = 0.0
     
     for match in matchData{
         for team in match{
@@ -544,6 +547,10 @@ func getAverages(num: Int) -> teamAverage{
                 output.endGamePts += Double(team.endGamePts)
                 output.allianceScore += Double(team.allianceScore)
                 output.opr += Double(team.calculatedScore)
+                if(team.officialScore != -1){
+                    output.officialScore += Double (team.officialScore)
+                    officialMatchAmount += 1
+                }
                 
                 //Outcome
                 switch(team.outcome){
@@ -573,6 +580,7 @@ func getAverages(num: Int) -> teamAverage{
                     else{
                         output.RP += matchData[x][0].allianceScore
                     }
+                    output.opposingScore += Double (matchData[x][2].allianceScore)
                 }
                 else{
                     if matchData[x][i].outcome == 0 {
@@ -581,6 +589,7 @@ func getAverages(num: Int) -> teamAverage{
                     else{
                         output.RP += matchData[x][2].allianceScore
                     }
+                    output.opposingScore += Double (matchData[x][0].allianceScore)
                 }
 
             }
@@ -602,6 +611,10 @@ func getAverages(num: Int) -> teamAverage{
     output.endGamePts /= matchAmount
     output.allianceScore /= matchAmount
     output.opr /= matchAmount
+    if(output.officialScore != 0){
+        output.officialScore /= officialMatchAmount
+    }
+    output.opposingScore /= matchAmount
     
     return output
 }

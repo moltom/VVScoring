@@ -90,6 +90,8 @@ class SingleTeamViewController: UIViewController, UITableViewDelegate, UITableVi
         allianceScore.text = String (Round(averages.allianceScore))
         luck.text = String (Round(averages.allianceScore - averages.opr))
         rank.text = String (getRank(num: selectedTeam))
+        opposingScore.text = String (Round(averages.opposingScore))
+        officialScore.text = String (Round(averages.officialScore))
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
