@@ -86,7 +86,7 @@ class CompareController: UIViewController {
         teleTotal.text = String (Round(t1.telePts))
         
         beacons.text = String (Round(t1.beacons))
-        //beaconsControl.text = String (Round(t1.))
+        beaconsControl.text = String (Round(t1.totalBeacons))
         capBallPts.text = String (Round(t1.capBallPts))
         totalEnd.text = String (Round(t1.endGamePts))
         
@@ -106,12 +106,13 @@ class CompareController: UIViewController {
         OteleTotal.text = String (Round(t2.telePts))
         
         Obeacons.text = String (Round(t2.beacons))
-        //ObeaconsControl.text = String (Round(t2.))
+        ObeaconsControl.text = String (Round(t2.totalBeacons))
         OcapBallPts.text = String (Round(t2.capBallPts))
         OtotalEnd.text = String (Round(t2.endGamePts))
         //------------------------------
         
         
+        if(comp[])
     }
 
     override func didReceiveMemoryWarning() {
