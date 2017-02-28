@@ -12,6 +12,13 @@ class CompareController: UIViewController {
 
     //MARK: Properties
     
+    //Top bar
+    @IBOutlet weak var t1Name: UIButton!
+    @IBOutlet weak var t1Number: UIButton!
+    @IBOutlet weak var t2Name: UIButton!
+    @IBOutlet weak var t2Number: UIButton!
+    
+    
     //SIDE 1
     @IBOutlet weak var OPR: UILabel!
     @IBOutlet weak var alliance: UILabel!
@@ -69,7 +76,26 @@ class CompareController: UIViewController {
         }
     }
     
+    @IBAction func team1Transfer(_ sender: AnyObject) {
+        selectedTeam = selected[0]
+        let vc = (storyboard?.instantiateViewController(withIdentifier: "singleView"))!
+        present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func team2Transfer(_ sender: AnyObject) {
+        selectedTeam = selected[1]
+        let vc = (storyboard?.instantiateViewController(withIdentifier: "singleView"))!
+        present(vc, animated: true, completion: nil)
+    }
+    
     func setLabels(_ t1: teamAverage, _ t2: teamAverage, _ comp: [Int]){
+        
+        t1Name.setTitle(teamList["\(selected[0])"]?.name, for: .normal)
+        t1Number.setTitle(String(selected[0]), for: .normal)
+        
+        t2Name.setTitle(teamList["\(selected[1])"]?.name, for: .normal)
+        t2Number.setTitle(String(selected[1]), for: .normal)
+        
         //------------Team 1------------
         OPR.text = String (t1.opr)
         alliance.text = String (Round(t1.allianceScore))
