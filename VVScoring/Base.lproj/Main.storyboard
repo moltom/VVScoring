@@ -1474,7 +1474,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXr-pL-rZU">
-                                <frame key="frameInset" minX="874" minY="36" width="41" height="21"/>
+                                <frame key="frameInset" minX="838" minY="37" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -1617,13 +1617,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WLT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdp-Kg-gfq">
-                                <frame key="frameInset" minX="441" minY="36" width="41" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9w-o2-2rU">
                                 <frame key="frameInset" minX="287" minY="36" width="57" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1631,15 +1624,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edu-SG-Kp3">
-                                <frame key="frameInset" minX="352" minY="37" width="41" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WLT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fr-sb-mPB">
-                                <frame key="frameInset" minX="948" minY="35" width="41" height="24"/>
+                                <frame key="frameInset" minX="887" minY="35" width="102" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -1789,6 +1775,20 @@
                                     <action selector="team2Transfer:" destination="NVN-HB-tJr" eventType="touchUpInside" id="ng0-6E-pHJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edu-SG-Kp3">
+                                <frame key="frameInset" minX="331" minY="37" width="41" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WLT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdp-Kg-gfq">
+                                <frame key="frameInset" minX="400" minY="37" width="92" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1821,8 +1821,12 @@
                         <outlet property="corner" destination="V7N-Ry-CUd" id="eNn-WA-rlo"/>
                         <outlet property="t1Name" destination="YiN-On-Xyu" id="AKr-DP-bMH"/>
                         <outlet property="t1Number" destination="xck-bj-FY4" id="qA3-Yl-SMx"/>
+                        <outlet property="t1Rank" destination="Edu-SG-Kp3" id="62h-xy-yax"/>
+                        <outlet property="t1WLT" destination="xdp-Kg-gfq" id="82o-Yd-rjN"/>
                         <outlet property="t2Name" destination="22V-zI-aQV" id="paD-cU-xqO"/>
                         <outlet property="t2Number" destination="cQu-U2-mbO" id="wAd-k9-FdD"/>
+                        <outlet property="t2Rank" destination="uXr-pL-rZU" id="PdO-0k-cuh"/>
+                        <outlet property="t2WLT" destination="0fr-sb-mPB" id="cek-d1-ARu"/>
                         <outlet property="teleTotal" destination="tG7-HD-Zbh" id="PwC-ge-5Sr"/>
                         <outlet property="totalAuto" destination="1vA-gY-YOX" id="vsz-sY-mmQ"/>
                         <outlet property="totalEnd" destination="SzI-zo-tF4" id="TRf-Om-wK4"/>

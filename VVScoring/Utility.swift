@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /*
  *  MAXIMUM EFFICIENCY
@@ -27,8 +28,17 @@ extension String
 }
 
 func getRecord(num: Int) -> String {
-    var data = getAverages(num: num)
+    let data = getAverages(num: num)
     return "\(data.W)-\(data.L)-\(data.T)"
+}
+
+func convertColorValues(withRGB red: Int, _ green: Int, _ blue: Int) -> (red: CGFloat, green: CGFloat, blue: CGFloat){
+    
+    let newRed = CGFloat(red) / 255.0
+    let newGreen = CGFloat(green) / 255.0
+    let newBlue = CGFloat(blue) / 255.0
+    
+    return (newRed, newGreen, newBlue)
 }
 
 func findNumber(_ index: Int) -> String{

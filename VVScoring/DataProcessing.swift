@@ -341,8 +341,8 @@ func sortTeamsBy(mode: String, dir: Int) -> [teamAverage]{
 
 func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Averages: teamAverage, compare: [Int])
 {
-    var team1Averages = getAverages(num: num1)
-    var team2Averages = getAverages(num: num2)
+    let team1Averages = getAverages(num: num1)
+    let team2Averages = getAverages(num: num2)
     var compare: [Int] = []                          // 0=team1 greater  1=team2 greater     2=equal or close
     if(abs(team1Averages.allianceScore - team2Averages.allianceScore) <= 10){
         compare.append(2)
@@ -492,6 +492,17 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
     }
     else{
         if(team1Averages.vortexBalls < team2Averages.vortexBalls){
+            compare.append(1)
+        }
+        else{
+            compare.append(0)
+        }
+    }
+    if(abs(team1Averages.totalBeacons - team2Averages.totalBeacons) <= 0.5){
+        compare.append(2)
+    }
+    else{
+        if(team1Averages.totalBeacons < team2Averages.totalBeacons){
             compare.append(1)
         }
         else{
