@@ -161,12 +161,14 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
                 cell.labels["rscore"]?.Label.text = String(allianceScore)
                 if allianceScore > matchData[nindex][2].allianceScore{
                     cell.labels["rscore"]?.Label.textColor = UIColor.red
+                    cell.labels["bscore"]?.Label.textColor = UIColor.black
                 }
             }else{
                 let officialScore = matchData[nindex][0].officialScore
                 cell.labels["rscore"]?.Label.text = String(officialScore)
                 if officialScore > matchData[nindex][2].officialScore{
                     cell.labels["rscore"]?.Label.textColor = UIColor.red
+                    cell.labels["bscore"]?.Label.textColor = UIColor.black
                 }
             }
         }
@@ -185,12 +187,14 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
                 cell.labels["bscore"]?.Label.text = String(allianceScore)
                 if allianceScore > matchData[nindex][0].allianceScore{
                     cell.labels["bscore"]?.Label.textColor = UIColor.blue
+                    cell.labels["rscore"]?.Label.textColor = UIColor.black
                 }
             }else{
                 let officialScore = matchData[nindex][2].officialScore
                 cell.labels["bscore"]?.Label.text = String(officialScore)
                 if officialScore > matchData[nindex][0].officialScore{
                     cell.labels["bscore"]?.Label.textColor = UIColor.blue
+                    cell.labels["rscore"]?.Label.textColor = UIColor.black
                 }
             }
         }
