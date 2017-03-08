@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A5B5FF1E09F56320CAB3659 /* Pods_VVScoring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2472BFB5AAA2CE81A4CF7B5C /* Pods_VVScoring.framework */; };
 		33101A221E0D8AB2001AD245 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33101A211E0D8AB2001AD245 /* Utility.swift */; };
 		33101A241E0D8FD5001AD245 /* example.txt in Resources */ = {isa = PBXBuildFile; fileRef = 33101A231E0D8FD5001AD245 /* example.txt */; };
 		3320FD251E40F48600DC1B78 /* SingleTeamViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3320FD241E40F48600DC1B78 /* SingleTeamViewCell.swift */; };
@@ -38,6 +39,8 @@
 		33E22F491DFB176300D5F845 /* FileUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E22F481DFB176300D5F845 /* FileUtility.swift */; };
 		33EF904A1E5DFBEA0038FC0A /* CompareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EF90491E5DFBEA0038FC0A /* CompareController.swift */; };
 		351E8C1C1E23F06500C0D38A /* NewMatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351E8C1B1E23F06500C0D38A /* NewMatchController.swift */; };
+		357BFADF1E6DCDF900D531D8 /* Sheets API2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BFADE1E6DCDF900D531D8 /* Sheets API2.swift */; };
+		35FEF8A61E65DD0500E92A03 /* SheetsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEF8A51E65DD0500E92A03 /* SheetsAPI.swift */; };
 		E208ACD11E4D6200001B15B3 /* officialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E208ACD01E4D6200001B15B3 /* officialController.swift */; };
 		E29E56601E05A84000D7BF36 /* NewTournamentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29E565F1E05A84000D7BF36 /* NewTournamentController.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2472BFB5AAA2CE81A4CF7B5C /* Pods_VVScoring.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VVScoring.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33101A211E0D8AB2001AD245 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		33101A231E0D8FD5001AD245 /* example.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.txt; sourceTree = "<group>"; };
 		3320FD241E40F48600DC1B78 /* SingleTeamViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleTeamViewCell.swift; sourceTree = "<group>"; };
@@ -97,6 +101,10 @@
 		33E22F481DFB176300D5F845 /* FileUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtility.swift; sourceTree = "<group>"; };
 		33EF90491E5DFBEA0038FC0A /* CompareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompareController.swift; sourceTree = "<group>"; };
 		351E8C1B1E23F06500C0D38A /* NewMatchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMatchController.swift; sourceTree = "<group>"; };
+		357BFADE1E6DCDF900D531D8 /* Sheets API2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sheets API2.swift"; sourceTree = "<group>"; };
+		35FEF8A51E65DD0500E92A03 /* SheetsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetsAPI.swift; sourceTree = "<group>"; };
+		628D6F26FDE5CE81F4F7A40D /* Pods-VVScoring.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VVScoring.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-VVScoring/Pods-VVScoring.debug.xcconfig"; sourceTree = "<group>"; };
+		C6F3BA67E3F71C13853D7599 /* Pods-VVScoring.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VVScoring.release.xcconfig"; path = "../Pods/Target Support Files/Pods-VVScoring/Pods-VVScoring.release.xcconfig"; sourceTree = "<group>"; };
 		E208ACD01E4D6200001B15B3 /* officialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = officialController.swift; sourceTree = "<group>"; };
 		E29E565F1E05A84000D7BF36 /* NewTournamentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTournamentController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A5B5FF1E09F56320CAB3659 /* Pods_VVScoring.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,10 +138,13 @@
 		33B17E541DF721EF00D1F443 = {
 			isa = PBXGroup;
 			children = (
+				357BFADE1E6DCDF900D531D8 /* Sheets API2.swift */,
 				33B17E5F1DF721EF00D1F443 /* VVScoring */,
 				33B17E741DF721EF00D1F443 /* VVScoringTests */,
 				33B17E7F1DF721EF00D1F443 /* VVScoringUITests */,
 				33B17E5E1DF721EF00D1F443 /* Products */,
+				D53A304C724696C125AC6CB4 /* Pods */,
+				9883E246CDB0962800460F6E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,12 +161,14 @@
 		33B17E5F1DF721EF00D1F443 /* VVScoring */ = {
 			isa = PBXGroup;
 			children = (
+				35FEF8A51E65DD0500E92A03 /* SheetsAPI.swift */,
 				33B17E601DF721EF00D1F443 /* AppDelegate.swift */,
 				33B17E641DF721EF00D1F443 /* Main.storyboard */,
 				33B17E671DF721EF00D1F443 /* Assets.xcassets */,
 				33B17E691DF721EF00D1F443 /* LaunchScreen.storyboard */,
 				33B17E6C1DF721EF00D1F443 /* Info.plist */,
 				33B17E8E1DF7228E00D1F443 /* DataProcessing.swift */,
+				33DDA6171E44EB1E00288FE8 /* DebugController.swift */,
 				33B17E901DF722F400D1F443 /* ScoringTeleController.swift */,
 				33B17E921DF7230F00D1F443 /* ScoringController.swift */,
 				33B17E961DF7236E00D1F443 /* RankingsCell.swift */,
@@ -175,7 +189,6 @@
 				33D0E2FE1E3122B6009506F4 /* addTeamCell.swift */,
 				3320FD241E40F48600DC1B78 /* SingleTeamViewCell.swift */,
 				3320FD261E40F4CD00DC1B78 /* SingleTeamViewController.swift */,
-				33DDA6171E44EB1E00288FE8 /* DebugController.swift */,
 				335E00B81E439688009D1761 /* FileCell.swift */,
 				E208ACD01E4D6200001B15B3 /* officialController.swift */,
 				333675881E005C2C00DAF49C /* tournaments.txt */,
@@ -203,6 +216,23 @@
 			path = VVScoringUITests;
 			sourceTree = "<group>";
 		};
+		9883E246CDB0962800460F6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2472BFB5AAA2CE81A4CF7B5C /* Pods_VVScoring.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D53A304C724696C125AC6CB4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				628D6F26FDE5CE81F4F7A40D /* Pods-VVScoring.debug.xcconfig */,
+				C6F3BA67E3F71C13853D7599 /* Pods-VVScoring.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -210,9 +240,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 33B17E851DF721EF00D1F443 /* Build configuration list for PBXNativeTarget "VVScoring" */;
 			buildPhases = (
+				221E99121E14D429C4D20A61 /* [CP] Check Pods Manifest.lock */,
 				33B17E591DF721EF00D1F443 /* Sources */,
 				33B17E5A1DF721EF00D1F443 /* Frameworks */,
 				33B17E5B1DF721EF00D1F443 /* Resources */,
+				E82E4F475B774F604D056F78 /* [CP] Embed Pods Frameworks */,
+				3C8A5C38130E9D0BC210878C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -335,6 +368,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		221E99121E14D429C4D20A61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3C8A5C38130E9D0BC210878C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-VVScoring/Pods-VVScoring-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E82E4F475B774F604D056F78 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-VVScoring/Pods-VVScoring-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		33B17E591DF721EF00D1F443 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -356,10 +437,12 @@
 				33B17E9F1DF7241D00D1F443 /* MatchCell.swift in Sources */,
 				336ABC9A1DF9C94E00A588A9 /* MenuController.swift in Sources */,
 				E208ACD11E4D6200001B15B3 /* officialController.swift in Sources */,
+				357BFADF1E6DCDF900D531D8 /* Sheets API2.swift in Sources */,
 				33E22F491DFB176300D5F845 /* FileUtility.swift in Sources */,
 				33EF904A1E5DFBEA0038FC0A /* CompareController.swift in Sources */,
 				33B17E911DF722F400D1F443 /* ScoringTeleController.swift in Sources */,
 				33B17E8F1DF7228E00D1F443 /* DataProcessing.swift in Sources */,
+				35FEF8A61E65DD0500E92A03 /* SheetsAPI.swift in Sources */,
 				33101A221E0D8AB2001AD245 /* Utility.swift in Sources */,
 				33DDA6181E44EB1E00288FE8 /* DebugController.swift in Sources */,
 				336449E91E2FD0F600D728DD /* AddTeamController.swift in Sources */,
@@ -515,11 +598,12 @@
 		};
 		33B17E861DF721EF00D1F443 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 628D6F26FDE5CE81F4F7A40D /* Pods-VVScoring.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G8TSB5UPX9;
 				INFOPLIST_FILE = VVScoring/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = silqent.VVScoring;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -529,11 +613,12 @@
 		};
 		33B17E871DF721EF00D1F443 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6F3BA67E3F71C13853D7599 /* Pods-VVScoring.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G8TSB5UPX9;
 				INFOPLIST_FILE = VVScoring/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = silqent.VVScoring;
 				PRODUCT_NAME = "$(TARGET_NAME)";

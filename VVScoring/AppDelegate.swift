@@ -5,7 +5,8 @@
 //  Created by CLARK, THOMAS on 12/6/16.
 //  Copyright © 2016 Q Is Silqent. All rights reserved.
 //
-
+import AppAuth
+import GoogleAPIClientForREST
 import UIKit
 
 @UIApplicationMain
@@ -13,12 +14,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var currentAuthorizationFlow: OIDAuthorizationFlowSession?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
 
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool
+    {
+        // Sends the URL to the current authorization flow (if any) which will process it if it relates to
+        // an authorization response.
+        if currentAuthorizationFlow!.resumeAuthorizationFlow(with: url) {
+            self.currentAuthorizationFlow = nil
+            return true
+        }
+        // Your additional URL handling (if any) goes here.
+        return false
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

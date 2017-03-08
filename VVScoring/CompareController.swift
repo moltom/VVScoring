@@ -112,7 +112,7 @@ class CompareController: UIViewController {
         //------------------------------
         
         
-        if(comp[])
+        //if(comp[])
     }
 
     override func didReceiveMemoryWarning() {
