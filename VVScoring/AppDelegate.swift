@@ -5,8 +5,6 @@
 //  Created by CLARK, THOMAS on 12/6/16.
 //  Copyright © 2016 Q Is Silqent. All rights reserved.
 //
-import AppAuth
-import GoogleAPIClientForREST
 import UIKit
 
 @UIApplicationMain
@@ -14,7 +12,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    var currentAuthorizationFlow: OIDAuthorizationFlowSession?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -25,11 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         // Sends the URL to the current authorization flow (if any) which will process it if it relates to
         // an authorization response.
-        if currentAuthorizationFlow!.resumeAuthorizationFlow(with: url) {
-            self.currentAuthorizationFlow = nil
-            return true
-        }
-        // Your additional URL handling (if any) goes here.
+               // Your additional URL handling (if any) goes here.
         return false
     }
     

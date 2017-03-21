@@ -20,18 +20,18 @@ class DebugController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     @IBAction func loadData(_ sender: AnyObject) {
         
-        let data = sheetAPI.getDataFromSheet()
+        //let data = sheetAPI.getDataFromSheet()
         
         //  print(data)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        /*
         let sheetAPI = SheetsAPI()
         sheetAPI.removeState()
         sheetAPI.auth(viewController: self)
         //sheetAPI.loadState()
-        
+        */
         
         
         tableView.register(FileCell.self, forCellReuseIdentifier: cellReuseIdendifier)

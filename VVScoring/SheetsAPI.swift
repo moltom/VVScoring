@@ -5,7 +5,7 @@
 //  Created by WAGNER, STEVEN on 2/28/17.
 //  Copyright © 2017 Q Is Silqent. All rights reserved.
 //
-
+/*
 import UIKit
 import AppAuth
 import GTMAppAuth
@@ -171,3 +171,4 @@ class SheetsAPI: NSObject
     
     
 }
+*/
