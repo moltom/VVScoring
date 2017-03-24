@@ -85,7 +85,10 @@ func readMatchDataFromFile(fileName: String) -> Bool{
                         matchData[i][j].calculatedScore = Int(data[tmp+23])!
                         matchData[i][j].allianceScore = Int(data[tmp+24])!
                         matchData[i][j].officialScore = Int(data[tmp+25])!
-                        tmp += 26
+                        
+                        matchData[i][j].matchComment = data[tmp+26]
+                        matchData[i][j].teamComment = data[tmp+27]
+                        tmp += 28
                     }
                     i += 1
                 }
@@ -229,7 +232,10 @@ func formatMatchDataToCSV() -> String{
             output += String(matchData[i][j].outcome) + ","
             output += String(matchData[i][j].calculatedScore) + ","
             output += String(matchData[i][j].allianceScore) + ","
-            output += String(matchData[i][j].officialScore)
+            output += String(matchData[i][j].officialScore) + ","
+            
+            output += matchData[i][j].matchComment + ","
+            output += matchData[i][j].teamComment
             if j != 3{
                 output += ","
             }
