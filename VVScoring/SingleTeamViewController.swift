@@ -42,6 +42,7 @@ class SingleTeamViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var officialScore: UILabel!
     @IBOutlet weak var luck: UILabel!
     
+    
     var matches: [teamInMatch] = []
     var averages: teamAverage = teamAverage()
     
@@ -92,6 +93,10 @@ class SingleTeamViewController: UIViewController, UITableViewDelegate, UITableVi
         rank.text = String (getRank(num: selectedTeam))
         opposingScore.text = String (Round(averages.opposingScore))
         officialScore.text = String (Round(averages.officialScore))
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?{
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

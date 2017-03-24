@@ -12,12 +12,12 @@ class SingleTeamViewCell: UITableViewCell {
 
     var labels: [String: (Label: UILabel, x: Int, y: Int, width: Int, height: Int)] = [
         "match":            (UILabel(), 18, 0, 50, 30),
-        "autoCorBalls":     (UILabel(), 75, 0, 50, 30),
-        "autoVorBalls":     (UILabel(),124, 0, 50, 30),
-        "autoBeacons":      (UILabel(),185, 0, 50, 30),
-        "autoPark":         (UILabel(),250, 0, 50, 30),
-        "autoCapPts":       (UILabel(),315, 0, 50, 30),
-        "autoPts":          (UILabel(),370, 0, 50, 30),
+        "autoCorBalls":     (UILabel(), 80, 0, 50, 30),
+        "autoVorBalls":     (UILabel(),144, 0, 50, 30),
+        "autoBeacons":      (UILabel(),205, 0, 50, 30),
+        "autoPark":         (UILabel(),270, 0, 50, 30),
+        "autoCapPts":       (UILabel(),325, 0, 50, 30),
+        "autoPts":          (UILabel(),375, 0, 50, 30),
         "corBalls":         (UILabel(),433, 0, 50, 30),
         "vorBalls":         (UILabel(),486, 0, 50, 30),
         "telePts":          (UILabel(),546, 0, 50, 30),
