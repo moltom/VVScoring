@@ -45,6 +45,8 @@ struct teamInMatch{
     var calculatedScore: Int = 0 //OPR points
     var allianceScore: Int = -1
     var officialScore: Int = -1
+    var matchComment: String = ""
+    var teamComment: String = ""
 }
 
 struct teamAverage{
