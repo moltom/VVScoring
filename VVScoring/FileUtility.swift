@@ -144,8 +144,8 @@ func setupInitialUtilityFiles(refresh: Bool){
     
     //-Match File-
     //Get paths to files and check if file already exists
-    let mPath = docsPath.appendingPathComponent("example.txt")
-    let oldMpath = Bundle.main.path(forResource: "example", ofType: "txt")!
+    let mPath = docsPath.appendingPathComponent("please.txt")
+    let oldMpath = Bundle.main.path(forResource: "please", ofType: "txt")!
     let mExist = fm.fileExists(atPath: mPath)
     
     //Print whether the file exists

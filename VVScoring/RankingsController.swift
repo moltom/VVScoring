@@ -184,6 +184,8 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         
         tableView.reloadData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector (RankingsController.RRD(notification:)),name:NSNotification.Name(rawValue: "RRD"), object: nil)
     }
     
     @IBAction func unwindToRankings(sender: UIStoryboardSegue){
@@ -192,6 +194,12 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
     
     func vc(withName vcName: String) -> UIViewController{
         return (storyboard?.instantiateViewController(withIdentifier: vcName))!
+    }
+    
+    func RRD(notification: NSNotification){
+        data = sortTeamsBy(mode: "", dir: 0)
+        saveMatchData()
+        tableView.reloadData()
     }
     
     func addSelection(withNumber num: Int){

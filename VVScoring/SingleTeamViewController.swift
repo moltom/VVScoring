@@ -95,8 +95,13 @@ class SingleTeamViewController: UIViewController, UITableViewDelegate, UITableVi
         officialScore.text = String (Round(averages.officialScore))
     }
     
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?{
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        currentMatch = matches[indexPath.row].match
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "summary") as! SummaryController
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

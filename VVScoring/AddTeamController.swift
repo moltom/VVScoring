@@ -96,6 +96,7 @@ class AddTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
             output[tempTeamList[x].num] = (tempTeamList[x].name, false)
         }
         teamList = output
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "RRD"), object: nil)
         self.removeAnimate()
     }
     

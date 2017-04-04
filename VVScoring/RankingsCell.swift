@@ -12,7 +12,7 @@ class RankingsCell: UITableViewCell {
     
     var labels: [String: (Label: UILabel, x: Int, y: Int, width: Int, height: Int)] = [
         "number": (UILabel(),20, 0, 50, 30),
-        "name": (UILabel(),90, 0, 150, 30),
+        "name": (UILabel(),90, 0, 160, 30),
         "rank": (UILabel(),285, 0, 30, 30),
         "RP": (UILabel(),325, 0, 100, 30),
         "wins": (UILabel(),385, 0, 30, 30),

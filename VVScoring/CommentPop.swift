@@ -59,7 +59,7 @@ class CommentPop: UIViewController {
         blue2.text = String(match[3].number)
     }
     
-    override func viewWillDisappear(_ animated: Bool){
+    @IBAction func close(_ sender: Any) {
         matchData[currentMatch][0].matchComment = matchField.text
         matchData[currentMatch][0].teamComment = red1Field.text
         
@@ -71,7 +71,9 @@ class CommentPop: UIViewController {
         
         matchData[currentMatch][3].matchComment = matchField.text
         matchData[currentMatch][3].teamComment = blue2Field.text
+        removeAnimate()
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
