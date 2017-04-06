@@ -84,9 +84,11 @@ class DebugController: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdendifier, for: indexPath as IndexPath) as! FileCell
         
-        documentList = getFileList()
+        //documentList = getFileList()
+        documentList = listFiles()
         
         cell.labels["file"]?.Label.text = documentList[indexPath.row]
+        print(documentList[indexPath.row])
         
         return cell
     }

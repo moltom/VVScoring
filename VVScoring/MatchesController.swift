@@ -12,7 +12,6 @@ var currentMatch = 0
 
 class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
-    
     let cellReuseIdendifier = "MatchCell"
     
     @IBOutlet weak var modeSegment: UISegmentedControl!
@@ -79,6 +78,13 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         // Force popover style
         return UIModalPresentationStyle.none
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
+        if editingStyle == UITableViewCellEditingStyle.delete{
+            matchData.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
     override func didReceiveMemoryWarning() {

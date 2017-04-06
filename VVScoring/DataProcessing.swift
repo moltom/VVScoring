@@ -610,24 +610,24 @@ func getAverages(num: Int) -> teamAverage{
     }
     
     output.number = num
-    output.autoCorner /= matchAmount
-    output.autoVortex /= matchAmount
-    output.autoBeacons /= matchAmount
-    output.parkPts /= matchAmount
-    output.autoPts /= matchAmount
-    output.cornerBalls /= matchAmount
-    output.vortexBalls /= matchAmount
-    output.telePts /= matchAmount
-    output.capBallPts /= matchAmount
-    output.beacons /= matchAmount
-    output.totalBeacons /= matchAmount
-    output.endGamePts /= matchAmount
-    output.allianceScore /= matchAmount
-    output.opr /= matchAmount
+    output.autoCorner = Round(output.autoCorner / matchAmount)
+    output.autoVortex = Round(output.autoVortex / matchAmount)
+    output.autoBeacons = Round(output.autoBeacons / matchAmount)
+    output.parkPts = Round(output.parkPts / matchAmount)
+    output.autoPts = Round(output.autoPts / matchAmount)
+    output.cornerBalls = Round(output.cornerBalls / matchAmount)
+    output.vortexBalls = Round(output.vortexBalls / matchAmount)
+    output.telePts = Round(output.telePts / matchAmount)
+    output.capBallPts = Round(output.capBallPts / matchAmount)
+    output.beacons = Round(output.beacons / matchAmount)
+    output.totalBeacons = Round(output.totalBeacons / matchAmount)
+    output.endGamePts = Round(output.endGamePts / matchAmount)
+    output.allianceScore = Round(output.allianceScore / matchAmount)
+    output.opr = Round(output.opr / matchAmount)
     if(output.officialScore != 0){
-        output.officialScore /= officialMatchAmount
+        output.officialScore  = (output.officialScore / officialMatchAmount)
     }
-    output.opposingScore /= matchAmount
+    output.opposingScore = Round(output.opposingScore / matchAmount)
     
     return output
 }

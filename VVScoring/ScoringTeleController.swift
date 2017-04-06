@@ -43,7 +43,7 @@ class ScoringTeleController: UIViewController {
     @IBAction func r1NameChange(_ sender: AnyObject) {
 
         if let temp = teamList[r1TNumField.text!]?.name {
-            r1NameField.text = teamList[r1TNumField.text!]?.name
+            r1NameField.text = temp
             matchData[currentMatch][0].number = Int (r1TNumField.text!)!
             r1numValid = true
         }
@@ -69,7 +69,7 @@ class ScoringTeleController: UIViewController {
     @IBAction func r2NameChange(_ sender: AnyObject) {
 
         if let temp = teamList[r2TNumField.text!]?.name {
-            r2NameField.text = teamList[r2TNumField.text!]?.name
+            r2NameField.text = temp
             matchData[currentMatch][1].number = Int (r2TNumField.text!)!
             r2numValid = true
         }
@@ -93,7 +93,7 @@ class ScoringTeleController: UIViewController {
     @IBAction func b1NameChange(_ sender: AnyObject) {
 
         if let temp = teamList[b1TNumField.text!]?.name {
-            b1NameField.text = teamList[b1TNumField.text!]?.name
+            b1NameField.text = temp
             matchData[currentMatch][2].number = Int (b1TNumField.text!)!
             b1numValid = true
         }
@@ -118,7 +118,7 @@ class ScoringTeleController: UIViewController {
     @IBAction func b2NameChange(_ sender: AnyObject) {
     
         if let temp = teamList[b2TNumField.text!]?.name {
-            b2NameField.text = teamList[b2TNumField.text!]?.name
+            b2NameField.text = temp
             matchData[currentMatch][3].number = Int (b2TNumField.text!)!
             b2numValid = true
         }

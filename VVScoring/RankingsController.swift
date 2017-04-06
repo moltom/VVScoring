@@ -17,6 +17,8 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
     
     var currentSort = 0
     
+    var avs: [(RP: Int, W: Int, L: Int, T: Int)] = []
+    
     //first number is decreasing, second is increasing
     
     @IBAction func rank(_ sender: AnyObject) {//1,2
@@ -166,6 +168,7 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidAppear(_ animated: Bool) {
+        avs = refreshAvs()
         tableView.reloadData()
     }
     
@@ -177,6 +180,8 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        avs = refreshAvs()
         
         tableView.register(RankingsCell.self, forCellReuseIdentifier: cellReuseIdendifier)
         
@@ -212,6 +217,15 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         if selected[0] != -1 && selected[1] != -1{
             present(vc(withName: "compare"), animated: true, completion: nil)
         }
+    }
+    
+    func refreshAvs() -> [(RP: Int, W: Int, L: Int, T: Int)]{
+        var output: [(RP: Int, W: Int, L: Int, T: Int)] = []
+        for (name, _) in teamList{
+            let av = getAverages(num: Int(name)!)
+            output.append((av.RP, av.W, av.L, av.T))
+        }
+        return output
     }
     
     func removeSelection(withNumber num: Int){
@@ -262,6 +276,7 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         return true
     }
     
+    /*
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         if editingStyle == UITableViewCellEditingStyle.delete{
             var counter = 0
@@ -277,7 +292,31 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         else if editingStyle == .insert{
             //Do stuff
         }
+    }*/
+    
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            // delete item at indexPath
+            var counter = 0
+            for (name, _) in teamList{
+                if counter == indexPath.row{
+                    teamList.removeValue(forKey: name)
+                    break
+                }
+                counter += 1
+            }
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+            // edit item at indexPath
+            print("You pressed edit")
+        }
+        
+        return [delete, edit]
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -296,12 +335,13 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         let t = data[indexPath.row]
         
         cell.labels["number"]?.Label.text = String (t.number)
-        cell.labels["name"]?.Label.text = teamList[String (t.number)]?.name
+        cell.labels["name"]?.Label.text = teamList[String(t.number)]?.name
         cell.labels["rank"]?.Label.text = String (getRank(num: t.number))
-        cell.labels["RP"]?.Label.text = String(getAverages(num: t.number).RP)
-        cell.labels["wins"]?.Label.text = String(getAverages(num: t.number).W)
-        cell.labels["losses"]?.Label.text = String(getAverages(num: t.number).L)
-        cell.labels["tie"]?.Label.text = String(getAverages(num: t.number).T)
+        cell.labels["RP"]?.Label.text = String(avs[indexPath.row].RP)
+        cell.labels["wins"]?.Label.text = String(avs[indexPath.row].W)
+        cell.labels["losses"]?.Label.text = String(avs[indexPath.row].L)
+        cell.labels["tie"]?.Label.text = String(avs[indexPath.row].T)
+        /*
         cell.labels["opr"]?.Label.text = String(Round(t.opr))
         cell.labels["autoPts"]?.Label.text = String(Round(t.autoPts))
         cell.labels["autoBalls"]?.Label.text = String(Round(t.autoVortex))
@@ -310,6 +350,16 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         cell.labels["endBeacons"]?.Label.text = String(Round(t.beacons))
         cell.labels["capPts"]?.Label.text = String(Round(t.capBallPts))
         cell.labels["partnerScore"]?.Label.text = String(Round(t.allianceScore - t.opr))
+        */
+        
+        cell.labels["opr"]?.Label.text = String(t.opr)
+        cell.labels["autoPts"]?.Label.text = String(t.autoPts)
+        cell.labels["autoBalls"]?.Label.text = String(t.autoVortex)
+        cell.labels["autoBeacons"]?.Label.text = String(t.autoBeacons)
+        cell.labels["teleBalls"]?.Label.text = String(t.vortexBalls)
+        cell.labels["endBeacons"]?.Label.text = String(t.beacons)
+        cell.labels["capPts"]?.Label.text = String(t.capBallPts)
+        cell.labels["partnerScore"]?.Label.text = String(t.allianceScore - t.opr)
         
         return cell
     }

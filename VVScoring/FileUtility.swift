@@ -460,12 +460,23 @@ func getFileList() -> [String]{
         // Get the directory contents urls (including subfolders urls)
         let directoryContents = try FileManager.default.contentsOfDirectory(atPath: docsPath as String)
         return directoryContents
-        //print(directoryContents)
     }
     catch{
         print("Error getting file list")
     }
     return []
+}
+
+func listFiles() -> [String] {
+    let dirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true) as [String]
+    let dir = dirs[0]
+    do {
+        let fileList = try FileManager.default.contentsOfDirectory(atPath: dir)
+        return fileList as [String]
+    }catch {
+        print("Error listing files")
+    }
+    return [""]
 }
 
 func removeFile(withName file: String) -> Bool{

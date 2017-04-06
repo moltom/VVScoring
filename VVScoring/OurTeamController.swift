@@ -26,7 +26,7 @@ class OurTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     @IBAction func numberChanged(_ sender: AnyObject) {
         if let temp = teamList[teamNumber.text!]?.name {
-            teamName.text = teamList[teamNumber.text!]?.name
+            teamName.text = temp
             isNameValid = true
             ourTeam = Int (teamNumber.text!)!
             averages = getAverages(num: Int (teamNumber.text!)!)
@@ -152,10 +152,10 @@ class OurTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let temp = teamList[teamNumber.text!]?.name{
-        averages = getAverages(num: Int (teamNumber.text!)!)
-        matches = getMatches(num: Int (teamNumber.text!)!)
-        setLabels()
+        if teamList[teamNumber.text!]?.name != nil{
+            averages = getAverages(num: Int (teamNumber.text!)!)
+            matches = getMatches(num: Int (teamNumber.text!)!)
+            setLabels()
         }
         else{
             teamName.text = "<---- Please enter your team number."

@@ -69,7 +69,7 @@ class ScoringController: UIViewController {
     @IBAction func r1NumChange(_ sender: AnyObject) {
     
         if let temp = teamList[r1NumField.text!]?.name {
-            r1NameField.text = teamList[r1NumField.text!]?.name
+            r1NameField.text = temp
             matchData[currentMatch][0].number = Int (r1NumField.text!)!
             r1numValid = true
         }
@@ -99,7 +99,7 @@ class ScoringController: UIViewController {
     @IBAction func r2NumChange(_ sender: AnyObject) {
     
         if let temp = teamList[r2NumField.text!]?.name {
-            r2NameField.text = teamList[r2NumField.text!]?.name
+            r2NameField.text = temp
             matchData[currentMatch][1].number = Int (r2NumField.text!)!
             r2numValid = true
         }
@@ -129,7 +129,7 @@ class ScoringController: UIViewController {
     @IBAction func b1NumChange(_ sender: AnyObject) {
     
         if let temp = teamList[b1NumField.text!]?.name {
-            b1NameField.text = teamList[b1NumField.text!]?.name
+            b1NameField.text = temp
             matchData[currentMatch][2].number = Int (b1NumField.text!)!
             b1numValid = true
         }
@@ -160,7 +160,7 @@ class ScoringController: UIViewController {
     @IBAction func b2NumChange(_ sender: AnyObject) {
     
         if let temp = teamList[b2NumField.text!]?.name {
-            b2NameField.text = teamList[b2NumField.text!]?.name
+            b2NameField.text = temp
             matchData[currentMatch][3].number = Int (b2NumField.text!)!
             b2numValid = true
         }
