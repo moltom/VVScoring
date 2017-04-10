@@ -230,7 +230,7 @@ class ScoringController: UIViewController {
     }
     
     @IBAction func r1red(_ sender: AnyObject) {
-        if(bCurrent[0] == 1){
+        if (selectedTeam.text == "No team selected") || (bCurrent[0] == 1){
             return
         }
         else if (bCurrent[0] == 2){
@@ -244,7 +244,7 @@ class ScoringController: UIViewController {
         refreshLabels()
     }
     @IBAction func r1blue(_ sender: AnyObject) {
-        if(bCurrent[0] == 2){
+        if (selectedTeam.text == "No team selected") || (bCurrent[0] == 2){
             return
         }
         else if (bCurrent[0] == 1){
@@ -260,7 +260,7 @@ class ScoringController: UIViewController {
     @IBOutlet var r1owner: UILabel!
     
     @IBAction func r2red(_ sender: AnyObject) {
-        if(bCurrent[1] == 1){
+        if (selectedTeam.text == "No team selected") || (bCurrent[1] == 1){
             return
         }
         else if (bCurrent[1] == 2){
@@ -274,7 +274,7 @@ class ScoringController: UIViewController {
         refreshLabels()
     }
     @IBAction func r2blue(_ sender: AnyObject) {
-        if(bCurrent[1] == 2){
+        if (selectedTeam.text == "No team selected") || (bCurrent[1] == 2){
             return
         }
         else if (bCurrent[1] == 1){
@@ -290,7 +290,7 @@ class ScoringController: UIViewController {
     @IBOutlet var r2owner: UILabel!
     
     @IBAction func b1red(_ sender: AnyObject) {
-        if(bCurrent[2] == 1){
+        if (selectedTeam.text == "No team selected") || (bCurrent[2] == 1){
             return
         }
         else if (bCurrent[2] == 2){
@@ -304,7 +304,7 @@ class ScoringController: UIViewController {
         refreshLabels()
     }
     @IBAction func b1blue(_ sender: AnyObject) {
-        if(bCurrent[2] == 2){
+        if (selectedTeam.text == "No team selected") || (bCurrent[2] == 2){
             return
         }
         else if (bCurrent[2] == 1){
@@ -320,7 +320,7 @@ class ScoringController: UIViewController {
     @IBOutlet var b1owner: UILabel!
     
     @IBAction func b2red(_ sender: AnyObject) {
-        if(bCurrent[3] == 1){
+        if (selectedTeam.text == "No team selected") || (bCurrent[3] == 1){
             return
         }
         else if (bCurrent[3] == 2){
@@ -334,7 +334,7 @@ class ScoringController: UIViewController {
         refreshLabels()
     }
     @IBAction func b2blue(_ sender: AnyObject) {
-        if(bCurrent[3] == 2){
+        if (selectedTeam.text == "No team selected") || (bCurrent[3] == 2){
             return
         }
         else if (bCurrent[3] == 1){
