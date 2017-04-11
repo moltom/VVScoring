@@ -80,11 +80,24 @@ class MatchesController: UIViewController, UITableViewDelegate, UITableViewDataS
         return UIModalPresentationStyle.none
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
-        if editingStyle == UITableViewCellEditingStyle.delete{
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             matchData.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        
+        let info = UITableViewRowAction(style: .normal, title: "Info") { (action, indexPath) in
+            let nindex = ((matchData.count - 1) - indexPath.row)
+            currentMatch = nindex
+            
+            let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "summary") as! SummaryController
+            self.addChildViewController(popOverVC)
+            popOverVC.view.frame = self.view.frame
+            self.view.addSubview(popOverVC.view)
+            popOverVC.didMove(toParentViewController: self)
+        }
+        
+        return [delete, info]
     }
     
     override func didReceiveMemoryWarning() {

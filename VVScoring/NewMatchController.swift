@@ -18,6 +18,7 @@ class NewMatchController: UIViewController {
 
     @IBAction func Q(_ sender: AnyObject) {
         countMatches()
+        print("Qs: \(Q)")
         matchData.append([teamInMatch(), teamInMatch(), teamInMatch(), teamInMatch()])
         for i in 0..<4{
             matchData[matchData.count - 1][i].match = Q

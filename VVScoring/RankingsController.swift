@@ -277,25 +277,6 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         return true
     }
     
-    /*
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
-        if editingStyle == UITableViewCellEditingStyle.delete{
-            var counter = 0
-            for (name, _) in teamList{
-                if counter == indexPath.row{
-                    teamList.removeValue(forKey: name)
-                    break
-                }
-                counter += 1
-            }
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-        else if editingStyle == .insert{
-            //Do stuff
-        }
-    }*/
-    
-    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             // delete item at indexPath
@@ -310,12 +291,7 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
-        let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
-            // edit item at indexPath
-            print("You pressed edit")
-        }
-        
-        return [delete, edit]
+        return [delete]
     }
     
     
@@ -342,17 +318,6 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         cell.labels["wins"]?.Label.text = String(avs[indexPath.row].W)
         cell.labels["losses"]?.Label.text = String(avs[indexPath.row].L)
         cell.labels["tie"]?.Label.text = String(avs[indexPath.row].T)
-        /*
-        cell.labels["opr"]?.Label.text = String(Round(t.opr))
-        cell.labels["autoPts"]?.Label.text = String(Round(t.autoPts))
-        cell.labels["autoBalls"]?.Label.text = String(Round(t.autoVortex))
-        cell.labels["autoBeacons"]?.Label.text = String(Round(t.autoBeacons))
-        cell.labels["teleBalls"]?.Label.text = String(Round(t.vortexBalls))
-        cell.labels["endBeacons"]?.Label.text = String(Round(t.beacons))
-        cell.labels["capPts"]?.Label.text = String(Round(t.capBallPts))
-        cell.labels["partnerScore"]?.Label.text = String(Round(t.allianceScore - t.opr))
-        */
-        
         cell.labels["opr"]?.Label.text = String(t.opr)
         cell.labels["autoPts"]?.Label.text = String(t.autoPts)
         cell.labels["autoBalls"]?.Label.text = String(t.autoVortex)

@@ -137,10 +137,10 @@ class AddTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdendifier, for: indexPath as IndexPath) as! addTeamCell
         
         cell.labels["number"]?.Label.placeholder = "#"
-        print("\ntempTeamList: \(tempTeamList[indexPath.row].num) at indexPath: \(indexPath.row), array Length: \(tempTeamList.count)")
+        //print("\ntempTeamList: \(tempTeamList[indexPath.row].num) at indexPath: \(indexPath.row), array Length: \(tempTeamList.count)")
         if tempTeamList[indexPath.row].num != "-"
         {
-            Swift.print("Into if statement with index: \(indexPath.row)")
+            //Swift.print("Into if statement with index: \(indexPath.row)")
             cell.labels["number"]?.Label.text = tempTeamList[indexPath.row].num
         }
         else
