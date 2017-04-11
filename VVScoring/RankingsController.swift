@@ -204,6 +204,7 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
     func RRD(notification: NSNotification){
         data = sortTeamsBy(mode: "", dir: 0)
         saveMatchData()
+        avs = refreshAvs()
         tableView.reloadData()
     }
     
