@@ -467,18 +467,6 @@ func getFileList() -> [String]{
     return []
 }
 
-func listFiles() -> [String] {
-    let dirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true) as [String]
-    let dir = dirs[0]
-    do {
-        let fileList = try FileManager.default.contentsOfDirectory(atPath: dir)
-        return fileList as [String]
-    }catch {
-        print("Error listing files")
-    }
-    return [""]
-}
-
 func removeFile(withName file: String) -> Bool{
     //let path = Bundle.main.path(forResource: "tournaments", ofType: "txt")
     let path = docsPath.appendingPathComponent(file)

@@ -48,7 +48,7 @@ class AddTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
         let table: UITableView = cell.superview!.superview as! UITableView
         let textFieldIndexPath = table.indexPath(for: cell)!
         
-        tempTeamList[textFieldIndexPath.row].num = textField.text!
+        tempTeamList[textFieldIndexPath.row].num = rmvChars(from: textField.text!)
     }
     
     func loadList(){
@@ -138,13 +138,11 @@ class AddTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         cell.labels["number"]?.Label.placeholder = "#"
         //print("\ntempTeamList: \(tempTeamList[indexPath.row].num) at indexPath: \(indexPath.row), array Length: \(tempTeamList.count)")
-        if tempTeamList[indexPath.row].num != "-"
-        {
+        if tempTeamList[indexPath.row].num != "-"{
             //Swift.print("Into if statement with index: \(indexPath.row)")
             cell.labels["number"]?.Label.text = tempTeamList[indexPath.row].num
         }
-        else
-        {
+        else{
             cell.labels["number"]?.Label.text = ""
         }
         
@@ -152,8 +150,7 @@ class AddTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
         if tempTeamList[indexPath.row].name != "-"{
             cell.labels["name"]?.Label.text = tempTeamList[indexPath.row].name
         }
-        else
-        {
+        else{
             cell.labels["name"]?.Label.text = ""
         }
         

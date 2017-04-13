@@ -19,8 +19,6 @@ extension String
         let endVal = self.characters.index(self.startIndex, offsetBy: end + 1)
         let startVal = self.characters.index(self.startIndex, offsetBy: start, limitedBy: endVal)
         return self.substring(with: (startVal! ..< endVal))
-        
-        //return self.substringWithRange(Range<String.Index>(start: self.startIndex.advancedBy(start), end: self.startIndex.advancedBy(end + 1)))
     }
     func indexOf(_ string: String) -> String.Index? {
         return range(of: string, options: .literal, range: nil, locale: nil)?.lowerBound
@@ -50,6 +48,11 @@ func findNumber(_ index: Int) -> String{
         counter += 1
     }
     return ""
+}
+
+func rmvChars(from text: String) -> String{
+    let output = text.components(separatedBy: NSCharacterSet.decimalDigits.inverted)
+    return output.joined(separator: "")
 }
 
 func absn(_ num: Int) -> Int{
