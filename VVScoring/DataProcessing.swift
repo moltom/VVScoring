@@ -75,16 +75,16 @@ struct teamAverage{
     var T: Int = 0
 }
 
-var teamList: [String : (name: String, fav: Bool)] = [:]
-
-var matchData: [[teamInMatch]] = []
-
 struct tournament{
     var name: String = "nil"
     var type: String = "nil"
     var date: String = "nil"
     var fileLocation: String = "nil"
 }
+
+var teamList: [String : (name: String, fav: Bool)] = [:]
+
+var matchData: [[teamInMatch]] = []
 
 var tournamentList: [tournament] = []
 
@@ -94,6 +94,7 @@ func sortMatchData(){
     matchData = matchData.sorted{ $0[0].match < $1[0].match }
 }
 
+//Returns the match index label
 func getMatchLabel(index: Int) -> String {
     if matchData[index][0].match < 1010 {
         return "Q\(matchData[index][0].match + 1)"
@@ -113,6 +114,7 @@ func getMatchLabel(index: Int) -> String {
     
 }
 
+//Returns the rank of a team in the tournament
 func getRank(num: Int) -> Int {
     var rank = -1
     var sorted: [teamAverage] = []
@@ -144,6 +146,7 @@ func getRank(num: Int) -> Int {
     return rank
 }
 
+//Sorts teams by a category and a given direction
 func sortTeamsBy(mode: String, dir: Int) -> [teamAverage]{
     //dir: Int is the sorting direction (increasing/decreasing) inc is 1, dec is 0
     //Output array
@@ -190,120 +193,41 @@ func sortTeamsBy(mode: String, dir: Int) -> [teamAverage]{
                     return $0.L > $1.L
                 }
             }
-
-    }
+        }
     case "L":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.L < $1.L }
-        }else{
-            output = teamAverages.sorted{ $0.L > $1.L }
-        }
+        output = (dir == 0) ? teamAverages.sorted{ $0.L < $1.L } : teamAverages.sorted{ $0.L > $1.L }
     case "T":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.T < $1.T }
-        }else{
-            output = teamAverages.sorted{ $0.T > $1.T }
-        }
+        output = (dir == 0) ? teamAverages.sorted{ $0.T < $1.T } : teamAverages.sorted{ $0.T > $1.T }
     case "autoCorner":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.autoCorner < $1.autoCorner }
-        }else{
-            output = teamAverages.sorted{ $0.autoCorner > $1.autoCorner }
-        }
+        output = (dir == 0) ? teamAverages.sorted{ $0.autoCorner < $1.autoCorner } : teamAverages.sorted{ $0.autoCorner > $1.autoCorner }
     case "capPts":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.capBallPts < $1.capBallPts }
-        }else{
-            output = teamAverages.sorted{ $0.capBallPts > $1.capBallPts }
-        }
+        output = (dir == 0) ? teamAverages.sorted{ $0.capBallPts < $1.capBallPts } : teamAverages.sorted{ $0.capBallPts > $1.capBallPts }
     case "autoVortex":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.autoVortex < $1.autoVortex }
-        }else{
-            output = teamAverages.sorted{ $0.autoVortex > $1.autoVortex }
-        }
+        output = (dir == 0) ? teamAverages.sorted{ $0.autoVortex < $1.autoVortex } : teamAverages.sorted{ $0.autoVortex > $1.autoVortex }
     case "luck":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.allianceScore - $0.opr < $1.allianceScore - $1.opr }
-        }else{
-            output = teamAverages.sorted{ $0.allianceScore - $0.opr > $1.allianceScore - $1.opr }
-        }
+        output = (dir == 0) ? teamAverages.sorted{ $0.allianceScore - $0.opr < $1.allianceScore - $1.opr } : teamAverages.sorted{ $0.allianceScore - $0.opr > $1.allianceScore - $1.opr }
     case "autoBeacons":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.autoBeacons < $1.autoBeacons }
-        }else{
-            output = teamAverages.sorted{ $0.autoBeacons > $1.autoBeacons }
-        }
-        
+        output = (dir == 0) ? teamAverages.sorted{ $0.autoBeacons < $1.autoBeacons } : teamAverages.sorted{ $0.autoBeacons > $1.autoBeacons }
     case "parkPts":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.parkPts < $1.parkPts }
-        }else{
-            output = teamAverages.sorted{ $0.parkPts > $1.parkPts }
-        }
-        
+        output = (dir == 0) ? teamAverages.sorted{ $0.parkPts < $1.parkPts } : teamAverages.sorted{ $0.parkPts > $1.parkPts }
     case "autoCapBallPts":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.autoCapBallPts < $1.autoCapBallPts }
-        }else{
-            output = teamAverages.sorted{ $0.autoCapBallPts > $1.autoCapBallPts }
-        }
-        
+        output = (dir == 0) ? teamAverages.sorted{ $0.autoCapBallPts < $1.autoCapBallPts } : teamAverages.sorted{ $0.autoCapBallPts > $1.autoCapBallPts }
     case "autoPts":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.autoPts < $1.autoPts }
-        }else{
-            output = teamAverages.sorted{ $0.autoPts > $1.autoPts }
-        }
-        
+        output = (dir == 0) ? teamAverages.sorted{ $0.autoPts < $1.autoPts } : teamAverages.sorted{ $0.autoPts > $1.autoPts }
     case "cornerBalls":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.cornerBalls < $1.cornerBalls }
-        }else{
-            output = teamAverages.sorted{ $0.cornerBalls > $1.cornerBalls }
-        }
-        
+        output = (dir == 0) ? teamAverages.sorted{ $0.cornerBalls < $1.cornerBalls } : teamAverages.sorted{ $0.cornerBalls > $1.cornerBalls }
     case "vortexBalls":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.vortexBalls < $1.vortexBalls }
-        }else{
-            output = teamAverages.sorted{ $0.vortexBalls > $1.vortexBalls }
-        }
-        
+        output = (dir == 0) ? teamAverages.sorted{ $0.vortexBalls < $1.vortexBalls } : teamAverages.sorted{ $0.vortexBalls > $1.vortexBalls }
     case "telePts":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.telePts < $1.telePts }
-        }else{
-            output = teamAverages.sorted{ $0.telePts > $1.telePts }
-        }
-        
+        output = (dir == 0) ? teamAverages.sorted{ $0.telePts < $1.telePts } : teamAverages.sorted{ $0.telePts > $1.telePts }
     case "capBallPts":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.capBallPts < $1.capBallPts }
-        }else{
-            output = teamAverages.sorted{ $0.capBallPts > $1.capBallPts }
-        }
-        
+        output = (dir == 0) ? teamAverages.sorted{ $0.capBallPts < $1.capBallPts } : teamAverages.sorted{ $0.capBallPts > $1.capBallPts }
     case "beacons":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.beacons < $1.beacons }
-        }else{
-            output = teamAverages.sorted{ $0.beacons > $1.beacons }
-        }
-        
+        output = (dir == 0) ? teamAverages.sorted{ $0.beacons < $1.beacons } : teamAverages.sorted{ $0.beacons > $1.beacons }
     case "endGamePts":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.endGamePts < $1.endGamePts }
-        }else{
-            output = teamAverages.sorted{ $0.endGamePts > $1.endGamePts }
-        }
-        
+        output = (dir == 0) ? teamAverages.sorted{ $0.endGamePts < $1.endGamePts } : teamAverages.sorted{ $0.endGamePts > $1.endGamePts }
     case "opr":
-        if(dir == 0){
-            output = teamAverages.sorted{ $0.opr < $1.opr }
-        }else{
-            output = teamAverages.sorted{ $0.opr > $1.opr }
-        }
+        output = (dir == 0) ? teamAverages.sorted{ $0.opr < $1.opr } : teamAverages.sorted{ $0.opr > $1.opr }
     default:
         //Sort by rank
         if(dir == 0){
@@ -333,14 +257,11 @@ func sortTeamsBy(mode: String, dir: Int) -> [teamAverage]{
             }
         }
     }
-    
-    
-    
     //Return sorted averages array
     return output
 }
 
-
+//Compare two teams with compare array
 func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Averages: teamAverage, compare: [Int])
 {
     let team1Averages = getAverages(num: num1)
@@ -515,7 +436,7 @@ func compareTeams(num1: Int, num2: Int) -> (team1Averages: teamAverage, team2Ave
     return (team1Averages, team2Averages, compare)
 }
 
-
+//Returns matches that a team played in
 func getMatches(num: Int) -> [teamInMatch]{
     var output: [teamInMatch] = []
     for match in matchData{
@@ -528,7 +449,7 @@ func getMatches(num: Int) -> [teamInMatch]{
     return output
 }
 
-
+//Returns the averages for a given team
 func getAverages(num: Int) -> teamAverage{
     var output = teamAverage()
     var matchAmount = 0.0
@@ -632,6 +553,7 @@ func getAverages(num: Int) -> teamAverage{
     return output
 }
 
+//Calculates outcomes by alliance score or official score
 func calculateOutcome(forMatch number: Int){
     if(matchData[number][0].officialScore == -1){
         if(matchData[number][0].allianceScore > matchData[number][2].allianceScore){

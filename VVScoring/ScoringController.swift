@@ -50,7 +50,6 @@ class ScoringController: UIViewController {
     @IBOutlet weak var redAllianceScore: UILabel!
     @IBOutlet weak var blueAllianceScore: UILabel!
     
-    
     //RED 1
     @IBOutlet weak var r1NumField: UITextField!
     @IBOutlet weak var r1ABeaconsDNA: UISwitch!
@@ -64,7 +63,6 @@ class ScoringController: UIViewController {
     @IBOutlet weak var r1MatchScore: UILabel!
     @IBOutlet var r1NameField: UITextField!
     var r1numValid = true
-
 
     @IBAction func r1NumChange(_ sender: AnyObject) {
     
@@ -80,7 +78,6 @@ class ScoringController: UIViewController {
         refreshLabels()
     }
     
-    
     //RED 2
     @IBOutlet weak var r2NumField: UITextField!
     @IBOutlet weak var r2ABeaconsDNA: UISwitch!
@@ -94,7 +91,6 @@ class ScoringController: UIViewController {
     @IBOutlet weak var r2MatchScore: UILabel!
     @IBOutlet var r2NameField: UITextField!
     var r2numValid = true
-    
 
     @IBAction func r2NumChange(_ sender: AnyObject) {
     
@@ -110,7 +106,6 @@ class ScoringController: UIViewController {
         refreshLabels()
     }
     
-    
     //BLUE 1
     @IBOutlet weak var b1NumField: UITextField!
     @IBOutlet weak var b1ABeaconsDNA: UISwitch!
@@ -124,7 +119,6 @@ class ScoringController: UIViewController {
     @IBOutlet weak var b1MatchScore: UILabel!
     @IBOutlet var b1NameField: UITextField!
     var b1numValid = true
-    
 
     @IBAction func b1NumChange(_ sender: AnyObject) {
     
@@ -141,7 +135,6 @@ class ScoringController: UIViewController {
 
     }
     
-    
     //BLUE 2
     @IBOutlet weak var b2NumField: UITextField!
     @IBOutlet weak var b2ABeaconsDNA: UISwitch!
@@ -155,7 +148,6 @@ class ScoringController: UIViewController {
     @IBOutlet weak var b2MatchScore: UILabel!
     @IBOutlet var b2NameField: UITextField!
     var b2numValid = true
-    
     
     @IBAction func b2NumChange(_ sender: AnyObject) {
     
@@ -172,7 +164,6 @@ class ScoringController: UIViewController {
     }
     
     //Beacons
-    
     @IBOutlet var r1r: UIButton!
     @IBOutlet var r1b: UIButton!
     @IBOutlet var r2r: UIButton!
