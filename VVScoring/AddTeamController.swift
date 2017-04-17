@@ -93,7 +93,9 @@ class AddTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBAction func saveButton(_ sender: AnyObject) {
         var output: [String: (name: String, fav: Bool)] = [:]
         for x in 0..<tempTeamList.count{
-            output[tempTeamList[x].num] = (tempTeamList[x].name, false)
+            if (tempTeamList[x].name != ""){
+                output[tempTeamList[x].num] = (tempTeamList[x].name, false)
+            }
         }
         teamList = output
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "RRD"), object: nil)
@@ -109,23 +111,6 @@ class AddTeamController: UIViewController, UITableViewDelegate, UITableViewDataS
             tempTeamList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
-    }
-    
-    func teamNumberEdit(_ sender: AnyObject) {
-        // get a reference to the view controller for the popover
-        let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "numPad")
-        
-        // set the presentation style
-        popController.modalPresentationStyle = UIModalPresentationStyle.popover
-        
-        // set up the popover presentation controller
-        popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
-        popController.popoverPresentationController?.delegate = self
-        popController.popoverPresentationController?.sourceView = sender as? UIView // button
-        popController.popoverPresentationController?.sourceRect = sender.bounds
-        
-        // present the popover
-        self.present(popController, animated: true, completion: nil)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

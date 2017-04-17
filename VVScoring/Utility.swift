@@ -52,7 +52,8 @@ func findNumber(_ index: Int) -> String{
 
 func rmvChars(from text: String) -> String{
     let output = text.components(separatedBy: NSCharacterSet.decimalDigits.inverted)
-    return output.joined(separator: "")
+    let newString = output.joined(separator: "")
+    return (newString.characters.count == 0) ? "0" : newString
 }
 
 func absn(_ num: Int) -> Int{

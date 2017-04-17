@@ -33,7 +33,7 @@ func readMatchDataFromFile(fileName: String) -> Bool{
     if fm.fileExists(atPath: path){
         do{
             let fullText = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
-            print("\nfullText for matchData: \n\(fullText)-ENDOFFILE-")
+            //print("\nfullText for matchData: \n\(fullText)-ENDOFFILE-")
             let lines = fullText.components(separatedBy: "\n") as [String]
             
             //Get team list
@@ -279,7 +279,7 @@ func readTournamentList(){
         print("Tournament file exists...reading file")
         do{
             let fullText = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
-            print("List: \(fullText)")
+            //print("List: \(fullText)")
             let lines = fullText.components(separatedBy: "\n") as [String]
             var index = 0
             
