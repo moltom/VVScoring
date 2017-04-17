@@ -71,7 +71,7 @@ class SingleTeamViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func setLabels(){
-        teamName.text = String (findNumber(selectedTeam))
+        teamName.text = teamList["\(selectedTeam)"]?.name
         teamNumber.text = String (selectedTeam)
         ratio.text = getRecord(num: selectedTeam)
         opr.text = String (Round(averages.opr, to: 100))
