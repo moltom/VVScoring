@@ -33,12 +33,16 @@ class DebugController: UIViewController, UITableViewDelegate, UITableViewDataSou
         //sheetAPI.loadState()
         */
         
-        
+        documentList = getFileList()
         tableView.register(FileCell.self, forCellReuseIdentifier: cellReuseIdendifier)
         
         tableView.dataSource = self
         tableView.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        documentList = getFileList()
     }
     
     @IBAction func forceRefresh(_ sender: AnyObject) {
@@ -83,9 +87,6 @@ class DebugController: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdendifier, for: indexPath as IndexPath) as! FileCell
-        
-        documentList = getFileList()
-        //documentList = listFiles()
         
         cell.labels["file"]?.Label.text = documentList[indexPath.row]
         print(documentList[indexPath.row])
