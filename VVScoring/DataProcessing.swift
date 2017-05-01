@@ -73,6 +73,7 @@ struct teamAverage{
     var W: Int = 0
     var L: Int = 0
     var T: Int = 0
+    //var Rank: Int = 0
 }
 
 struct tournament{
@@ -81,6 +82,8 @@ struct tournament{
     var date: String = "nil"
     var fileLocation: String = "nil"
 }
+
+var rankings: [String: Int] = [:]
 
 var teamList: [String : (name: String, fav: Bool)] = [:]
 
@@ -92,6 +95,21 @@ var selectedTeam: Int = -1
 
 func sortMatchData(){
     matchData = matchData.sorted{ $0[0].match < $1[0].match }
+}
+
+func updateRankings(){
+    var sorted = sortTeamsBy(mode: "rank", dir: 0)
+    var rank = -1
+    for (name, _) in teamList{
+        rank = -1
+        for i in 0..<sorted.count {
+            if(sorted[i].number == Int(name)!){
+                rank = i + 1
+                break
+            }
+        }
+        rankings[name] = rank//getRank(num: Int(name)!)
+    }
 }
 
 //Returns the match index label
@@ -115,6 +133,7 @@ func getMatchLabel(index: Int) -> String {
 }
 
 //Returns the rank of a team in the tournament
+/*
 func getRank(num: Int) -> Int {
     var rank = -1
     var sorted: [teamAverage] = []
@@ -135,6 +154,20 @@ func getRank(num: Int) -> Int {
             return $0.opr > $1.opr
         }
     }
+    
+    for i in 0..<sorted.count {
+        if(sorted[i].number == num){
+            rank = i + 1
+            break
+        }
+    }
+    
+    return rank
+}*/
+
+func getRank(num: Int) -> Int {
+    var sorted = sortTeamsBy(mode: "rank", dir: 0)
+    var rank = -1
     
     for i in 0..<sorted.count {
         if(sorted[i].number == num){
@@ -451,7 +484,7 @@ func getMatches(num: Int) -> [teamInMatch]{
 
 //Returns the averages for a given team
 func getAverages(num: Int) -> teamAverage{
-    var output = teamAverage()
+    var output: teamAverage = teamAverage()
     var matchAmount = 0.0
     var officialMatchAmount = 0.0
     

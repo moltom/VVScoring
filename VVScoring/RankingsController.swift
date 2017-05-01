@@ -182,6 +182,7 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         avs = refreshAvs()
+        updateRankings()
         
         tableView.register(RankingsCell.self, forCellReuseIdentifier: cellReuseIdendifier)
         
@@ -205,6 +206,7 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         data = sortTeamsBy(mode: "", dir: 0)
         saveMatchData()
         avs = refreshAvs()
+        updateRankings()
         tableView.reloadData()
     }
     
@@ -313,7 +315,9 @@ class RankingsController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.labels["number"]?.Label.text = String (t.number)
         cell.labels["name"]?.Label.text = teamList[String(t.number)]?.name
-        cell.labels["rank"]?.Label.text = String (getRank(num: t.number))
+        let number = String(t.number)
+        let rank: Int = rankings[number]!
+        cell.labels["rank"]?.Label.text = String(rank)
         cell.labels["RP"]?.Label.text = String(avs[indexPath.row].RP)
         cell.labels["wins"]?.Label.text = String(avs[indexPath.row].W)
         cell.labels["losses"]?.Label.text = String(avs[indexPath.row].L)
